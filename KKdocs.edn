@@ -1,0 +1,36 @@
+    {:main [{:des "command a to control 1" [:!Ca :!T1]}]}
+
+    ;; this is a little bit weird, but it's convenient
+    ;; the rule [:!Ca :!T1]
+    ;; means from command a to control 1
+    ;; :!Ca is keycode :a and prefix a with !C
+
+    ;; here's the definition
+
+    ;; !  | means mandatory
+    ;; #  | means optional
+    ;; C  | left_command
+    ;; T  | left_control
+    ;; O  | left_option
+    ;; S  | left_shift
+    ;; F  | fn
+    ;; Q  | right_command
+    ;; W  | right_control
+    ;; E  | right_option
+    ;; R  | right_shift
+    ;; P  | caps_lock
+    ;; !! | mandatory command + control + optional + shift (hyper)
+    ;; ## | optional any
+
+    ;; examples
+
+    ;; !CTSequal_sign  | mandatory command control shift =
+    ;;                 | which is command control +
+    ;; !O#Sright_arrow | mandatory option optional any right_arrow
+
+    ;; karabiner definition of mandatory and optional
+    ;; https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/from/modifiers/
+
+    ;; rule [<from> <to>]
+    ;; if simplified modifier is used in <to>, optional(#) definition will be
+    ;; ignored.

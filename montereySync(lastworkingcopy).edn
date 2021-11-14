@@ -1,7 +1,6 @@
 ;= montereySync.edn .005  ======================================================
 ;* CHANGELOG =====================================================
 	;; trying to replace impremissable characters... not sure why...&
-	;; this is a test
 
 { ;========================= DEFINITIONS ============================
 	:templates { ;..........................................................................................................................
@@ -88,53 +87,67 @@
 			]}
 		{:des "Double Press Special" :rules [[:condi :!f& :!d& :!c& :!k& :!w& :!Rctrl-mode]
 				; * Double Press Left Command
-					;; [:left_gui [[:SPKR2] :!!f14 ["LCMD" 0]] ["LCMD" 1]]
-					;; [:left_gui :left_gui nil {:alone [[:SPKR3]["LCMD" 1 ]]:delayed {:invoked ["LCMD" 0] :canceled ["LCMD" 0]}}]
+						; [:left_gui [[:SPKR2] :!!f14 ["LCMD" 0]] ["LCMD" 1]]
+						; [:left_gui :left_gui nil {:alone [[:SPKR3]["LCMD" 1 ]]:delayed {:invoked ["LCMD" 0] :canceled ["LCMD" 0]}}]
 				;* Double Press Right Command for Moom (via f14)
 					; [:right_gui [[:SPKR2] :!!f14 ["R⌘" 0]] ["R⌘" 1]] ;! had to get rid of to keep numpad mode working..
 					; [:right_gui :right_gui nil {:alone [[:SPKR3]:right_gui["R⌘" 1 ]]:delayed {:invoked ["R⌘" 0] :canceled ["R⌘" 0]}}]
 						; [:right_gui [[:SPKR2] :!!f14 ["R⌘" 0]] ["R⌘" 1]]
 						; [:right_gui :right_gui nil {:alone [[:SPKR3]:!!f14["R⌘" 1 ]]:delayed {:invoked ["R⌘" 0] :canceled ["R⌘" 0]}}]
+
 			]}
 	{:des "Modifier+Spacebar Stuff" :rules[
-		;* double-press command+spacebar for Contexts window search (via ⌥+spacebar)... 🔰could do something with this
-			[:!Cspacebar [[:SPKR3] :!Ospacebar  ["LCMDspacebar" 0]] ["LCMDspacebar" 1]]
+		[:!Cspacebar [[:SPKR3] :!Ospacebar  ["LCMDspacebar" 0]] ["LCMDspacebar" 1]] ;* Double Press Command Spacebar for something...
 			[:!Cspacebar :!Cspacebar nil {:alone ["LCMDspacebar" 1] :delayed{:invoked ["LCMDspacebar" 0] :canceled ["LCMDspacebar" 0]}} ]
-		 ;* double-press ⌘⌥+spacebar for Contexts window search (via ⌥+spacebar)... 🔰could do something with this
-			[:!COspacebar [[:SPKR3] :!COspacebar  ["LCMD⌥␣" 0]] ["LCMD⌥␣" 1]]
+		[:!COspacebar [[:SPKR3] :!COspacebar  ["LCMD⌥␣" 0]] ["LCMD⌥␣" 1]] ;* LCMD⌥␣ spacebar
 			[:!COspacebar :!COspacebar nil {:alone ["LCMD⌥␣" 1] :delayed{:invoked ["LCMD⌥␣" 0] :canceled ["LCMD⌥␣" 0]}} ]
 		;* modifier+spacebar bug work around...
 			[:!Ospacebar :!Ospacebar] [:!COTspacebar :!COTspacebar] [:!COSspacebar :!COSspacebar] [:!COTSspacebar :!COTSspacebar]
 		]}
 ;========================  MODIFIERS and COMMAND MODES ==============================
-	{:des "Shift Space for underscore and dash, Left to Right Modifers...":rules[
-			[:!Sright_control :!Shyphen] [:!Sspacebar :!Shyphen]  ;*Left Shift+Spacebar (or mod) for dash
+
+		{:des "Shift Space for underscore and dash, Left to Right Modifers...":rules[
 			[:!Rright_control :hyphen] [:!Rspacebar :hyphen] ;* Right Shift +Spacebar (or mod) for underscore
-			[:!Sright_shift [[:SPKR3] :!STOperiod]] [:!Rleft_shift [[:SPKR3] :!STOcomma]] ;* left-shift + right-shift for space left/right 🔰 (⭐ works)
+			[:!Sright_control :!Shyphen] [:!Sspacebar :!Shyphen]  ;*Left Shift+Spacebar (or mod) for dash
+			; [:!OSspacebar [[:SPKR3]:!SOspacebar  ]]  ;*Left Shift+Spacebar (or mod) for dash
+			; [:!Sright_shift [:SPKR3]] [:!Rleft_shift [:SPKR3]] ;* ⭕️ Left  Shift to Right Shift
+			; [:!Sright_gui [:SPKR3]] [:!Rleft_gui [:SPKR3]] ;* ⭕️ Left Shift to Right Command and Right Shift to Left Command
 			]}
 
-	{:des "Command Modes...":rules[
-
-		;*(R)⌘+(L)⌘ for Number Mode
-				[:!Qleft_gui nil nil {:alone [[:SPKR0] ["numpad-mode" 0]]
-				:held [[:SPKR1] ["numpad-mode" 1]] :afterup [[:SPKR0] ["numpad-mode" 0]]
-				:repeat false :halt false :params{:alone 150 :held 150}} ]
-		;*(L)⌘ +(R) ⌘ for Symbol Home Row Mode
-				[:!Cright_gui nil nil {:alone [[:SPKR0] ["symrow-mode" 0]]
-				:held [[:SPKR1] ["symrow-mode" 1]] :afterup [[:SPKR0] ["symrow-mode" 0]]
-				:repeat false :halt false :params{:alone 150 :held 150}} ]
+			 {:des "Command Modes...":rules[
+				;* hold and double press space verison
+			 	;*Left Command to Right Command for home row number mode
+				; [:!Cright_gui [[:soundOff] ["numrow-mode" 0]] ["numrow-mode" 1]]
+				;*(R)⌘+(L)⌘ for Number Mode
+						[:!Qleft_gui nil nil {:alone [[:SPKR0] ["numpad-mode" 0]]
+						:held [[:SPKR1] ["numpad-mode" 1]] :afterup [[:SPKR0] ["numpad-mode" 0]]
+						:repeat false :halt false :params{:alone 150 :held 150}} ]
+				;*(L)⌘ +(R) ⌘ for Symbol Home Row Mode
+						[:!Cright_gui nil nil {:alone [[:SPKR0] ["symrow-mode" 0]]
+						:held [[:SPKR1] ["symrow-mode" 1]] :afterup [[:SPKR0] ["symrow-mode" 0]]
+						:repeat false :halt false :params{:alone 150 :held 150}} ]
+					;* switch version
+						; [:!Cright_gui [[:soundOff] ["numrow-mode" 0]] ["numrow-mode" 1]]
+						; [:!Cright_gui [[:soundOn] ["numrow-mode" 1]]]
+					;* old one not triggering a mode
+						; [:!Cright_gui [[:soundOn] ["numrow-mode" 1]] nil
+						; {:alone ["numrow-mode" 1] :afterup ["numrow-mode" 0] }]
 			]}
 
+		;* Single Press modifier ;❗ breaks numpad mode
+	  	; {:des   "Change right_command to command-tab when used alone"j
+                      ;  :rules [[:right_command :right_command nil {:alone [:!Ctab]}]
+                              ;  ]}1
 ;======================== SIMULTANEOUS KEY ========================
 	{:des "Simultaneous Keys":rules [
 		[ [:k :m] [ [:km "Activate Keyboard Maestro"]] ] ;* km to activate Keyboard Maestro
 		[ [:v :c]  [:km "Activate Visual Studio Code"] ] ;* vc to Activate Visual Studio Code
-		[ [:n :m]  [:km "Activate Messages"] ] ;* nm to Activate Messages ;! go to active message...
+		; [ [:n :m]  [:km "Activate Messages"] ] ;* nm to Activate Messages ;! go to active message...
 		;* Fn testing
 			[ [:1 :2 ] [[:SPKR3] :f13] ]
 			[ [:1 :4 ] [[:SPKR3] :!Cf13] ]
 			[ [:1 :5 ] [[:SPKR3] :!SCf13] ]
-			[ [:1 :6 ] [[:SPKR3] :!SCTf13] ]1
+			[ [:1 :6 ] [[:SPKR3] :!SCTf13] ]
 			[ [:1 :7 ] [[:SPKR3] :!SCOTf13] ]
 		]}
 ;======================= HYPER MODE and MODIFIERS ======================
@@ -148,10 +161,17 @@
 	{:des "Tab as capslock" :rules [ [:condi :!space-mode :!Rctrl-mode :!f&] ;! got it to stop sending fn
 		[:##tab :fn nil {:alone :tab} ] ] }
 
+	;! return mode broken because pushing enter send control not lazy like non modifier mode
+			;* 💡 idea to include (l)⌘_space tap and holding
+			; {:des "return_or_enter" :rules [
+			; [:##return_or_enter :left_control nil {:alone :return_or_enter} ]] }
+			; {:des "return_or_enter" :rules [[:##return_or_enter :left_control nil {:lazy true :alone :return_or_enter} ]] }
+			; {:des "return_or_enter" :rules [[:##return_or_enter :left_control nil {:key:lazy true :alone :return_or_enter} ]] }
+			; {:des "left+right command for numpad" :rules [[:!Cright_gui  :left_control nil {:alone :return_or_enter} ]] } ; numpad mode
 ;=========================== SPACE MODE ==========================
 	{:des "spacebar mode" :rules [ ;? set up not to conflict with numpad-mode
 		;* keyboard navigation
-			[:##b :spacebar :space-mode] ;* b for spacebar
+			[:##b :spacebar :space-mode]
 			[:##j :left_arrow :space-mode] ;* cursor navigation
 			[:##l :right_arrow :space-mode]
 			[:##i :up_arrow :space-mode]
