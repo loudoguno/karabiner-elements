@@ -10,4 +10,8 @@ Notes on Moneterey Karabiner setup
 	;; ✅  fixed n+i for omnifocus quick entry
 	-
 
-$
+
+(🔴 disabled)
+	;* j+e for Jump to Evernote (🛑 disabled)
+					;; [:e [ [:SPKR2] :!COspacebar ["je&" 1] ] nil {:delayed {:canceled[["je&" 0]["j&" 0]]
+					;; :invoked[:vk_none ["je&" 0]] } :held[:escape [:SPKR3] [:km "Query Evernote"]["je¬" 1]] }]

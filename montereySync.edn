@@ -2,7 +2,8 @@
 ;* CHANGELOG =====================================================
 	;; trying to replace impremissable characters... not sure why...&
 	;; ✅  fixed slash+spacebar for help menu search
-	;; 🟢 fixed n+i for omnifocus quick entry
+	;; ✅  fixed n+i for omnifocus quick entry
+	;; fixing j+o for jump to Omnifocus
 
 { ;========================= DEFINITIONS ============================
 	:templates { ;..........................................................................................................................
@@ -525,26 +526,23 @@
 			;* j+d for daily Journal
 					[:d [[:vk_none]["jd&" 1]] nil {:delayed {:canceled[["jd&" 0]["j&" 0]]
 					:invoked[[:km "Hover Recent Daily Journal Entry"]["jd&" 0]] } :held[[:km "held"]["jd¬" 1]] }]
-			;* j+e for Jump to Evernote (🛑 disabled)
-					;; [:e [ [:SPKR2] :!COspacebar ["je&" 1] ] nil {:delayed {:canceled[["je&" 0]["j&" 0]]
-					;; :invoked[:vk_none ["je&" 0]] } :held[:escape [:SPKR3] [:km "Query Evernote"]["je¬" 1]] }]
 			;* j+left_gui for blank (held if held)
 					[:left_gui [ [:SPKR3] :!FCTOSf1 ["jleft_gui&" 1] ] nil {:delayed {:canceled [ ["jleft_gui&" 0]["j&" 0] ]
 					:invoked [ [vk_none] ["jleft_gui&" 0] ] }:held [ [:km "j held"] ["jleft_gui¬" 1]] }]
 			;* j+right_gui for blank (held if held)
 				[:right_gui [ [:SPKR3] :f13 ["jright_gui&" 1] ] nil {:delayed {:canceled [ ["jright_gui&" 0]["j&" 0] ]
 				:invoked [ [vk_none] ["jright_gui&" 0] ] }:held [ [:km "j held"] ["jright_gui¬" 1]] }]
-			;* j+o for blank (held if held)
-				[:o [ [:SPKR3][:vk_none]["jo&" 1] ] nil {:delayed {:canceled [ ["jo&" 0]["j&" 0] ]
-				:invoked [ [:km "Jump to OmniFocus Quick"] ["jo&" 0] ] }:held [ [:km "Jump to OmniFocus"]] }]
+			;* j+o for blank (held if held) (🔴 disabled)
+				;; [:o [ [:SPKR3][:vk_none]["jo&" 1] ] nil {:delayed {:canceled [ ["jo&" 0]["j&" 0] ]
+				;; :invoked [ [:km "Jump to OmniFocus Quick"] ["jo&" 0] ] }:held [ [:km "Jump to OmniFocus"]] }]
 
 		; [:left_gui [[:SPKR3] :!FCTOSf1]] ;* (l)⌘ for focus menu bar (via System Shortcut)
 		; [:right_gui [[:SPKR3] :f13]] ;* (r)⌘ for focus bartender (via System Shortcut)
 
-		[:e [[:SPKR3][:km "Jump to Evernote"]]] ;• j+e for Jump to Evernote
+		[:e [[:SPKR3][:km "Jump to Evernote"]]] ;• j+e for Jump to Evernote 🟢
+		[:o [:km "Jump to OmniFocus"]]
 		[:w [[:SPKR3] :!Ospacebar]] ;•Jump to Window via Context hotkey
 		[:c [[:SPKR3][:alf "Search Chrome Bookmarks" "com.mdreizin.chrome.bookmarks"]]] ;• j+c for Jump to Chrome (alfred workflow)
-		; [:o [:km "Jump to OmniFocus"]]
 		[:s [:km "Jump to Stickies"]]
 		[:period [:km "© Open Context Menu"]]
 		[:spacebar [:km "Click GUI Button"]] ;* j+spacebar for Click GUI Button
