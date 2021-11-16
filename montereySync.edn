@@ -1,6 +1,8 @@
 ;= montereySync.edn .006  ======================================================
 ;* CHANGELOG =====================================================
 	;; trying to replace impremissable characters... not sure why...&
+	;; ✅  fixed slash+spacebar for help menu search
+	;; 🟢 fixed n+i for omnifocus quick entry
 
 { ;========================= DEFINITIONS ============================
 	:templates { ;..........................................................................................................................
@@ -661,10 +663,10 @@
 ;============================= N MODE ============================
 	{:des "n-mode for n things" :rules [
 		;+ n+i+................................................................................................................................
-			[:i [:km "Send to Omnifocus"] [["n&" 1] ["ni&" 1]]] ;+ n+i² for Send to OmniFocus
+			;; [:i [:km "Send to Omnifocus"] [["n&" 1] ["ni&" 1]]] ;+ n+i² for Send to OmniFocus (🔴 disabled)
 			; [:i [:km "Send to Omnifocus"] [["n&" 1] ["ni&" 1]]] ;+ n+i² for Send to OmniFocus
-			[:c [:km "New Omnifocus Clipping"] [["n&" 1] ["ni&" 1]]] ;+ n+i+c for New Omnifocus Clipping
-			[:w [:km "New OmniFocus Webshot"] [["n&" 1] ["ni&" 1]]] ;+ n+i+w for New OmniFocus Webshot
+			;; [:c [:km "New Omnifocus Clipping"] [["n&" 1] ["ni&" 1]]] ;+ n+i+c for New Omnifocus Clipping (🔴 disabled)
+			;; [:w [:km "New OmniFocus Webshot"] [["n&" 1] ["ni&" 1]]] ;+ n+i+w for New OmniFocus Webshot (🔴 disabled)
 		;+ n+e+...............................................................................................................................
 			[:e [:km "New QuickNote"] [["n&" 1] ["ne&" 1]]] ;+ n+e² for New QuickNote
 			[:q [:km "New QuickNote"] [["n&" 1] ["ne&" 1]]] ;+ n+e+q for New QuickNote
@@ -690,26 +692,11 @@
 		; [:n ["nmode" 1] {:afterup ["nmode" 0] :alone :n} ]
 
 	:n& ;* ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––-
-		;* n+i for New Omnifocus Quick Entry
-			[:i [[:tink]:!CTSo["ni&" 1]] nil {:delayed{:canceled [:!CTSo["ni&" 0]["n&" 0]]
-			:invoked [[:vk_none]["ni&" 0]] } :held [[:km "Send to Omnifocus"]] }]
-		;  :rules [[:period ["period-mode" 1] nil {:afterup ["period-mode" 0] :alone :period}]
-		;* n+o for...
-        [:o ["say 'o'" ["no&" 1]] nil
-        {
-			:afterup [["noAfterup&" 1]["noHeld&" 0] "say 'afterup'"] ;? said when delayed second push, only turned off by non delayed now
-			:alone [[:SPKR3]"say 'alone'"["noAlone&" 1]] ;? oAlone& tunrs on when you push o a second time but not during double
-                :delayed {
-                        :canceled ["say 'drop'"["no&" 0]["noCANCELLED&" 1]] ;?triggered when n+o+w
-                        :invoked ["say 'invoked'" ["noINVOKED&" 1]["no&" 0]] }
-                :held ["say 'held'"["noHeld&" 1]["no&" 1]] ;? says invoked and held
-                }]
-			[:x ["say 'off'"["noCANCELLED&" 0]["nmode" 0]["noAlone&" 0]["noHeld&" 0] ["noAfterup&" 0]["noDouble&" 0]]];• n+s for New Sticky
+		;* n+i for New Omnifocus Quick Entry(🔴 disabled)
+			;; [:i [[:tink]:!CTSo["ni&" 1]] nil {:delayed{:canceled [:!CTSo["ni&" 0]["n&" 0]] . dis
+			;; :invoked [[:vk_none]["ni&" 0]] } :held [[:km "Send to Omnifocus"]] }]
+		;  :rules [[:period ["period-mode" 1] nil {:afterup ["period-mode" 0] :alone :period}] (was not disabled)
 
-				; [:o ["say 'o'" ["no&" 1]] nil {:delayed {:canceled ["say 'drop'"["no&" 0]["n&" 0]] ;? tapping once  says "o" and "invoked", adding another or double tapping
-				; :invoked ["say 'invoked'" ["no&" 0]] } :held ["say 'held'"[:vk_none]] }] ;?
-				; [:o [[:vk_none]["no&" 1]] nil {:delayed{:canceled [["no&" 0]["n&" 0]]
-				; :invoked [[:vk_none]["no&" 0]] } :held [[:vk_none]] }]
 		;* n+e for New Evernote and Email
       		[:e [[:vk_none]["ne&" 1]] nil {:delayed{:canceled [["ne&" 0]["n&" 0]]
 			:invoked [[:km "New QuickNote"]["ne&" 0]] } :held [[:km "New Evernote Note"]] }]
@@ -726,10 +713,11 @@
 			[:t [[:vk_none]["nt&" 1]] nil {:delayed{:canceled [["nt&" 0]["n&" 0]]
 			:invoked [[:km "Quick Add Typinator Item"]["nt&" 0]] } :held [[:km "Test Blank"]] }]
 
-		[:l [:km "Log Palette"]];• n+l for Log Palette
-		[:p [:km "New Password"]];• n+p for New Password
-		[:w [:km "New Window"]];• n+w for New Window
-		[:s [:km "New Sticky"]];• n+s for New Sticky
+		[:i [[:tink] :!CTSo]] ;• n+i New Omnifocus Quick Entry (via omf hotkey ⌃⇧⌘+o) 🟢 FIXED
+		[:l [:km "Log Palette"]] ;• n+l for Log Palette 🟡 need to fix
+		[:p [:km "New Password"]] ;• n+p for New Password
+		[:w [:km "New Window"]] ;• n+w for New Window
+		[:s [:km "New Sticky"]] ;• n+s for New Sticky
 	]}
 ;============================ O MODE ============================
 {	:des "o-mode for..." :rules [
