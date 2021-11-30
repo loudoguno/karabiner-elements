@@ -1,6 +1,6 @@
-;= montereySync.edn .008  ======================================================
+;= montereySync.edn .007  ======================================================
 ;* CHANGELOG =====================================================
-	;; .007,.008 looking at z mode to see about keyboard light (11/30/21) (❗ t-mode which broke m,n,w)
+	;; .007 looking at z mode to see about keyboard light (11/30/21)
 	;; trying to replace impremissable characters... not sure why...&
 	;; ✅  fixed slash+spacebar for help menu search
 	;; ✅  fixed n+i for omnifocus quick entry
@@ -793,12 +793,10 @@
 	]}
 ;============================ T MODE ============================
 	{	:des "t-mode for t things" :rules [
-	:t& ;* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 		[:w [:km "Tab To Window"] ] ;• t+w for Tab To Window (❌ doesn't work)
 		[:m [:km "Tab Merge"] ] ;• t+w for Tab Merge (❌ doesn't work)
 		[:n [:km "Tab New"] ] ;• t+n for Tab New
-	]}
-
+		]}
 ;============================ U MODE ============================
 	{:des "u-mode for..." :rules [
 		;+ u+c+...............................................................................................................................
