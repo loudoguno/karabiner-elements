@@ -1,6 +1,6 @@
-;= montereySync.edn .007  ======================================================
+;= montereySync.edn .008  ======================================================
 ;* CHANGELOG =====================================================
-	;; .007 looking at z mode to see about keyboard light (11/30/21) (❗ t-mode which broke m,n,w)
+	;; .007,.008 looking at z mode to see about keyboard light (11/30/21) (❗ t-mode which broke m,n,w)
 	;; trying to replace impremissable characters... not sure why...&
 	;; ✅  fixed slash+spacebar for help menu search
 	;; ✅  fixed n+i for omnifocus quick entry
