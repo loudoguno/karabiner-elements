@@ -295,64 +295,25 @@
 
 	]}
 ;============================ A MODE =============================
-	{:des "a-mode for a things" :rules [
-		;+ a+k+k.............................................................................................................................
-			[:k :!CTSt [["a&" 1] ["ak&" 1]]] ;+ a+k+k for Auto-complete
-		;+ a+m+..............................................................................................................................
-			[:m [:km "km macro 1"] [["a&" 1] ["am&" 1]]] ;+ a+m+m for km macro 1
-			[:p [:km "Activate Amphetamine"] [["a&" 1] ["am&" 1]]] ;+ a+m+p for Activate Amphetamine
-	:a& ;* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		;* a+k for Autocompletion
-				[:k [[:SPKR3] :!Oescape ["ak&" 1]] nil {:delayed {:canceled [["ak&" 0]["a&" 0]]
-				:invoked [ [:vk_none] ["ak&" 0] ] }:held [ [:km "a held"] ["ak¬" 1]] }]
-		;* a+m for Amphetamine
-				[:m [[:vk_none]["am&" 1]] nil {:delayed{ :canceled [["am&" 0]["a&" 0]]
-				:invoked [[:vk_none]["am&" 0]] } :held [[:km "a held"]] }]
-		[:c [[:SPKR3] :!Oescape] ]		;• a+c for autocomplete now
+	{:des "a-mode for a things" :rules [ :a& ;* –––––––––––––––––––––––––––––––––––––
+		[:c [[:SPKR3] :!Oescape] ]		;• a+c for autocomplete now (via )
 		[:semicolon :!Osemicolon] ;•🔰  a+semicolon for elipse (to be used as suffix to trigger things)
 		; [:comma :!TOleft_arrow] [:period :!TOright_arrow] ;• a+comma/period  for Active Screen Workspace Left/Right (via ⌃⌥←  in BTT)
 	]}
 ;=========================== B MODE ==============================
-	{:des " b-mode for b things" :rules [
-	:b& ;* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	{:des " b-mode for b things" :rules [ :b& ;* ––––––––––––––––––––––––––––––––––––
 		[:a [:km "Boldate Clean Left"] ] ;• b+a for Boldate Clean Left 🟢 FIXED
 		[:w [:!Oleft_arrow :!OSright_arrow] ] ;• b+w for highlight word
 		[:l [:!Ta :!TSe :!Sright_arrow] ] ;• b+l for highlight lio
 	]}
 ;============================ C MODE =============================
-	{:des "c-mode for c things" :rules [
-		;+ c+o+...............................................................................................................................
-			[:o [:km "Query Contacts"] [["c&" 1] ["co&" 1]]] ;+ c+o+o for Query Contacts
-			[:n [:km "Connect Palette"] [["c&" 1] ["co&" 1]]] ;+ c+o+n for Connect Palette
-			[:spacebar [:km "Query Contacts"] [["c&" 1] ["co&" 1]]] ;+ c+o+spacebar for Query Contacts
-		;+ c+a+...............................................................................................................................
-			[:a [:km "Capitalize Word"] [["c&" 1] ["ca&" 1]]] ;+ c+a+a for Capitalize Word
-			[:w [:km "Capitalize Word"] [["c&" 1] ["ca&" 1]]] ;+ c+a+w for Capitalize Word
-			[:p [:km "Capitalize Word"] [["c&" 1] ["ca&" 1]]] ;+ c+a+p for Capitalize Word
-			[:spacebar [:km "Query Calendar"] [["c&" 1] ["ca&" 1]]] ;+ c+a+spacebar for Query Calendar
-			[:s [:km "Capitalize Selection"] [["c&" 1] ["ca&" 1]]] ;+ c+a+s for Capitalize Selection
-			[:l [:km "Go To Calendar"] [["c&" 1] ["ca&" 1]]] ;+ c+a+l for Go To Calendar
-		;+ c+h+...............................................................................................................................
-			[:h [:km "Check Spelling (via Alfred)"] [["c&" 1] ["ch&" 1]]] ;+ c+h+h for Check Spelling (via Alfred)
-			[:s [:km "Check Spelling (via Alfred)"] [["c&" 1] ["ch&" 1]]] ;+ c+h+s for Check Spelling (via Alfred)
-	:c& ;* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		;* c+o for contacts
-				[:o [ [:vk_none] ["co&" 1] ] nil {:delayed{:canceled [ ["co&" 0]["c&" 0] ]:invoked
-				[ [:km "Activate Contact"] ["co&" 0] ] } :held [ [:km "held"] ["co¬" 1]] }]
-		;* c+a for Calendar and capitalize...........................
-				[:a [[:vk_none] ["ca&" 1]] nil {:delayed{:canceled [ ["ca&" 0]["c&" 0]]:invoked
-				[[:km "Activate Calendar"] ["ca&" 0]] } :held [[:km "held"] ["ca¬" 1]] }]
-		;* c+h for...
-			[:h [[:vk_none]["ch&" 1]] nil {:delayed{:canceled [["ch&" 0]["c&" 0]]
-			:invoked [[:km "Check Spelling (via Alfred)"]["ch&" 0]] } :held [[:vk_none]] }]
-		;•jlik for ⌘ Cursor navigation..............................
-			[:#Sj :!C#Sleft_arrow]
-			[:#Sl :!C#Sright_arrow]
-			[:#Si :!C#Sup_arrow]
-			[:#Sk :!C#Sdown_arrow]
+	{:des "c-mode for c things" :rules [ :c& ;* ––––––––––––––––––––––––––––––––––––
+		[:a [:km "Jump to Fantastical"] ] ;• c+a for :km "Jump to Fantastical"
+		[:o [:km "Query Contacts"] ] ;• c+o for :km "Query Contacts"
 		[:d :!Cquote] ;• c+d for ⌘' (tag in evernote, )
-		[:comma [:km "switch internal space left"] ] ;• c+, for switch internal space left
-		[:period [:km "switch internal space right"] ] ;• c+. for switch internal space right
+		[:comma [[:SPKR3] :!STOcomma]] ;• c+comma for switch internal space left
+		;; [:comma [:km "switch internal space left"] ] ;• c+comma for switch internal space left
+		;; [:period [:km "switch internal space right"] ] ;• c+period for switch internal space right
 	]}
 ;============================ D MODE =============================
 	{:des "d-mode for d things" :rules [
