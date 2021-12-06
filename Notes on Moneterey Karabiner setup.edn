@@ -1,10 +1,6 @@
 Notes on Moneterey Karabiner setup
-
-
-
 -☑️ TODO: 
 	- b+o+a for boldate, n+e+q for new notes
-
 template for lettermodes
 ;========================== KEYA MODE ===========================
 	{:des "keya-mode for KEYA things" :rules [ :a& ;* ––––––––––––––––––––––––––––––––––
@@ -15,6 +11,10 @@ template for lettermodes
 💭 thoughts:
 	⌘_space 2x is still control
 ------------------------------------------------------
+
+12/06/21 ;= montereySync.edn .011 continuuing to clean up letter modes...
+
+
 12/04/21
 cleaned up C mode
 	;============================ C MODE =============================

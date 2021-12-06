@@ -1,5 +1,7 @@
-;= montereySync.edn .008  ======================================================
+;= montereySync.edn .010  ======================================================
 ;* CHANGELOG =====================================================
+	;; .010 12/04/21 going to continue to clean up everything...
+	;; .009 making k+e to edit Karabiner... also fixed up some modes...
 	;; .007,.008 looking at z mode to see about keyboard light (11/30/21) (❗ t-mode which broke m,n,w)
 	;; trying to replace impremissable characters... not sure why...&
 	;; ✅  fixed slash+spacebar for help menu search
@@ -198,7 +200,7 @@
 				[:##tab [[:SPKR3]:!Otab] :space-mode] [:##tab [[:SPKR2]:!Otab] :Rctrl-mode] ;• spacebar+tab for contexts tab switch
 				[:##slash [[:SPKR3]:!Oescape] :space-mode]  ;• spacebar+slash for to Focus help menu via ⇧⌘/
 				[:##right_shift [[:SPKR3]:!Cf12] :space-mode]  ;• spacebar+Right Shift for Bartender Keyboard Navigate (via ⌘F12 in Bartender)
-				[:##return_or_enter [[:SPKR3]:!Of12] :space-mode]  ;• spacebar+Enter for Bartender Search menu bar items (via ⌘F12 in Bartender)
+				[:##return_or_enter [[:SPKR3]:!Of12] :space-mode]  ;• spacebar+Enter for Bartender Search menu bar items (via ⌘F12 in Bartender) 🟢
 				; [:##grave_accent_and_tilde :escape :space-mode] ;? Unused
 		;* as Shift
 			[:##q :grave_accent_and_tilde [:space-mode :!numpad-mode]] ;? just added
@@ -293,64 +295,25 @@
 
 	]}
 ;============================ A MODE =============================
-	{:des "a-mode for a things" :rules [
-		;+ a+k+k.............................................................................................................................
-			[:k :!CTSt [["a&" 1] ["ak&" 1]]] ;+ a+k+k for Auto-complete
-		;+ a+m+..............................................................................................................................
-			[:m [:km "km macro 1"] [["a&" 1] ["am&" 1]]] ;+ a+m+m for km macro 1
-			[:p [:km "Activate Amphetamine"] [["a&" 1] ["am&" 1]]] ;+ a+m+p for Activate Amphetamine
-	:a& ;* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		;* a+k for Autocompletion
-				[:k [[:SPKR3] :!Oescape ["ak&" 1]] nil {:delayed {:canceled [["ak&" 0]["a&" 0]]
-				:invoked [ [:vk_none] ["ak&" 0] ] }:held [ [:km "a held"] ["ak¬" 1]] }]
-		;* a+m for Amphetamine
-				[:m [[:vk_none]["am&" 1]] nil {:delayed{ :canceled [["am&" 0]["a&" 0]]
-				:invoked [[:vk_none]["am&" 0]] } :held [[:km "a held"]] }]
-		[:c [[:SPKR3] :!Oescape] ]		;• a+c for autocomplete now
+	{:des "a-mode for a things" :rules [ :a& ;* –––––––––––––––––––––––––––––––––––––
+		[:c [[:SPKR3] :!Oescape] ]		;• a+c for autocomplete now (via )
 		[:semicolon :!Osemicolon] ;•🔰  a+semicolon for elipse (to be used as suffix to trigger things)
 		; [:comma :!TOleft_arrow] [:period :!TOright_arrow] ;• a+comma/period  for Active Screen Workspace Left/Right (via ⌃⌥←  in BTT)
 	]}
 ;=========================== B MODE ==============================
-	{:des " b-mode for b things" :rules [
-	:b& ;* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	{:des " b-mode for b things" :rules [ :b& ;* ––––––––––––––––––––––––––––––––––––
 		[:a [:km "Boldate Clean Left"] ] ;• b+a for Boldate Clean Left 🟢 FIXED
 		[:w [:!Oleft_arrow :!OSright_arrow] ] ;• b+w for highlight word
 		[:l [:!Ta :!TSe :!Sright_arrow] ] ;• b+l for highlight lio
 	]}
 ;============================ C MODE =============================
-	{:des "c-mode for c things" :rules [
-		;+ c+o+...............................................................................................................................
-			[:o [:km "Query Contacts"] [["c&" 1] ["co&" 1]]] ;+ c+o+o for Query Contacts
-			[:n [:km "Connect Palette"] [["c&" 1] ["co&" 1]]] ;+ c+o+n for Connect Palette
-			[:spacebar [:km "Query Contacts"] [["c&" 1] ["co&" 1]]] ;+ c+o+spacebar for Query Contacts
-		;+ c+a+...............................................................................................................................
-			[:a [:km "Capitalize Word"] [["c&" 1] ["ca&" 1]]] ;+ c+a+a for Capitalize Word
-			[:w [:km "Capitalize Word"] [["c&" 1] ["ca&" 1]]] ;+ c+a+w for Capitalize Word
-			[:p [:km "Capitalize Word"] [["c&" 1] ["ca&" 1]]] ;+ c+a+p for Capitalize Word
-			[:spacebar [:km "Query Calendar"] [["c&" 1] ["ca&" 1]]] ;+ c+a+spacebar for Query Calendar
-			[:s [:km "Capitalize Selection"] [["c&" 1] ["ca&" 1]]] ;+ c+a+s for Capitalize Selection
-			[:l [:km "Go To Calendar"] [["c&" 1] ["ca&" 1]]] ;+ c+a+l for Go To Calendar
-		;+ c+h+...............................................................................................................................
-			[:h [:km "Check Spelling (via Alfred)"] [["c&" 1] ["ch&" 1]]] ;+ c+h+h for Check Spelling (via Alfred)
-			[:s [:km "Check Spelling (via Alfred)"] [["c&" 1] ["ch&" 1]]] ;+ c+h+s for Check Spelling (via Alfred)
-	:c& ;* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		;* c+o for contacts
-				[:o [ [:vk_none] ["co&" 1] ] nil {:delayed{:canceled [ ["co&" 0]["c&" 0] ]:invoked
-				[ [:km "Activate Contact"] ["co&" 0] ] } :held [ [:km "held"] ["co¬" 1]] }]
-		;* c+a for Calendar and capitalize...........................
-				[:a [[:vk_none] ["ca&" 1]] nil {:delayed{:canceled [ ["ca&" 0]["c&" 0]]:invoked
-				[[:km "Activate Calendar"] ["ca&" 0]] } :held [[:km "held"] ["ca¬" 1]] }]
-		;* c+h for...
-			[:h [[:vk_none]["ch&" 1]] nil {:delayed{:canceled [["ch&" 0]["c&" 0]]
-			:invoked [[:km "Check Spelling (via Alfred)"]["ch&" 0]] } :held [[:vk_none]] }]
-		;•jlik for ⌘ Cursor navigation..............................
-			[:#Sj :!C#Sleft_arrow]
-			[:#Sl :!C#Sright_arrow]
-			[:#Si :!C#Sup_arrow]
-			[:#Sk :!C#Sdown_arrow]
+	{:des "c-mode for c things" :rules [ :c& ;* ––––––––––––––––––––––––––––––––––––
+		[:a [:km "Jump to Fantastical"] ] ;• c+a for :km "Jump to Fantastical"
+		[:o [:km "Query Contacts"] ] ;• c+o for :km "Query Contacts"
 		[:d :!Cquote] ;• c+d for ⌘' (tag in evernote, )
-		[:comma [:km "switch internal space left"] ] ;• c+, for switch internal space left
-		[:period [:km "switch internal space right"] ] ;• c+. for switch internal space right
+		[:comma [[:SPKR3] :!STOcomma]] ;• c+comma for switch internal space left
+		;; [:comma [:km "switch internal space left"] ] ;• c+comma for switch internal space left
+		;; [:period [:km "switch internal space right"] ] ;• c+period for switch internal space right
 	]}
 ;============================ D MODE =============================
 	{:des "d-mode for d things" :rules [
@@ -464,23 +427,9 @@
 	]}
 ;=========================== H MODE ==============================
 	{:des " h-mode for h things" :rules [
-		;+ h+o+...............................................................................................................................
-			[:w [:km "Hover Evernote Now"] [["h&" 1] ["ho&" 1]]] ;+ h+o+w Hover Evernote Now
-			[:a [:km "Hover Evernote Agenda"] [["h&" 1] ["ho&" 1]]] ;+ h+o+a Hover Evernote Agenda
-			[:p [:km "Hover Evernote Past/Processed"] [["h&" 1] ["ho&" 1]]] ;+ h+o+p Hover Evernote Past/Processed
-			[:z [:km "Hover Evernote Past/Processed"] [["h&" 1] ["ho&" 1]]] ;+ h+o+z Hover Evernote Past/Processed
-			[:e [:km "Hover Recent Daily Journal Entry"] [["h&" 1] ["ho&" 1]]] ;+ h+o+e Hover Recent Daily Journal Entry
-			[:d [:km "Hover Evernote To Do"] [["h&" 1] ["ho&" 1]]] ;+ h+o+d Hover Evernote To Do
-			[:c [:km "Hover Evernote Communications/Messages"] [["h&" 1] ["ho&" 1]]] ;+ h+o+c Hover Evernote Communications/Messages
-			[:i [:km "Hover OmniFocus Inbox"] [["h&" 1] ["ho&" 1]]] ;+ h+o+i Hover OmniFocus Inbox
-			[:f [:km "Hover OmniFocus Focus Now"] [["h&" 1] ["ho&" 1]]] ;+ h+o+ for Hover OmniFocus Focus Now
-			[:o [:km "Go To OmniFocus Agenda Folder"] [["h&" 1]["ho&" 1]] ] ;+ h+o+o for Go To OmniFocus Agenda Folder
    	:h& ;* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-      	;* h+o for Hover Window
-			[:o [ [:vk-none]  ["ho&" 1] ] nil {:delayed {:canceled [ ["ho&" 0] ]
-			:invoked [ [:km "Hover Window"] ["ho&" 0] ] } :held ["say 'holding o'" ["ho¬" 1]] }]
-		[:w [:!Oleft_arrow :!OSright_arrow] ] ;• h+w for highlight word
-		[:l [:!Ta :!TSe :!Sright_arrow] ] ;• h+l for highlight lio
+		[:w [:km "Hover Evernote Now"]] ;• h+w for Hover Evernote Now 🟢
+		;; [:KEYBB [:km "KM_MACRO"]] ;• h+KEYBB for KM_MACRO 🟢
 		]}
 ;============================ I MODE ==============================
 	{:des "i-mode for new things" :rules [
@@ -499,95 +448,29 @@
 		]}
 ;============================ J MODE =============================
 	{:des "j-mode" :rules [
-			;+ j+d+............................................................................................................................
-				[:d [:km "Jump to Daily Journal"] [["j&" 1] ["jd&" 1]]] ;+ j+d+d for...
-			;+ j+e+............................................................................................................................(🛑 disabled)
-				;; [:e [[:escape] [:km "Jump to Evernote"]] [["j&" 1] ["je&" 1]]] ;+ j+e+e for...
-			;+ j+left_gui+..................................................................................................................
-				[:left_gui :!CSslash [["j&" 1] ["jleft_gui&" 1]]] ;+ j+left_gui
-			;+ j+right_gui+.......................................................................................................................
-				[:right_gui :!Cf13 [["j&" 1] ["jright_gui&" 1]]] ;+ j+right_gui² for search bartender (via) ⌘F13)
-
-	:j& ;* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-			;* j+d for daily Journal
-					[:d [[:vk_none]["jd&" 1]] nil {:delayed {:canceled[["jd&" 0]["j&" 0]]
-					:invoked[[:km "Hover Recent Daily Journal Entry"]["jd&" 0]] } :held[[:km "held"]["jd¬" 1]] }]
-			;* j+left_gui for blank (held if held)
-					[:left_gui [ [:SPKR3] :!FCTOSf1 ["jleft_gui&" 1] ] nil {:delayed {:canceled [ ["jleft_gui&" 0]["j&" 0] ]
-					:invoked [ [vk_none] ["jleft_gui&" 0] ] }:held [ [:km "j held"] ["jleft_gui¬" 1]] }]
-			;* j+right_gui for blank (held if held)
-				[:right_gui [ [:SPKR3] :f13 ["jright_gui&" 1] ] nil {:delayed {:canceled [ ["jright_gui&" 0]["j&" 0] ]
-				:invoked [ [vk_none] ["jright_gui&" 0] ] }:held [ [:km "j held"] ["jright_gui¬" 1]] }]
-			;* j+o for blank (held if held) (🔴 disabled)
-				;; [:o [ [:SPKR3][:vk_none]["jo&" 1] ] nil {:delayed {:canceled [ ["jo&" 0]["j&" 0] ]
-				;; :invoked [ [:km "Jump to OmniFocus Quick"] ["jo&" 0] ] }:held [ [:km "Jump to OmniFocus"]] }]
-
-		; [:left_gui [[:SPKR3] :!FCTOSf1]] ;* (l)⌘ for focus menu bar (via System Shortcut)
-		; [:right_gui [[:SPKR3] :f13]] ;* (r)⌘ for focus bartender (via System Shortcut)
-
+	:j&  ;• j+................................................................................................................................
 		[:e [[:SPKR3][:km "Jump to Evernote"]]] ;• j+e for Jump to Evernote 🟢
-		[:o [:km "Jump to OmniFocus"]]
-		[:w [[:SPKR3] :!Ospacebar]] ;•Jump to Window via Context hotkey
-		[:c [[:SPKR3][:alf "Search Chrome Bookmarks" "com.mdreizin.chrome.bookmarks"]]] ;• j+c for Jump to Chrome (alfred workflow)
-		[:s [:km "Jump to Stickies"]]
+		[:o [:km "Jump to OmniFocus"]] ;• j+o for Jump to Evernote 🟢
+		[:w [[:SPKR3] :!Ospacebar]] ;• j+w for Jump to Window (via Context hotkey)
 		[:period [:km "© Open Context Menu"]]
 		[:spacebar [:km "Click GUI Button"]] ;* j+spacebar for Click GUI Button
+
+		[:c [[:SPKR3][:alf "Search Chrome Bookmarks" "com.mdreizin.chrome.bookmarks"]]] ;• j+c for Jump to Chrome (alfred workflow)
 
 		[:a [[:SPKR3] [:wait][:escp]]]
 		[:r [:sendreturn]]
 		[:q [:sendq]]
-		; [:spacebar [[:SPKR3] [:sendspace]]]
 		[:1 [[:SPKR3] [:sendesc]]]
 
-		]}
-;============================= K MODE =============================
+	]}
+;============================= K MODE ============================= ⭐xample
 	{:des "k-mode for new things" :rules [
-		;+ k+r+...................................................................................................................................
-			[:r [:km "Edit KE Config"] [["k&" 1] ["kr&" 1]]] ;+ k+r+r for Edit KE Config
-			[:b [:km "Open Edit Karabiner Keys [Sublime Project]"] [["k&" 1] ["kr&" 1]]] ;+ k+r+b for Open Edit Karabiner Keys [Sublime Project]
-			[:e [:km "Open Edit Karabiner Elements Configuration [Sublime Project]"] [["k&" 1] ["kr&" 1]]] ;+ k+r+e for Open Edit Karabiner Elements Configuration [Sublime Project]
-			[:v [:km "Activate Karabiner EventViewer"] [["k&" 1] ["kr&" 1]]] ;+ k+r+v for Activate Karabiner EventViewer
-		;+ k+e+...................................................................................................................................
-			[:v [:km "Activate Karabiner EventViewer"] [["k&" 1] ["ke&" 1]]];+ k+e+v for Activate Karabiner EventViewer
-		;+ k+p+..................................................................................................................................
-			;+ k+p² for Add to Evernote End
-			[:p [:km "Add to Evernote End"] [["k&" 1] ["kp&" 1]]]
-			;+ k+p+spacebar for Query KeePass
-			[:spacebar [:km "Query KeePass"] [["k&" 1] ["kp&" 1]]]
-			;+ k+p+n for New Password
-			[:n [:km "New Password"] [["k&" 1] ["kp&" 1]]]
-		;+ k+c+..................................................................................................................................
-			;+ k+c² for Search Key Clue KM (alf)
-			[:c [:alf "Search Key Clue KM (alf)" "me.zhaocai.keylue"] [["k&" 1] ["kc&" 1]]]
-		;+ k+o+...............................................................................................................................
-			[:e [:km "Hyperlink Title Clean Right"] [["k&" 1] ["ko&" 1]]] ;+ k+o+e for Hyperlink Title Clean Right
-		;+ k+m+...............................................................................................................................
-			[:spacebar [:km "Jump to Macro By Name (Global)"] [["k&" 1] ["km&" 1]]] ;+ k+m+spaceber for Jump to Macro By Name (Global)
-	:k& ;* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-			;* k+r for Karabiner Stuff
-      			[:r [[:vk_none]["kr&" 1]] nil {:delayed {:canceled [["kr&" 0]["k&" 0]] :invoked
-				[[:km "Activate Karabiner Elements"]["kr&" 0]] } }]
-			;* k+e for Karabiner Stuff
-				[:e [[:vk_none]["ke&" 1]] nil {:delayed {:canceled [["ke&" 0]["k&" 0]] :invoked
-				[[:km "Activate Karabiner Elements"]["ke&" 0]] } }]
-			;* k+p for Activate KeePass
-      			[:p [[:vk_none]["kp&" 1]] nil {:delayed {:canceled [["kp&" 0]["k&" 0]] :invoked
-				[[:km "Activate KeePass"]["kp&" 0]] } }]
-			;* k+c for Search Key Clue KC (alf)
-      			[:c [[:alf "Search Key Clue KC (alf)" "me.zhaocai.keylue"]["kc&" 1]] nil {:delayed {:canceled [["kc&" 0]["k&" 0]] :invoked
-				[[:vk_none]["kc&" 0]] } }]
-			;* k+o for...
-				[:o [[:vk_none]["ko&" 1]] nil {:delayed{:canceled [["ko&" 0]["k&" 0]]
-				:invoked [[:vk_none]["ko&" 0]] } :held [[:vk_none]] }]
-			;* k+m for...
-				[:m [[:SPKR3][:vk_none]["km&" 1]] nil {:delayed{:canceled [["km&" 0]["k&" 0]]
-				:invoked [[:vk_none]["ko&" 0]] } :held [[:vk_none]] }]
-		; ;* k+m for...
-		; 		[:m [[:km "Jump to Macro By Name (Global)"]["km&" 1]] nil {:delayed {:canceled [["km&" 0]["k&" 0]]
-				; :invoked [[:vk_none]["km&" 0]] } :held [[:vk_none]] }]
-		;• k+...................................................................................................................................
+	:k& ;• k+.........................................................................................................................
 			[:spacebar [:km "Trigger Macro by Name"]] ;• k+spacebar for "Trigger Macro by Name"
+			[:e [:km "Open Karabiner Elements (monterySync.edn) in VS Code"]] ;• k+e for Open Karabiner Elements (monterySync.edn) in VS Code
+			[:v [:km "Activate Karabiner EventViewer"]] ;• k+v for "Activate Karabiner EventViewer"
 
+			;; [:KEYB [:km "KM_MACRO"]] ;• k+KEYB for "KM_MACRO"
 	]}
 ; ============================ L MODE =============================
 	{:des "L-mode for new things" :rules [
@@ -904,20 +787,15 @@
 	]}
 ;========================= PERIOD MODE ===========================
 	{:des " period-mode for typinator and autocomplete":rules [
-		;+ period+o...........................................................................................................................
-				[:o "say 'double o'" [["period&" 1] ["periodo&" 1]]] ;+ period+o² for testings
-				[:d "say 'three key...chord'" [["period&" 1] ["periodo&" 1]]]
-
-    :period& ;* ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-			[:spacebar [[:SPKR3] :!SCTt] ] ;• period+spacebar for Typinator Quick Search (via ⌃⇧⌘T hotkey)
-			[:left_shift [[:SPKR3] :!STperiod] ] ;• period+spacebar for Typinator Suggest Abbreviation (via ⌃⇧+. hotkey)
+    :period& ;• –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+		[:spacebar [[:SPKR3] :!SCTt] ] ;• period+spacebar for Typinator Quick Search (via ⌃⇧⌘T hotkey)
+		[:left_shift [[:SPKR3] :!STperiod] ] ;• period+spacebar for Typinator Suggest Abbreviation (via ⌃⇧+. hotkey)
 	]}
 ;========================== RETURN MODE ==========================
 	{	:des "return-mode for..." :rules [
-		:return& ;* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	:return& ;• –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 		[:delete_or_backspace :!Tdelete_or_backspace] ;• return+delete for dismiss notification (via ⌃↩) 💡  could also just use
 		[:spacebar :!COSTreturn_or_enter] ;• return+delete for dismiss notification (via ⌃↩) 💡  could also just use
-
 	]}
 ;============================ QUOTE MODE ============================
 {	:des "quote-mode for..." :rules [
