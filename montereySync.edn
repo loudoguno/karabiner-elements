@@ -528,46 +528,32 @@
 		[:r [:km "Hover OmniFocus Morning Review"]] ;• m+r for Hover OmniFocus Morning Review
 	]}
 ;============================= N MODE ============================
-	{:des "n-mode for n things" :rules [
-		;+ n+i+................................................................................................................................
-			;; [:i [:km "Send to Omnifocus"] [["n&" 1] ["ni&" 1]]] ;+ n+i² for Send to OmniFocus (🔴 disabled)
-			; [:i [:km "Send to Omnifocus"] [["n&" 1] ["ni&" 1]]] ;+ n+i² for Send to OmniFocus
-			;; [:c [:km "New Omnifocus Clipping"] [["n&" 1] ["ni&" 1]]] ;+ n+i+c for New Omnifocus Clipping (🔴 disabled)
-			;; [:w [:km "New OmniFocus Webshot"] [["n&" 1] ["ni&" 1]]] ;+ n+i+w for New OmniFocus Webshot (🔴 disabled)
-
-	:n& ;* ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––-
+	{:des "n-mode for n things" :rules [ :n& ;* ––––––––––––––––––––––––––––––––––––
 		[:q [:km "New QuickNote"]] ;• n+1 New QuickNote
-			;; New Evernote Note
-		[:c [:km "New Event"]] ;• n+c New Event
-		[:t [:km "New Typinator Item from Selection"]] ;• n+t for Quick Add Typinator Item
-			;; Quick Add Typinator Item
+		[:c [:km "New Event"]] ;• n+c New Event via Fantastical
 		[:m [:km "New Message"]] ;• n+m for New Message
-			;; New Email
-		[:i [[:tink] :!CTSo]] ;• n+i New Omnifocus Quick Entry (via omf hotkey ⌃⇧⌘+o) 🟢 FIXED
-		[:l [:km "Log Palette"]] ;• n+l for Log Palette 🟡 need to fix
 		[:p [:km "New Password"]] ;• n+p for New Password
 		[:w [:km "New Window"]] ;• n+w for New Window
 		[:s [:km "New Sticky"]] ;• n+s for New Sticky
+		[:o [:km "Send to OmniFocus"]] ;• n+o for Send to OmniFocus
+		[:i [[:tink] :!CTSo]] ;• n+i New Omnifocus Quick Entry (via omf hotkey ⌃⇧⌘+o) 🟢 FIXED
+
+		[:t [:km "New Typinator Item from Selection"]] ;• n+t for Quick Add Typinator Item
+		[:s [:km "New Typinator Item from Selection"]] ;• n+s for Quick Add Typinator Item
+
+		[:l [:km "Log Palette"]] ;• n+l for Log Palette 🟡 need to fix
 	]}
-;============================ O MODE ============================
-{	:des "o-mode for..." :rules [
-		;+ o+m+...............................................................................................................................
-			[:f [:km "Activate OmniFocus New Window"] [["o&" 1] ["om&" 1]]] ;+ o+m+f for Activate OmniFocus New Window
-			[:f [:km "Activate OmniFocus New Window"] [["o&" 1] ["om&" 1]]] ;+ o+m+f for Activate OmniFocus New Window
-			[:b [:km "Hover OmniFocus ⏸ Break"] [["o&" 1] ["om&" 1]]] ;+ o+m+b for Hover OmniFocus ⏸ Break
-			[:t [:km "GoTo OmniFocus ™️ TOMORROW"] [["o&" 1] ["om&" 1]]] ;+ o+m+t for GoTo OmniFocus ™️ TOMORROW
-
-	:o& ;* ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		;* o+m for...
-			[:m [[:vk_none]["om&" 1]] nil {:delayed{:canceled [["om&" 0]["o&" 0]]
-				:invoked [[:vk_none]["om&" 0]] } :held [[:vk_none]] }]
-		;* o+spacebar for Search OmniFocus Tasks via Alfred ..
-			; [:spacebar [[:SPKR3][:alf "Search OmniFocus Tasks via Alfred" "net.rhydlewis.alfred.searchomnifocus"]["ospacebar&" 1]] nil {:delayed{:canceled [["ospacebar&" 0]["o&" 0]]
-			; :invoked [[:vk_none]["ospacebar&" 0]] } :held [[:vk_none]] }]
+;============================== O MODE =============================
+	{:des "o-mode for..." :rules [ :o& ;* ––––––––––––––––––––––––––––––––––––––––––-
 	;• o+spacebar......................................................................................................................................
-		[:spacebar [[:SPKR3][:alf "Search OmniFocus Tasks via Alfred" "net.rhydlewis.alfred.searchomnifocus"]]] ;• o+spacebar for Jump to OmniFocus
-]}
+	[:spacebar [[:SPKR3][:alf "Search OmniFocus Tasks via Alfred" "net.rhydlewis.alfred.searchomnifocus"]]] ;• o+spacebar for Jump to OmniFocus
+	[:i [:km "Hover OmniFocus Inbox"]] ;• o+i for Hover OmniFocus Inbox
 
+	; keep around
+			;; [:f [:km "Activate OmniFocus New Window"] [["o&" 1] ["om&" 1]]] ;+ o+m+f for Activate OmniFocus New Window
+			;; [:f [:km "Activate OmniFocus New Window"] [["o&" 1] ["om&" 1]]] ;+ o+m+f for Activate OmniFocus New Window
+			;; [:t [:km "GoTo OmniFocus ™️ TOMORROW"] [["o&" 1] ["om&" 1]]] ;+ o+m+t for GoTo OmniFocus ™️ TOMORROW
+	]}
 ;============================ P MODE =============================
 	{:des "p-mode for..." :rules [ ; ;idea 💡 p mode should be used for a lot
 		;+ p+r+..................................................................................................................................
