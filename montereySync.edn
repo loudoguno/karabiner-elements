@@ -1,5 +1,6 @@
-;= montereySync.edn .011  ======================================================
+;= montereySync.edn .02  ======================================================
 ;* CHANGELOG =====================================================
+	;; .020 playing around with things...
 	;; .010 12/04/21 going to continue to clean up everything... 12/08/21~diting omni foucs
 	;; .009 making k+e to edit Karabiner... also fixed up some modes...
 	;; .007,.008 looking at z mode to see about keyboard light (11/30/21) (❗ t-mode which broke m,n,w)
