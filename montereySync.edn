@@ -362,11 +362,11 @@
 ;============================ F MODE ============================= ; !needs work
 	{:des " f-mode for f things" :rules [
 	:f& ;* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-			;* f+⌘ and space for clicks
-				[:spacebar :button1] [:right_control :button1] ;* f+spacebar OR right-control for click
- 				[:right_gui :button2];* f+right_command for right click
- 				[:left_gui :button3];* f+left_command fo (!Cbutton1 doesn't work as a <to> but can be recreated using button3)
-			;* f+1/2/3/4/ focus Column
+			;• f+⌘ and space for clicks
+				[:spacebar :button1] [:right_control :button1] ;• f+spacebar OR right-control for click
+ 				[:right_gui :button2];• f+right_command for right click
+ 				[:left_gui :button3];• f+left_command fo (!Cbutton1 doesn't work as a <to> but can be recreated using button3)
+			;• f+1/2/3/4/ focus Column
 				[:1 [:km "Focus 1"]]
 				[:2 [:km "Focus 2"]]
 				[:3 [:km "Focus 3"]]
@@ -387,47 +387,19 @@
 		[:period [:km "Switch Third Space Right"] ] ;• c+. for Switch Third Space Right
 	]}
 ;============================ G MODE ============================
-	{:des "g-mode" :rules [
-		;+ g+o+...............................................................................................................................
-			[:o [:km "GoTo Palette"] [["g&" 1] ["go&" 1]]] ;+ g+o² fo GoTo Palette
-			[:i [:km "GoTo OmniFocus Inbox"] [["g&" 1] ["go&" 1]]] ;+ g+o+i for GoTo OmniFocus Inbox
-			[:t [:km "GoTo OmniFocus ™️ TOMORROW"] [["g&" 1] ["go&" 1]]] ;+ g+o+t for GoTo OmniFocus ™️ TOMORROW
-			[:b [:km "Hover OmniFocus ⏸ Break"] [["g&" 1] ["go&" 1]]] ;+ g+o+b for Hover OmniFocus ⏸ Break
-			[:d [:km "GoTo OmniFocus To Do"] [["g&" 1] ["go&" 1]]] ;+ g+o+d for GoTo OmniFocus To Do
-			[:w [:km "GoTo Now@"] [["g&" 1] ["go&" 1]]] ;+ g+o+w for GoTo Now@
-			[:m [:km "GoTo Gmail Inbox"] [["g&" 1] ["go&" 1]]] ;+ g+o+m for GoTo Gmail Inbox
-			[:r [:km "Go To Recent OmniFocus Task"] [["g&" 1] ["go&" 1]]] ;+ g+o+r for Go To Recent OmniFocus Task
-			; [:r [:km "Finder: Go To Just Press Record Voice Recordings"] [["g&" 1] ["go&" 1]]] ;+ g+o+r for Finder: Go To Just Press Record Voice Recordings
-			[:a [:km "Finder: Go To Just Press Record Voice Recordings"] [["g&" 1] ["go&" 1]]] ;+ g+o+r for Finder: Go To Just Press Record Voice Recordings
-		;+ g+m+...............................................................................................................................
-			[:m [:km "Go To Messages"] [["g&" 1] ["gm&" 1]]] ;+ g+m² for Go To Messages
-			[:l [:km "GoTo Gmail Inbox"] [["g&" 1] ["gm&" 1]]] ;+ g+m+l for km macro 2
-		; + g+a+...............................................................................................................................
-			; [:a [:km "Go To Window 1 (primary)"] [["g&" 1] ["ga&" 1]]] ;+ g+a+a for Go To Window 1 (primary)
-
-	:g& ;* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		;* g+o for blank (held if held)
-				[:o [[:vk_none]["go&" 1]] nil {:delayed {:canceled [["go&" 0]["g&" 0]]
-				:invoked [[:km "GoTo Palette"]["go&" 0]] }} ]
-		;* g+m for Go To Messages
-				[:m [[:vk_none]["gm&" 1]] nil {:delayed {:canceled [ ["gm&" 0]["g&" 0] ]
-				:invoked [ [:km "Go To Messages"] ["gm&" 0] ] }:held [ [:km "g held"] ["gm¬" 1]] }]
-		;* g+a for...
-				; [:a [[:km "Go To Window 1 (primary)"]["ga&" 1]] nil {:delayed{:canceled [["ga&" 0]["g&" 0]]
-				; :invoked [[:vk_none]["ga&" 0]] } }]
-		;• Window Focusing
-			[:1 [:!F1]] [:2 [:!F2]][:3 [:!F3]][:4 [:!F4]]
-			[:q [:!Fq]] [:w [:!Fw]] [:e [:!Fe]] [:r [:!Fr]]
-			[:a [:!Fa]] [:s [:!Fs]] [:d [:!Fd]][:f [:!Ff]]
-			; [:a [:km "Go To Window 1 (primary)"]] ;• g+a for Go To Window 1 (primary))
-			; [:s [:km "Go To Window 2 (secondary)"]] ;• g+s for Go To Window 2 (secondary)
+	{:des "g-mode" :rules [ 	:g& ;* –––––––––––––––––––––––––––––––––––––––––––
 		[:spacebar [:km "Click GUI Button"]] ;• g+spacebar for Click GUI Button
 		[:right_control [:km "Click GUI Button"]] ;• g+right_control for Click GUI Button
 		[:w [[:SPKR3] :!!tab]] ;• g+w for Click focus Window
+	;; keep around
+			;; [:m [:km "GoTo Gmail Inbox"] [["g&" 1] ["go&" 1]]] ;+ g+o+m for GoTo Gmail Inbox
+			;; [:r [:km "Go To Recent OmniFocus Task"] [["g&" 1] ["go&" 1]]] ;+ g+o+r for Go To Recent OmniFocus Task
+			;; [:a [:km "Finder: Go To Just Press Record Voice Recordings"] [["g&" 1] ["go&" 1]]] ;+ g+o+r for Finder: Go To Just Press Record Voice Recordings
 	]}
 ;=========================== H MODE ==============================
 	{:des " h-mode for h things" :rules [:h& ;* ––––––––––––––––––––––––––––––––––––
 		[:w [:km "Hover Evernote Now"]] ;• h+w for Hover Evernote Now 🟢
+		[:4 [:km "Hover OmniFocus 🧨C4 TODO"]] ;• h+w for Hover OmniFocus 🧨C4 TODO 🔰
 		]}
 ;============================ I MODE ==============================
 	{:des "i-mode for new things" :rules [
@@ -462,8 +434,7 @@
 
 	]}
 ;============================= K MODE ============================= ⭐xample
-	{:des "k-mode for new things" :rules [
-	:k& ;• k+.........................................................................................................................
+	{:des "k-mode for new things" :rules [ :k& ;• k+..................................................................
 			[:spacebar [:km "Trigger Macro by Name"]] ;• k+spacebar for "Trigger Macro by Name"
 			[:e [:km "Open Karabiner Elements (monterySync.edn) in VS Code"]] ;• k+e for Open Karabiner Elements (monterySync.edn) in VS Code
 			[:v [:km "Activate Karabiner EventViewer"]] ;• k+v for "Activate Karabiner EventViewer"
@@ -471,58 +442,12 @@
 			;; [:KEYB [:km "KM_MACRO"]] ;• k+KEYB for "KM_MACRO"
 	]}
 ; ============================ L MODE =============================
-	{:des "L-mode for new things" :rules [
-
-		;+ l+b+...................................................................................................................................
-			;+ l+b² for...
-			[:b [:km "GoTo Local Bitcoin Dashboard"] [["l&" 1] ["lb&" 1]]]
-			;+ l+b+c for LBC Palette
-			[:c [:km "LBC Palette"] [["l&" 1] ["lb&" 1]]]
-			;+ l+b+d for Local Bitcoin Dashboard
-			[:d [:km "Local Bitcoin Dashboard"] [["l&" 1] ["lb&" 1]]]
-	:l& ;* ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		;* l+b for Local Bitcoin Stuf...............................
-			[:b [[:vk_none]["lb&" 1]] nil {:delayed {:canceled [["lb&" 0]["l&" 0]]
-			:invoked [[:km "blank"]["lb&" 0]] } :held [[:km "New Evernote Note"]["lb¬" 1]] }]
-		;* l+s for..................................................
-        		[:s [[:km "Clean Line Formatting"]["ls&" 1]] nil {:delayed{:canceled [["ls&" 0]["l&" 0]]
-				} :held [:km "none"]  }]
-
+	{:des "L-mode for new things" :rules [ :l& ;* –––––––––––––––––––––––––––––––––––
+		[:m [:km "New Message"]] ;• n+m for New Message ⭕ place holder
 	]}
 ;============================ M MODE ==============================
-	{:des "m-mode for new things" :rules [
-		;+ m+s+..............................................................................................................................
-				[:s [:km "AVAILABLE"] [["m&" 1] ["ms&" 1]]] ;+ m+s+s for AVAILABE
-				[:g [:km "Activate Messages"] [["m&" 1] ["ms&" 1]]] ;+ m+s+g for Activate Messages
-		;+ m+p+.............................................................................................................................
-				[:p [:km "AVAILABLE"] [["m&" 1] ["mp&" 1]]] ;+ m+p+p for AVAILABLE
-		;+ m+spacebar+................................................................................................................
-			[:spacebar [[:SPKR3] :!STOf11] [["m&" 1] ["mspacebar&" 1]]] ;+ m+spacebar² for km macro 1
-			[:s [[:SPKR3] :!SOTf9] [["m&" 1] ["mspacebar&" 1]]] ;+ m+spacebar² for km macro 1
-			[:x [:SPKR3] [["m&" 1] ["mspacebar&" 1]]] ;+ m+spacebar+x for km macro 2
-		;+ m+o+.............................................................................................................................
-			[:r [:km "Hover OmniFocus Morning Review"] [["m&" 1] ["mo&" 1]]] ;+ m+o+r for Hover OmniFocus Morning Review
-			[:a [:km "Hover OmniFocus AGENDA"] [["m&" 1] ["mo&" 1]]] ;+ m+o+a for Hover OmniFocusGENDAda
-			[:d [:km "Hover OmniFocus TO DO"] [["m&" 1] ["mo&" 1]]] ;+ m+o+d for Hover OmniFous TO DO
-			[:w [:km "Hover OmniFocus NOW"] [["m&" 1] ["mo&" 1]]] ;+ m+o+w for Hover OmniFocus NOW
-			[:t [:km "Hover OmniFocus TODAY"] [["m&" 1] ["mo&" 1]]] ;+ m+o+t for Hover OmniFocus TODAY
-		;+ m+r+.............................................................................................................................
-			[:r [:km "Center Morning Review"] [["m&" 1] ["mr&" 1]]] ;+ m+r+r for Center Morning Review
-
-	:m& ;* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		;* m+s for blank (held if held).....................
-			[:s [ [:vk_none] ["ms&" 1] ] nil {:delayed {:canceled [ ["ms&" 0]["m&" 0] ]
-			:invoked [ [:vk_none] ["ms&" 0] ] }:held [ [:km "m held"] ["ms¬" 1]] }]
-		;* m+spacebar for Bartender Menubar Shortcuts
-			[:spacebar [ :vk_none ["mspacebar&" 1] ] nil {:delayed {:canceled [ ["mspacebar&" 0]["m&" 0] ]
-			:invoked [ [:SPKR3] :!STOf11 ["mspacebar&" 0] ] }:held [[:SPKR3] :!STOf10] }] ;! seem s to control volume on MBA function keys
-		;* m+o for...
-			[:o [[:vk_none]["mo&" 1]] nil {:delayed{:canceled [["mo&" 0]["m&" 0]]
-			:invoked [[:vk_none]["mo&" 0]] } :held [[:vk_none]] }]
-		;* m+r for...
-			[:r [[:km "Hover OmniFocus Morning Review"]["mr&" 1]] nil {:delayed{:canceled [["mr&" 0]["m&" 0]]
-			:invoked [[:vk_none]["mr&" 0]] } :held [[:km "Center Morning Review"]] }]
-	;• m+......................................................................................................................................
+	{:des "m-mode for new things" :rules [ :m& ;• m+..............................................................
+		[:r [:km "Hover OmniFocus Morning Review"]] ;• m+r for Hover OmniFocus Morning Review
 		[:r [:km "Hover OmniFocus Morning Review"]] ;• m+r for Hover OmniFocus Morning Review
 	]}
 ;============================= N MODE ============================
@@ -532,9 +457,10 @@
 		[:m [:km "New Message"]] ;• n+m for New Message
 		[:p [:km "New Password"]] ;• n+p for New Password
 		[:w [:km "New Window"]] ;• n+w for New Window
-		[:s [:km "New Sticky"]] ;• n+s for New Sticky
-		[:o [:km "Send to OmniFocus"]] ;• n+o for Send to OmniFocus
+		;; [:s [:km "New Sticky"]] ;• n+s for New Sticky
+
 		[:i [[:tink] :!CTSo]] ;• n+i New Omnifocus Quick Entry (via omf hotkey ⌃⇧⌘+o) 🟢 FIXED
+		[:o [:km "Send to OmniFocus"]] ;• n+o for Send to OmniFocus ⭐replaced n+i+i
 
 		[:t [:km "New Typinator Item from Selection"]] ;• n+t for Quick Add Typinator Item
 		[:s [:km "New Typinator Item from Selection"]] ;• n+s for Quick Add Typinator Item
@@ -543,96 +469,61 @@
 	]}
 ;============================== O MODE =============================
 	{:des "o-mode for..." :rules [ :o& ;* ––––––––––––––––––––––––––––––––––––––––––-
-	;• o+spacebar......................................................................................................................................
+	;• o+spacebar.......................................................................................................................
 	[:spacebar [[:SPKR3][:alf "Search OmniFocus Tasks via Alfred" "net.rhydlewis.alfred.searchomnifocus"]]] ;• o+spacebar for Jump to OmniFocus
-	[:i [:km "Hover OmniFocus Inbox"]] ;• o+i for Hover OmniFocus Inbox
+	[:i [:km "Hover OmniFocus Inbox"]] ;• 🔰 o+i for Hover OmniFocus Inbox
 
 	; keep around
 			;; [:f [:km "Activate OmniFocus New Window"] [["o&" 1] ["om&" 1]]] ;+ o+m+f for Activate OmniFocus New Window
 			;; [:f [:km "Activate OmniFocus New Window"] [["o&" 1] ["om&" 1]]] ;+ o+m+f for Activate OmniFocus New Window
 			;; [:t [:km "GoTo OmniFocus ™️ TOMORROW"] [["o&" 1] ["om&" 1]]] ;+ o+m+t for GoTo OmniFocus ™️ TOMORROW
 	]}
-;============================ P MODE =============================
-	{:des "p-mode for..." :rules [ ; ;idea 💡 p mode should be used for a lot
-		;+ p+r+..................................................................................................................................
-			[:r [:km "Set Window Priority Palette"] [["p&" 1] ["pr&" 1]]] ;+ p+r+r for Set Window Priority Palette
-			[:1 [:km "Set Window Priority 1 (primary)"] [["p&" 1] ["pr&" 1]]] ;+ p+r+1 for Set Window Priority 1 (primary)
-			[:2 [:km "Set Window Priority 2 (secondary)"] [["p&" 1] ["pr&" 1]]] ;+ p+r+2 for Set Window Priority 2 (secondary)
-			[:s [[:SPKR3][:btt "Save current Window Layout"]] [["p&" 1] ["pr&" 1]]] ;+ p+r+s for Save current Window Layout
-			[:e [[:SPKR3][:btt "Restore last saved window layout"]] [["p&" 1] ["pr&" 1]]] ;+ p+r+s for Restore last saved window layout
-			[:u [:km "Hover Evernote 🏒📰 Predators News Updates Game LOG"] [["p&" 1] ["pr&" 1]]] ;+ p+r+u for Hover Evernote 🏒📰 Predators News Updates Game LOG
-		;+ p+h+.................................................................................................................................
-			[:h [:vk_none] [["p&" 1]["ph&" 1]] ] ;+ p+h+h for...
-			[:a [:km "Go To Sheet: Pharma"] [["p&" 1]["ph&" 1]]] ;+ p+h+a for Go To Sheet: Pharma
-			[:x [:km "Go To Sheet: Xan Log"] [["p&" 1] ["ph&" 1]]] ;+ p+h+x for Go To Sheet: Xan Log
-		;+ p+d+...............................................................................................................................
-			[:b [:km "Hover Evernote Predators Dashboard"] [["p&" 1] ["pd&" 1]]] ;+ p+d+b for Hover Evernote Predators Dashboard
-			[:a [:km "Hover Evernote Predators Dashboard"] [["p&" 1] ["pd&" 1]]] ;+ p+d+a for Hover Evernote Predators Dashboard
-			[:u [:km "Hover Evernote 🏒📰 Predators News Updates Game LOG"] [["p&" 1] ["pd&" 1]]] ;+ p+d+u for Hover Evernote 🏒📰 Predators News Updates Game LOG
-
-	:p& ;* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		;* p+r for Prioritize window (held if held)
-				[:r [ [:vk_none] ["pr&" 1] ] nil {:delayed {:canceled [ ["pr&" 0]["p&" 0] ]
-				:invoked [[:km "Set Window Priority Palette"]["pr&" 0]] } :held [[:km "Show Window Priority Info"]] } ]
-		;* p+h for pharma stuff
-				[:h [[:vk_none]["ph&" 1]] nil {:delayed{ :canceled [["ph&" 0]["p&" 0]]
-				:invoked [[:km "Go To Sheet: Pharma"]["ph&" 0]] } :held [[:km "p held"]] } ]
-		;* p+d for...
-				[:d [[:vk_none]["pd&" 1]] nil {:delayed{:canceled [["pd&" 0]["p&" 0]]
-				:invoked [[:vk_none]["pd&" 0]] } :held [[:vk_none]] }]
-
-	[:spacebar [[:SPKR3]:!!p]] ;• p+spacebar for search 1password...
-
+;============================ P MODE =============================;idea 💡 p mode should be used for a lot
+	{:des "p-mode for..." :rules [ :p& ;* ––––––––––––––––––––––––––––––––––––––––––
+		[:spacebar [[:SPKR3]:!!p]] ;• p+spacebar for search 1password...
+		[:a [:km "Go To Sheet: Pharma"]] ;• p+a forGo To Sheet: Pharma
 	]}
 ;============================ R MODE ============================
-	{:des "r-mode for remote things" :rules [
-		;+ r+m+.............................................................................................................................
-			[:m [:km "-Remote Modes Palette"] [["r&" 1] ["rm&" 1]]] ;+ r+m² for. Remote Modes Palette
-			[:y [:km "QuickTime Remote"] [["r&" 1] ["rm&" 1]]] ;+ r+m+q for QuickTime Remote
-			[:y [:km "YouTube Remote"] [["r&" 1] ["rm&" 1]]] ;+ r+m+y for YouTube Remote
-			[:x [:km "Deactivate Remote"] [["r&" 1] ["rm&" 1]]] ;+ r+m+x for Deactivate Remote
-
-		;+ r+o+...............................................................................................................................
-			[:a [:km "Go to Roam Greenhouse Lou"] [["r&" 1] ["ro&" 1]]] ;+ r+o+a for Go to Roam Greenhouse Lou
-			[:4 [:km "Go to Roam Greenhouse C4"] [["r&" 1] ["ro&" 1]]] ;+ r+o+4 for Go to Roam Greenhouse C4
-	:r& ;* ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		; TODO Scrolling [:j {:mkey {:vwheel 100}}] [:k {:mkey {:vwheel -100}}] https://github.com/yqrashawn/GokuRakuJoudo/issues/18
-		;* r+m for Media Remote
-				[:m [ [:vk_none] ["rm&" 1] ] nil {:delayed {:canceled [ ["rm&" 0]["r&" 0] ] ; 'i' is said for everything
-				:invoked [ [:km "Media Remote"] ["rm&" 0] ] } ; is triggered as delayed response even when holding
-				:held [ [:km "Deactivate Remote"] ["rm¬" 1]]
-				}]
+	{:des "r-mode for remote things" :rules [ :r& ;* ––––––––––––––––––––––––––––––––
+		;* r+m for Media Remote 🟢 works
+			[:m [ [:vk_none] ["rm&" 1] ] nil {:delayed {:canceled [ ["rm&" 0]["r&" 0] ] ; 'i' is said for everything
+			:invoked [ [:km "Media Remote"] ["rm&" 0] ] } ; is triggered as delayed response even when holding
+			:held [ [:km "Deactivate Remote"] ["rm¬" 1]]
+			}]
 		;* r+o for Roam stuff
-				[:o [ [:km "Go to Roam Greenhouse (Lou's)"] ["ro&" 1] ] nil {:delayed {:canceled [ ["ro&" 0]["r&" 0] ] ; 'i' is said for everything
-				:invoked [ [:km "Go to Roam Greenhouse Lou"] ["ro&" 0] ] } ; is triggered as delayed response even when holding
-				:held [ [:km "Deactivate Remote"] ["ro¬" 1]]
-				}]
-		;* Transport Controls
-      [:spacebar :!TOCspacebar] ;*spacebar for pause via ⌃⌥⌘Space ;*j/l/i/k for remote transport controls
+			[:o [ [:km "Go to Roam Greenhouse (Lou's)"] ["ro&" 1] ] nil {:delayed {:canceled [ ["ro&" 0]["r&" 0] ] ; 'i' is said for everything
+			:invoked [ [:km "Go to Roam Greenhouse Lou"] ["ro&" 0] ] } ; is triggered as delayed response even when holding
+			:held [ [:km "Deactivate Remote"] ["ro¬" 1]]
+			}]
+	;* Transport Controls
+      [:spacebar :!TOCspacebar] ;• r+spacebar for pause via ⌃⌥⌘Space ;*j/l/i/k for remote transport controls
       [:right_control :!TOCspacebar] ;! thought I might need to fix for right control
-			[:j :!TOCleft_arrow]
-			[:l :!TOCright_arrow]
-			[:i :!TOCup_arrow]
-			[:k :!TOCdown_arrow]
-			[:a :!TOCleft_arrow]
-			[:d :!TOCright_arrow]
-			[:w :!TOCup_arrow]
-			[:s :!TOCdown_arrow]
-			[:comma :!TOCcomma]   ;*comma/dot for speed up and down via ⌃⌥⌘,/.
-			[:period :!TOCperiod]
-			[:semicolon :!TOCsemicolon] ;*semicolon/quote for frame forward/backwoord ⌃⌥⌘;/'
-			[:p :!TOCp] ;*n/p for next/previous video⌃⌥⌘;/'
-			[:n :!TOCn]
-			[:f :!TOCf] ;*f for fullOCreen via ⌃⌥⌘f
-			[:tab [:km "Screenshot Timestamp"]] ;* r+tab for tab for Screenshot Timeestamp
-			[:p [:km "Screenshot Timestamp"]] ;*tab for Screenshot Timeestamp
+		[:j :!TOCleft_arrow]
+		[:l :!TOCright_arrow]
+		[:i :!TOCup_arrow]
+		[:k :!TOCdown_arrow]
+		[:a :!TOCleft_arrow]
+		[:d :!TOCright_arrow]
+		[:w :!TOCup_arrow]
+		[:s :!TOCdown_arrow]
+		[:comma :!TOCcomma]   ;*comma/dot for speed up and down via ⌃⌥⌘,/.
+		[:period :!TOCperiod]
+		[:semicolon :!TOCsemicolon] ;*semicolon/quote for frame forward/backwoord ⌃⌥⌘;/'
+		[:p :!TOCp] ;*n/p for next/previous video⌃⌥⌘;/'
+		[:n :!TOCn]
+		[:f :!TOCf] ;*f for fullOCreen via ⌃⌥⌘f
+		[:tab [:km "Screenshot Timestamp"]] ;* r+tab for tab for Screenshot Timeestamp
+		[:p [:km "Screenshot Timestamp"]] ;*tab for Screenshot Timeestamp
 			[:right_gui [:km "Screenshot Timestamp"]] ;*tab for Screenshot Timeestamp
-    ;* Remote Palette
-				[:return_or_enter [:km "- Remote Modes Palette"]] ;*return for remote palette
-				[:m [:km "Media Remote"]] 		;*r for YouTube Remote
-				[:y [:km "YouTube Remote"]] 		;*y for YouTube Remote
-				[:q [:km "QuickTime Remote"]] 		;*q for QuickTime Remote
-				[:x [:km "Deactivate Remote"]] 		;*q for Deactivate Remote
+	;* Remote Palette
+			[:return_or_enter [:km "- Remote Modes Palette"]] ;*return for remote palette
+			[:m [:km "Media Remote"]] 		;*r for YouTube Remote
+			[:y [:km "YouTube Remote"]] 		;*y for YouTube Remote
+			[:q [:km "QuickTime Remote"]] 		;*q for QuickTime Remote
+			[:x [:km "Deactivate Remote"]] 		;*q for Deactivate Remote
+	;; keep around
+		;; [:a [:km "Go to Roam Greenhouse Lou"] [["r&" 1] ["ro&" 1]]] ;+ r+o+a for Go to Roam Greenhouse Lou
+		;; [:4 [:km "Go to Roam Greenhouse C4"] [["r&" 1] ["ro&" 1]]] ;+ r+o+4 for Go to Roam Greenhouse C4
 	]}
 ;============================= S Mode =============================
 	{:des "s-mode for s things" :rules [ :s& ;* ––––––––––––––––-----------––––––––––––
