@@ -445,6 +445,7 @@
 ; ============================ L MODE =============================
 	{:des "L-mode for new things" :rules [ :l& ;* –––––––––––––––––––––––––––––––––––
 		[:m [:km "New Message"]] ;• n+m for New Message ⭕ place holder
+		[:s [:km "Clean Line Formatting"]] ;• l+s for Clean Line Formatting
 	]}
 ;============================ M MODE ==============================
 	{:des "m-mode for new things" :rules [ :m& ;• m+..............................................................
