@@ -13,8 +13,76 @@ template for lettermodes
 	]}
 
 
-12/06/21 ;= montereySync.edn .011 continuuing to clean up letter modes...
+12/09/21
+dealing with S mode
 
+dealing with U Mode
+;============================ U MODE ============================
+	{:des "u-mode for..." :rules [
+		;+ u+c+...............................................................................................................................
+			[:c [:km "Capitalize Word"] [["u&" 1] ["uc&" 1]]] ;+ u+c²
+			[:s [:km "Uppercase Selection"] [["u&" 1] ["uc&" 1]]] ;+ u+c+s for Uppercase Selection
+			[:w [:km "Uppercase Word"] [["u&" 1] ["uc&" 1]]] ;+ u+c+w for Uppercase Word
+			[:p [:km "Uppercase Word"] [["u&" 1] ["uc&" 1]]] ;+ u+c+p for Uppercase Word
+		;+ u+p+..............................................................................................................................
+			[:c [:km "Uppercase Word"] [["u&" 1] ["up&" 1]]] ;+ u+p+c for Uppercase Word
+	:u& ;* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+		;* u+c for uppercase word
+			[:c [ [:vk_none] ["uc&" 1] ] nil {:delayed {:canceled [ ["uc&" 0]["u&" 0] ]
+			:invoked [ [:km "Uppercase Word"] ["uc&" 0] ] }:held [ [:km "u held"] ["uc¬" 1]] }]
+		;* u+p for...
+			[:p [[:vk_none]["up&" 1]] nil {:delayed{:canceled [["up&" 0]["u&" 0]]
+			:invoked [[:vk_none]["up&" 0]] } :held [[:vk_none]] }]
+		[:s [:km "New Sticky"]] ;• u+s for New Sticky
+	]}
+
+
+☑️  daling with w mode...
+;============================ W MODE =============================
+	{:des "w-mode" :rules [
+		;+ w+spacebar...................................................................................................
+			[:spacebar [[:SPKR2]:!!f14] [["w&" 1]["wspacebar&" 1]] ] ;+ w+spacebar²  for Moom
+			; [:right_control [[:SPKR2]:escape [:btt "Expose"]] [["w&" 1]["wright_control&" 1]] ];+ w+R⌃²  for Expose via BTT Hotkey
+			; [:e [ :escape  [:btt "Expose"] ] [["w&" 1] ["wspacebar&" 1]] ] ;+ w+e  for Expose via BTT Hotkey
+			; [:d [ :escape [:SPKR3] [:btt "Show Desktop"] ] [["w&" 1] ["wspacebar&" 1]]] ;+ w+spacebar+d for Show Desktop (via BTT)
+			; [:spacebar :j [["w&" 1] ["wspacebar&" 1]] ]
+			;+ w+spacebar+n for Show Notifcation Center (via BTT)
+			[:n [ [:btt "Show Notification Center"] ] [["w&" 1] ["wspacebar&" 1]]]
+			;+ w+spacebar+a for Mission Control: Application Windows
+			[:a [:km "Mission Control: Application Windows"] [["w&" 1] ["wspacebar&" 1]]]
+		;+ w+left_command+.................................................................................................................
+			[:left_command [:!!SCTOf4] [["w&" 1] ["wleft_command&" 1]] ] ;+ w+left_command²  for Expose via BTT Hotkey
+		;+ w+l+.................................................................................................................
+			[:l [[:SPKR3][:btt "Restore last saved window layout"]] [["w&" 1] ["wl&" 1]] ] ;+ w+l+l  for Restore window layout via BTT Hotkey
+			[:r [[:SPKR3][:btt "Restore Saved Window Layout"]] [["w&" 1] ["wl&" 1]] ] ;+ w+l+r for Restore Saved Window Layout via BTT Hotkey
+			[:s [[:SPKR3][:btt "Save Current Window Layout"]] [["w&" 1] ["wl&" 1]] ] ;+ w+l+s for Save Current Window Layout via BTT Hotkey
+
+	:w& ;* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+			;* w+spacebar for Moom via ⌃⌥⇧⌘f14 hotkey
+				[:spacebar [[:btt "Expose"] [:SPKR3]["wspacebar&" 1]] nil {:delayed{:canceled [["wspacebar&" 0]["w&" 0]]
+				:invoked [[:vk_none]["wspacebar&" 0]] }}]
+			;! w+spacebar for Moom via ⌃⌥⇧⌘f14 hotkey (old)
+				; [:spacebar [:!!f14 [:SPKR3]["wspacebar&" 1]] nil {:delayed{:canceled [["wspacebar&" 0]["w&" 0]]
+				; :invoked [[:vk_none]["wspacebar&" 0]] }}]
+			;* w+right_control for Jump to window via context hot key
+						[:right_control [[:btt "Expose"] [:SPKR3]["wright_control&" 1]] nil {:delayed{:canceled [["wright_control&" 0]["w&" 0]]
+						:invoked ["wright_control&" 0] }:held [:km "Mission Control: Application Windows"] }]
+			;! w+right_control for Jump to window via context hot key (old)
+						; [:right_control [:!!f14 [:SPKR3]["wright_control&" 1]] nil {:delayed{:canceled [["wright_control&" 0]["w&" 0]]
+						; :invoked ["wright_control&" 0] }:held [:km "Mission Control: Application Windows"] }]
+
+			;* w+left_command for Expose (via BTT hotkey ⌃⌥⇧⌘f4)
+				[:left_command [[:btt "Expose"]  ["wleft_command&" 1]] nil {:delayed
+				{:canceled [["wleft_command&" 0]["w&" 0]] ; 'i' is said for everything
+				:invoked [[:vk_none] ["wleft_command&" 0]] } ; is triggered as delayed response even when holding
+				:held [  [:km "Mission Control: Application Windows"] ["wleft_command¬" 1]] }]
+			;* w+l+ for Window layout via BTT
+				[:l [ [:vk_none] ["wl&" 1] ] nil {:delayed {:canceled [ ["wl&" 0]["w&" 0] ]
+				:invoked [ [:vk_none] ["wl&" 0]] }:held [ [:SPKR3] [:btt "Save current window layout"]] }]
+
+
+
+12/06/21 ;= montereySync.edn .011 continuuing to clean up letter modes...
 
 12/04/21
 cleaned up C mode

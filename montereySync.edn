@@ -635,124 +635,61 @@
 				[:x [:km "Deactivate Remote"]] 		;*q for Deactivate Remote
 	]}
 ;============================= S Mode =============================
-	{:des "s-mode for s things" :rules [ :s& ;* ––––––––––––––––––––––––––––
-			[:t :!STCs] ;* s+t for Speak Text via system hot key
-			[:c [:km "Speak Clipboard"]] ;* s+c for Speak Clipboard
-
-		[:9 [:km "Enclose Selection with Parenthesis"]] ;* s+9 for Enclose Selection with Parenthesis
-		[:open_bracket [:km "Enclose Selection with Square Brackets"]] ;* s+open_bracket for Enclose Selection with Square Brackets
-		[:close_bracket [:km "Enclose Selection with Curly Brackets"]] ;* s+close_bracket for Enclose Selection with Curly Brackets
+	{:des "s-mode for s things" :rules [ :s& ;* ––––––––––––––––-----------––––––––––––
+		[:t :!STCs] ;• s+t for Speak Text via system hot key
+		[:c [:km "Speak Clipboard"]] ;• s+c for Speak Clipboard
+		[:9 [:km "Enclose Selection with Parenthesis"]] ;• s+9 for Enclose Selection with Parenthesis 🟢
+		[:open_bracket [:km "Enclose Selection with Square Brackets"]] ;• s+open_bracket for Enclose Selection with Square Brackets
+		[:close_bracket [:km "Enclose Selection with Curly Brackets"]] ;• s+close_bracket for Enclose Selection with Curly Brackets
 		;; 🟡 s+right_shift+quote for Enclose Selection with Double Quotes
-		[:quote [:km "Enclose Selection with Single Quotes"]] ;* s+quote for Enclose Selection with Single Quotes
-		;* s+right_shift for transform selection case - [:km "Uppercase Selection"]
-		[:right_shift [:km "Capitalize Selection"]] ;*s+right_shift for Capitalize Selection
-
+		[:quote [:km "Enclose Selection with Single Quotes"]] ;• s+quote for Enclose Selection with Single Quotes
+		;• s+right_shift for transform selection case - [:km "Uppercase Selection"]
+		[:right_shift [:km "Capitalize Selection"]] ;•s+right_shift for Capitalize Selection
 		;*jlik for  selection
-			[:j :!SOleft_arrow] [:l :!SOright_arrow] [:i :!SOup_arrow] [:k :!SOdown_arrow]
+		[:j :!SOleft_arrow] [:l :!SOright_arrow] [:i :!SOup_arrow] [:k :!SOdown_arrow]
 		;*a/l/fed for scroll mouse now
-			[:a {:mkey {:hwheel 5 :speed 5}}]
-			[:f {:mkey {:hwheel -5 :speed 5}}]
-			[:e {:mkey {:vwheel -5 :speed 5}}]
-			[:d {:mkey {:vwheel 5 :speed 5}}]
-
-		[:y [:km "Hover 🔁 Sync Log"]] ;• h+y for Hover 🔁 Sync Log
-
-
+		[:a {:mkey {:hwheel 5 :speed 5}}]
+		[:f {:mkey {:hwheel -5 :speed 5}}]
+		[:e {:mkey {:vwheel -5 :speed 5}}]
+		[:d {:mkey {:vwheel 5 :speed 5}}]
+		[:y [:km "Hover 🔁 Sync Log"]] ;• h+y for Hover 🔁 Sync Log 🔰
 	]}
 ;============================ T MODE ============================
-	{	:des "t-mode for t things" :rules [
-	:t& ;* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	{	:des "t-mode for t things" :rules [ :t& ;* ––––––––––––––––––––––––––––––––––––
 		[:w [:km "Tab To Window"] ] ;• t+w for Tab To Window (❌ doesn't work)
 		[:m [:km "Tab Merge"] ] ;• t+w for Tab Merge (❌ doesn't work)
 		[:n [:km "Tab New"] ] ;• t+n for Tab New
 	]}
 
 ;============================ U MODE ============================
-	{:des "u-mode for..." :rules [
-		;+ u+c+...............................................................................................................................
-			[:c [:km "Capitalize Word"] [["u&" 1] ["uc&" 1]]] ;+ u+c²
-			[:s [:km "Uppercase Selection"] [["u&" 1] ["uc&" 1]]] ;+ u+c+s for Uppercase Selection
-			[:w [:km "Uppercase Word"] [["u&" 1] ["uc&" 1]]] ;+ u+c+w for Uppercase Word
-			[:p [:km "Uppercase Word"] [["u&" 1] ["uc&" 1]]] ;+ u+c+p for Uppercase Word
-		;+ u+p+..............................................................................................................................
-			[:c [:km "Uppercase Word"] [["u&" 1] ["up&" 1]]] ;+ u+p+c for Uppercase Word
-	:u& ;* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		;* u+c for uppercase word
-			[:c [ [:vk_none] ["uc&" 1] ] nil {:delayed {:canceled [ ["uc&" 0]["u&" 0] ]
-			:invoked [ [:km "Uppercase Word"] ["uc&" 0] ] }:held [ [:km "u held"] ["uc¬" 1]] }]
-		;* u+p for...
-			[:p [[:vk_none]["up&" 1]] nil {:delayed{:canceled [["up&" 0]["u&" 0]]
-			:invoked [[:vk_none]["up&" 0]] } :held [[:vk_none]] }]
-		[:s [:km "New Sticky"]] ;• u+s for New Sticky
+	{:des "u-mode for..." :rules [ :u& ;* ––––––––––––––––––––––––––––––––––––––––––
+		[:w [:km "Uppercase Word"]] ;• u+w for Uppercase Word 🟢
+		[:s [:km "Uppercase Selection"]] ;• u+s for Uppercase Selection 🟢
 	]}
 ;============================ V MODE ============================
-{	:des "v-mode for..." :rules [
-		;+ v+i+...............................................................................................................................
-			[:p [:km "Hover Evernote ⭐️ VIPs"] [["v&" 1] ["vi&" 1]]] ;+ v+i+p for Hover Evernote ⭐️ VIPs
-			; [:KeyDD [:km "km macro 2"] [["v&" 1] ["vi&" 1]]] ;+ v+i+KeyDD for km macro 2
-	:v& ;* ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		;* v+i for...
-			[:i [[:vk_none]["vi&" 1]] nil {:delayed{:canceled [["vi&" 0]["v&" 0]]
-			:invoked [[:vk_none]["vi&" 0]] } :held [[:vk_none]] }]
-		; [:KeyFF [:ToKey]] ;• v+KeyFF for ToKey
-]}
-
+	{	:des "v-mode for..." :rules [ :v& ;* ––––––––––––––––––––––––––––––––––––––––-
+		[:i [[:SPKR3] [:km "Hover Evernote ⭐️ VIPs"] ] ] ;• v+i  for Hover Evernote ⭐️ VIPs 🟢
+		[:p [[:SPKR3] [:km "Hover Evernote ⭐️ VIPs"] ] ] ;• v+p  for Hover Evernote ⭐️ VIPs 🟢
+	]}
 ;============================ W MODE =============================
-	{:des "w-mode" :rules [
-		;+ w+spacebar...................................................................................................
-			[:spacebar [[:SPKR2]:!!f14] [["w&" 1]["wspacebar&" 1]] ] ;+ w+spacebar²  for Moom
-			; [:right_control [[:SPKR2]:escape [:btt "Expose"]] [["w&" 1]["wright_control&" 1]] ];+ w+R⌃²  for Expose via BTT Hotkey
-			; [:e [ :escape  [:btt "Expose"] ] [["w&" 1] ["wspacebar&" 1]] ] ;+ w+e  for Expose via BTT Hotkey
-			; [:d [ :escape [:SPKR3] [:btt "Show Desktop"] ] [["w&" 1] ["wspacebar&" 1]]] ;+ w+spacebar+d for Show Desktop (via BTT)
-			; [:spacebar :j [["w&" 1] ["wspacebar&" 1]] ]
-			;+ w+spacebar+n for Show Notifcation Center (via BTT)
-			[:n [ [:btt "Show Notification Center"] ] [["w&" 1] ["wspacebar&" 1]]]
-			;+ w+spacebar+a for Mission Control: Application Windows
-			[:a [:km "Mission Control: Application Windows"] [["w&" 1] ["wspacebar&" 1]]]
-		;+ w+left_command+.................................................................................................................
-			[:left_command [:!!SCTOf4] [["w&" 1] ["wleft_command&" 1]] ] ;+ w+left_command²  for Expose via BTT Hotkey
-		;+ w+l+.................................................................................................................
-			[:l [[:SPKR3][:btt "Restore last saved window layout"]] [["w&" 1] ["wl&" 1]] ] ;+ w+l+l  for Restore window layout via BTT Hotkey
-			[:r [[:SPKR3][:btt "Restore Saved Window Layout"]] [["w&" 1] ["wl&" 1]] ] ;+ w+l+r for Restore Saved Window Layout via BTT Hotkey
-			[:s [[:SPKR3][:btt "Save Current Window Layout"]] [["w&" 1] ["wl&" 1]] ] ;+ w+l+s for Save Current Window Layout via BTT Hotkey
+	{	:des "w-mode" :rules [ :w& ;• ––––––––––––––––––––––––––––––––––––––––––––
+		[:a [[:SPKR3] :!STOcomma]] ;• w+a for Switch Active Workspace Left (via System Hotkeys)
+		[:d [[:SPKR3] :!STOperiod]] ;• w+d for Switch Active Workspace Right (via System Hotkeys)
+		[:f [[:SPKR3] [:btt "Move Window Space Right"] ] ] ;• w+f  Move Window Space Right
+		[:caps_lock [[:SPKR3] [:btt "Move Window Space Left"] ] ] ;• w+capslock Move Window Space Left
 
-	:w& ;* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-			;* w+spacebar for Moom via ⌃⌥⇧⌘f14 hotkey
-				[:spacebar [[:btt "Expose"] [:SPKR3]["wspacebar&" 1]] nil {:delayed{:canceled [["wspacebar&" 0]["w&" 0]]
-				:invoked [[:vk_none]["wspacebar&" 0]] }}]
-			;! w+spacebar for Moom via ⌃⌥⇧⌘f14 hotkey (old)
-				; [:spacebar [:!!f14 [:SPKR3]["wspacebar&" 1]] nil {:delayed{:canceled [["wspacebar&" 0]["w&" 0]]
-				; :invoked [[:vk_none]["wspacebar&" 0]] }}]
-			;* w+right_control for Jump to window via context hot key
-						[:right_control [[:btt "Expose"] [:SPKR3]["wright_control&" 1]] nil {:delayed{:canceled [["wright_control&" 0]["w&" 0]]
-						:invoked ["wright_control&" 0] }:held [:km "Mission Control: Application Windows"] }]
-			;! w+right_control for Jump to window via context hot key (old)
-						; [:right_control [:!!f14 [:SPKR3]["wright_control&" 1]] nil {:delayed{:canceled [["wright_control&" 0]["w&" 0]]
-						; :invoked ["wright_control&" 0] }:held [:km "Mission Control: Application Windows"] }]
+		[:spacebar [[:SPKR3] [:btt "Expose"]] ] ;• w+a for Switch Active Workspace Left (via System Hotkeys) 🟢works now
+		[:right_control [[:SPKR3] [:btt "Expose"]] ] ;• w+a for Switch Active Workspace Left (via System Hotkeys)
 
-			;* w+left_command for Expose (via BTT hotkey ⌃⌥⇧⌘f4)
-				[:left_command [[:btt "Expose"]  ["wleft_command&" 1]] nil {:delayed
-				{:canceled [["wleft_command&" 0]["w&" 0]] ; 'i' is said for everything
-				:invoked [[:vk_none] ["wleft_command&" 0]] } ; is triggered as delayed response even when holding
-				:held [  [:km "Mission Control: Application Windows"] ["wleft_command¬" 1]] }]
-			;* w+l+ for Window layout via BTT
-				[:l [ [:vk_none] ["wl&" 1] ] nil {:delayed {:canceled [ ["wl&" 0]["w&" 0] ]
-				:invoked [ [:vk_none] ["wl&" 0]] }:held [ [:SPKR3] [:btt "Save current window layout"]] }]
-
-	;• w+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-				[:a [[:SPKR3] :!STOcomma]] ;• w+a for Switch Active Workspace Left (via System Hotkeys)
-				[:spacebar [[:SPKR3] [:btt "Expose"]] ] ;• w+a for Switch Active Workspace Left (via System Hotkeys)
-				[:d [[:SPKR3] :!STOperiod]] ;• w+d for Switch Active Workspace Right (via System Hotkeys)
-				[:caps_lock [[:SPKR3] [:btt "Move Window Space Left"] ] ] ;• w+capslock Move Window Space Left
-				[:f [[:SPKR3] [:btt "Move Window Space Right"] ] ] ;• w+f  Move Window Space Right
-				[:comma [:km "Switch All Workspaces Left"]] ;• w+comma for Switch All Workspaces Left
-				[:period [:km "Switch All Workspaces Right"]];• w+period for Switch All Workspaces Right
-				[:caps_lock [ [:SPKR3] [:btt "Move Window Space Left"] ] ] ;• w+caps_lock/f for Move Window Space Left/Right (via BTT script)
-				[:f [[:SPKR3] [:btt "Move Window Space Right"] ] ] ;• w+f for  Move Window Space Right
-				[:1 [ [:SPKR3] [:btt "Switch to Workspace 1"]]] ;• w+1 for Switch to Workspace 1 (via BTT script)
-				[:2 [ [:SPKR3] [:btt "Switch to Workspace 2"]]] ;• w+2 for Switch to Workspace 2 (via BTT script)
-				[:3 [ [:SPKR3] [:btt "Switch to Workspace 3"]]] ;• w+3 for Switch to Workspace 3 (via BTT script)
-				[:4 [ [:SPKR3] [:btt "Switch to Workspace 4"]]] ;• w+4 for Switch to Workspace 4 (via BTT script)
+	;; keep around
+		;; [:comma [:km "Switch All Workspaces Left"]] ;• w+comma for Switch All Workspaces Left
+		;; [:period [:km "Switch All Workspaces Right"]];• w+period for Switch All Workspaces Right
+		;; [:caps_lock [ [:SPKR3] [:btt "Move Window Space Left"] ] ] ;• w+caps_lock/f for Move Window Space Left/Right (via BTT script)
+		;; [:f [[:SPKR3] [:btt "Move Window Space Right"] ] ] ;• w+f for  Move Window Space Right
+		;; [:1 [ [:SPKR3] [:btt "Switch to Workspace 1"]]] ;• w+1 for Switch to Workspace 1 (via BTT script)
+		;; [:2 [ [:SPKR3] [:btt "Switch to Workspace 2"]]] ;• w+2 for Switch to Workspace 2 (via BTT script)
+		;; [:3 [ [:SPKR3] [:btt "Switch to Workspace 3"]]] ;• w+3 for Switch to Workspace 3 (via BTT script)
+		;; [:4 [ [:SPKR3] [:btt "Switch to Workspace 4"]]] ;• w+4 for Switch to Workspace 4 (via BTT script)
 	]}
 ;============================ X MODE ============================
 		{	:des "x-mode for..." :rules [

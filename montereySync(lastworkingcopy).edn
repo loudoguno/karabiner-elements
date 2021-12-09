@@ -705,61 +705,21 @@
 ]}
 
 ;============================ W MODE =============================
-	{:des "w-mode" :rules [
-		;+ w+spacebar...................................................................................................
-			[:spacebar [[:SPKR2]:!!f14] [["w&" 1]["wspacebar&" 1]] ] ;+ w+spacebar²  for Moom
-			; [:right_control [[:SPKR2]:escape [:btt "Expose"]] [["w&" 1]["wright_control&" 1]] ];+ w+R⌃²  for Expose via BTT Hotkey
-			; [:e [ :escape  [:btt "Expose"] ] [["w&" 1] ["wspacebar&" 1]] ] ;+ w+e  for Expose via BTT Hotkey
-			; [:d [ :escape [:SPKR3] [:btt "Show Desktop"] ] [["w&" 1] ["wspacebar&" 1]]] ;+ w+spacebar+d for Show Desktop (via BTT)
-			; [:spacebar :j [["w&" 1] ["wspacebar&" 1]] ]
-			;+ w+spacebar+n for Show Notifcation Center (via BTT)
-			[:n [ [:btt "Show Notification Center"] ] [["w&" 1] ["wspacebar&" 1]]]
-			;+ w+spacebar+a for Mission Control: Application Windows
-			[:a [:km "Mission Control: Application Windows"] [["w&" 1] ["wspacebar&" 1]]]
-		;+ w+left_command+.................................................................................................................
-			[:left_command [:!!SCTOf4] [["w&" 1] ["wleft_command&" 1]] ] ;+ w+left_command²  for Expose via BTT Hotkey
-		;+ w+l+.................................................................................................................
-			[:l [[:SPKR3][:btt "Restore last saved window layout"]] [["w&" 1] ["wl&" 1]] ] ;+ w+l+l  for Restore window layout via BTT Hotkey
-			[:r [[:SPKR3][:btt "Restore Saved Window Layout"]] [["w&" 1] ["wl&" 1]] ] ;+ w+l+r for Restore Saved Window Layout via BTT Hotkey
-			[:s [[:SPKR3][:btt "Save Current Window Layout"]] [["w&" 1] ["wl&" 1]] ] ;+ w+l+s for Save Current Window Layout via BTT Hotkey
-
-	:w& ;* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-			;* w+spacebar for Moom via ⌃⌥⇧⌘f14 hotkey
-				[:spacebar [[:btt "Expose"] [:SPKR3]["wspacebar&" 1]] nil {:delayed{:canceled [["wspacebar&" 0]["w&" 0]]
-				:invoked [[:vk_none]["wspacebar&" 0]] }}]
-			;! w+spacebar for Moom via ⌃⌥⇧⌘f14 hotkey (old)
-				; [:spacebar [:!!f14 [:SPKR3]["wspacebar&" 1]] nil {:delayed{:canceled [["wspacebar&" 0]["w&" 0]]
-				; :invoked [[:vk_none]["wspacebar&" 0]] }}]
-			;* w+right_control for Jump to window via context hot key
-						[:right_control [[:btt "Expose"] [:SPKR3]["wright_control&" 1]] nil {:delayed{:canceled [["wright_control&" 0]["w&" 0]]
-						:invoked ["wright_control&" 0] }:held [:km "Mission Control: Application Windows"] }]
-			;! w+right_control for Jump to window via context hot key (old)
-						; [:right_control [:!!f14 [:SPKR3]["wright_control&" 1]] nil {:delayed{:canceled [["wright_control&" 0]["w&" 0]]
-						; :invoked ["wright_control&" 0] }:held [:km "Mission Control: Application Windows"] }]
-
-			;* w+left_command for Expose (via BTT hotkey ⌃⌥⇧⌘f4)
-				[:left_command [[:btt "Expose"]  ["wleft_command&" 1]] nil {:delayed
-				{:canceled [["wleft_command&" 0]["w&" 0]] ; 'i' is said for everything
-				:invoked [[:vk_none] ["wleft_command&" 0]] } ; is triggered as delayed response even when holding
-				:held [  [:km "Mission Control: Application Windows"] ["wleft_command¬" 1]] }]
-			;* w+l+ for Window layout via BTT
-				[:l [ [:vk_none] ["wl&" 1] ] nil {:delayed {:canceled [ ["wl&" 0]["w&" 0] ]
-				:invoked [ [:vk_none] ["wl&" 0]] }:held [ [:SPKR3] [:btt "Save current window layout"]] }]
-
-	;• w+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-				[:a [[:SPKR3] :!STOcomma]] ;• w+a for Switch Active Workspace Left (via System Hotkeys)
-				[:spacebar [[:SPKR3] [:btt "Expose"]] ] ;• w+a for Switch Active Workspace Left (via System Hotkeys)
-				[:d [[:SPKR3] :!STOperiod]] ;• w+d for Switch Active Workspace Right (via System Hotkeys)
-				[:caps_lock [[:SPKR3] [:btt "Move Window Space Left"] ] ] ;• w+capslock Move Window Space Left
-				[:f [[:SPKR3] [:btt "Move Window Space Right"] ] ] ;• w+f  Move Window Space Right
-				[:comma [:km "Switch All Workspaces Left"]] ;• w+comma for Switch All Workspaces Left
-				[:period [:km "Switch All Workspaces Right"]];• w+period for Switch All Workspaces Right
-				[:caps_lock [ [:SPKR3] [:btt "Move Window Space Left"] ] ] ;• w+caps_lock/f for Move Window Space Left/Right (via BTT script)
-				[:f [[:SPKR3] [:btt "Move Window Space Right"] ] ] ;• w+f for  Move Window Space Right
-				[:1 [ [:SPKR3] [:btt "Switch to Workspace 1"]]] ;• w+1 for Switch to Workspace 1 (via BTT script)
-				[:2 [ [:SPKR3] [:btt "Switch to Workspace 2"]]] ;• w+2 for Switch to Workspace 2 (via BTT script)
-				[:3 [ [:SPKR3] [:btt "Switch to Workspace 3"]]] ;• w+3 for Switch to Workspace 3 (via BTT script)
-				[:4 [ [:SPKR3] [:btt "Switch to Workspace 4"]]] ;• w+4 for Switch to Workspace 4 (via BTT script)
+	{:des "w-mode" :rules [ :w& ;• –---––––––––––––––––––––––––––––––––––––––––––
+		[:a [[:SPKR3] :!STOcomma]] ;• w+a for Switch Active Workspace Left (via System Hotkeys)
+		[:d [[:SPKR3] :!STOperiod]] ;• w+d for Switch Active Workspace Right (via System Hotkeys)
+		[:spacebar [[:SPKR3] [:btt "Expose"]] ] ;• w+a for Switch Active Workspace Left (via System Hotkeys)
+		;; [:right_gui [[:SPKR3] [:btt "Expose"]] ] ;• w+a for Switch Active Workspace Left (via System Hotkeys)
+		[:caps_lock [[:SPKR3] [:btt "Move Window Space Left"] ] ] ;• w+capslock Move Window Space Left
+		[:f [[:SPKR3] [:btt "Move Window Space Right"] ] ] ;• w+f  Move Window Space Right
+		[:comma [:km "Switch All Workspaces Left"]] ;• w+comma for Switch All Workspaces Left
+		[:period [:km "Switch All Workspaces Right"]];• w+period for Switch All Workspaces Right
+		[:caps_lock [ [:SPKR3] [:btt "Move Window Space Left"] ] ] ;• w+caps_lock/f for Move Window Space Left/Right (via BTT script)
+		[:f [[:SPKR3] [:btt "Move Window Space Right"] ] ] ;• w+f for  Move Window Space Right
+		[:1 [ [:SPKR3] [:btt "Switch to Workspace 1"]]] ;• w+1 for Switch to Workspace 1 (via BTT script)
+		[:2 [ [:SPKR3] [:btt "Switch to Workspace 2"]]] ;• w+2 for Switch to Workspace 2 (via BTT script)
+		[:3 [ [:SPKR3] [:btt "Switch to Workspace 3"]]] ;• w+3 for Switch to Workspace 3 (via BTT script)
+		[:4 [ [:SPKR3] [:btt "Switch to Workspace 4"]]] ;• w+4 for Switch to Workspace 4 (via BTT script)
 	]}
 ;============================ X MODE ============================
 		{	:des "x-mode for..." :rules [
