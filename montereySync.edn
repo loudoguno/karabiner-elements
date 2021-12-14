@@ -451,7 +451,7 @@
 ;============================ M MODE ==============================
 	{:des "m-mode for new things" :rules [ :m& ;• m+..............................................................
 		[:r [:km "Hover OmniFocus Morning Review"]] ;• m+r for Hover OmniFocus Morning Review
-		[:r [:km "Hover OmniFocus Morning Review"]] ;• m+r for Hover OmniFocus Morning Review
+		[:s [:km "New Message (to self)"]] ;• m+s for New Message (to self)
 	]}
 ;============================= N MODE ============================
 	{:des "n-mode for n things" :rules [ :n& ;* ––––––––––––––––––––––––––––––––––––
