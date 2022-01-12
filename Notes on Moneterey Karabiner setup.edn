@@ -12,6 +12,56 @@ template for lettermodes
 	;; keep around
 	]}
 
+1/12/22 adding hover notes
+[:e [:km "Hover Recent Daily Journal Entry"]] ;• h+e for Hover Recent Daily Journal Entry 🟢
+
+
+
+12/20/21 removing D mode
+;============================ D MODE =============================
+	{:des "d-mode for d things" :rules [
+		;+ d+spacebar+..................................................................................................................
+			[:spacebar [[:SPKR2][:km "Show Desktop Mgmt Palette"]] [["d&" 1] ["dspacebar&" 1]]] ;+ d+spacebar² for Show Desktop Mgmt Palette
+			[:right_control [ [:km "Show Desktop Mgmt Palette"]] [["d&" 1] ["dright_control&" 1]]] ;+ d+right_control² for Show Desktop Mgmt Palette
+			[:k [:escape [:km "Trigger Macro by Name"]] [["d&" 1] ["dspacebar&" 1]]] ;+ d+spacebar+k for Trigger Macro by Name
+		;+ d+m+.............................................................................................................................
+			[:m [:km "Minimize Window"] [["d&" 1] ["dm&" 1]]] ;+ d+m+m for Minimize Window
+			[:s :!ST8 [["d&" 1] ["dm&" 1]]] ;+ d+m+s for Move Tab Left
+			[:f :!ST9 [["d&" 1] ["dm&" 1]]] ;+ d+m+f for Move Tab Right
+			[:comma [:km "Move Window Active Space left (delay)"] [["d&" 1] ["dm&" 1]]] ;+ d+m+comma for Move Window Active Space Left (delay)
+			[:period [:km "Move Window Active Space Right (delay)"] [["d&" 1] ["dm&" 1]]] ;+ d+m+period for Move Window Active Space Right (delay)
+	:d& ;* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+		;* d+spacebar for ⌘P...
+				[:spacebar [[:SPKR3]:!Cp  ["dspacebar&" 1] ] nil {:delayed{:canceled [["dspacebar&" 0]["d&" 0]]
+				:invoked [ [:vk_none] ["dspacebar&" 0] ] }:held [ [:km "Move Window Active Space Right (delay)"] ["dspacebar¬" 1] ] }]
+		;* d+right_control for ⌘P... (for UHK splut spacebar )
+				[:right_control [[:SPKR3] :!Cp ["dright_control&" 1]] nil {:delayed{:canceled [["dright_control&" 0]["d&" 0]]
+				:invoked [ [:vk_none] ["dright_control&" 0] ] }:held [ [:km "Move Window Active Space Right (delay)"] ["dright_control¬" 1] ] }]
+		;* d+escape for ⌘⌥⇧P (Global Macro Palette) or should everything just be prepended with the "`" or spacebar?...
+				[:escape [ :!Cp ["descape&" 1] ] nil {:delayed
+				{:canceled [ ["descape&" 0]["d&" 0] ] ; 'i' is said for everything
+				:invoked [ [:km "blank"] ["descape&" 0] ] } ; is triggered as delayed response even when holding
+				:held [ [:km "Move Window Active Space Right (delay)"] ["descape¬" 1]] }]
+		;• Tab Manipulation....................................................
+			[:s :!TStab] 							;   ; =   S for tab left (via ⇧⇥ with action set in App native or KM)
+			[:f :!Ttab] 							   ; =   F   = ⇥
+			[:a :!Copen_bracket] 			   ;    a for Back Page via ⌘[
+			[:g :!Cclose_bracket] 		   ;    g for Forward Page via ⌘]
+			[:w [:km "Item Up ©"]]		   ;    w for Item Up via ⌘]
+			[:v [:km "Item Down ©"]]		   ;    v for Item Up via ⌘]
+
+			[:c :!Cquote] 					   ;    c for ⌘'
+		;* d+m for moving tab/window left/right.....................
+				[:m [[:vk_none]["dm&" 1]] nil {:delayed {:canceled [["dm&" 0]["d&" 0]]
+				:invoked [[:vk_none]["dm&" 0]] }  :held [[:km "Move Window Active Space Right (delay)"]["dm¬" 1]] } ]
+			[:#Sj :!O#Sleft_arrow] ;*jlik for ⌥ navigation....................................................
+			[:#Sl :!O#Sright_arrow]
+			[:#Si :!O#Sup_arrow]
+			[:#Sk :!O#Sdown_arrow]
+		[:comma [:km "Switch Second Space Left"] ] ;• c+comma for Switch Second Space Left
+		[:period [:km "Switch Second Space Right"] ] ;• c+period for Switch Second Space Right
+		[:t [:!SCTd] ] ;• d+t for Dictate Text (via ⇧⌃⌘d)
+	]}
 
 12/09/21
 ;============================ F MODE ============================= ; !needs work
