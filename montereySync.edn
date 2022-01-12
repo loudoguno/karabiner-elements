@@ -381,6 +381,7 @@
 ;=========================== H MODE ==============================
 	{:des " h-mode for h things" :rules [:h& ;* ––––––––––––––––––––––––––––––––––––
 		[:w [:km "Hover Evernote Now"]] ;• h+w for Hover Evernote Now 🟢
+		[:e [:km "Hover Recent Daily Journal Entry"]] ;• h+e for Hover Recent Daily Journal Entry 🟢
 		[:4 [:km "Hover OmniFocus 🧨C4 TODO"]] ;• h+w for Hover OmniFocus 🧨C4 TODO 🔰
 		]}
 ;============================ I MODE ==============================
