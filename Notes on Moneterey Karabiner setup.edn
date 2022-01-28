@@ -15,8 +15,6 @@ template for lettermodes
 1/12/22 adding hover notes
 [:e [:km "Hover Recent Daily Journal Entry"]] ;• h+e for Hover Recent Daily Journal Entry 🟢
 
-
-
 12/20/21 removing D mode
 ;============================ D MODE =============================
 	{:des "d-mode for d things" :rules [

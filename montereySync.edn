@@ -1,5 +1,6 @@
-;= montereySync.edn .02  ======================================================
+;= montereySync.edn .023  ======================================================
 ;* CHANGELOG =====================================================
+	;; .023 adding space+v for clipboard...
 	; .022 removing D mode;
 	;; .021 adding m+S for message to self
 	;; .020 playing around with things...
@@ -197,15 +198,17 @@
 			[:##d :left_option :space-mode]
 			[:##caps_lock :fn :space-mode]
 		;* MISC for other functions (backtick/capslock for escape, b for spacebar and w for moom)
-				[:##w [[:SPKR3]:!!f14] :space-mode] [:##w [[:SPKR2]:!!f14] :Rctrl-mode] ;• spacebar+w activate moom probably (depricated for m so contexts could have w...)
-				[:##m [[:SPKR3]:!!f14] :space-mode] [:##m [[:SPKR2]:!!f14] :Rctrl-mode] ;• spacebar+m activate moom
+				;; [:##w [[:SPKR3]:!!f14] :space-mode] [:##w [[:SPKR2]:!!f14] :Rctrl-mode] ;• spacebar+w activate moom probably (depricated for m so contexts could have w...)
+				[:##m [[:SPKR3]:!!f14] :space-mode] [:##m [[:SPKR2]:!!f14] :Rctrl-mode] ;• spacebar+m for activate moom (like this one better)
 				[:##c [[:SPKR3]:!Ospacebar] :space-mode] [:##c [[:SPKR2]:!Ospacebar] :Rctrl-mode] ;• spacebar+c to activate Contexts
+				[:##w [[:SPKR3]:!Ospacebar] :space-mode] [:##c [[:SPKR2]:!Ospacebar] :Rctrl-mode] ;• spacebar+w to activate Contexts (❗ changing w to do contexts and not moom)
 				[:##tab [[:SPKR3]:!Otab] :space-mode] [:##tab [[:SPKR2]:!Otab] :Rctrl-mode] ;• spacebar+tab for contexts tab switch
 				[:##slash [[:SPKR3]:!Oescape] :space-mode]  ;• spacebar+slash for to Focus help menu via ⇧⌘/
 				[:##right_shift [[:SPKR3]:!Cf12] :space-mode]  ;• spacebar+Right Shift for Bartender Keyboard Navigate (via ⌘F12 in Bartender)
-				[:##return_or_enter [[:SPKR3]:!Of12] :space-mode]  ;• spacebar+Enter for Bartender Search menu bar items (via ⌘F12 in Bartender) 🟢
-				; [:##grave_accent_and_tilde :escape :space-mode] ;? Unused
-		;* as Shift
+				[:##return_or_enter [[:SPKR3]:!Of12] :space-mode]  ;• spacebar+Enter for Bartender Search menu bar items (via ⌘F12 in Bartender) 🟢🔰new
+				[:##v [[:SPKR3][:km "Clipboard History"]] :space-mode]  ;• spacebar+v for "Clipboard History"(via KM macro) 🔰new
+
+		;* as Shift for alternative characters (e.g. <,>...)
 			[:##q :grave_accent_and_tilde [:space-mode :!numpad-mode]] ;? just added
 			[:##e :!Sgrave_accent_and_tilde [:space-mode :!numpad-mode]] ;?
 			[:##period :!Speriod [:space-mode :!numpad-mode]]
