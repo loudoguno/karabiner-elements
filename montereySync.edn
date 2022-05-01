@@ -383,8 +383,9 @@
 	]}
 ;=========================== H MODE ==============================
 	{:des " h-mode for h things" :rules [:h& ;* ––––––––––––––––––––––––––––––––––––
+		[:e [:km "Hover Evernote ETHDenver"]] ;• h+e for Hdover ETHDenver 🟢
 		[:w [:km "Hover Evernote Now"]] ;• h+w for Hover Evernote Now 🟢
-		[:e [:km "Hover Recent Daily Journal Entry"]] ;• h+e for Hover Recent Daily Journal Entry 🟢
+		;; [:e [:km "Hover Recent Daily Journal Entry"]] ;• h+e for Hover Recent Daily Journal Entry 🟢
 		[:4 [:km "Hover OmniFocus 🧨C4 TODO"]] ;• h+w for Hover OmniFocus 🧨C4 TODO 🔰
 		]}
 ;============================ I MODE ==============================
@@ -472,12 +473,8 @@
 	]}
 ;============================ R MODE ============================
 	{:des "r-mode for remote things" :rules [ :r& ;* ––––––––––––––––––––––––––––––––
-		;* r+m for Media Remote 🟢 works
-			[:m [ [:vk_none] ["rm&" 1] ] nil {:delayed {:canceled [ ["rm&" 0]["r&" 0] ] ; 'i' is said for everything
-			:invoked [ [:km "Media Remote"] ["rm&" 0] ] } ; is triggered as delayed response even when holding
-			:held [ [:km "Deactivate Remote"] ["rm¬" 1]]
-			}]
-		;* r+o for Roam stuff
+
+	;* r+o for Roam stuff
 			[:o [ [:km "Go to Roam Greenhouse (Lou's)"] ["ro&" 1] ] nil {:delayed {:canceled [ ["ro&" 0]["r&" 0] ] ; 'i' is said for everything
 			:invoked [ [:km "Go to Roam Greenhouse Lou"] ["ro&" 0] ] } ; is triggered as delayed response even when holding
 			:held [ [:km "Deactivate Remote"] ["ro¬" 1]]
@@ -502,9 +499,10 @@
 		[:tab [:km "Screenshot Timestamp"]] ;* r+tab for tab for Screenshot Timeestamp
 		[:p [:km "Screenshot Timestamp"]] ;*tab for Screenshot Timeestamp
 			[:right_gui [:km "Screenshot Timestamp"]] ;*tab for Screenshot Timeestamp
+		[:m [:km "Mute"]] ;*m for mute
 	;* Remote Palette
 			[:return_or_enter [:km "- Remote Modes Palette"]] ;*return for remote palette
-			[:m [:km "Media Remote"]] 		;*r for YouTube Remote
+			;; [:m [:km "Media Remote"]] 		;*r for YouTube Remote
 			[:y [:km "YouTube Remote"]] 		;*y for YouTube Remote
 			[:q [:km "QuickTime Remote"]] 		;*q for QuickTime Remote
 			[:x [:km "Deactivate Remote"]] 		;*q for Deactivate Remote
