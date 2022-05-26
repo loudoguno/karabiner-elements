@@ -1,5 +1,7 @@
 ;= montereySync.edn .023  ======================================================
 ;* CHANGELOG =====================================================
+	;; 5/25/22 thinking about w+space
+	;; .024 looking at hover commands... 🚫
 	;; .023 adding space+v for clipboard...
 	; .022 removing D mode;
 	;; .021 adding m+S for message to self
@@ -383,8 +385,9 @@
 	]}
 ;=========================== H MODE ==============================
 	{:des " h-mode for h things" :rules [:h& ;* ––––––––––––––––––––––––––––––––––––
-		[:e [:km "Hover Evernote ETHDenver"]] ;• h+e for Hdover ETHDenver 🟢
 		[:w [:km "Hover Evernote Now"]] ;• h+w for Hover Evernote Now 🟢
+		[:o [:km "-Hover Palette"]] ;• h+w for Hover Evernote Now 🟢
+		[:e [:km "Hover Evernote ETHDenver"]] ;• h+e for Hdover ETHDenver 🟢
 		;; [:e [:km "Hover Recent Daily Journal Entry"]] ;• h+e for Hover Recent Daily Journal Entry 🟢
 		[:4 [:km "Hover OmniFocus 🧨C4 TODO"]] ;• h+w for Hover OmniFocus 🧨C4 TODO 🔰
 		]}
@@ -549,13 +552,16 @@
 	]}
 ;============================ W MODE =============================
 	{	:des "w-mode" :rules [ :w& ;• ––––––––––––––––––––––––––––––––––––––––––––
+		[:spacebar [[:SPKR3] :!SOCf3] ] ;• w+spacebar for Switch Active Workspace Left (via System Hotkey ⌥⇧⌘F3) 🟢works now -> editing because
+		[:right_control [[:SPKR3] :!SOCf3 ]] ;• w+a for Switch Active Workspace Left (via System Hotkeys)
+		;; UHK
+		;; [:spacebar [[:SPKR3] [:btt "Expose"]] ] ;• w+a for Switch Active Workspace Left (via BTT) 🟢works now -> editing because
+		[:right_control [[:SPKR3] [:btt "Expose"]] ] ;• w+a for Switch Active Workspace Left (via System Hotkeys)
+
 		[:a [[:SPKR3] :!STOcomma]] ;• w+a for Switch Active Workspace Left (via System Hotkeys)
 		[:d [[:SPKR3] :!STOperiod]] ;• w+d for Switch Active Workspace Right (via System Hotkeys)
 		[:f [[:SPKR3] [:btt "Move Window Space Right"] ] ] ;• w+f  Move Window Space Right
 		[:caps_lock [[:SPKR3] [:btt "Move Window Space Left"] ] ] ;• w+capslock Move Window Space Left
-
-		[:spacebar [[:SPKR3] [:btt "Expose"]] ] ;• w+a for Switch Active Workspace Left (via System Hotkeys) 🟢works now
-		[:right_control [[:SPKR3] [:btt "Expose"]] ] ;• w+a for Switch Active Workspace Left (via System Hotkeys)
 
 	;; keep around
 		;; [:comma [:km "Switch All Workspaces Left"]] ;• w+comma for Switch All Workspaces Left
