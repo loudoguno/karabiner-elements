@@ -1,5 +1,6 @@
 ;= montereySync.edn .023  ======================================================
 ;* CHANGELOG =====================================================
+	;; ✨ Modes to consider adding
 	;; 5/25/22 thinking about w+space
 	;; .024 looking at hover commands... 🚫
 	;; .023 adding space+v for clipboard...
@@ -386,6 +387,9 @@
 ;=========================== H MODE ==============================
 	{:des " h-mode for h things" :rules [:h& ;* ––––––––––––––––––––––––––––––––––––
 		[:w [:km "Hover Evernote Now"]] ;• h+w for Hover Evernote Now 🟢
+		[:l [:km "Hover ⚡️ LIVE NOTES"]] ;• h+l for Hover ⚡️ LIVE NOTES 🟢
+		[:u [:km "Hover 📅 UPCOMING "]] ;• h+u for Hover 📅 UPCOMING  🟢
+		[:d [:km "Hover 🍇 DFP Dashboard"]] ;• h+u for Hover 📅 UPCOMING  🟢
 		[:o [:km "-Hover Palette"]] ;• h+w for Hover Evernote Now 🟢
 		[:e [:km "Hover Evernote ETHDenver"]] ;• h+e for Hdover ETHDenver 🟢
 		;; [:e [:km "Hover Recent Daily Journal Entry"]] ;• h+e for Hover Recent Daily Journal Entry 🟢
@@ -599,7 +603,7 @@
 	{	:des "return-mode for..." :rules [
 	:return& ;• –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 		[:delete_or_backspace :!Tdelete_or_backspace] ;• return+delete for dismiss notification (via ⌃↩) 💡  could also just use
-		[:spacebar :!COSTreturn_or_enter] ;• return+delete for dismiss notification (via ⌃↩) 💡  could also just use
+		[:spacebar [[:SPKR3] :!COSTreturn_or_enter]] ;• return+spacebar for focus menubard (via bartender hotkey)
 	]}
 ;============================ QUOTE MODE ============================
 {	:des "quote-mode for..." :rules [
