@@ -390,8 +390,8 @@
 		[:l [:km "Hover ⚡️ LIVE NOTES"]] ;• h+l for Hover ⚡️ LIVE NOTES 🟢
 		[:u [:km "Hover 📅 UPCOMING "]] ;• h+u for Hover 📅 UPCOMING  🟢
 		[:d [:km "Hover 🍇 DFP Dashboard"]] ;• h+u for Hover 📅 UPCOMING  🟢
+		[:e [:km "Hover Evernote 🍇📞 NEXT MEETING/HUDDLE"]] ;• h+e for Hover 📅 UPCOMING  🟢
 		[:o [:km "-Hover Palette"]] ;• h+w for Hover Evernote Now 🟢
-		[:e [:km "Hover Evernote ETHDenver"]] ;• h+e for Hdover ETHDenver 🟢
 		;; [:e [:km "Hover Recent Daily Journal Entry"]] ;• h+e for Hover Recent Daily Journal Entry 🟢
 		[:4 [:km "Hover OmniFocus 🧨C4 TODO"]] ;• h+w for Hover OmniFocus 🧨C4 TODO 🔰
 		]}
