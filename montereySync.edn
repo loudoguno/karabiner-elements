@@ -1,5 +1,6 @@
 ;;= montereySync.edn .023  ======================================================
 ;;* CHANGELOG =====================================================
+	;; 8/18/22 adding i+d Hover Evernote  🥔 Idaho Trip (Brosensus)
 	;; ✨ Modes to consider adding
 	;; 5/25/22 thinking about w+space
 	;; .024 looking at hover commands... 🚫
@@ -365,25 +366,17 @@
 		[:d [:km "Hover 🍇 DFP Dashboard"]] ;;• h+u for Hover 📅 UPCOMING  🟢
 		[:e [:km "Hover Evernote 🍇📞 NEXT MEETING/HUDDLE"]] ;;• h+e for Hover 📅 UPCOMING  🟢
 		[:c [:km "Hover Evernote 🕸 Capture (ideas and thoughts)"]] ;;• h+w for Hover Evernote Now 🟢
-
 		[:o [:km "-Hover Palette"]] ;;• h+w for Hover Evernote Now 🟢
 		;; [:e [:km "Hover Recent Daily Journal Entry"]] ;;• h+e for Hover Recent Daily Journal Entry 🟢
 		[:4 [:km "Hover OmniFocus 🧨C4 TODO"]] ;;• h+w for Hover OmniFocus 🧨C4 TODO 🔰
 		]}
 ;;============================ I MODE ==============================
 	{:des "i-mode for new things" :rules [
-		;;+ i+t+.................................................................................................................................
-			;;+ i+t² for NA
-			[:t [:km "Blank Test"] [["i&" 1] ["it&" 1]]]
-	:i& ;;* ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		;;* i+t for Italicize
-				[:t [ :!Ci ["it&" 1] ] nil {:delayed
-				{:canceled [ ["it&" 0]["i&" 0] ] ; 'i' is said for everything
-				:invoked [ [:vk "none"] ["it&" 0] ] } ; is triggered as delayed response even when holding
-				:held [ :!Oleft_arrow :!OSright_arrow :!Ci ["it¬" 1]]
-				}]
+	:i& ;;• i+..................................................................................................................................
+		[:e [:km "Insert Emoji"]] ;;• i+e for Insert Emoji
+		[:d [:km "Hover Evernote  🥔 Idaho Trip (Brosensus)"]] ;;• i+d for Hover Evernote Now 🟢
 
-				[:e [:km "Insert Emoji"]] ;;• i+e for Insert Emoji
+
 		]}
 ;;============================ J MODE =============================
 	{:des "j-mode" :rules [
