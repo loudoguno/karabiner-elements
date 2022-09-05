@@ -363,18 +363,25 @@
 		[:w [:km "Hover Evernote Now"]] ;;• h+w for Hover Evernote Now 🟢
 		[:l [:km "Hover ⚡️ LIVE NOTES"]] ;;• h+l for Hover ⚡️ LIVE NOTES 🟢
 		[:u [:km "Hover 📅 UPCOMING "]] ;;• h+u for Hover 📅 UPCOMING  🟢
-		[:d [:km "Hover 🍇 DFP Dashboard"]] ;;• h+u for Hover 📅 UPCOMING  🟢
-		[:e [:km "Hover Evernote 🍇📞 NEXT MEETING/HUDDLE"]] ;;• h+e for Hover 📅 UPCOMING  🟢
-		[:c [:km "Hover Evernote 🕸 Capture (ideas and thoughts)"]] ;;• h+w for Hover Evernote Now 🟢
-		[:o [:km "-Hover Palette"]] ;;• h+w for Hover Evernote Now 🟢
-		;; [:e [:km "Hover Recent Daily Journal Entry"]] ;;• h+e for Hover Recent Daily Journal Entry 🟢
-		[:4 [:km "Hover OmniFocus 🧨C4 TODO"]] ;;• h+w for Hover OmniFocus 🧨C4 TODO 🔰
+		[:d [:km "Hover 🍇 DFP Dashboard"]] ;;• h+d forHover 🍇 DFP Dashboard  🟢
+		[:e [:km "Hover Evernote 🍇📞 NEXT MEETING/HUDDLE"]] ;;• h+e 🍇📞 NEXT MEETING/HUDDLE  🟢
+		[:c [:km "Hover Evernote 🕸 Capture (ideas and thoughts)"]] ;;• h+c for Hover Evernote 🕸 Capture (ideas and thoughts) 🟢
+		;; [:<INSERT 2nd key> [:km "<INSERT MACRO NAME>"]] ;;• <INSERT 1st key>+<INSERT 2nd key> for <INSERT MACRO NAME>
+		;;  ✨ NEW TEMPLALTE TO COPY
+			;; [:<INSERT 2nd key> [:km "<INSERT MACRO NAME>"]] ;;• <INSERT 1st key>+<INSERT 2nd key> for <INSERT MACRO NAME>
+
+
+		;; TODO: need work
+			[:o [:km "-Hover Palette"]] ;;• h+w for Hover palette ⭕needs work
+			;; [:e [:km "Hover Recent Daily Journal Entry"]] ;;• h+e for Hover Recent Daily Journal Entry 🟢
+			[:4 [:km "Hover OmniFocus 🧨C4 TODO"]] ;;• h+4 for Hover OmniFocus 🧨C4 TODO 🔰
 		]}
 ;;============================ I MODE ==============================
 	{:des "i-mode for new things" :rules [
 	:i& ;;• i+..................................................................................................................................
 		[:e [:km "Insert Emoji"]] ;;• i+e for Insert Emoji
-		[:d [:km "Hover Evernote  🥔 Idaho Trip (Brosensus)"]] ;;• i+d for Hover Evernote Now 🟢
+		[:d [:km "Hover Evernote  🥔 Idaho Trip (Brosensus)"]] ;;• i+d for 🥔 Idaho Trip (Brosensus) 🟢
+		[:t [:km "Hover Evernote 🔷 ITINERARY"]] ;;• i+t for Hover Evernote 🔷 ITINERARY 🟢
 
 
 		]}
@@ -426,6 +433,7 @@
 		[:s [:km "New Typinator Item from Selection"]] ;;• n+s for Quick Add Typinator Item
 
 		[:l [:km "Log Palette"]] ;;• n+l for Log Palette 🟡 need to fix underlying macros
+		[:spacebar [:km "Jump to Notes"]] ;;• n+spacebar Jump to Notes
 	]}
 ;;============================== O MODE =============================
 	{:des "o-mode for..." :rules [ :o& ;;* ––––––––––––––––––––––––––––––––––––––––––-
