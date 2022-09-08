@@ -1,20 +1,4 @@
 ;;= montereySync.edn .023  ======================================================
-;;* CHANGELOG =====================================================
-	;; 8/18/22 adding i+d Hover Evernote  🥔 Idaho Trip (Brosensus)
-	;; ✨ Modes to consider adding
-	;; 5/25/22 thinking about w+space
-	;; .024 looking at hover commands... 🚫
-	;; .023 adding space+v for clipboard...
-	; .022 removing D mode;
-	;; .021 adding m+S for message to self
-	;; .020 playing around with things...
-	;; .010 12/04/21 going to continue to clean up everything... 12/08/21~diting omni foucs
-	;; .009 making k+e to edit Karabiner... also fixed up some modes...
-	;; .007,.008 looking at z mode to see about keyboard light (11/30/21) (❗ t-mode which broke m,n,w)
-	;; trying to replace impremissable characters... not sure why...&
-	;; ✅  fixed slash+spacebar for help menu search
-	;; ✅  fixed n+i for omnifocus quick entry
-	;; fixing j+o for jump to Omnifocus
 
 { ;;========================= DEFINITIONS ============================
 	:templates { ;......................................................................................................................... aliases for calling function in Alfered, Keyboard Maestro, BetterTouchTool
@@ -23,12 +7,6 @@
 		:btt "osascript -e 'tell application \"BetterTouchTool\" to  trigger_named \"%s\"'"
 		:open "open \"%s\"" ; open file
 		:wait "sleep 250" ;pause 250 ms
-		:type "osascript -e 'tell application \"System Events\" to keystroke \"%s\"'" ; send keystroke
-				:escp "osascript -e 'tell application \"System Events\" to key code 53' " ; send escape
-				:sendq "osascript -e 'tell application \"System Events\" to keystroke \"q\"'" ; send keystroke
-				:sendreturn "osascript -e 'tell application \"System Events\" to keystroke return' " ; send escape
-				:sendspace "osascript -e 'tell application \"System Events\" to keystroke space' " ; send keystroke
-				:sendesc "osascript -e 'tell application \"System Events\" to keystroke tab' " ; send keystroke
 	;;* Sounds and Audio Feedback invoked by calling `afplay`, used to use emojis but that broke
 		:SPKR3 "afplay /System/Library/PrivateFrameworks/ScreenReader.framework/Versions/A/Resources/Sounds/DrawerOpening.aiff"
 		:SPKR2 "afplay /System/Library/PrivateFrameworks/ScreenReader.framework/Versions/A/Resources/Sounds/DrawerClosing.aiff"
@@ -43,12 +21,7 @@
 		:soundOff "afplay /System/Library/PrivateFrameworks/ScreenReader.framework/Versions/A/Resources/Sounds/DrillIn.aiff"
 			}
 	:layers { ;;;=............................................................................................................................. basic layers like spacemode
-		; :tab-mode {:key :tab}
 		:space-mode {:key :spacebar :condi [:!f& :!d& :!c& :!k& :!w& :!Rctrl-mode :!LCMD]} ;prevents space mode from overiding F and D modes
-		:Rctrl-mode {:key :right_control :alone {:key :spacebar} :condi [:!f& :!d& :!c& :!k& :!w& :!space-mode]} ; :Rctrl-mode {:key :right_control :condi [:!f& :!d& :!c& :!k& :!w&]}
-		:numpad-mode {:key :f20} ;;? defined in layers and given symbolic key never used so can be triggered via setting variable in space mode
-		:numrow-mode {:key :f20}
-		:symrow-mode {:key :f20}
 		}
 	:simlayers { ;;=........................................................................................................................advanced layers that act as vairables
 		;;! :semicolon-mode {:key :semicolon} :! taken out in preference to have semicolon mapped to `fn` for use with Context's quick search
@@ -82,7 +55,6 @@
 		:period& {:key :period}
 		:return& {:key :return_or_enter}
 		:quote& {:key :quote}
-		; :tab& {:key :tab}
 		}
 ;;+ ===============================================================
 :main [  ; ============================= MAIN ========================
@@ -94,28 +66,13 @@
 			[:!SC4 nil nil {:alone :!SC4 :held [:km "-Snagit Palette"] :repeat false :halt true :params{:alone 150 :held 150}} ]
 			]}
 ;;======================== TAP and DOUBLEPRESS  =====================
-	;; C T O S and Q W E R
-		{:des "DOUBLE PRESS: ⌘q² to quit,  " :rules[ ;;* Double Press Command Q to Quit
+	;; C T O S and Q W E R (these stand for C=left command, T=left control, O=left option, S=left shift, QWER is the same thing but for right side modifiers)
+		{:des "DOUBLE PRESS: ⌘q² to quit,  " :rules[ ;;* Double Press Command+q to Quit
 			[:!C#Pq [ :!Cq ["⌘q" 0]] ["⌘q" 1]] 		;? when ⌘q is pressed the first time  > variable is set to 1 and nothing is sent
 			[:!C#Pq ["⌘q" 1] nil {:delayed {:invoked ["⌘q" 0] :canceled ["⌘q" 0]}}] ;? when pressed the second time send ⌘Q
 			]}
-		{:des "Double Press Special" :rules [[:condi :!f& :!d& :!c& :!k& :!w& :!Rctrl-mode]
-				; * Double Press Left Command
-						; [:left_gui [[:SPKR2] :!!f14 ["LCMD" 0]] ["LCMD" 1]]
-						; [:left_gui :left_gui nil {:alone [[:SPKR3]["LCMD" 1 ]]:delayed {:invoked ["LCMD" 0] :canceled ["LCMD" 0]}}]
-				;;* Double Press Right Command for Moom (via f14)
-					; [:right_gui [[:SPKR2] :!!f14 ["R⌘" 0]] ["R⌘" 1]] ;! had to get rid of to keep numpad mode working..
-					; [:right_gui :right_gui nil {:alone [[:SPKR3]:right_gui["R⌘" 1 ]]:delayed {:invoked ["R⌘" 0] :canceled ["R⌘" 0]}}]
-						; [:right_gui [[:SPKR2] :!!f14 ["R⌘" 0]] ["R⌘" 1]]
-						; [:right_gui :right_gui nil {:alone [[:SPKR3]:!!f14["R⌘" 1 ]]:delayed {:invoked ["R⌘" 0] :canceled ["R⌘" 0]}}]
-
-			]}
 	{:des "Modifier+Spacebar Stuff" :rules[
-		[:!Cspacebar [[:SPKR3] :!Ospacebar  ["LCMDspacebar" 0]] ["LCMDspacebar" 1]] ;;* Double Press Command Spacebar for something...
-			[:!Cspacebar :!Cspacebar nil {:alone ["LCMDspacebar" 1] :delayed{:invoked ["LCMDspacebar" 0] :canceled ["LCMDspacebar" 0]}} ]
-		[:!COspacebar [[:SPKR3] :!COspacebar  ["LCMD⌥␣" 0]] ["LCMD⌥␣" 1]] ;;* LCMD⌥␣ spacebar
-			[:!COspacebar :!COspacebar nil {:alone ["LCMD⌥␣" 1] :delayed{:invoked ["LCMD⌥␣" 0] :canceled ["LCMD⌥␣" 0]}} ]
-		;;* modifier+spacebar bug work around...
+		;;* modifier+spacebar bug work around... (not sure if christian would need)
 			[:!Ospacebar :!Ospacebar] [:!COTspacebar :!COTspacebar] [:!COSspacebar :!COSspacebar] [:!COTSspacebar :!COTSspacebar]
 		]}
 ;;========================  MODIFIERS and COMMAND MODES ==============================
@@ -123,20 +80,6 @@
 		{:des "Shift Space for underscore and dash, Left to Right Modifers...":rules[
 			[:!Rright_control :hyphen] [:!Rspacebar :hyphen] ;;* Right Shift +Spacebar (or mod) for underscore
 			[:!Sright_control :!Shyphen] [:!Sspacebar :!Shyphen]  ;;*Left Shift+Spacebar (or mod) for dash
-			; [:!OSspacebar [[:SPKR3]:!SOspacebar  ]]  ;;*Left Shift+Spacebar (or mod) for dash
-			; [:!Sright_shift [:SPKR3]] [:!Rleft_shift [:SPKR3]] ;;* ⭕️ Left  Shift to Right Shift
-			; [:!Sright_gui [:SPKR3]] [:!Rleft_gui [:SPKR3]] ;;* ⭕️ Left Shift to Right Command and Right Shift to Left Command
-			]}
-
-			 {:des "Command Modes...":rules[
-				;;*(R)⌘+(L)⌘ for Number Mode
-						[:!Qleft_gui nil nil {:alone [[:SPKR0] ["numpad-mode" 0]]
-						:held [[:SPKR1] ["numpad-mode" 1]] :afterup [[:SPKR0] ["numpad-mode" 0]]
-						:repeat false :halt false :params{:alone 150 :held 150}} ]
-				;;*(L)⌘ +(R) ⌘ for Symbol Home Row Mode
-						[:!Cright_gui nil nil {:alone [[:SPKR0] ["symrow-mode" 0]]
-						:held [[:SPKR1] ["symrow-mode" 1]] :afterup [[:SPKR0] ["symrow-mode" 0]]
-						:repeat false :halt false :params{:alone 150 :held 150}} ]
 			]}
 ;;;======================== SIMULTANEOUS KEY ========================= rules activated when two keys are pressed at the same time
 	{:des "Simultaneous Keys":rules [
@@ -144,7 +87,7 @@
 		[ [:v :c]  [:km "Activate Visual Studio Code"] ] ;;* vc to Activate Visual Studio Code
 		]}
 ;;======================= HYPER MODE and MODIFIERS ====================
-	{:des "Capslock as hyper" :rules [ [:condi :!space-mode :!Rctrl-mode] ; Capslock as hyper (command+shift+option+control)
+	{:des "Capslock as hyper" :rules [ [:condi :!space-mode :!Rctrl-mode] ;;* Capslock as hyper (command+shift+option+control)
 		[:##caps_lock :!!left_control nil {:alone :escape} ] ]}
 	{:des "Semicolon as fn" :rules [ [:condi :!space-mode :!Rctrl-mode] ;;* Semicolon as FN for use with Contexts quicksearch
 		[:##semicolon :##fn nil {:alone :semicolon}] ]}
@@ -363,27 +306,26 @@
 		[:w [:km "Hover Evernote Now"]] ;;• h+w for Hover Evernote Now 🟢
 		[:l [:km "Hover ⚡️ LIVE NOTES"]] ;;• h+l for Hover ⚡️ LIVE NOTES 🟢
 		[:u [:km "Hover 📅 UPCOMING "]] ;;• h+u for Hover 📅 UPCOMING  🟢
-		[:d [:km "Hover 🍇 DFP Dashboard"]] ;;• h+d forHover 🍇 DFP Dashboard  🟢
-		[:e [:km "Hover Evernote 🍇📞 NEXT MEETING/HUDDLE"]] ;;• h+e 🍇📞 NEXT MEETING/HUDDLE  🟢
-		[:c [:km "Hover Evernote 🕸 Capture (ideas and thoughts)"]] ;;• h+c for Hover Evernote 🕸 Capture (ideas and thoughts) 🟢
-		;; [:<INSERT 2nd key> [:km "<INSERT MACRO NAME>"]] ;;• <INSERT 1st key>+<INSERT 2nd key> for <INSERT MACRO NAME>
-		;;  ✨ NEW TEMPLALTE TO COPY
-			;; [:<INSERT 2nd key> [:km "<INSERT MACRO NAME>"]] ;;• <INSERT 1st key>+<INSERT 2nd key> for <INSERT MACRO NAME>
-
-
-		;; TODO: need work
-			[:o [:km "-Hover Palette"]] ;;• h+w for Hover palette ⭕needs work
-			;; [:e [:km "Hover Recent Daily Journal Entry"]] ;;• h+e for Hover Recent Daily Journal Entry 🟢
-			[:4 [:km "Hover OmniFocus 🧨C4 TODO"]] ;;• h+4 for Hover OmniFocus 🧨C4 TODO 🔰
+		[:d [:km "Hover 🍇 DFP Dashboard"]] ;;• h+u for Hover 📅 UPCOMING  🟢
+		[:e [:km "Hover Evernote 🍇📞 NEXT MEETING/HUDDLE"]] ;;• h+e for Hover 📅 UPCOMING  🟢
+		[:o [:km "-Hover Palette"]] ;;• h+w for Hover Evernote Now 🟢
+		;; [:e [:km "Hover Recent Daily Journal Entry"]] ;;• h+e for Hover Recent Daily Journal Entry 🟢
+		[:4 [:km "Hover OmniFocus 🧨C4 TODO"]] ;;• h+w for Hover OmniFocus 🧨C4 TODO 🔰
 		]}
 ;;============================ I MODE ==============================
 	{:des "i-mode for new things" :rules [
-	:i& ;;• i+..................................................................................................................................
-		[:e [:km "Insert Emoji"]] ;;• i+e for Insert Emoji
-		[:d [:km "Hover Evernote  🥔 Idaho Trip (Brosensus)"]] ;;• i+d for 🥔 Idaho Trip (Brosensus) 🟢
-		[:t [:km "Hover Evernote 🔷 ITINERARY"]] ;;• i+t for Hover Evernote 🔷 ITINERARY 🟢
+		;;+ i+t+.................................................................................................................................
+			;;+ i+t² for NA
+			[:t [:km "Blank Test"] [["i&" 1] ["it&" 1]]]
+	:i& ;;* ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+		;;* i+t for Italicize
+				[:t [ :!Ci ["it&" 1] ] nil {:delayed
+				{:canceled [ ["it&" 0]["i&" 0] ] ; 'i' is said for everything
+				:invoked [ [:vk "none"] ["it&" 0] ] } ; is triggered as delayed response even when holding
+				:held [ :!Oleft_arrow :!OSright_arrow :!Ci ["it¬" 1]]
+				}]
 
-
+				[:e [:km "Insert Emoji"]] ;;• i+e for Insert Emoji
 		]}
 ;;============================ J MODE =============================
 	{:des "j-mode" :rules [
@@ -433,7 +375,6 @@
 		[:s [:km "New Typinator Item from Selection"]] ;;• n+s for Quick Add Typinator Item
 
 		[:l [:km "Log Palette"]] ;;• n+l for Log Palette 🟡 need to fix underlying macros
-		[:spacebar [:km "Jump to Notes"]] ;;• n+spacebar Jump to Notes
 	]}
 ;;============================== O MODE =============================
 	{:des "o-mode for..." :rules [ :o& ;;* ––––––––––––––––––––––––––––––––––––––––––-
