@@ -368,9 +368,9 @@
 		[:e [:km "Hover Evernote 🍇📞 NEXT MEETING/HUDDLE"]] ;;• h+e 🍇📞 NEXT MEETING/HUDDLE  🟢
 		[:c [:km "Hover Evernote 🕸 Capture (ideas and thoughts)"]] ;;• h+c for Hover Evernote 🕸 Capture (ideas and thoughts) 🟢
 		[:t [:km "Hover Notion Lou’s TODO’s"]] ;;• h+t for Hover  Notion Lou’s TODO’s) 🟢
-		[:t [:km "Hover Notion Lou’s TODO’s"]] ;;• h+t for Hover Notion Lou’s TODO’s
+		;; [:<INSERT 2nd key> [:km "<INSERT MACRO NAME>"]] ;;• <INSERT 1st key>+<INSERT 2nd key> for <INSERT MACRO NAME>
 		;;  ✨ NEW TEMPLALTE TO COPY
-			;; [:t [:km "<INSERT MACRO NAME>"]] ;;• <INSERT 1st key>+<INSERT 2nd key> for <INSERT MACRO NAME>
+			;; [:<INSERT 2nd key> [:km "<INSERT MACRO NAME>"]] ;;• <INSERT 1st key>+<INSERT 2nd key> for <INSERT MACRO NAME>
 
 
 		;; TODO: need work
@@ -394,7 +394,7 @@
 		[:o [:km "Jump to OmniFocus"]] ;;• j+o for Jump to Evernote 🟢
 		[:w [[:SPKR3] :!Ospacebar]] ;;• j+w for Jump to Window (via Context hotkey)
 		[:period [:km "© Open Context Menu"]]  ;;• j+period for Open Context Menu (via Keyboard Maestro)
-
+		[:spacebar [:km "Click GUI Button"]] ;;⭐ j+spacebar for Click GUI Button
 
 	;; testing out "send"
 		[:a [[:SPKR3] [:wait][:escp]]]
