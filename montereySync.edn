@@ -1,5 +1,6 @@
 ;;= montereySync.edn .023  ======================================================
 ;;* CHANGELOG =====================================================
+	;;11/02/22  💢 dealt with rebasing thing i need to revisit... now adding Hover Evernote 🧰 WORKBENCH
 	;; 9/07/ 22 adding Hover Notion
 	;; 8/18/22 adding i+d Hover Evernote  🥔 Idaho Trip (Brosensus)
 	;; ✨ Modes to consider adding
@@ -368,9 +369,10 @@
 		[:e [:km "Hover Evernote 🍇📞 NEXT MEETING/HUDDLE"]] ;;• h+e 🍇📞 NEXT MEETING/HUDDLE  🟢
 		[:c [:km "Hover Evernote 🕸 Capture (ideas and thoughts)"]] ;;• h+c for Hover Evernote 🕸 Capture (ideas and thoughts) 🟢
 		[:t [:km "Hover Notion Lou’s TODO’s"]] ;;• h+t for Hover  Notion Lou’s TODO’s) 🟢
-		;; [:<INSERT 2nd key> [:km "<INSERT MACRO NAME>"]] ;;• <INSERT 1st key>+<INSERT 2nd key> for <INSERT MACRO NAME>
-		;;  ✨ NEW TEMPLALTE TO COPY
-			;; [:<INSERT 2nd key> [:km "<INSERT MACRO NAME>"]] ;;• <INSERT 1st key>+<INSERT 2nd key> for <INSERT MACRO NAME>
+		[:b [:km "Hover Evernote 🧰 WORKBENCH"]] ;;• h+b for Hover Evernote 🧰 WORKBENCH
+
+
+		;; ✨ TEMPLATE to maybe use: [:<INSERT 2nd key> [:km "<INSERT MACRO NAME>"]] ;;• <INSERT 1st key>+<INSERT 2nd key> for <INSERT MACRO NAME>
 
 
 		;; TODO: need work
