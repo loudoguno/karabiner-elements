@@ -1,5 +1,6 @@
 ;;= montereySync.edn .023  ======================================================
 ;;* CHANGELOG =====================================================
+	;; 1/05/23 trying to figur out UHK 2.0 fn thing
 	;;11/02/22  💢 dealt with rebasing thing i need to revisit... now adding Hover Evernote 🧰 WORKBENCH
 	;; 9/07/ 22 adding Hover Notion
 	;; 8/18/22 adding i+d Hover Evernote  🥔 Idaho Trip (Brosensus)
@@ -151,6 +152,7 @@
 	{:des "Semicolon as fn" :rules [ [:condi :!space-mode :!Rctrl-mode] ;;* Semicolon as FN for use with Contexts quicksearch
 		[:##semicolon :##fn nil {:alone :semicolon}] ]}
 	{:des "FN from UHK" :rules [[:#SOCTf24 :fn [:uhk-keyboard] ]]} ;;* UHK FN as mac fn via UHK hardcoded f24 > fn in KE but only for uhk
+	{:des "FN from UHK 2" :rules [[:#SOCTf24 :fn [:uhk-keyboard-2] ]]} ;;* for V2
 	{:des "Tab as capslock" :rules [ [:condi :!space-mode :!Rctrl-mode :!f&] ;! got it to stop sending fn
 		[:##tab :fn nil {:alone :tab} ] ] }
 
@@ -688,6 +690,7 @@
 		:devices {
 				:macbook-internal [{:product_id 631 :vendor_id 1452}]
 				:uhk-keyboard [{:product_id 24866 :vendor_id 7504}]
+				:uhk-keyboard-2 [{:product_id 24868 :vendor_id 7504}]
 			}
 		:applications {
 			:Chromes      ["^com\\.google\\.Chrome$", "^org\\.chromium\\.Chromium$", "^com\\.google\\.Chrome\\.canary$"]
