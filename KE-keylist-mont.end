@@ -44,7 +44,7 @@
    :delete_forward {:label "del" :display true}
    :tab {:display true}
    :spacebar {:display true}
-   :hyphen {:label "hyphen (-)" :display true}
+   :hyphen {:label "hyphen (-)" :display true} also called dash
    :equal_sign {:label "equal_sign (=)" :display true}
    :open_bracket {:label "open_bracket [" :display true}
    :close_bracket {:label "close_bracket ]" :display true}

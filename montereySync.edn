@@ -1,5 +1,6 @@
 ;;= montereySync.edn .023  ======================================================
 ;;* CHANGELOG =====================================================
+	;; 1/06/23 🔰 greated karabiner baare-metal version of b+a to boldate to beginning of line and love it ...
 	;; 1/05/23 trying to figur out UHK 2.0 fn thing -> ✅ fixed!!!
 	;;11/02/22  💢 dealt with rebasing thing i need to revisit... now adding Hover Evernote 🧰 WORKBENCH
 	;; 9/07/ 22 adding Hover Notion
@@ -290,8 +291,8 @@
 ;;=========================== B MODE ==============================
 	{:des " b-mode for b things" :rules [ :b& ;;* ––––––––––––––––––––––––––––––––––––
 		[:a [:km "Boldate Clean Left"] ] ;;• b+a for Boldate Clean Left 🟢 FIXED
-		[:w [:!Oleft_arrow :!OSright_arrow] ] ;;• b+w for highlight word
-		[:l [:!Ta :!TSe :!Sright_arrow] ] ;;• b+l for highlight lio
+		[:w [:!Oleft_arrow :!OSright_arrow] ] ;;• b+w for highlight word 🤔 interesting daisy chain
+		[:l [:!Ta :!TSe :!Sright_arrow] ] ;;• b+L for highlight line
 	]}
 ;;============================ C MODE =============================
 	{:des "c-mode for c things" :rules [ :c& ;;* ––––––––––––––––––––––––––––––––––––
@@ -440,6 +441,10 @@
 
 		[:l [:km "Log Palette"]] ;;• n+l for Log Palette 🟡 need to fix underlying macros
 		[:spacebar [:km "Jump to Notes"]] ;;• n+spacebar Jump to Notes
+
+		;; [:a [:km "Boldate Clean Left"] ] ;;• n+a for Boldate Clean Left via KM ✨ new (trying to achieve  b+a awkwardness on UhK)
+		[:a [[:SPKR3] :!Ssemicolon :spacebar :left_arrow :left_arrow :!STa :!Cb :left_arrow :!Cb :hyphen :!Te] ] ;;• n+a for Boldate Clean Left NOT via KM, 🧪 new (trying to achieve  b+a awkwardness on UhK)
+
 	]}
 ;;============================== O MODE =============================
 	{:des "o-mode for..." :rules [ :o& ;;* ––––––––––––––––––––––––––––––––––––––––––-
