@@ -358,7 +358,6 @@
 
 		;; ✨ TEMPLATE to maybe use: [:<INSERT 2nd key> [:km "<INSERT MACRO NAME>"]] ;;• <INSERT 1st key>+<INSERT 2nd key> for <INSERT MACRO NAME>
 
-
 		;; TODO: need work
 			[:o [:km "-Hover Palette"]] ;;• h+w for Hover palette ⭕needs work
 			;; [:e [:km "Hover Recent Daily Journal Entry"]] ;;• h+e for Hover Recent Daily Journal Entry 🟢
@@ -377,16 +376,20 @@
 	{:des "j-mode" :rules [
 	:j&  ;;• j+................................................................................................................................
 		[:e [[:SPKR3][:km "Jump to Evernote"]]] ;;• j+e for Jump to Evernote 🟢
-		[:o [:km "Jump to OmniFocus"]] ;;• j+o for Jump to Evernote 🟢
-		[:w [[:SPKR3] :!Ospacebar]] ;;• j+w for Jump to Window (via Context hotkey)
-		[:period [:km "© Open Context Menu"]]  ;;• j+period for Open Context Menu (via Keyboard Maestro)
+		[:o [:km "Jump to OmniFocus"]] ;;• j+o for Jump to OmniFocus  🟡needs work
+		[:w [[:SPKR3] :!Ospacebar]] ;;• j+w for Jump to Window (via Context hotkey ⌥space)
+
+		[:period [:km "© Open Context Menu"]]  ;;• j+period for Open Context Menu (via KM global contextual)
 		[:spacebar [:km "Click GUI Button"]] ;;⭐ j+spacebar for Click GUI Button
 
-	;; testing out "send"
-		[:a [[:SPKR3] [:wait][:escp]]]
-		[:r [:sendreturn]]
-		[:q [:sendq]]
-		[:1 [[:SPKR3] [:sendesc]]]
+		[:t [:km "© Jump To"]] ;;• j+o for © Jump To ✨
+		[:right_gui [:km "© Jump To"]] ;;• j+right_gui for © Jump To //alternative way with one hand
+
+	;;* TODO testing out "send" rule
+		;; [:a [[:SPKR3] [:wait] [:escp]] ] ;; works
+		;; [:r [:sendreturn]] ;; ☑️  works
+		;; [:q [:sendq]] ;;? works i guess but sends capital? look into
+		;; [:1 [[:SPKR3] [:sendesc]]] ;;❓ seems to send tab?
 
 	]}
 ;;============================= K MODE =============================
@@ -776,3 +779,4 @@
 		;; ✅  fixed n+i for omnifocus quick entry
 		;; fixing j+o for jump to Omnifocus
 ;;* CHANGELOG ======================================================
+	;; 1/06/23 ✨ adding j+t for "global but cotextual" Jump To chrome macro. also adding j+right gui
