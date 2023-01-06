@@ -573,6 +573,64 @@
 		[:k :volume_decrement] ;;•z+k for volume down
 		[:p :apple_display_brightness_increment] ;;• z+ for brightness up
 		[:n :apple_display_brightness_decrement] ;;• z+ for brightness up
+		[:m :mute] ;;• z+ for brightness up
+
+;; UNUSED SYSTEM KEYS
+	;; :vk_consumer_brightness_down {:label "vk_consumer_brightness_down (equal todisplay_brightness_decrement)" :not-from true}
+	;; :vk_consumer_brightness_up {:label "vk_consumer_brightness_up (equal todisplay_brightness_increment)" :not-from true}
+	;; :mission_control {:not-from true :consumer-key true}
+	;; :mission_control {:not-from true}
+	;; :launchpad {:not-from true :consumer-key true}
+	;; :dashboard {:not-from true :consumer-key true}
+	;; :illumination_decrement {:not-from true :consumer-key true}
+	;; :illumination_increment {:not-from true :consumer-key true}
+	;; :eject {:not-from true :consumer-key true}
+	;; :apple_display_brightness_decrement {:not-from true :consumer-key true}
+	;; :apple_display_brightness_increment {:not-from true :consumer-key true}
+	;; :apple_top_case_display_brightness_decrement {:not-from true :consumer-key true}
+	;; :apple_top_case_display_brightness_increment {:not-from true :consumer-key true}
+	;; :vk_none {:label "vk_none (disable this key)" :not-from true}
+	;; :print_screen {:display true}
+	;; :scroll_lock {:display true}
+	;; :pause {:display true}
+	;; :insert {:display true}
+	;; :application {}
+	;; :help {}
+	;; :power {}
+	;; :execute {:not-to true}
+	;; :menu {:not-to true}
+	;; :select {:not-to true}
+	;; :stop {:not-to true}
+	;; :again {:not-to true}
+	;; :undo {:not-to true}
+	;; :cut {:not-to true}
+	;; :copy {:not-to true}
+	;; :paste {:not-to true}
+	;; :find {:not-to true}
+	;; :international1 {}
+	;; :international2 {:not-to true}
+	;; :international3 {}
+	;; :international4 {:not-to true}
+	;; :international5 {:not-to true}
+	;; :international6 {:not-to true}
+	;; :international7 {:not-to true}
+	;; :international8 {:not-to true}
+	;; :international9 {:not-to true}
+	;; :lang1 {}
+	;; :lang2 {}
+	;; :lang3 {:not-to true}
+	;; :lang4 {:not-to true}
+	;; :lang5 {:not-to true}
+	;; :lang6 {:not-to true}
+	;; :lang7 {:not-to true}
+	;; :lang8 {:not-to true}
+	;; :lang9 {:not-to true}
+	;; :japanese_eisuu {:label "英数キー" :display true}
+	;; :japanese_kana {:label "かなキー" :display true}
+	;; :japanese_pc_nfer {:label "PCキーボードの無変換キー" :not-to true}
+	;; :japanese_pc_xfer {:label "PCキーボードの変換キー" :not-to true}
+	;; :japanese_pc_katakana {:label "PCキーボードのかなキー" :not-to true}
+
 	]}
 ;;========================= PERIOD MODE ===========================
 	{:des " period-mode for typinator and autocomplete":rules [
