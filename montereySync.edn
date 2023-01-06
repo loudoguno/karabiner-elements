@@ -1,24 +1,5 @@
-;;= montereySync.edn .023  ======================================================
-;;* CHANGELOG =====================================================
-	;; 1/06/23 🔰 greated karabiner baare-metal version of b+a to boldate to beginning of line and love it ...
-	;; 1/05/23 trying to figur out UHK 2.0 fn thing -> ✅ fixed!!!
-	;;11/02/22  💢 dealt with rebasing thing i need to revisit... now adding Hover Evernote 🧰 WORKBENCH
-	;; 9/07/ 22 adding Hover Notion
-	;; 8/18/22 adding i+d Hover Evernote  🥔 Idaho Trip (Brosensus)
-	;; ✨ Modes to consider adding
-	;; 5/25/22 thinking about w+space
-	;; .024 looking at hover commands... 🚫
-	;; .023 adding space+v for clipboard...
-	; .022 removing D mode;
-	;; .021 adding m+S for message to self
-	;; .020 playing around with things...
-	;; .010 12/04/21 going to continue to clean up everything... 12/08/21~diting omni foucs
-	;; .009 making k+e to edit Karabiner... also fixed up some modes...
-	;; .007,.008 looking at z mode to see about keyboard light (11/30/21) (❗ t-mode which broke m,n,w)
-	;; trying to replace impremissable characters... not sure why...&
-	;; ✅  fixed slash+spacebar for help menu search
-	;; ✅  fixed n+i for omnifocus quick entry
-	;; fixing j+o for jump to Omnifocus
+;;= montereySync.edn .100  ==============================================
+;; ℹ️ meta: in the process of revamping the structure of this file to eventually use in education material. see
 
 { ;;========================= DEFINITIONS ============================
 	:templates { ;......................................................................................................................... aliases for calling function in Alfered, Keyboard Maestro, BetterTouchTool
@@ -773,3 +754,25 @@
 			}
 ;;*============================ END ===============================
 }
+;;* 📜 OLD
+		;; 1/06/23 moving changlog to bottom and starting to append instead of prepend
+		;; 1/06/23 🔰 greated karabiner baare-metal version of b+a to boldate to beginning of line and love it ...
+		;; 1/05/23 trying to figur out UHK 2.0 fn thing -> ✅ fixed!!!
+		;;11/02/22  💢 dealt with rebasing thing i need to revisit... now adding Hover Evernote 🧰 WORKBENCH
+		;; 9/07/ 22 adding Hover Notion
+		;; 8/18/22 adding i+d Hover Evernote  🥔 Idaho Trip (Brosensus)
+		;; ✨ Modes to consider adding
+		;; 5/25/22 thinking about w+space
+		;; .024 looking at hover commands... 🚫
+		;; .023 adding space+v for clipboard...
+		; .022 removing D mode;
+		;; .021 adding m+S for message to self
+		;; .020 playing around with things...
+		;; .010 12/04/21 going to continue to clean up everything... 12/08/21~diting omni foucs
+		;; .009 making k+e to edit Karabiner... also fixed up some modes...
+		;; .007,.008 looking at z mode to see about keyboard light (11/30/21) (❗ t-mode which broke m,n,w)
+		;; trying to replace impremissable characters... not sure why...&
+		;; ✅  fixed slash+spacebar for help menu search
+		;; ✅  fixed n+i for omnifocus quick entry
+		;; fixing j+o for jump to Omnifocus
+;;* CHANGELOG ======================================================
