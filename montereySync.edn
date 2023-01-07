@@ -441,19 +441,18 @@
 			;; [:f [:km "Activate OmniFocus New Window"] [["o&" 1] ["om&" 1]]] ;;+ o+m+f for Activate OmniFocus New Window
 			;; [:t [:km "GoTo OmniFocus ™️ TOMORROW"] [["o&" 1] ["om&" 1]]] ;;+ o+m+t for GoTo OmniFocus ™️ TOMORROW
 	]}
-;;============================ P MODE =============================;idea 💡 p mode should be used for a lot
+;;============================ P MODE ============================= ;;  ⭕🌟TODO p mode has a lot of potential because barely used up and allows access to entire keyboard
 	{:des "p-mode for..." :rules [ :p& ;;* ––––––––––––––––––––––––––––––––––––––––––
 		[:spacebar [[:SPKR3]:!!p]] ;;• p+spacebar for search 1password...
 		[:a [:km "Go To Sheet: Pharma"]] ;;• p+a forGo To Sheet: Pharma
 	]}
-;;============================ R MODE ============================
+;;============================ R MODE ==============================
+;; ℹ️ "remote-mode" for  media transport control (play/pause/next song ect..). most send ⌃⌥⌘ (3 modifiers grouped left of space) plus another key -> next layer in KM are contextual groups like QuickTime, media (e.g. spotify), YouTube
 	{:des "r-mode for remote things" :rules [ :r& ;;* ––––––––––––––––––––––––––––––––
 
-	;;* r+o for Roam stuff
-			[:o [ [:km "Go to Roam Greenhouse (Lou's)"] ["ro&" 1] ] nil {:delayed {:canceled [ ["ro&" 0]["r&" 0] ] ;;• 'i' is said for everything 🟡 NEEDTOFIX
-			:invoked [ [:km "Go to Roam Greenhouse Lou"] ["ro&" 0] ] } ; is triggered as delayed response even when holding
-			:held [ [:km "Deactivate Remote"] ["ro¬" 1]]
-			}]
+	[:o [:km "Go to Roam Greenhouse Lou"]] ;;• r+o Go to Roam Greenhouse Lou
+	;; [:XXX [:km "Deactivate Remote"]] ;;• r+XXX Deactivate Remote ⭕TODO
+
 	;;* Transport Controls
       [:spacebar :!TOCspacebar] ;;• r+spacebar for pause via ⌃⌥⌘Space ;;*j/l/i/k for remote transport controls
       [:right_control :!TOCspacebar] ;! thought I might need to fix for right control
