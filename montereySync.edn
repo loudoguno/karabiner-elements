@@ -446,7 +446,7 @@
 		[:spacebar [[:SPKR3]:!!p]] ;;• p+spacebar for search 1password...
 		[:a [:km "Go To Sheet: Pharma"]] ;;• p+a forGo To Sheet: Pharma
 	]}
-;;============================ R MODE ==============================
+;;============================ R MODE ============================== ⭕ TODO: clean up comments and formatting (consolidate rules to fewer lines and add descriptions)
 ;; ℹ️ "remote-mode" for  media transport control (play/pause/next song ect..). most send ⌃⌥⌘ (3 modifiers grouped left of space) plus another key -> next layer in KM are contextual groups like QuickTime, media (e.g. spotify), YouTube
 	{:des "r-mode for remote things" :rules [ :r& ;;* ––––––––––––––––––––––––––––––––
 
@@ -467,18 +467,19 @@
 		[:comma :!TOCcomma]   ;;*comma/dot for speed up and down via ⌃⌥⌘,/.
 		[:period :!TOCperiod]
 		[:semicolon :!TOCsemicolon] ;;*semicolon/quote for frame forward/backwoord ⌃⌥⌘;/'
-		[:p :!TOCp] ;;*n/p for next/previous video⌃⌥⌘;/'
-		[:n :!TOCn]
+		[:p :!TOCp] [:n :!TOCn] [:q :!TOCp] [:e :!TOCn]  ;;* r+p/n and r+q/e for next/previous song 🟢 FIXED
+
 		[:f :!TOCf] ;;*f for fullOCreen via ⌃⌥⌘f
 		[:tab [:km "Screenshot Timestamp"]] ;;* r+tab for tab for Screenshot Timeestamp
 		[:p [:km "Screenshot Timestamp"]] ;;*tab for Screenshot Timeestamp
 			[:right_gui [:km "Screenshot Timestamp"]] ;;*tab for Screenshot Timeestamp
-		[:m [:km "Mute"]] ;;*m for mute
+		[:m [:km "Mute"]] ;;* r+m for mute
+
 	;;* Remote Palette
-			[:return_or_enter [:km "- Remote Modes Palette"]] ;;*return for remote palette
+			[:return_or_enter [:km "- Remote Modes Palette"]] ;;* r+return/enter for "- Remote Modes Palette"
 			;; [:m [:km "Media Remote"]] 		;;*r for YouTube Remote
 			[:y [:km "YouTube Remote"]] 		;;*y for YouTube Remote
-			[:q [:km "QuickTime Remote"]] 		;;*q for QuickTime Remote
+			;; [:q [:km "QuickTime Remote"]] 		;;*q for QuickTime Remote ❌ DEACTIVATED so can have trigger back/next with one hand via q/e
 			[:x [:km "Deactivate Remote"]] 		;;*q for Deactivate Remote
 	]}
 ;;============================= S Mode =============================
