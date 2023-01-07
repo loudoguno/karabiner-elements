@@ -511,12 +511,14 @@
 		[:n [:km "Tab New"] ] ;;• t+n for Tab New
 	]}
 
-;;============================ U MODE ============================
+;;============================ U MODE ==============================
+;;TODO ⭕ lot of potential here because not used up...
 	{:des "u-mode for..." :rules [ :u& ;;* ––––––––––––––––––––––––––––––––––––––––––
-		[:w [:km "Uppercase Word"]] ;;• u+w for Uppercase Word 🟢
-		[:s [:km "Uppercase Selection"]] ;;• u+s for Uppercase Selection 🟢
+		;; [:w [:km "Uppercase Word"]] ;;• u+w for Uppercase Word (🟨 get rid of because unnecessary?)
+		[:c [:km "Uppercase Selection"]] ;;• u+c for Uppercase Selection 🔰
 	]}
-;;============================ V MODE ============================
+
+;;============================ V MODE ==============================
 	{	:des "v-mode for..." :rules [ :v& ;;* ––––––––––––––––––––––––––––––––––––––––-
 		[:i [[:SPKR3] [:km "Hover Evernote ⭐️ VIPs"] ] ] ;;• v+i  for Hover Evernote ⭐️ VIPs 🟢
 		[:p [[:SPKR3] [:km "Hover Evernote ⭐️ VIPs"] ] ] ;;• v+p  for Hover Evernote ⭐️ VIPs 🟢
