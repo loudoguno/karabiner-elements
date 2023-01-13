@@ -354,6 +354,7 @@
 		[:c [:km "Hover Evernote 🕸 Capture (ideas and thoughts)"]] ;;• h+c for Hover Evernote 🕸 Capture (ideas and thoughts) 🟢
 		[:t [:km "Hover Notion Lou’s TODO’s"]] ;;• h+t for Hover  Notion Lou’s TODO’s) 🟢
 		[:b [:km "Hover Evernote 🧰 WORKBENCH"]] ;;• h+b for Hover Evernote 🧰 WORKBENCH
+		[:i [:km "Hover Evernote 🌺 Hawaii Itinerary"]] ;;• h+i for Hover Evernote 🌺 Hawaii Itinerary ✨
 
 
 		;; ✨ TEMPLATE to maybe use: [:<INSERT 2nd key> [:km "<INSERT MACRO NAME>"]] ;;• <INSERT 1st key>+<INSERT 2nd key> for <INSERT MACRO NAME>
