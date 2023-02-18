@@ -567,9 +567,13 @@
 		[:l :fastforward] ;;• z+i for fastforward
 		[:i :volume_increment] ;;• z+i for volume up
 		[:k :volume_decrement] ;;•z+k for volume down
-		[:p :apple_display_brightness_increment] ;;• z+ for brightness up
-		[:n :apple_display_brightness_decrement] ;;• z+ for brightness up
-		[:m :mute] ;;• z+ for brightness up
+		[:p :vk_consumer_brightness_up] ;;• z+p for brightness up
+		[:n :vk_consumer_brightness_down] ;;• z+n for brightness down
+		[:m :mute] ;;• z+m for mute
+
+		;; other brightness key
+		;; [:	p :apple_display_brightness_increment] ;;• z+ for brightness up
+			;; [:n :apple_display_brightness_decrement] ;;• z+ for brightness up
 
 ;; UNUSED SYSTEM KEYS
 	;; :vk_consumer_brightness_down {:label "vk_consumer_brightness_down (equal todisplay_brightness_decrement)" :not-from true}
@@ -789,6 +793,7 @@
 	;; 1/06/23 ✨ adding j+t for "global but cotextual" Jump To chrome macro. also adding j+right gui
 	;; 2/17/23 ✳️ NEW: Center Window on Current Mouse Location.
 		;; 💡 had idea to start ordering lines in this config alphabetically so easier to see what's used. would remove logical organization
+		;; fixed z+p/n for brightness
 
 ;; ☰ new entry PROTOCOL: 
 	;; add line with prepend date and description to change log
