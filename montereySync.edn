@@ -1,5 +1,6 @@
-;;= montereySync.edn .100  ==============================================
-;; ℹ️ meta: in the process of revamping the structure of this file to eventually use in education material. see
+;;= montereySync.edn .101  ==============================================
+;; ℹ️ meta: in the process of revamping the structure of this file to eventually use in education material.
+;; most recent change: added c+w and
 
 { ;;========================= DEFINITIONS ============================
 	:templates { ;......................................................................................................................... aliases for calling function in Alfered, Keyboard Maestro, BetterTouchTool
@@ -277,12 +278,15 @@
 	]}
 ;;============================ C MODE =============================
 	{:des "c-mode for c things" :rules [ :c& ;;* ––––––––––––––––––––––––––––––––––––
-		[:a [:km "Jump to Fantastical"] ] ;;• c+a for :km "Jump to Fantastical"
-		[:o [:km "Query Contacts"] ] ;;• c+o for :km "Query Contacts"
-		[:d :!Cquote] ;;• c+d for ⌘' (tag in evernote, )
-		[:comma [[:SPKR3] :!STOcomma]] ;;• c+comma for switch internal space left
-		;; [:comma [:km "switch internal space left"] ] ;;• c+comma for switch internal space left
-		;; [:period [:km "switch internal space right"] ] ;;• c+period for switch internal space right
+		[:a [:km "Jump to Fantastical"] ] ;;• c+a for km "Jump to Fantastical"
+		[:o [:km "Query Contacts"] ] ;;• c+o for km "Query Contacts"
+		[:d :!Cquote] ;;• c+d for ⌘+quote (evernote default "focus tag field")
+		[:w [:km "Center Window on Current Mouse Location"] ] ;;• c+w for km "Center Window on Current Mouse Location" ✳️NEW
+		[:m [:km "Move Mouse to Focused Window"] ] ;;• c+m for km "Move Mouse to Focused Window" ✳️NEW
+
+		[:comma [[:SPKR3] :!STOcomma]] ;;• c+comma for Switch Active Workspace Left (via System Hotkeys) 🟤 recently re-activated
+		[:period [[:SPKR3] :!STOperiod]] ;;• c+period for Switch Active Workspace Right (via System Hotkeys)
+
 	]}
 ;;============================ D MODE =============================
 	{:des "d-mode for d things" :rules [ :d& ;;* –––––––––––––––––––––––––––––––––––––
@@ -783,3 +787,9 @@
 		;; fixing j+o for jump to Omnifocus
 ;;* CHANGELOG ======================================================
 	;; 1/06/23 ✨ adding j+t for "global but cotextual" Jump To chrome macro. also adding j+right gui
+	;; 2/17/23 ✳️ NEW: Center Window on Current Mouse Location.
+		;; 💡 had idea to start ordering lines in this config alphabetically so easier to see what's used. would remove logical organization
+
+;; ☰ new entry PROTOCOL: 
+	;; add line with prepend date and description to change log
+	;; save, stage, commit with short&good description, push... be sure to pull next time opening up other mbp
