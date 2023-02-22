@@ -358,7 +358,7 @@
 		[:c [:km "Hover Evernote 🕸 Capture (ideas and thoughts)"]] ;;• h+c for Hover Evernote 🕸 Capture (ideas and thoughts) 🟢
 		[:t [:km "Hover Notion Lou’s TODO’s"]] ;;• h+t for Hover  Notion Lou’s TODO’s) 🟢
 		[:b [:km "Hover Evernote 🧰 WORKBENCH"]] ;;• h+b for Hover Evernote 🧰 WORKBENCH
-		[:i [:km "Hover Evernote 🌺 Hawaii Itinerary"]] ;;• h+i for Hover Evernote 🌺 Hawaii Itinerary ✨
+		[:i [:km "Hover Evernote 🔷 ITINERARY"]] ;;• h+i for Hover Evernote 🔷 ITINERARY ✨
 
 
 		;; ✨ TEMPLATE to maybe use: [:<INSERT 2nd key> [:km "<INSERT MACRO NAME>"]] ;;• <INSERT 1st key>+<INSERT 2nd key> for <INSERT MACRO NAME>
@@ -794,6 +794,7 @@
 	;; 2/17/23 ✳️ NEW: Center Window on Current Mouse Location.
 		;; 💡 had idea to start ordering lines in this config alphabetically so easier to see what's used. would remove logical organization
 		;; fixed z+p/n for brightness
+	;; 2/21/23 dealth with gitignore, modified h+i to hover itinerary
 
 ;; ☰ new entry PROTOCOL: 
 	;; add line with prepend date and description to change log
