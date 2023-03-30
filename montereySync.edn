@@ -1,6 +1,7 @@
-;;= montereySync.edn .101  ==============================================
+;;= montereySync.edn .102  ==============================================
 ;; ℹ️ meta: in the process of revamping the structure of this file to eventually use in education material.
-;; most recent change: added c+w and
+;; 3/30/23 trying out return-mode as control for emacs
+
 
 { ;;========================= DEFINITIONS ============================
 	:templates { ;......................................................................................................................... aliases for calling function in Alfered, Keyboard Maestro, BetterTouchTool
@@ -73,7 +74,7 @@
 ;;+ ===============================================================
 :main [  ; ============================= MAIN ========================
 ;;+ ===============================================================
-;;============================ HOLDINGKEY =========================
+;;============================ HOLDINGKEY ========================= ⭕ TODO: clean up this section (re-title)
 		{:des "Holding Keys: ⌘V for Clipboard History, ⇧⌘3 for Screenshot Palette, ⇧⌘4 for Snagit" :rules [
 			[:!Cv nil nil {:alone :!Cv :held [:km "Clipboard History"] :repeat false :halt true :params{:alone 150 :held 150}} ] ; default :alone is 500ms and would be too long
 			[:!SC3 nil nil {:alone :!SC3 :held [:km "-Screenshot Palette"] :repeat false :halt true :params{:alone 150 :held 150}} ]
@@ -138,6 +139,8 @@
 	{:des "FN from UHK 2" :rules [[:#SOCTf24 :fn [:uhk-keyboard-2] ]]} ;;* for V2
 	{:des "Tab as capslock" :rules [ [:condi :!space-mode :!Rctrl-mode :!f&] ;! got it to stop sending fn
 		[:##tab :fn nil {:alone :tab} ] ] }
+	{:des "quote as control (for emacs)" :rules [ [:condi :!space-mode :!Rctrl-mode :!f&] ;✨ trying out for emacs, ❓ don't know what :!f& is for
+		[:##quote :##left_control nil {:alone :quote} ] ] }
 
 ;;=========================== SPACE MODE ============================ bread and butter space + all sorts of awesome things
 	{:des "spacebar mode" :rules [ ;? set up not to conflict with numpad-mode
@@ -644,26 +647,13 @@
 		[:delete_or_backspace :!Tdelete_or_backspace] ;;• return+delete for dismiss notification (via ⌃↩) 💡  could also just use
 		[:spacebar [[:SPKR3] :!COSTreturn_or_enter]] ;;• return+spacebar for focus menubard (via bartender hotkey)
 	]}
-;;============================ QUOTE MODE ============================
+;;============================ QUOTE MODE============================
 {	:des "quote-mode for..." :rules [
-		; + quote+s+...............................................................................................................................
-			[:s [:km "Enclose Selection with Double Quotes"] [["quote&" 1] ["quotes&" 1]]] ;;+ quote+s+s for Encluse Selection with Double Quotes
-			; [:KeyDD [:km "km macro 2"] [["quote&" 1] ["quoteKeyBB&" 1]]] ;;+ quote+KeyBB+KeyDD for km macro 2
-		;;+ quote+w+...............................................................................................................................
-			[:w [:km "Wrap Word in Double Quotes"] [["quote&" 1] ["quotew&" 1]]] ;;+ quote+w+w for Wrap Word in Single Quotes
-
-	:quote& ;;* ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		;;* quote+s for Enclose Selection with Single Quotes...
-			[:s [[:vk_none]["quotes&" 1]] nil {:delayed{:canceled [["quotes&" 0]["quote&" 0]]
-			:invoked [[:km "Enclose Selection with Single Quotes"]["quotes&" 0]] } :held [[:vk_none]] }]
-		;;* quote+w for...
-			[:w [[:vk_none]["quotew&" 1]] nil {:delayed{:canceled [["quotew&" 0]["quote&" 0]]
-				:invoked [[:km "Wrap Word in Single Quotes"]["quotew&" 0]] } :held [[:vk_none]] }]
 
 		; [:s [:ToKey]] ;;• quote+s for ToKey hello
 ]}
 ;;======================== SEMICOLON MODE  =========================
-;! GOING TO SET UP LIKEHYPER KEY for FUNCTIO
+;! GOING TO SET UP LIKEHYPER KEY for FUNCTIO ❓TODO: clean up semicolon comments (currently fn for Context window snapping)
 ;;============================ MORE  ================================
 	;! more modes temporary till moved to real mode sections
 	;; ❗ need to integrate with non catalina sync files and add slash mode
@@ -795,6 +785,8 @@
 		;; 💡 had idea to start ordering lines in this config alphabetically so easier to see what's used. would remove logical organization
 		;; fixed z+p/n for brightness
 	;; 2/21/23 dealth with gitignore, modified h+i to hover itinerary
+	;; 3/30/23 ✨ trying out return-mode as control for emacs -> deleted quote mode... -> ✅ seems to work!!
+
 
 ;; ☰ new entry PROTOCOL: 
 	;; add line with prepend date and description to change log
