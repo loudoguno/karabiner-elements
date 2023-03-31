@@ -2,21 +2,23 @@
 ;; ℹ️ meta: in the process of revamping the structure of this file to eventually use in education material.
 ;; 3/30/23 trying out return-mode as control for emacs
 
-
-{ ;;========================= DEFINITIONS ============================
-	:templates { ;......................................................................................................................... aliases for calling function in Alfered, Keyboard Maestro, BetterTouchTool
-		:alf "osascript -e 'tell application \"Alfred 4\" to run trigger \"%s\" in workflow \"%s\" with argument \"\"'"
-		:km "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"%s\"'"
-		:btt "osascript -e 'tell application \"BetterTouchTool\" to  trigger_named \"%s\"'"
+{ ;;+ ========================= DEFINITIONS =========================== for templates (aliases for frequently used CLI strings), layers, simlayers
+	:templates { ;;= ..................................................................................................................... aliases for shell commands including osascript (execute Applescript file), and afplay (plays sound file)
+		:alf "osascript -e 'tell application \"Alfred 4\" to run trigger \"%s\" in workflow \"%s\" with argument \"\"'" ;run Alfred workflow using workflow bundle ID as argument
+		:km "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"%s\"'"   ; run KM macro using macro name as argument
+		:btt "osascript -e 'tell application \"BetterTouchTool\" to  trigger_named \"%s\"'"         ; run BTT macro using named trigger name as argument
 		:open "open \"%s\"" ; open file
 		:wait "sleep 250" ;pause 250 ms
-		:type "osascript -e 'tell application \"System Events\" to keystroke \"%s\"'" ; send keystroke
-				:escp "osascript -e 'tell application \"System Events\" to key code 53' " ; send escape
-				:sendq "osascript -e 'tell application \"System Events\" to keystroke \"q\"'" ; send keystroke
-				:sendreturn "osascript -e 'tell application \"System Events\" to keystroke return' " ; send escape
-				:sendspace "osascript -e 'tell application \"System Events\" to keystroke space' " ; send keystroke
-				:sendesc "osascript -e 'tell application \"System Events\" to keystroke tab' " ; send keystroke
-	;;* Sounds and Audio Feedback invoked by calling `afplay`, used to use emojis but that broke
+
+		; AppleScripts that that send keystroke | 🧪 experimenting with
+		:type "osascript -e 'tell application \"System Events\" to keystroke \"%s\"'"
+		:escp "osascript -e 'tell application \"System Events\" to key code 53' " ; send escape
+		:sendq "osascript -e 'tell application \"System Events\" to keystroke \"q\"'" ; send keystroke
+		:sendreturn "osascript -e 'tell application \"System Events\" to keystroke return' " ; send escape
+		:sendspace "osascript -e 'tell application \"System Events\" to keystroke space' " ; send keystroke
+		:sendesc "osascript -e 'tell application \"System Events\" to keystroke tab' " ; send keystroke
+
+		;; Sounds and Audio Feedback invoked by calling `afplay`, used to use emojis but that broke
 		:SPKR3 "afplay /System/Library/PrivateFrameworks/ScreenReader.framework/Versions/A/Resources/Sounds/DrawerOpening.aiff"
 		:SPKR2 "afplay /System/Library/PrivateFrameworks/ScreenReader.framework/Versions/A/Resources/Sounds/DrawerClosing.aiff"
 		:SPKR1 "afplay /System/Library/PrivateFrameworks/ScreenReader.framework/Versions/A/Resources/Sounds/DrillOut.aiff"
@@ -28,8 +30,9 @@
 		:tink "afplay /System/Library/Sounds/Tink.aiff"
 		:soundOn "afplay /System/Library/PrivateFrameworks/ScreenReader.framework/Versions/A/Resources/Sounds/DrillOut.aiff"
 		:soundOff "afplay /System/Library/PrivateFrameworks/ScreenReader.framework/Versions/A/Resources/Sounds/DrillIn.aiff"
-			}
-	:layers { ;;;=............................................................................................................................. basic layers like spacemode
+		}
+
+	:layers { ;;=............................................................................................................................. basic layers like spacemode
 		; :tab-mode {:key :tab}
 		:space-mode {:key :spacebar :condi [:!f& :!d& :!c& :!k& :!w& :!Rctrl-mode :!LCMD]} ;prevents space mode from overiding F and D modes
 		:Rctrl-mode {:key :right_control :alone {:key :spacebar} :condi [:!f& :!d& :!c& :!k& :!w& :!space-mode]} ; :Rctrl-mode {:key :right_control :condi [:!f& :!d& :!c& :!k& :!w&]}
@@ -37,6 +40,7 @@
 		:numrow-mode {:key :f20}
 		:symrow-mode {:key :f20}
 		}
+
 	:simlayers { ;;=........................................................................................................................advanced layers that act as vairables
 		;;! :semicolon-mode {:key :semicolon} :! taken out in preference to have semicolon mapped to `fn` for use with Context's quick search
 		:slash& {:key :slash}
@@ -299,10 +303,10 @@
 			[:f :!Ttab] 							   ; =   F   = ⇥
 			[:a :!Copen_bracket] 			   ;    a for Back Page via ⌘[
 			[:g :!Cclose_bracket] 		   ;    g for Forward Page via ⌘]
-			[:w [:km "Item Up ©"]]		   ;    w for Item Up via ⌘]
+			[:w [:km "Item Up ©"]]		   ;    w for Item Up via ⌘] 														TODO: ✍🏻 document © as universal
 			[:v [:km "Item Down ©"]]		   ;    v for Item Up via ⌘]
 
-			[:c :!Cquote] 					   ;    c for ⌘'
+			[:c :!Cquote] 					   ;    c for ⌘'"
 		;;* d+m for moving tab/window left/right.....................
 				[:m [[:vk_none]["dm&" 1]] nil {:delayed {:canceled [["dm&" 0]["d&" 0]]
 				:invoked [[:vk_none]["dm&" 0]] }  :held [[:km "Move Window Active Space Right (delay)"]["dm¬" 1]] } ]
