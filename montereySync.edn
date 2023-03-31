@@ -71,9 +71,8 @@
 		:quote& {:key :quote}
 		; :tab& {:key :tab}
 		}
-;;+ ===============================================================
-:main [  ; ============================= MAIN ========================
-;;+ ===============================================================
+;;+ ============================= MAIN ==============================
+:main [  ;;+ ==========================================================
 ;;============================ HOLDINGKEY ========================= ⭕ TODO: clean up this section (re-title)
 		{:des "Holding Keys: ⌘V for Clipboard History, ⇧⌘3 for Screenshot Palette, ⇧⌘4 for Snagit" :rules [
 			[:!Cv nil nil {:alone :!Cv :held [:km "Clipboard History"] :repeat false :halt true :params{:alone 150 :held 150}} ] ; default :alone is 500ms and would be too long
@@ -105,7 +104,7 @@
 		;;* modifier+spacebar bug work around...
 			[:!Ospacebar :!Ospacebar] [:!COTspacebar :!COTspacebar] [:!COSspacebar :!COSspacebar] [:!COTSspacebar :!COTSspacebar]
 		]}
-;;========================  MODIFIERS and COMMAND MODES ==============================
+;;====================  MODIFIERS and COMMAND MODES =================
 
 		{:des "Shift Space for underscore and dash, Left to Right Modifers...":rules[
 			[:!Rright_control :hyphen] [:!Rspacebar :hyphen] ;;* Right Shift +Spacebar (or mod) for underscore
@@ -291,8 +290,8 @@
 		[:period [[:SPKR3] :!STOperiod]] ;;• c+period for Switch Active Workspace Right (via System Hotkeys)
 
 	]}
-;;============================ D MODE =============================
-	{:des "d-mode for d things" :rules [ :d& ;;* –––––––––––––––––––––––––––––––––––––
+;;============================ D MODE ==============================
+	{:des "d-mode for d things" :rules [ :d& ;;================================== D MODE
 		[:spacebar [[:SPKR3] :!Cp] ] ;;• d+spacebar for ⌘P (⌘p keyboard maestro conflict palette )
 
 		;;• Tab Manipulation....................................................
