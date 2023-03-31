@@ -1,6 +1,6 @@
 ;;= montereySync.edn .102  ==============================================
 ;; ℹ️ meta: in the process of revamping the structure of this file to eventually use in education material.
-;; 3/30/23 trying out return-mode as control for emacs
+	;; 3/31/23 ❗fixing  d+Left_Spacebar on UHK...
 
 { ;;+ ========================= DEFINITIONS =========================== for templates (aliases for frequently used CLI strings), layers, simlayers
 	:templates { ;;= ..................................................................................................................... aliases for shell commands including osascript (execute Applescript file), and afplay (plays sound file)
@@ -296,7 +296,12 @@
 	]}
 ;;============================ D MODE ==============================
 	{:des "d-mode for d things" :rules [ :d& ;;================================== D MODE
-		[:spacebar [[:SPKR3] :!Cp] ] ;;• d+spacebar for ⌘P (⌘p keyboard maestro conflict palette )
+
+		;; d+spacebar for ⌘ palette (legacy from window manipulation stuff) ⭕ TODO: refactor window mgmt stuff her
+		[:spacebar [[:SPKR3] :!Cp] ] ;;• d+spacebar for ⌘P (⌘p keyboard maestro conflict palette) ❗ UPDATing to fix d+Left_Spacebar on UHK...
+		[:right_control [[:SPKR3] :!Cp] ]
+		;; reference
+			;; [:spacebar :button1] [:right_control :button1] ;;• f+spacebar for left-click (AND right-control for UHK) ✅ WORKS!!
 
 		;;• Tab Manipulation....................................................
 			[:s :!TStab] 							;   ; =   S for tab left (via ⇧⇥ with action set in App native or KM)
@@ -321,7 +326,7 @@
 ;;============================ F MODE =============================
 	{:des " f-mode for f things" :rules [ :f& ;;* –––––––––––––––––––––––––––––––––––––
 			;;• f+⌘ and space for clicks
-				[:spacebar :button1] [:right_control :button1] ;;• f+spacebar OR right-control for click
+				[:spacebar :button1] [:right_control :button1] ;;• f+spacebar for left-click (AND right-control for UHK)
  				[:right_gui :button2];;• f+right_command for right click
  				[:left_gui :button3];;• f+left_command fo (!Cbutton1 doesn't work as a <to> but can be recreated using button3)
 			;;• f+1/2/3/4/ focus Column
@@ -789,6 +794,7 @@
 		;; fixed z+p/n for brightness
 	;; 2/21/23 dealth with gitignore, modified h+i to hover itinerary
 	;; 3/30/23 ✨ trying out return-mode as control for emacs -> deleted quote mode... -> ✅ seems to work!!
+	;; 3/31/23 ❗fixing  d+Left_Spacebar on UHK...
 
 
 ;; ☰ new entry PROTOCOL: 
