@@ -1,6 +1,7 @@
 ;;= montereySync.edn .102  ==============================================
 ;; ℹ️ meta: in the process of revamping the structure of this file to eventually use in education material.
 	;; 3/31/23 ❗fixing  d+Left_Spacebar on UHK...
+	;; 5/31/23 post mmorial day.. getting back into my KE config file, need to make sure syncing correctly so adding Jump to Stickies
 
 { ;;+ ========================= DEFINITIONS =========================== for templates (aliases for frequently used CLI strings), layers, simlayers
 	:templates { ;;= ..................................................................................................................... aliases for shell commands including osascript (execute Applescript file), and afplay (plays sound file)
@@ -392,6 +393,7 @@
 	{:des "j-mode" :rules [
 	:j&  ;;• j+................................................................................................................................
 		[:e [[:SPKR3][:km "Jump to Evernote"]]] ;;• j+e for Jump to Evernote 🟢
+		[:s [[:SPKR3][:km "Jump to Stickies"]]] ;;• j+e for Jump to Stickies 🟢
 		[:o [:km "Jump to OmniFocus"]] ;;• j+o for Jump to OmniFocus  🟡needs work
 		[:w [[:SPKR3] :!Ospacebar]] ;;• j+w for Jump to Window (via Context hotkey ⌥space)
 
