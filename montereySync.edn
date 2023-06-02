@@ -430,12 +430,14 @@
 	]}
 ;;============================= N MODE ============================
 	{:des "n-mode for n things" :rules [ :n& ;;* ––––––––––––––––––––––––––––––––––––
-		[:q [:km "New QuickNote"]] ;;• n+q New QuickNote
 		[:c [:km "New Event"]] ;;• n+c New Event via Fantastical
 		[:m [:km "New Message"]] ;;• n+m for New Message
 		[:p [:km "New Password"]] ;;• n+p for New Password
+		[:q [:km "New QuickNote"]] ;;• n+q New QuickNote
 		[:w [:km "New Window"]] ;;• n+w for New Window
-		;; [:s [:km "New Sticky"]] ;;• n+s for New Sticky
+		;; [:s [:km "New Sticky"]] ;;• n+s for New Sticky 💥 conflict with below
+		[:d [:km "Drafts Quick Capture (global)"]] ;;• n+d for Drafts Quick Capture (global) ✨ new
+
 
 		[:i [[:tink] :!CTSo]] ;;• n+i New Omnifocus Quick Entry (via omf hotkey ⌃⇧⌘+o) 🟢 FIXED
 		[:o [:km "Send to OmniFocus"]] ;;• n+o for Send to OmniFocus ⭐replaced n+i+i
