@@ -2,6 +2,7 @@
 ;; ℹ️ meta: in the process of revamping the structure of this file to eventually use in education material.
 	;; 3/31/23 ❗fixing  d+Left_Spacebar on UHK...
 	;; 5/31/23 post mmorial day.. getting back into my KE config file, need to make sure syncing correctly so adding Jump to Stickies
+	;; 6/1/23 adding Jump to Drafts (global)
 
 { ;;+ ========================= DEFINITIONS =========================== for templates (aliases for frequently used CLI strings), layers, simlayers
 	:templates { ;;= ..................................................................................................................... aliases for shell commands including osascript (execute Applescript file), and afplay (plays sound file)
@@ -396,6 +397,7 @@
 		[:s [[:SPKR3][:km "Jump to Stickies"]]] ;;• j+e for Jump to Stickies 🟢
 		[:o [:km "Jump to OmniFocus"]] ;;• j+o for Jump to OmniFocus  🟡needs work
 		[:w [[:SPKR3] :!Ospacebar]] ;;• j+w for Jump to Window (via Context hotkey ⌥space)
+		[:d [:km "Jump to Drafts (global)"]] ;;• j+d for Jump to Drafts (global)
 
 		[:period [:km "© Open Context Menu"]]  ;;• j+period for Open Context Menu (via KM global contextual)
 		[:spacebar [:km "Click GUI Button"]] ;;⭐ j+spacebar for Click GUI Button
