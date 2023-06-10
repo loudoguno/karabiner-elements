@@ -86,21 +86,22 @@
 			[:!SC3 nil nil {:alone :!SC3 :held [:km "-Screenshot Palette"] :repeat false :halt true :params{:alone 150 :held 150}} ]
 			[:!SC4 nil nil {:alone :!SC4 :held [:km "-Snagit Palette"] :repeat false :halt true :params{:alone 150 :held 150}} ]
 			]}
-;;======================== TAP and DOUBLEPRESS  =====================
-	;; C T O S and Q W E R
-		{:des "DOUBLE PRESS: ⌘q² to quit,  " :rules[ ;;* Double Press Command Q to Quit
+;;======================== TAP and DOUBLEPRESS  ===================== ;; C T O S and Q W E R (KE modifier abreviations for reference)
+	 ;;* Double Press Command Q to Quit
+		{:des "DOUBLE PRESS: ⌘q² to quit,  " :rules[
 			[:!C#Pq [ :!Cq ["⌘q" 0]] ["⌘q" 1]] 		;? when ⌘q is pressed the first time  > variable is set to 1 and nothing is sent
 			[:!C#Pq ["⌘q" 1] nil {:delayed {:invoked ["⌘q" 0] :canceled ["⌘q" 0]}}] ;? when pressed the second time send ⌘Q
 			]}
+	;; * Double Press Left command
 		{:des "Double Press Special" :rules [[:condi :!f& :!d& :!c& :!k& :!w& :!Rctrl-mode]
 				; * Double Press Left Command
 						; [:left_gui [[:SPKR2] :!!f14 ["LCMD" 0]] ["LCMD" 1]]
 						; [:left_gui :left_gui nil {:alone [[:SPKR3]["LCMD" 1 ]]:delayed {:invoked ["LCMD" 0] :canceled ["LCMD" 0]}}]
 				;;* Double Press Right Command for  Moom (via f14)
-					[:right_gui [[:SPKR2] :!!f14 ["R⌘" 0]] ["R⌘" 1]] ;! had to get rid of to keep numpad mode working..
-					[:right_gui :right_gui nil {:alone [[:SPKR3]:right_gui["R⌘" 1 ]]:delayed {:invoked ["R⌘" 0] :canceled ["R⌘" 0]}}]
-						[:right_gui [[:SPKR2] :!!f14 ["R⌘" 0]] ["R⌘" 1]]
-						[:right_gui :right_gui nil {:alone [[:SPKR3]:!!f14["R⌘" 1 ]]:delayed {:invoked ["R⌘" 0] :canceled ["R⌘" 0]}}]
+					[:left_gui [[:SPKR2] :!!f14 ["R⌘" 0]] ["R⌘" 1]] ;! had to get rid of to keep numpad mode working..
+					[:left_gui :left_gui nil {:alone [[:SPKR3]:left_gui["R⌘" 1 ]]:delayed {:invoked ["R⌘" 0] :canceled ["R⌘" 0]}}]
+						[:left_gui [[:SPKR2] :!!f14 ["R⌘" 0]] ["R⌘" 1]]
+						[:left_gui :left_gui nil {:alone [[:SPKR3]:!!f14["R⌘" 1 ]]:delayed {:invoked ["R⌘" 0] :canceled ["R⌘" 0]}}]
 
 			]}
 	{:des "Modifier+Spacebar Stuff" :rules[
