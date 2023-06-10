@@ -1,8 +1,9 @@
-;;= montereySync.edn .102  ==============================================
+;;= montereySync.edn .103  ==============================================
 ;; ℹ️ meta: in the process of revamping the structure of this file to eventually use in education material.
 	;; 3/31/23 ❗fixing  d+Left_Spacebar on UHK...
 	;; 5/31/23 post mmorial day.. getting back into my KE config file, need to make sure syncing correctly so adding Jump to Stickies
 	;; 6/1/23 adding Jump to Drafts (global)
+	;; 6/10/23 fixing moom
 
 { ;;+ ========================= DEFINITIONS =========================== for templates (aliases for frequently used CLI strings), layers, simlayers
 	:templates { ;;= ..................................................................................................................... aliases for shell commands including osascript (execute Applescript file), and afplay (plays sound file)
@@ -95,20 +96,23 @@
 				; * Double Press Left Command
 						; [:left_gui [[:SPKR2] :!!f14 ["LCMD" 0]] ["LCMD" 1]]
 						; [:left_gui :left_gui nil {:alone [[:SPKR3]["LCMD" 1 ]]:delayed {:invoked ["LCMD" 0] :canceled ["LCMD" 0]}}]
-				;;* Double Press Right Command for Moom (via f14)
-					; [:right_gui [[:SPKR2] :!!f14 ["R⌘" 0]] ["R⌘" 1]] ;! had to get rid of to keep numpad mode working..
-					; [:right_gui :right_gui nil {:alone [[:SPKR3]:right_gui["R⌘" 1 ]]:delayed {:invoked ["R⌘" 0] :canceled ["R⌘" 0]}}]
-						; [:right_gui [[:SPKR2] :!!f14 ["R⌘" 0]] ["R⌘" 1]]
-						; [:right_gui :right_gui nil {:alone [[:SPKR3]:!!f14["R⌘" 1 ]]:delayed {:invoked ["R⌘" 0] :canceled ["R⌘" 0]}}]
+				;;* Double Press Right Command for  Moom (via f14)
+					[:right_gui [[:SPKR2] :!!f14 ["R⌘" 0]] ["R⌘" 1]] ;! had to get rid of to keep numpad mode working..
+					[:right_gui :right_gui nil {:alone [[:SPKR3]:right_gui["R⌘" 1 ]]:delayed {:invoked ["R⌘" 0] :canceled ["R⌘" 0]}}]
+						[:right_gui [[:SPKR2] :!!f14 ["R⌘" 0]] ["R⌘" 1]]
+						[:right_gui :right_gui nil {:alone [[:SPKR3]:!!f14["R⌘" 1 ]]:delayed {:invoked ["R⌘" 0] :canceled ["R⌘" 0]}}]
 
 			]}
 	{:des "Modifier+Spacebar Stuff" :rules[
-		[:!Cspacebar [[:SPKR3] :!Ospacebar  ["LCMDspacebar" 0]] ["LCMDspacebar" 1]] ;;* Double Press Command Spacebar for something...
-			[:!Cspacebar :!Cspacebar nil {:alone ["LCMDspacebar" 1] :delayed{:invoked ["LCMDspacebar" 0] :canceled ["LCMDspacebar" 0]}} ]
-		[:!COspacebar [[:SPKR3] :!COspacebar  ["LCMD⌥␣" 0]] ["LCMD⌥␣" 1]] ;;* LCMD⌥␣ spacebar
-			[:!COspacebar :!COspacebar nil {:alone ["LCMD⌥␣" 1] :delayed{:invoked ["LCMD⌥␣" 0] :canceled ["LCMD⌥␣" 0]}} ]
+		;;* Double Press Command Spacebar for Contexts search...
+		;; [:!Cspacebar [[:SPKR3] :!Ospacebar  ["LCMDspacebar" 0]] ["LCMDspacebar" 1]] ⌘+spacebar x2 for Contexts search ;;! 🔴 disabled
+			;; [:!Cspacebar :!Cspacebar nil {:alone ["LCMDspacebar" 1] :delayed{:invoked ["LCMDspacebar" 0] :canceled ["LCMDspacebar" 0]}} ]
+		;;* Double Press Command Spacebar for Spotlight via ⌥⌘+spacebar... 🔰 new
+		[:!Cspacebar [[:SPKR3] :!OCspacebar  ["LCMDspacebar" 0]] ["LCMDspacebar" 1]]  ;; pressing ⌘+spacebar a 2nd time (when variable LCMDspacebar is to 1) send keyboard command for spotlight
+			[:!Cspacebar :!Cspacebar nil {:alone ["LCMDspacebar" 1] :delayed{:invoked ["LCMDspacebar" 0] :canceled ["LCMDspacebar" 0]}} ] ;; pressing ⌘+spacebar the first time (when variable LCMDspacebar is to 0) set variable LCMDspacebar to 1
+
 		;;* modifier+spacebar bug work around...
-			[:!Ospacebar :!Ospacebar] [:!COTspacebar :!COTspacebar] [:!COSspacebar :!COSspacebar] [:!COTSspacebar :!COTSspacebar]
+			[:!Ospacebar :!Ospacebar] [:!COTspacebar :!COTspacebar] [:!COSspacebar :!COSspacebar] [:!COTSspacebar :!COTSspacebar] ;;❓ i don't know what this does
 		]}
 ;;====================  MODIFIERS and COMMAND MODES =================
 
