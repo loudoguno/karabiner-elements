@@ -92,20 +92,20 @@
 			[:!C#Pq [ :!Cq ["⌘q" 0]] ["⌘q" 1]] 		;? when ⌘q is pressed the first time  > variable is set to 1 and nothing is sent
 			[:!C#Pq ["⌘q" 1] nil {:delayed {:invoked ["⌘q" 0] :canceled ["⌘q" 0]}}] ;? when pressed the second time send ⌘Q
 			]}
-	;; * Double Press Left command
-		{:des "Double Press Special" :rules [[:condi :!f& :!d& :!c& :!k& :!w& :!Rctrl-mode]
+	;; * Double Press Left command for Moom (🟢 active 6/11/23)
+		{:des "Double Press Left commandl" :rules [[:condi :!f& :!d& :!c& :!k& :!w& :!Rctrl-mode]
 				; * Double Press Left Command
 						; [:left_gui [[:SPKR2] :!!f14 ["LCMD" 0]] ["LCMD" 1]]
 						; [:left_gui :left_gui nil {:alone [[:SPKR3]["LCMD" 1 ]]:delayed {:invoked ["LCMD" 0] :canceled ["LCMD" 0]}}]
-				;;* Double Press Right Command for  Moom (via f14)
-					[:left_gui [[:SPKR2] :!!f14 ["R⌘" 0]] ["R⌘" 1]] ;! had to get rid of to keep numpad mode working..
-					[:left_gui :left_gui nil {:alone [[:SPKR3]:left_gui["R⌘" 1 ]]:delayed {:invoked ["R⌘" 0] :canceled ["R⌘" 0]}}]
-						[:left_gui [[:SPKR2] :!!f14 ["R⌘" 0]] ["R⌘" 1]]
-						[:left_gui :left_gui nil {:alone [[:SPKR3]:!!f14["R⌘" 1 ]]:delayed {:invoked ["R⌘" 0] :canceled ["R⌘" 0]}}]
+	;;* Double Press Left Command for  Moom (via f14) > 6/12/23 🔴 disabling
+		;; [:left_gui [[:SPKR2] :!!f14 ["R⌘" 0]] ["R⌘" 1]] ;! had to get rid of to keep numpad mode working..
+		;; [:left_gui :left_gui nil {:alone [[:SPKR3]:left_gui["R⌘" 1 ]]:delayed {:invoked ["R⌘" 0] :canceled ["R⌘" 0]}}]
+			;; [:left_gui [[:SPKR2] :!!f14 ["R⌘" 0]] ["R⌘" 1]]
+			;; [:left_gui :left_gui nil {:alone [[:SPKR3]:!!f14["R⌘" 1 ]]:delayed {:invoked ["R⌘" 0] :canceled ["R⌘" 0]}}]
 
 			]}
 	{:des "Modifier+Spacebar Stuff" :rules[
-		;;* Double Press Command Spacebar for Contexts search...
+		;;* Double Press Command Spacebar for Contexts search... 🔴 disabled
 		;; [:!Cspacebar [[:SPKR3] :!Ospacebar  ["LCMDspacebar" 0]] ["LCMDspacebar" 1]] ⌘+spacebar x2 for Contexts search ;;! 🔴 disabled
 			;; [:!Cspacebar :!Cspacebar nil {:alone ["LCMDspacebar" 1] :delayed{:invoked ["LCMDspacebar" 0] :canceled ["LCMDspacebar" 0]}} ]
 		;;* Double Press Command Spacebar for Spotlight via ⌥⌘+spacebar... 🔰 new
@@ -120,12 +120,13 @@
 		{:des "Shift Space for underscore and dash, Left to Right Modifers...":rules[
 			[:!Rright_control :hyphen] [:!Rspacebar :hyphen] ;;* Right Shift +Spacebar (or mod) for underscore
 			[:!Sright_control :!Shyphen] [:!Sspacebar :!Shyphen]  ;;*Left Shift+Spacebar (or mod) for dash
-			; [:!OSspacebar [[:SPKR3]:!SOspacebar  ]]  ;;*Left Shift+Spacebar (or mod) for dash
-			; [:!Sright_shift [:SPKR3]] [:!Rleft_shift [:SPKR3]] ;;* ⭕️ Left  Shift to Right Shift
-			; [:!Sright_gui [:SPKR3]] [:!Rleft_gui [:SPKR3]] ;;* ⭕️ Left Shift to Right Command and Right Shift to Left Command
+			; [:!OSspacebar [[:SPKR3]:!SOspacebar  ]]  ;;*Left Shift+Spacebar (or mod) for dash ...❓not sure what this is doing, ⌥⇧+spacebar to make a sound for ⚡️
+			[:!Sright_shift [:SPKR2]] ;;* Left Shift to Right Shift for... ⭕️ available
+			[:!Rleft_shift [:SPKR3]] ;;* Right Sfhit to Left Fhist for... ⭕ available
+			; [:!Sright_gui [:SPKR3]] [:!Rleft_gui [:SPKR3]] ;;* Left Shift to Right Command and Right Shift to Left Command... ⭕️ available
 			]}
 
-			 {:des "Command Modes...":rules[
+			 {:des "left and right command for number and symbol Modes...":rules[
 				;;*(R)⌘+(L)⌘ for Number Mode
 						[:!Qleft_gui nil nil {:alone [[:SPKR0] ["numpad-mode" 0]]
 						:held [[:SPKR1] ["numpad-mode" 1]] :afterup [[:SPKR0] ["numpad-mode" 0]]
@@ -147,9 +148,9 @@
 		[:##semicolon :##fn nil {:alone :semicolon}] ]}
 	{:des "FN from UHK" :rules [[:#SOCTf24 :fn [:uhk-keyboard] ]]} ;;* UHK FN as mac fn via UHK hardcoded f24 > fn in KE but only for uhk
 	{:des "FN from UHK 2" :rules [[:#SOCTf24 :fn [:uhk-keyboard-2] ]]} ;;* for V2
-	{:des "Tab as capslock" :rules [ [:condi :!space-mode :!Rctrl-mode :!f&] ;! got it to stop sending fn
+	{:des "Tab as fn" :rules [ [:condi :!space-mode :!Rctrl-mode :!f&] ;! got it to stop sending fn
 		[:##tab :fn nil {:alone :tab} ] ] }
-	{:des "quote as control (for emacs)" :rules [ [:condi :!space-mode :!Rctrl-mode :!f&] ;✨ trying out for emacs, ❓ don't know what :!f& is for
+	{:des "quote as (left) control (for emacs)" :rules [ [:condi :!space-mode :!Rctrl-mode :!f&] ;✨ tryi''ng out for emacs, ❓ don't know what :!f& is for
 		[:##quote :##left_control nil {:alone :quote} ] ] }
 
 ;;=========================== SPACE MODE ============================ bread and butter space + all sorts of awesome things
@@ -553,18 +554,19 @@
 ;;============================ W MODE =============================
 	{	:des "w-mode" :rules [ :w& ;;• ––––––––––––––––––––––––––––––––––––––––––––
 		[:spacebar [[:SPKR3] :!SOCf3] ] ;;• w+spacebar for Switch Active Workspace Left (via System Hotkey ⌥⇧⌘F3) 🟢works now -> editing because
-		[:right_control [[:SPKR3] :!SOCf3 ]] ;;• w+a for Switch Active Workspace Left (via System Hotkeys)
-		;; UHK
+		[:right_control [[:SPKR3] :!SOCf3 ]] ;; for uhk2
 		;; [:spacebar [[:SPKR3] [:btt "Expose"]] ] ;;• w+a for Switch Active Workspace Left (via BTT) 🟢works now -> editing because
-		[:right_control [[:SPKR3] [:btt "Expose"]] ] ;;• w+a for Switch Active Workspace Left (via System Hotkeys)
+		;; [:right_control [[:SPKR3] [:btt "Expose"]] ] ;;• w+right_control (uhk spacebar)
 
 		[:a [[:SPKR3] :!STOcomma]] ;;• w+a for Switch Active Workspace Left (via System Hotkeys)
 		[:d [[:SPKR3] :!STOperiod]] ;;• w+d for Switch Active Workspace Right (via System Hotkeys)
-		[:f [[:SPKR3] [:btt "Move Window Space Right"] ] ] ;;• w+f  Move Window Space Right
-		[:caps_lock [[:SPKR3] [:btt "Move Window Space Left"] ] ] ;;• w+capslock Move Window Space Left
+		[:f [[:SPKR3] [:btt "Move Window Space Right"] ] ] ;;• w+f  Move Window Space Right (via btt)
+		[:caps_lock [[:SPKR3] [:btt "Move Window Space Left"] ] ] ;;• w+capslock Move Window Space Left (via btt)
 
-		[:b [:km "Hover Evernote 🧰 WORKBENCH"]] ;;• w+b for Hover Evernote 🧰 WORKBENCH ✨
+		[:b [:km "Hover Evernote 🧰 WORKBENCH"]] ;;• w+b for Hover Evernote 🧰 WORKBENCH
+		[:c [:km "Move Mouse to Focused Window"] ] ;;• w+c for km "Move Mouse to Focused Window" ✨new 6/12/23
 
+		[:left_gui [[:SPKR3] :!!f14 ]] ;;* w+left_gui for moom (accessable with left hand)
 	;; keep around
 		;; [:comma [:km "Switch All Workspaces Left"]] ;;• w+comma for Switch All Workspaces Left
 		;; [:period [:km "Switch All Workspaces Right"]];;• w+period for Switch All Workspaces Right
