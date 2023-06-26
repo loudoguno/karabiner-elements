@@ -4,14 +4,16 @@
 	;; 5/31/23 post mmorial day.. getting back into my KE config file, need to make sure syncing correctly so adding Jump to Stickies
 	;; 6/1/23 adding Jump to Drafts (global)
 	;; 6/10/23 fixing moom
+	;; 6/26/23 gtting the hankoring to clean some of this up
 
 { ;;+ ========================= DEFINITIONS =========================== for templates (aliases for frequently used CLI strings), layers, simlayers
 	:templates { ;;= ..................................................................................................................... aliases for shell commands including osascript (execute Applescript file), and afplay (plays sound file)
-		:alf "osascript -e 'tell application \"Alfred 4\" to run trigger \"%s\" in workflow \"%s\" with argument \"\"'" ;run Alfred workflow using workflow bundle ID as argument
-		:km "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"%s\"'"   ; run KM macro using macro name as argument
-		:btt "osascript -e 'tell application \"BetterTouchTool\" to  trigger_named \"%s\"'"         ; run BTT macro using named trigger name as argument
 		:open "open \"%s\"" ; open file
 		:wait "sleep 250" ;pause 250 ms
+
+		:alf "osascript -e 'tell application \"Alfred 4\" to run trigger \"%s\" in workflow \"%s\" with argument \"\"'" ; run Alfred workflow using workflow bundle ID as argument
+		:km "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"%s\"'"   ; run KM macro using macro name as argument
+		:btt "osascript -e 'tell application \"BetterTouchTool\" to  trigger_named \"%s\"'"         ; run BTT macro using named trigger name as argument
 
 		; AppleScripts that that send keystroke | 🧪 experimenting with
 		:type "osascript -e 'tell application \"System Events\" to keystroke \"%s\"'"
@@ -21,7 +23,7 @@
 		:sendspace "osascript -e 'tell application \"System Events\" to keystroke space' " ; send keystroke
 		:sendesc "osascript -e 'tell application \"System Events\" to keystroke tab' " ; send keystroke
 
-		;; Sounds and Audio Feedback invoked by calling `afplay`, used to use emojis but that broke
+		;; Sounds and Audio Feedback invoked by calling `afplay`, used to use emojis to make it more readable but would throw an error after a KE update
 		:SPKR3 "afplay /System/Library/PrivateFrameworks/ScreenReader.framework/Versions/A/Resources/Sounds/DrawerOpening.aiff"
 		:SPKR2 "afplay /System/Library/PrivateFrameworks/ScreenReader.framework/Versions/A/Resources/Sounds/DrawerClosing.aiff"
 		:SPKR1 "afplay /System/Library/PrivateFrameworks/ScreenReader.framework/Versions/A/Resources/Sounds/DrillOut.aiff"
@@ -87,12 +89,12 @@
 			[:!SC4 nil nil {:alone :!SC4 :held [:km "-Snagit Palette"] :repeat false :halt true :params{:alone 150 :held 150}} ]
 			]}
 ;;======================== TAP and DOUBLEPRESS  ===================== ;; C T O S and Q W E R (KE modifier abreviations for reference)
-	 ;;* Double Press Command Q to Quit
+	 ;;* Double Press Command Q to Quit | 🟢 works and in use
 		{:des "DOUBLE PRESS: ⌘q² to quit,  " :rules[
 			[:!C#Pq [ :!Cq ["⌘q" 0]] ["⌘q" 1]] 		;? when ⌘q is pressed the first time  > variable is set to 1 and nothing is sent
 			[:!C#Pq ["⌘q" 1] nil {:delayed {:invoked ["⌘q" 0] :canceled ["⌘q" 0]}}] ;? when pressed the second time send ⌘Q
-			]}
-	;; * Double Press Left command for Moom (🟢 active 6/11/23)
+		]}
+	;; * Double Press Left command for Moom (🔴 disabled )
 		{:des "Double Press Left commandl" :rules [[:condi :!f& :!d& :!c& :!k& :!w& :!Rctrl-mode]
 				; * Double Press Left Command
 						; [:left_gui [[:SPKR2] :!!f14 ["LCMD" 0]] ["LCMD" 1]]
@@ -392,7 +394,7 @@
 	:i& ;;• i+..................................................................................................................................
 		[:e [:km "Insert Emoji"]] ;;• i+e for Insert Emoji
 		[:d [:km "Hover Evernote  🥔 Idaho Trip (Brosensus)"]] ;;• i+d for 🥔 Idaho Trip (Brosensus) 🟢
-		[:t [:km "Hover Evernote 🔷 ITINERARY"]] ;;• i+t for Hover Evernote 🔷 ITINERARY 🟢
+		;; [:t [:km "Hover Evernote 🔷 ITINERARY"]] ;;• i+t for Hover Evernote 🔷 ITINERARY 🔴 disabled because accidentally triggering
 
 
 		]}
