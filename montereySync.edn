@@ -222,7 +222,7 @@
 				; [:right_gui [ :SPKR3 :set["numpad-mode" 1]] :space-mode ] ;!
 				; [:right_gui ["numpad-mode" 1] nil {:alone ["numpad-mode" 1] :afterup ["numpad-mode" 0]}];!
 		]}
-;;=========================  NUMBER MODES =========================
+;;=========================  NUMBER MODES =========================
 	{:des "Numpad Mode" :rules [
 			[:!Cspacebar :spacebar :numpad-mode] [:spacebar :spacebar :numpad-mode]
 			[:right_gui :0 :numpad-mode]
@@ -476,7 +476,7 @@
 	; keep around
 			;; [:f [:km "Activate OmniFocus New Window"] [["o&" 1] ["om&" 1]]] ;;+ o+m+f for Activate OmniFocus New Window
 			;; [:f [:km "Activate OmniFocus New Window"] [["o&" 1] ["om&" 1]]] ;;+ o+m+f for Activate OmniFocus New Window
-			;; [:t [:km "GoTo OmniFocus ™️ TOMORROW"] [["o&" 1] ["om&" 1]]] ;;+ o+m+t for GoTo OmniFocus ™️ TOMORROW
+			;; [:t [:km "GoTo OmniFocus ™️ TOMORROW"] [["o&" 1] ["om&" 1]]] ;;+ o+m+t for GoTo OmniFocus ™️ TOMORROW
 	]}
 ;;============================ P MODE ============================= ;;  ⭕🌟TODO p mode has a lot of potential because barely used up and allows access to entire keyboard
 	{:des "p-mode for..." :rules [ :p& ;;* ––––––––––––––––––––––––––––––––––––––––––
@@ -821,6 +821,6 @@
 	;; 3/31/23 ❗fixing  d+Left_Spacebar on UHK...
 	;; swapping c+w and w+c
 
-;; ☰ new entry PROTOCOL: 
+;; ☰ new entry PROTOCOL:
 	;; add line with prepend date and description to change log
 	;; save, stage, commit with short&good description, push... be sure to pull next time opening up other mbp
