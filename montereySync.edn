@@ -1,5 +1,5 @@
-;;= montereySync.edn .103  ==============================================
-;; ℹ️ meta: in the process of revamping the structure of this file to eventually use in education material.
+;;= montereySync.edn .104  ==============================================
+ ;; ℹ️ meta: in the process of revamping the structure of this file to eventually use in education material.
 	;; 3/31/23 ❗fixing  d+Left_Spacebar on UHK...
 	;; 5/31/23 post mmorial day.. getting back into my KE config file, need to make sure syncing correctly so adding Jump to Stickies
 	;; 6/1/23 adding Jump to Drafts (global)
@@ -545,8 +545,6 @@
 	{	:des "t-mode for t things" :rules [ :t& ;;* ––––––––––––––––––––––––––––––––––––
 		[:w [:km "Tab To Window"] ] ;;• t+w for Tab To Window
 		[:m [:open "obsidian://timber"] ] ;;• t+w for run timber command from Lumberjack obsidian plugin 🔰 new 7/27/23
-
-
 		[:n [:km "Tab New"] ] ;;• t+n for Tab New
 	]}
 
