@@ -15,6 +15,7 @@
 		:open "open \"%s\"" ; open file
 		:wait "sleep 250" ;pause 250 ms
 
+		;; :open "osascript -e open \"%s\" "
 		:alf "osascript -e 'tell application \"Alfred 4\" to run trigger \"%s\" in workflow \"%s\" with argument \"\"'" ; run Alfred workflow using workflow bundle ID as argument
 		:km "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"%s\"'"   ; run KM macro using macro name as argument
 		:btt "osascript -e 'tell application \"BetterTouchTool\" to  trigger_named \"%s\"'"         ; run BTT macro using named trigger name as argument
@@ -543,7 +544,9 @@
 ;;============================ T MODE ============================
 	{	:des "t-mode for t things" :rules [ :t& ;;* ––––––––––––––––––––––––––––––––––––
 		[:w [:km "Tab To Window"] ] ;;• t+w for Tab To Window
-		[:m [:km "Tab Merge"] ] ;;• t+w for Tab Merge (❌ doesn't work)
+		[:m [:open "obsidian://timber"] ] ;;• t+w for run timber command from Lumberjack obsidian plugin 🔰 new 7/27/23
+
+
 		[:n [:km "Tab New"] ] ;;• t+n for Tab New
 	]}
 
