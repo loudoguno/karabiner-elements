@@ -6,6 +6,10 @@
 	;; 6/10/23 fixing moom
 	;; 6/26/23 gtting the hankoring to clean some of this up
 
+;; TODO
+;; -⭐ organize alphabetically using sort lines
+;; -⭐ start using co-pilot
+
 { ;;+ ========================= DEFINITIONS =========================== for templates (aliases for frequently used CLI strings), layers, simlayers
 	:templates { ;;= ..................................................................................................................... aliases for shell commands including osascript (execute Applescript file), and afplay (plays sound file)
 		:open "open \"%s\"" ; open file
@@ -297,11 +301,13 @@
 		[:a [:km "Jump to Fantastical"] ] ;;• c+a for km "Jump to Fantastical"
 		[:o [:km "Query Contacts"] ] ;;• c+o for km "Query Contacts"
 		[:d :!Cquote] ;;• c+d for ⌘+quote (evernote default "focus tag field")
-		[:w [:km "Center Window on Current Mouse Location"] ] ;;• c+w for km "Center Window on Current Mouse Location" ✳️NEW
 		[:m [:km "Move Mouse to Focused Window"] ] ;;• c+m for km "Move Mouse to Focused Window" ✳️NEW
 
 		[:comma [[:SPKR3] :!STOcomma]] ;;• c+comma for Switch Active Workspace Left (via System Hotkeys) 🟤 recently re-activated
 		[:period [[:SPKR3] :!STOperiod]] ;;• c+period for Switch Active Workspace Right (via System Hotkeys)
+
+		;; ❌[:w [:km "Center Window on Current Mouse Location"] ] ;;• c+w for km "Center Window on Current Mouse Location" ✳️ NEW
+		[:w [:km "Move Mouse to Focused Window"] ] ;;• c+w for km "Move Mouse to Focused Window" ✨new 6/12/23
 
 	]}
 ;;============================ D MODE ==============================
@@ -551,7 +557,6 @@
 ;;============================ V MODE ==============================
 	{	:des "v-mode for..." :rules [ :v& ;;* ––––––––––––––––––––––––––––––––––––––––-
 		[:i [[:SPKR3] [:km "Hover Evernote ⭐️ VIPs"] ] ] ;;• v+i  for Hover Evernote ⭐️ VIPs 🟢
-		[:p [[:SPKR3] [:km "Hover Evernote ⭐️ VIPs"] ] ] ;;• v+p  for Hover Evernote ⭐️ VIPs 🟢
 	]}
 ;;============================ W MODE =============================
 	{	:des "w-mode" :rules [ :w& ;;• ––––––––––––––––––––––––––––––––––––––––––––
@@ -566,7 +571,8 @@
 		[:caps_lock [[:SPKR3] [:btt "Move Window Space Left"] ] ] ;;• w+capslock Move Window Space Left (via btt)
 
 		[:b [:km "Hover Evernote 🧰 WORKBENCH"]] ;;• w+b for Hover Evernote 🧰 WORKBENCH
-		[:c [:km "Move Mouse to Focused Window"] ] ;;• w+c for km "Move Mouse to Focused Window" ✨new 6/12/23
+		[:c [:km "Center Window on Current Mouse Location"] ] ;;• w+c for km "Move Mouse to Focused Window" ✨new 6/12/23
+
 
 		[:left_gui [[:SPKR3] :!!f14 ]] ;;* w+left_gui for moom (accessable with left hand)
 	;; keep around
@@ -810,7 +816,7 @@
 	;; 2/21/23 dealth with gitignore, modified h+i to hover itinerary
 	;; 3/30/23 ✨ trying out return-mode as control for emacs -> deleted quote mode... -> ✅ seems to work!!
 	;; 3/31/23 ❗fixing  d+Left_Spacebar on UHK...
-
+	;; swapping c+w and w+c
 
 ;; ☰ new entry PROTOCOL: 
 	;; add line with prepend date and description to change log
