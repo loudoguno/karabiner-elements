@@ -100,7 +100,7 @@
 			[:!C#Pq ["⌘q" 1] nil {:delayed {:invoked ["⌘q" 0] :canceled ["⌘q" 0]}}] ;? when pressed the second time send ⌘Q
 		]}
 	;; * Double Press Left command for Moom (🔴 disabled )
-		{:des "Double Press Left commandl" :rules [[:condi :!f& :!d& :!c& :!k& :!w& :!Rctrl-mode]
+	{:des "Double Press Left commandl" :rules [[:condi :!f& :!d& :!c& :!k& :!w& :!Rctrl-mode]
 				; * Double Press Left Command
 						; [:left_gui [[:SPKR2] :!!f14 ["LCMD" 0]] ["LCMD" 1]]
 						; [:left_gui :left_gui nil {:alone [[:SPKR3]["LCMD" 1 ]]:delayed {:invoked ["LCMD" 0] :canceled ["LCMD" 0]}}]
@@ -287,7 +287,7 @@
 	]}
 ;;============================ A MODE =============================
 	{:des "a-mode for a things" :rules [ :a& ;;* –––––––––––––––––––––––––––––––––––––
-		[:c [[:SPKR3] :!Oescape] ]		;;• a+c for autocomplete now (via )
+		[:c [[:SPKR3] :!Oescape] ] ;;• a+c for autocomplete now (via ⌥⎋)
 		[:semicolon :!Osemicolon] ;;•🔰  a+semicolon for elipse (to be used as suffix to trigger things)
 		; [:comma :!TOleft_arrow] [:period :!TOright_arrow] ;;• a+comma/period  for Active Screen Workspace Left/Right (via ⌃⌥←  in BTT)
 	]}
@@ -314,31 +314,33 @@
 ;;============================ D MODE ==============================
 	{:des "d-mode for d things" :rules [ :d& ;;================================== D MODE
 
-		;; d+spacebar for ⌘ palette (legacy from window manipulation stuff) ⭕ TODO: refactor window mgmt stuff her
-		[:spacebar [[:SPKR3] :!Cp] ] ;;• d+spacebar for ⌘P (⌘p keyboard maestro conflict palette) ❗ UPDATing to fix d+Left_Spacebar on UHK...
-		[:right_control [[:SPKR3] :!Cp] ]
-		;; reference
-			;; [:spacebar :button1] [:right_control :button1] ;;• f+spacebar for left-click (AND right-control for UHK) ✅ WORKS!!
+		;; d+spacebar for ⌘ palette (legacy from window manipulation stuff) ⭕ TODO: refactor window mgmt stuff her 📜 old/stale/archive
+		[:spacebar [[:SPKR3] :!Cp] ] ;;• d+spacebar for ⌘P (⌘p keyboard maestro conflict palette)
+		[:right_control [[:SPKR3] :!Cp] ] ;; for compatability with UHK split spacebar
 
-		;;• Tab Manipulation....................................................
-			[:s :!TStab] 							;   ; =   S for tab left (via ⇧⇥ with action set in App native or KM)
-			[:f :!Ttab] 							   ; =   F   = ⇥
-			[:a :!Copen_bracket] 			   ;    a for Back Page via ⌘[
-			[:g :!Cclose_bracket] 		   ;    g for Forward Page via ⌘]
-			[:w [:km "Item Up ©"]]		   ;    w for Item Up via ⌘] 														TODO: ✍🏻 document © as universal
-			[:v [:km "Item Down ©"]]		   ;    v for Item Up via ⌘]
+	;;• Tab Manipulation..........................................
+		[:s :!TStab] 														;;= d+s for tab left (via ⌃⇥ with action set in app native or KM)
+		[:f :!Ttab] 												 	   	  ;;= d+f for ⇧⌃⇥ (tab right)
+		[:a :!Copen_bracket] 			   							;;= d+a for ⌘[ (Page Back)
+		[:g :!Cclose_bracket] 		   								;;= d+g for ⌘] (Forward Page)
+		[:w [:km "Item Up ©"]]		   							  ;;= d+w for Item Up (global KM context "Item Up ©")
+		[:v [:km "Item Down ©"]]		         				;;= d+v for Item Down (global KM context "Item Down ©")
+		[:c :!Cquote] 					  						  		   ;;= d+x for ⌘+quote (edit tags in omnifocus, evernote ect...)
+		;;• jlik for ⌥ navigation.................................
+		[:#Sj :!O#Sleft_arrow]
+		[:#Sl :!O#Sright_arrow]
+		[:#Si :!O#Sup_arrow]
+		[:#Sk :!O#Sdown_arrow]
 
-			[:c :!Cquote] 					   ;    c for ⌘'"
-		;;* d+m for moving tab/window left/right.....................
-				[:m [[:vk_none]["dm&" 1]] nil {:delayed {:canceled [["dm&" 0]["d&" 0]]
-				:invoked [[:vk_none]["dm&" 0]] }  :held [[:km "Move Window Active Space Right (delay)"]["dm¬" 1]] } ]
-			[:#Sj :!O#Sleft_arrow] ;;*jlik for ⌥ navigation....................................................
-			[:#Sl :!O#Sright_arrow]
-			[:#Si :!O#Sup_arrow]
-			[:#Sk :!O#Sdown_arrow]
-		[:comma [:km "Switch Second Space Left"] ] ;;• c+comma for Switch Second Space Left
-		[:period [:km "Switch Second Space Right"] ] ;;• c+period for Switch Second Space Right
-		[:t [:!SCTd] ] ;;• d+t for Dictate Text (via ⇧⌃⌘d)
+		[:comma [:km "Switch Second Space Left"] ] ;;• c+comma for Switch Second Space Left ✅ working on 💻 Maxbook pro
+		[:period [:km "Switch Second Space Right"] ] ;;• c+period for Switch Second Space Right ✅ working on 💻 Maxbook pro
+
+		[:t [:!SCTd] ] ;;• d+t for Dictate Text (via ⇧⌃⌘d hotkey set in System Preferencees > Keyboard > Dictation)
+		[:2 [[:SPKR3] :!TO2] ] ;;• d+2 for ⌃⌥2 2Do quick entry ✨ new 7/30/23
+
+		;;! * d+m for moving tab/window left/right.....................! ❓⭕ TODO not sure whats up here
+				;; [:m [[:vk_none]["dm&" 1]] nil {:delayed {:canceled [["dm&" 0]["d&" 0]]
+				;; :invoked [[:vk_none]["dm&" 0]] }  :held [[:km "Move Window Active Space Right (delay)"]["dm¬" 1]] } ]
 	]}
 ;;============================ F MODE =============================
 	{:des " f-mode for f things" :rules [ :f& ;;* –––––––––––––––––––––––––––––––––––––
@@ -369,8 +371,8 @@
 ;;============================ G MODE ============================
 	{:des "g-mode" :rules [ 	:g& ;;* –––––––––––––––––––––––––––––––––––––––––––
 		[:spacebar [:km "Click GUI Button"]] ;;• g+spacebar for Click GUI Button
-		[:right_control [:km "Click GUI Button"]] ;;• g+right_control for Click GUI Button
-		[:w [[:SPKR3] :!!tab]] ;;• g+w for Click focus Window
+		[:right_control [:km "Click GUI Button"]] ;;• g+right_control for Click GUI Button (for compatability with UHK split spacebar)
+		[:w [[:SPKR3] :!!tab]] ;;• g+w for Click focus Window > ❓ not sure what this is for
 	;; keep around
 			;; [:m [:km "GoTo Gmail Inbox"] [["g&" 1] ["go&" 1]]] ;;+ g+o+m for GoTo Gmail Inbox
 			;; [:r [:km "Go To Recent OmniFocus Task"] [["g&" 1] ["go&" 1]]] ;;+ g+o+r for Go To Recent OmniFocus Task
@@ -381,12 +383,13 @@
 		[:w [:km "Hover Evernote Now"]] ;;• h+w for Hover Evernote Now 🟢
 		[:l [:km "Hover ⚡️ LIVE NOTES"]] ;;• h+l for Hover ⚡️ LIVE NOTES 🟢
 		[:u [:km "Hover 📅 UPCOMING "]] ;;• h+u for Hover 📅 UPCOMING  🟢
-		[:d [:km "Hover 🍇 DFP Dashboard"]] ;;• h+d forHover 🍇 DFP Dashboard  🟢
-		[:e [:km "Hover Evernote 🍇📞 NEXT MEETING/HUDDLE"]] ;;• h+e 🍇📞 NEXT MEETING/HUDDLE  🟢
 		[:c [:km "Hover Evernote 🕸 Capture (ideas and thoughts)"]] ;;• h+c for Hover Evernote 🕸 Capture (ideas and thoughts) 🟢
-		[:t [:km "Hover Notion Lou’s TODO’s"]] ;;• h+t for Hover  Notion Lou’s TODO’s) 🟢
+		[:t [:km "Hover Notion Lou’s TODO’s"]] ;;• h+t for Hover  Notion Lou’s TODO’s) 🟢🔰
 		[:b [:km "Hover Evernote 🧰 WORKBENCH"]] ;;• h+b for Hover Evernote 🧰 WORKBENCH
-		[:i [:km "Hover Evernote 🔷 ITINERARY"]] ;;• h+i for Hover Evernote 🔷 ITINERARY ✨
+
+		[:d [:km "Hover 🍇 DFP Dashboard"]] ;;• h+d forHover 🍇 DFP Dashboard  🟢 > ⭕ to remove
+		[:e [:km "Hover Evernote 🍇📞 NEXT MEETING/HUDDLE"]] ;;• h+e 🍇📞 NEXT MEETING/HUDDLE  🟢 > ⭕ to remove
+		[:i [:km "Hover Evernote 🔷 ITINERARY"]] ;;• h+i for Hover Evernote 🔷 ITINERARY > ⭕ to remove
 
 
 		;; ✨ TEMPLATE to maybe use: [:<INSERT 2nd key> [:km "<INSERT MACRO NAME>"]] ;;• <INSERT 1st key>+<INSERT 2nd key> for <INSERT MACRO NAME>
@@ -399,25 +402,23 @@
 ;;============================ I MODE ==============================
 	{:des "i-mode for new things" :rules [
 	:i& ;;• i+..................................................................................................................................
-		[:e [:km "Insert Emoji"]] ;;• i+e for Insert Emoji
+		[:e [:km "Toggle Emoji and Symbols selector"]] ;;• i+e for Toggle Emoji and Symbols selector via KM macro that also closes the pop-up
 		[:d [:km "Hover Evernote  🥔 Idaho Trip (Brosensus)"]] ;;• i+d for 🥔 Idaho Trip (Brosensus) 🟢
-		;; [:t [:km "Hover Evernote 🔷 ITINERARY"]] ;;• i+t for Hover Evernote 🔷 ITINERARY 🔴 disabled because accidentally triggering
-
-
+		;; [:t [:km "Hover Evernote 🔷 ITINERARY"]] ;;• i+t for Hover Evernote 🔷 ITINERARY 🔴 disabled b/c false positives
 		]}
-;;============================ J MODE =============================
+;;============================ J MODE ===============================
 	{:des "j-mode" :rules [
 	:j&  ;;• j+................................................................................................................................
 		[:e [[:SPKR3][:km "Jump to Evernote"]]] ;;• j+e for Jump to Evernote 🟢
-		[:s [[:SPKR3][:km "Jump to Stickies"]]] ;;• j+e for Jump to Stickies 🟢
-		[:o [:km "Jump to OmniFocus"]] ;;• j+o for Jump to OmniFocus  🟡needs work
-		[:w [[:SPKR3] :!Ospacebar]] ;;• j+w for Jump to Window (via Context hotkey ⌥space)
 		[:d [:km "Jump to Drafts (global)"]] ;;• j+d for Jump to Drafts (global)
+		[:s [[:SPKR3][:km "Jump to Stickies"]]] ;;• j+e for Jump to Stickies 🟢
+		[:o [:km "Jump to OmniFocus"]] ;;• j+o for Jump to OmniFocus 🟡 needs work > 🟢 better now
+		[:w [[:SPKR3] :!Ospacebar]] ;;• j+w for Jump to Window (via Context hotkey ⌥space)
 
-		[:period [:km "© Open Context Menu"]]  ;;• j+period for Open Context Menu (via KM global contextual)
-		[:spacebar [:km "Click GUI Button"]] ;;⭐ j+spacebar for Click GUI Button
+		[:period [:km "© Open Context Menu"]]  ;;• j+period for Open Context Menu (via KM global context)
+		[:spacebar [:km "Click GUI Button"]] ;; ⭐j+spacebar for Click GUI Button (one of my favs)
 
-		[:t [:km "© Jump To"]] ;;• j+o for © Jump To ✨
+		[:t [:km "© Jump To"]] ;;• j+o for © Jump To (via KM global context)
 		[:right_gui [:km "© Jump To"]] ;;• j+right_gui for © Jump To //alternative way with one hand
 
 	;;* TODO testing out "send" rule
@@ -552,13 +553,15 @@
 ;;============================ U MODE ==============================
 ;;TODO ⭕ lot of potential here because not used up...
 	{:des "u-mode for..." :rules [ :u& ;;* ––––––––––––––––––––––––––––––––––––––––––
-		;; [:w [:km "Uppercase Word"]] ;;• u+w for Uppercase Word (🟨 get rid of because unnecessary?)
+		;; [:w [:km "Uppercase Word"]] ;;! u+w for Uppercase Word (🟨 get rid of because unnecessary?) > TODO: delete ❌
 		[:c [:km "Uppercase Selection"]] ;;• u+c for Uppercase Selection 🔰
 	]}
 
 ;;============================ V MODE ==============================
 	{	:des "v-mode for..." :rules [ :v& ;;* ––––––––––––––––––––––––––––––––––––––––-
-		[:i [[:SPKR3] [:km "Hover Evernote ⭐️ VIPs"] ] ] ;;• v+i  for Hover Evernote ⭐️ VIPs 🟢
+		[:i [[:SPKR3] [:km "Hover Evernote ⭐️ VIPs"] ] ] ;;! v+i  for Hover Evernote ⭐️ VIPs >  TODO: time to delete ❌
+		[:2 [[:SPKR3] [:open "obsidian://open?vault=vault2"]]] ;;• v+2 for open Obsidian vault 2 ✨ new 7/30/23
+		[:r [[:SPKR3] [:open "obsidian://open?vault=reference-vault"]]] ;;• v+r for open Obsidian vault 2 ✨ new 7/30/23
 	]}
 ;;============================ W MODE =============================
 	{	:des "w-mode" :rules [ :w& ;;• ––––––––––––––––––––––––––––––––––––––––––––
@@ -669,8 +672,8 @@
 ;;========================= PERIOD MODE ===========================
 	{:des " period-mode for typinator and autocomplete":rules [
     :period& ;;• –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		[:spacebar [[:SPKR3] :!SCTt] ] ;;• period+spacebar for Typinator Quick Search (via ⌃⇧⌘T hotkey)
-		[:left_shift [[:SPKR3] :!STperiod] ] ;;• period+spacebar for Typinator Suggest Abbreviation (via ⌃⇧+. hotkey)
+		[:spacebar [[:SPKR3] :!SCTt] ] ;;• period+spacebar for Typinator Quick Search (via ⌃⇧⌘+T hotkey set in app pref.)
+		[:left_shift [[:SPKR3] :!STperiod] ] ;;• period+left_shift for Typinator Suggest Abbreviation (via ⌃⇧+. hotkey set in app pref)
 	]}
 ;;========================== RETURN MODE ==========================
 	{	:des "return-mode for..." :rules [
@@ -789,37 +792,8 @@
 			}
 ;;*============================ END ===============================
 }
-;;* 📜 OLD
-		;; 1/06/23 moving changlog to bottom and starting to append instead of prepend
-		;; 1/06/23 🔰 greated karabiner baare-metal version of b+a to boldate to beginning of line and love it ...
-		;; 1/05/23 trying to figur out UHK 2.0 fn thing -> ✅ fixed!!!
-		;;11/02/22  💢 dealt with rebasing thing i need to revisit... now adding Hover Evernote 🧰 WORKBENCH
-		;; 9/07/ 22 adding Hover Notion
-		;; 8/18/22 adding i+d Hover Evernote  🥔 Idaho Trip (Brosensus)
-		;; ✨ Modes to consider adding
-		;; 5/25/22 thinking about w+space
-		;; .024 looking at hover commands... 🚫
-		;; .023 adding space+v for clipboard...
-		; .022 removing D mode;
-		;; .021 adding m+S for message to self
-		;; .020 playing around with things...
-		;; .010 12/04/21 going to continue to clean up everything... 12/08/21~diting omni foucs
-		;; .009 making k+e to edit Karabiner... also fixed up some modes...
-		;; .007,.008 looking at z mode to see about keyboard light (11/30/21) (❗ t-mode which broke m,n,w)
-		;; trying to replace impremissable characters... not sure why...&
-		;; ✅  fixed slash+spacebar for help menu search
-		;; ✅  fixed n+i for omnifocus quick entry
-		;; fixing j+o for jump to Omnifocus
-;;* CHANGELOG ======================================================
-	;; 1/06/23 ✨ adding j+t for "global but cotextual" Jump To chrome macro. also adding j+right gui
-	;; 2/17/23 ✳️ NEW: Center Window on Current Mouse Location.
-		;; 💡 had idea to start ordering lines in this config alphabetically so easier to see what's used. would remove logical organization
-		;; fixed z+p/n for brightness
-	;; 2/21/23 dealth with gitignore, modified h+i to hover itinerary
-	;; 3/30/23 ✨ trying out return-mode as control for emacs -> deleted quote mode... -> ✅ seems to work!!
-	;; 3/31/23 ❗fixing  d+Left_Spacebar on UHK...
-	;; swapping c+w and w+c
 
+;;* protocol ======================================================
 ;; ☰ new entry PROTOCOL:
 	;; add line with prepend date and description to change log
 	;; save, stage, commit with short&good description, push... be sure to pull next time opening up other mbp
