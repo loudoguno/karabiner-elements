@@ -562,6 +562,7 @@
 		[:i [[:SPKR3] [:km "Hover Evernote ⭐️ VIPs"] ] ] ;;! v+i  for Hover Evernote ⭐️ VIPs >  TODO: time to delete ❌
 		[:2 [[:SPKR3] [:open "obsidian://open?vault=vault2"]]] ;;• v+2 for open Obsidian vault 2 ✨ new 7/30/23
 		[:r [[:SPKR3] [:open "obsidian://open?vault=reference-vault"]]] ;;• v+r for open Obsidian vault 2 ✨ new 7/30/23
+		[:s [[:SPKR3] [:open "/Users/loudog/Dropbox/Sync/vs-code/vs code sync.code-workspace"]]] ;;• v+s for open VS-Code sync workspace ✨ new 7/30/23 🟢 works, NOTE: do note want to prepend file path with file//
 	]}
 ;;============================ W MODE =============================
 	{	:des "w-mode" :rules [ :w& ;;• ––––––––––––––––––––––––––––––––––––––––––––
