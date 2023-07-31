@@ -378,7 +378,7 @@
 			;; [:r [:km "Go To Recent OmniFocus Task"] [["g&" 1] ["go&" 1]]] ;;+ g+o+r for Go To Recent OmniFocus Task
 			;; [:a [:km "Finder: Go To Just Press Record Voice Recordings"] [["g&" 1] ["go&" 1]]] ;;+ g+o+r for Finder: Go To Just Press Record Voice Recordings
 	]}
-;;=========================== H MODE ==============================
+;;=========================== H MODEµ==============================
 	{:des " h-mode for h things" :rules [:h& ;;* ––––––––––––––––––––––––––––––––––––
 		[:w [:km "Hover Evernote Now"]] ;;• h+w for Hover Evernote Now 🟢
 		[:l [:km "Hover ⚡️ LIVE NOTES"]] ;;• h+l for Hover ⚡️ LIVE NOTES 🟢
@@ -389,7 +389,6 @@
 
 		[:d [:km "Hover 🍇 DFP Dashboard"]] ;;• h+d forHover 🍇 DFP Dashboard  🟢 > ⭕ to remove
 		[:e [:km "Hover Evernote 🍇📞 NEXT MEETING/HUDDLE"]] ;;• h+e 🍇📞 NEXT MEETING/HUDDLE  🟢 > ⭕ to remove
-		[:i [:km "Hover Evernote 🔷 ITINERARY"]] ;;• h+i for Hover Evernote 🔷 ITINERARY > ⭕ to remove
 
 
 		;; ✨ TEMPLATE to maybe use: [:<INSERT 2nd key> [:km "<INSERT MACRO NAME>"]] ;;• <INSERT 1st key>+<INSERT 2nd key> for <INSERT MACRO NAME>
