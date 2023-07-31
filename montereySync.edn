@@ -438,6 +438,8 @@
 		[:s [:km "Clean Line Formatting"]] ;;• l+s for Clean Line Formatting
 		[:j [:open "obsidian://log"] ] ;;• l+j for  Log something new to your Daily journal from Lumberjack obsidian plugin
 		[:d [:open "https://www.notion.so/loudog/LOU-DASHBOARD-2af984c519f8474a8632893fd5482eba"] ] ;;• l+d for  Lou's Dashboard (Notion) ✨ new
+		[:b [:open "obsidian://advanced-uri?vault=reference-vault&daily=true&mode=append"] ] ;;• l+b for log obsidian reference vault daily journal
+
 	]}
 ;;============================ M MODE ==============================
 	{:des "m-mode for new things" :rules [ :m& ;;• m+..............................................................
