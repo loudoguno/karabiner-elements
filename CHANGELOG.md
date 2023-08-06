@@ -29,3 +29,7 @@
 - 2/21/23 dealth with gitignore, modified h+i to hover itinerary
 - 3/30/23 ✨ trying out return-mode as control for emacs -> deleted quote mode... -> ✅ seems to work!!
 - 3/31/23 ❗fixing  d+Left_Spacebar on UHK...
+
+- 8/06/23
+  - adding rules to slash mode toee how open command works with other URLS..
+  - created url-reference file to keep track of what works and what doesn't
