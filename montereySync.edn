@@ -393,7 +393,7 @@
 			[:4 [:km "Hover OmniFocus 🧨C4 TODO"]] ;;• h+4 for Hover OmniFocus 🧨C4 TODO 🔰
 		]}
 ;;============================ I MODE ==============================
-	{:des "i-mode for new things" :rules [
+	{:des "i-mode for I things" :rules [
 	:i& ;;• i+..................................................................................................................................
 		[:e [:km "Toggle Emoji and Symbols selector"]] ;;• i+e for Toggle Emoji and Symbols selector via KM macro that also closes the pop-up
 		[:d [:km "Hover Evernote  🥔 Idaho Trip (Brosensus)"]] ;;• i+d for 🥔 Idaho Trip (Brosensus) 🟢
@@ -422,13 +422,13 @@
 
 	]}
 ;;============================= K MODE =============================
-	{:des "k-mode for new things" :rules [ :k& ;;• k+..................................................................
+	{:des "k-mode for k things" :rules [ :k& ;;• k+..................................................................
 			[:spacebar [:km "Trigger Macro by Name"]] ;;• k+spacebar for "Trigger Macro by Name"
 			[:e [:km "Open Karabiner Elements (monterySync.edn) in VS Code"]] ;;• k+e for Open Karabiner Elements (monterySync.edn) in VS Code
 			[:v [:km "Activate Karabiner EventViewer"]] ;;• k+v for "Activate Karabiner EventViewer"
 	]}
 ;;============================ L MODE =============================
-	{:des "L-mode for new things" :rules [ :l& ;;* –––––––––––––––––––––––––––––––––––
+	{:des "L-mode for l things" :rules [ :l& ;;* –––––––––––––––––––––––––––––––––––
 		[:s [:km "Clean Line Formatting"]] ;;• l+s for Clean Line Formatting
 		[:j [:open "obsidian://log"] ] ;;• l+j for  Log something new to your Daily journal from Lumberjack obsidian plugin
 		[:d [:open "https://www.notion.so/loudog/LOU-DASHBOARD-2af984c519f8474a8632893fd5482eba"] ] ;;• l+d for  Lou's Dashboard (Notion) ✨ new
@@ -436,7 +436,7 @@
 
 	]}
 ;;============================ M MODE ==============================
-	{:des "m-mode for new things" :rules [ :m& ;;• m+..............................................................
+	{:des "m-mode for m things" :rules [ :m& ;;• m+..............................................................
 		[:r [:km "Hover OmniFocus Morning Review"]] ;;• m+r for Hover OmniFocus Morning Review
 		[:s [:km "New Message (to self)"]] ;;• m+s for New Message (to self)
 	]}
@@ -699,7 +699,10 @@
 		[:spacebar [[:SPKR3] :!CSslash] ] ;;• slash+spacebar for Help Menu Search (via System hotkey ⌘⇧+/) 🟢
 
 		[:e [:open "evernote:///view/11846588/s107/45e4e957-a18b-8721-8099-0108dfdb2168/6d950bc3-9eca-4610-a1c6-e8dc89702cd2/"] ] ;;•slash+e for open✨ new 8/06/23 📗 EN LOG in Evernote
-		[:b [:open "obsidian://advanced-uri?vault=reference-vault&commandid=workspace%253Atoggle-pin&uid=c2352d6a-240a-4730-90da-91bdf10486af"] ] ;;• /+o OBSIDIAN >
+		[:b [:open "obsidian://advanced-uri?vault=reference-vault&commandid=workspace%253Atoggle-pin&uid=c2352d6a-240a-4730-90da-91bdf10486af"] ] ;;• slash+b for pin 👿 cheatsheet (ref vault) URI
+		[:l [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=quickadd%253Achoice%253Ab01dce33-74de-4033-83ff-83667640f864"]] ] ;;• /+o to open reference vault Quick Add Master log URI
+		;; [:INSERTKEY [[:SPKR3] [:open "INSERT_URL"]] ] ;;• slash+INSERTKEY for ✳️ NEW RULE TO COPY
+
 	]}
 
 
