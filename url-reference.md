@@ -16,5 +16,7 @@ KE rule: `[:e [:open "evernote:///view/11846588/s107/45e4e957-a18b-8721-8099-010
   - Omnifocus:
 
 ### Obsidian
-
 [:b [:open "obsidian://advanced-uri?vault=reference-vault&commandid=workspace%253Atoggle-pin&uid=c2352d6a-240a-4730-90da-91bdf10486af"] ] ;;• /+o OBSIDIAN >
+
+### vs code
+[:s [[:SPKR3] [:open "/Users/loudog/Dropbox/Sync/vs-code/vs code sync.code-workspace"]]] ;;• v+s for open VS-Code sync workspace ✨ new 7/30/23 🟢 works, NOTE: do note want to prepend file path with file//

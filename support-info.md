@@ -3,6 +3,10 @@ README: support documentation for quirky things in my master .edn
 
 TODO: see [outline](evernote:///view/11846588/s107/eb73deae-f988-4168-a76b-5d8487298d33/eb73deae-f988-4168-a76b-5d8487298d33/)
 
+## ✨ NEW
+-[:2 [[:SPKR3] :!TO2] ] ;;• d+2 for ⌃⌥2 2Do quick entry ✨ new 7/30/23
+
+
 # code as UI via extensive  syntax, texture, formatting and emojis
 - goal to make large unwiedly config files as easy to navigate, update and understand as possible. achieved by adding as much "texture" to text ass possible
 - comment colorizer
