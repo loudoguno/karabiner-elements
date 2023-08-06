@@ -1,7 +1,8 @@
-;;= montereySync.edn .104  ==============================================
+;;= montereySync.edn .200 ==============================================
 ;; ❗ start using CHANGELOG
 ;; -⭐ organize alphabetically using sort lines
 ;; -⭐ start using co-pilot
+;; 230806 (Sun) trying to sync up all devices
 
 { ;;+ ========================= DEFINITIONS =========================== for templates (aliases for frequently used CLI strings), layers, simlayers
 	:templates { ;;= ..................................................................................................................... aliases for shell commands including osascript (execute Applescript file), and afplay (plays sound file)
