@@ -1,14 +1,7 @@
+
 https://github.com/yqrashawn/GokuRakuJoudo/blob/master/in-the-wild.md
 * https://github.com/rgomezcasas/dotfiles/blob/main/os/mac/karabiner-goku/karabiner.edn
 * https://gist.github.com/nikolai-cc/02f6b070972840323ae355ef847e91a6 ⭐
-
-* rething hyper key
-* game out system that doesn't use 3 key cords
-
-
-
-
-{
 ;; ----------------------------------
 ;; this is my goku file for karabiner
 ;; ----------------------------------
