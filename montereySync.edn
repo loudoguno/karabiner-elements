@@ -141,6 +141,7 @@
 	{:des "Simultaneous Keys":rules [
 		[ [:k :m] [ [:km "Activate Keyboard Maestro"]] ] ;;* km to activate Keyboard Maestro
 		[ [:v :c]  [:km "Activate Visual Studio Code"] ] ;;* vc to Activate Visual Studio Code
+		[ [:s :n]  [:open "sidenotes://open/460F59F5-617F-44CB-B9F0-099E96DF1EE3"] ] ;;* s+n to open SideNates "❗ Now" note via URL (sidenotes://open/460F59F5-617F-44CB-B9F0-099E96DF1EE3)
 		]}
 ;;======================= HYPER MODE and MODIFIERS ====================
 	{:des "Capslock as hyper" :rules [ [:condi :!space-mode :!Rctrl-mode] ; Capslock as hyper (command+shift+option+control)
@@ -426,6 +427,8 @@
 			[:spacebar [:km "Trigger Macro by Name"]] ;;• k+spacebar for "Trigger Macro by Name"
 			[:e [:km "Open Karabiner Elements (monterySync.edn) in VS Code"]] ;;• k+e for Open Karabiner Elements (monterySync.edn) in VS Code
 			[:v [:km "Activate Karabiner EventViewer"]] ;;• k+v for "Activate Karabiner EventViewer"
+			[:y [:open "https://www.notion.so/my-old-ky-home/My-Old-Kentucky-Notion-c9ffb2a6aa6540e1b3e80a34e5db2d72?p=226804d32b084480a53b9c5ec4bde45f&showMoveTo=true)"]] ;;• k+y for ky house dashboard
+
 	]}
 ;;============================ L MODE =============================
 	{:des "L-mode for l things" :rules [ :l& ;;* –––––––––––––––––––––––––––––––––––
@@ -518,9 +521,8 @@
 	]}
 ;;============================= S Mode =============================
 	{:des "s-mode for s things" :rules [ :s& ;;* ––––––––––––––––-----------––––––––––––
-		[:t :!STCs] ;;• s+t for Speak Text via system hot key
-		[:c [:km "Speak Clipboard"]] ;;• s+c for Speak Clipboard
-		[:y [:km "Hover 🔁 Sync Log"]] ;;? s+y for Hover 🔁 Sync Log 🔰 🟡 NEEDTOFIX, usefuless right now
+		[:t :!STCs] ;;• s+t for Speak Text via system hot key (⇧⌥⌃S)
+		[:c [:km "Speak Clipboard"]] ;;• s+c for Speak Clipboard via KM macro 👁 surfacing for visibility
 
 		;; enclose selection with and transform
 			[:9 [:km "Enclose Selection with Parenthesis"]] ;;• s+9 for Enclose Selection with Parenthesis 🟢
