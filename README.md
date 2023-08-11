@@ -20,3 +20,10 @@ colorized comments and emojis are used to add visual texture and landmarks
 - ⭕ TODO, ❗ needs attention
 - 🟢 working well, 🟡 working sort-of, - 🔴 not working
 - 🔰/✨ new
+
+ ## other things to note...
+ - © stands for contextual. common actions shared by most apps can be trigger by KM macros that share the same name but only enabled when their app is active. ex, the macro for quick fuzzy searching an app is named  "© Jump To" and the KE rule looks like
+```
+[:t [:km "© Jump To"]] ;;• j+t for © Jump To (via KM global contextlua)
+```
+...

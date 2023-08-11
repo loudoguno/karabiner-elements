@@ -1,9 +1,9 @@
-;;= montereySync.edn .200 ==============================================
+;;= LAST WORKING COPY montereySync.edn .200 ==============================================
 ;; ❗ start using CHANGELOG
 ;; -⭐ organize alphabetically using sort lines
 ;; -⭐ start using co-pilot
 ;; 230806 (Sun) trying to sync up all devices
-;; TODO add Q mode (q+n quick note)
+
 { ;;+ ========================= DEFINITIONS =========================== for templates (aliases for frequently used CLI strings), layers, simlayers
 	:templates { ;;= ..................................................................................................................... aliases for shell commands including osascript (execute Applescript file), and afplay (plays sound file)
 		:open "open \"%s\"" ; open file
@@ -139,13 +139,13 @@
 			]}
 ;;;======================== SIMULTANEOUS KEY ========================= rules activated when two keys are pressed at the same time
 	{:des "Simultaneous Keys":rules [
-		[ [:k :m] [:km "Activate Keyboard Maestro"]] ;;* km to activate Keyboard Maestro
+		[ [:k :m] [ [:km "Activate Keyboard Maestro"]] ] ;;* km to activate Keyboard Maestro
 		[ [:v :c]  [:km "Activate Visual Studio Code"] ] ;;* vc to Activate Visual Studio Code
+		[ [:s :n]  [:open "sidenotes://open/460F59F5-617F-44CB-B9F0-099E96DF1EE3"] ] ;;* s+n to open SideNates "❗ Now" note via URL (sidenotes://open/460F59F5-617F-44CB-B9F0-099E96DF1EE3)
 		[ [:o :b]  [:open "obsidian://advanced-uri?vault=reference-vault&commandid=obsidian-global-hotkeys%253Ashow"] ] ;;* o+b for show/hide Obsidian (via command URI)
-		[ [:s :n]  [:km "Activate SideNotes"]] ;;* s+n to open SideNates "❗ Now" note via URL (sidenotes://open/460F59F5-617F-44CB-B9F0-099E96DF1EE3)
-		[ [:c :h] [ [:SPKR3] [:open "sidenotes://open/93C96CE1-3C77-49A9-955D-D50340BA04F1"] ] ] ;;* o+b for show/hide Obsidian (via command URI)
+		[ [:c :h]  [:open "sidenotes://open/93C96CE1-3C77-49A9-955D-D50340BA04F1"] ] ;;* o+b for show/hide Obsidian (via command URI)
 
-]}
+		]}
 ;;======================= HYPER MODE and MODIFIERS ====================
 	{:des "Capslock as hyper" :rules [ [:condi :!space-mode :!Rctrl-mode] ; Capslock as hyper (command+shift+option+control)
 		[:##caps_lock :!!left_control nil {:alone :escape} ] ]}
@@ -291,7 +291,7 @@
 ;;=========================== B MODE ==============================
 	{:des " b-mode for b things" :rules [ :b& ;;* ––––––––––––––––––––––––––––––––––––
 		[:a [:km "Boldate Clean Left"] ] ;;• b+a for Boldate Clean Left 🟢 FIXED
-		[:w [:!Oleft_arrow :!OSright_arrow]] ;;• b+w for highlight word 🤔 interesting daisy chain
+		[:w [:!Oleft_arrow :!OSright_arrow] ] ;;• b+w for highlight word 🤔 interesting daisy chain
 		[:l [:!Ta :!TSe :!Sright_arrow] ] ;;• b+L for highlight line
 	]}
 ;;============================ C MODE =============================
@@ -310,8 +310,6 @@
 	]}
 ;;============================ D MODE ==============================
 	{:des "d-mode for d things" :rules [ :d& ;;================================== D MODE
-
-		[:j [:open "obsidian://advanced-uri?vault=reference-vault&daily=true&mode=append"] ] ;;• d+j for daily journal  in Obsidian (via URI)
 
 		;; d+spacebar for ⌘ palette (legacy from window manipulation stuff) ⭕ TODO: refactor window mgmt stuff her 📜 old/stale/archive
 		[:spacebar [[:SPKR3] :!Cp] ] ;;• d+spacebar for ⌘P (⌘p keyboard maestro conflict palette)
@@ -381,7 +379,6 @@
 ;;=========================== H MODEµ==============================
 	{:des " h-mode for h things" :rules [:h& ;;* ––––––––––––––––––––––––––––––––––––
 		[:w [:km "Hover Evernote Now"]] ;;• h+w for Hover Evernote Now 🟢
-		[:s [[:SPKR3] :!Ts]] ;;= h+s hover Sidenotes via hotkey assigned in app (⌃s)
 		[:l [:km "Hover ⚡️ LIVE NOTES"]] ;;• h+l for Hover ⚡️ LIVE NOTES 🟢
 		[:u [:km "Hover 📅 UPCOMING "]] ;;• h+u for Hover 📅 UPCOMING  🟢
 		[:c [:km "Hover Evernote 🕸 Capture (ideas and thoughts)"]] ;;• h+c for Hover Evernote 🕸 Capture (ideas and thoughts) 🟢
@@ -391,11 +388,13 @@
 		[:d [:km "Hover 🍇 DFP Dashboard"]] ;;• h+d forHover 🍇 DFP Dashboard  🟢 > ⭕ to remove
 		[:e [:km "Hover Evernote 🍇📞 NEXT MEETING/HUDDLE"]] ;;• h+e 🍇📞 NEXT MEETING/HUDDLE  🟢 > ⭕ to remove
 
+
 		;; ✨ TEMPLATE to maybe use: [:<INSERT 2nd key> [:km "<INSERT MACRO NAME>"]] ;;• <INSERT 1st key>+<INSERT 2nd key> for <INSERT MACRO NAME>
 
-		[:m [:open "/Applications/Setapp/Hookmark.app"] ] ;;• h+m for Hookmark 🔰 new 8/11/23 works
-		[:k [:open "/Applications/Setapp/Hookmark.app"] ] ;;• h+m for Hookmark 🔰 new 8/11/23 works
-
+		;; TODO: need work
+			[:o [:km "-Hover Palette"]] ;;• h+w for Hover palette ⭕needs work
+			;; [:e [:km "Hover Recent Daily Journal Entry"]] ;;• h+e for Hover Recent Daily Journal Entry 🟢
+			[:4 [:km "Hover OmniFocus 🧨C4 TODO"]] ;;• h+4 for Hover OmniFocus 🧨C4 TODO 🔰
 		]}
 ;;============================ I MODE ==============================
 	{:des "i-mode for I things" :rules [
@@ -407,19 +406,19 @@
 ;;============================ J MODE ===============================
 	{:des "j-mode" :rules [
 	:j&  ;;• j+................................................................................................................................
-		[:e [[:SPKR3][:km "Jump to Evernote"]]] ;;• j+e for Jump to Evernote 🔴 broken in EN 10
+		[:e [[:SPKR3][:km "Jump to Evernote"]]] ;;• j+e for Jump to Evernote 🟢
 		[:d [:km "Jump to Drafts (global)"]] ;;• j+d for Jump to Drafts (global)
-		[:s [ [:SPKR3]  :!Tf ] ] ;;• j+s Jump to SideNotes 🔰
+		[:s [[:SPKR3][:km "Jump to Stickies"]]] ;;• j+e for Jump to Stickies 🟢
 		[:o [:km "Jump to OmniFocus"]] ;;• j+o for Jump to OmniFocus 🟡 needs work > 🟢 better now
-		[:b [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=darlal-switcher-plus%253Aswitcher-plus%253Aopen"]] ] ;;• j+b_ jump to Obsidian (via QuickSwitcher plus URI
 		[:w [[:SPKR3] :!Ospacebar]] ;;• j+w for Jump to Window (via Context hotkey ⌥space)
 
-		[:period [:km "© Open Context Menu"]] ;;• j+period for Open Context Menu (via KM global context)
-		[:spacebar [:km "Click GUI Button"]] ;; ⭐j+spacebar for Click GUI Button (one of my favs). actually assigned to g+spacebar..
+		[:period [:km "© Open Context Menu"]]  ;;• j+period for Open Context Menu (via KM global context)
+		[:spacebar [:km "Click GUI Button"]] ;; ⭐j+spacebar for Click GUI Button (one of my favs)
 
-		[:t [:km "© Jump To"]] ;;• j+t for © Jump To (via KM global contextlual)
+		[:t [:km "© Jump To"]] ;;• j+o for © Jump To (via KM global context)
 		[:right_gui [:km "© Jump To"]] ;;• j+right_gui for © Jump To //alternative way with one hand
 
+		[:b [[:SPKR3] [:open  "obsidian://advanced-uri?vault=reference-vault&commandid=darlal-switcher-plus%253Aswitcher-plus%253Aopen"]] ] ;;• j+b_ jump to Obsidian (via QuickSwitcher plus URI
 		;; [:KEY_2 [[:SPKR3] [:open "INSERT_URL"] ] ;;• KEY_1+KEY_2 for INSERT_URL from XXX obsidian
 
 	;;* TODO testing out "send" rule
@@ -458,7 +457,9 @@
 		[:p [:km "New Password"]] ;;• n+p for New Password
 		[:q [:km "New QuickNote"]] ;;• n+q New QuickNote
 		[:w [:km "New Window"]] ;;• n+w for New Window
+		;; [:s [:km "New Sticky"]] ;;• n+s for New Sticky 💥 conflict with below
 		[:d [:km "Drafts Quick Capture (global)"]] ;;• n+d for Drafts Quick Capture (global) ✨ new
+
 
 		[:i [[:tink] :!CTSo]] ;;• n+i New Omnifocus Quick Entry (via omf hotkey ⌃⇧⌘+o) 🟢 FIXED
 		[:o [:km "Send to OmniFocus"]] ;;• n+o for Send to OmniFocus ⭐replaced n+i+i

@@ -1,3 +1,4 @@
+ ;; 📕 noting convergant patterns we both gravitated towards
 {:profiles
  {:goku {:default true
          :alone   80 ; hold for .. ms to register single tap
@@ -547,7 +548,7 @@
                  ;[:q [:km "open: Zeplin"]]
                  [:w [:km "Save link"]]
                  [:e :!CO8] ; Alfred clipboard history search
-                 [:r [:km "Centre mouse to active app"]]
+                 [:r [:km "Centre mouse to active app"]] ;; 📕
                  [:i :!Treturn_or_enter]
                  ;[:o :!Oreturn_or_enter]
                  [:o [:!Sreturn_or_enter :!Cs]]
@@ -556,7 +557,7 @@
                  [:caps_lock :!CTOu] ; Sip color picker
                  [:a [:km "open: Figma"]]
                  ;[:a [:km "open: Chrome Canary"]]
-                 ;[:s [:km "edit: 2nd Warp tab"]]
+                 ;[:s [:km "edit: 2nd Warp tab"]] ❓
                  ;[:s [:km "open: Excalidraw"]]
                  [:s [:!TOreturn_or_enter :!Cs]]
                  [:d [:km "Save link (top)"]]
@@ -660,7 +661,7 @@
                  [:tab [:km "proj: Learning"]]
                  [:u [:km "run: Rust"]]
                  [:i [:km "run: Julia"]] ; TODO: maybe use Pluto.jl notebook
-                 [:o [:km "run: Deno"]]
+                 [:o [:km "run: Deno"]] ;;❓
                  [:a [:km "Clone repo to ~/clones and open with VS Code"]]
                  [:s [:km "Clone repo to ~/clones"]]
                  ;[:d [:km "Clone repo to ~/src/clones and open with VS Code"]] ; TODO: open with Xcode
