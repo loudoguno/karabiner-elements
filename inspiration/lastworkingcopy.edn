@@ -4,14 +4,6 @@
 ;; -⭐ start using co-pilot
 ;; 230806 (Sun) trying to sync up all devices
 ;; TODO add Q mode (q+n quick note)
-
-
-;;  {:goku {:default true
-;;          :alone   80 ; hold for .. ms to register single tap
-;;          :held    50 ; TODO: not sure what it's for
-;;          :delay   0 ; time after which the key press is delayed
-;;          :sim     30}} ; jkeys need to be pressed within this threshold to be considered simultaneous
-
 { ;;+ ========================= DEFINITIONS =========================== for templates (aliases for frequently used CLI strings), layers, simlayers
 	:templates { ;;= ..................................................................................................................... aliases for shell commands including osascript (execute Applescript file), and afplay (plays sound file)
 		:open "open \"%s\"" ; open file
@@ -89,8 +81,6 @@
 		}
 ;;+ ============================= MAIN ==============================
 :main [  ;;+ ==========================================================
-	;; {:des "left cmd -> cmd+tab"
-        ;;  :rules [[:left_command :left_command nil {:alone :!Ctab}]]} ;; 🔰 new from Nikita
 ;;============================ HOLDINGKEY ========================= ⭕ TODO: clean up this section (re-title)
 		{:des "Holding Keys: ⌘V for Clipboard History, ⇧⌘3 for Screenshot Palette, ⇧⌘4 for Snagit" :rules [
 			[:!Cv nil nil {:alone :!Cv :held [:km "Clipboard History"] :repeat false :halt true :params{:alone 150 :held 150}} ] ; default :alone is 500ms and would be too long
@@ -113,6 +103,7 @@
 		;; [:left_gui :left_gui nil {:alone [[:SPKR3]:left_gui["R⌘" 1 ]]:delayed {:invoked ["R⌘" 0] :canceled ["R⌘" 0]}}]
 			;; [:left_gui [[:SPKR2] :!!f14 ["R⌘" 0]] ["R⌘" 1]]
 			;; [:left_gui :left_gui nil {:alone [[:SPKR3]:!!f14["R⌘" 1 ]]:delayed {:invoked ["R⌘" 0] :canceled ["R⌘" 0]}}]
+
 			]}
 	{:des "Modifier+Spacebar Stuff" :rules[
 		;;* Double Press Command Spacebar for Contexts search... 🔴 disabled
@@ -308,7 +299,7 @@
 	{:des "c-mode for c things" :rules [ :c& ;;* ––––––––––––––––––––––––––––––––––––
 		[:a [:km "Jump to Fantastical"] ] ;;• c+a for km "Jump to Fantastical"
 		[:o [:km "Query Contacts"] ] ;;• c+o for km "Query Contacts"
-		[:d :!Cquote] ;;• c+d for ⌘+quote (evernote default shortcut for "focus tag field")
+		[:d :!Cquote] ;;• c+d for ⌘+quote (evernote default "focus tag field")
 		[:m [:km "Move Mouse to Focused Window"] ] ;;• c+m for km "Move Mouse to Focused Window" ✳️NEW
 
 		[:comma [[:SPKR3] :!STOcomma]] ;;• c+comma for Switch Active Workspace Left (via System Hotkeys) 🟤 recently re-activated
@@ -403,10 +394,8 @@
 
 		;; ✨ TEMPLATE to maybe use: [:<INSERT 2nd key> [:km "<INSERT MACRO NAME>"]] ;;• <INSERT 1st key>+<INSERT 2nd key> for <INSERT MACRO NAME>
 
-		;; [:m [[:SPKR3] [:open "/Applications/Setapp/Hookmark.app"] ]] ;;• h+m for Hookmark 🔰 new 8/11/23 - 🔴 invoking via `open` brings up empty hookmark overlay unlike invoking via keyboard shortcut ⌃H
-		[:k [[:SPKR3] :!Th]] ;;• h+k for Hookmark (via ⌃h) 🔰 new 8/11/23
-
-
+		[:m [:open "/Applications/Setapp/Hookmark.app"] ] ;;• h+m for Hookmark 🔰 new 8/11/23 works
+		[:k [:open "/Applications/Setapp/Hookmark.app"] ] ;;• h+m for Hookmark 🔰 new 8/11/23 works
 
 		]}
 ;;============================ I MODE ==============================
@@ -431,7 +420,7 @@
 
 		[:t [:km "© Jump To"]] ;;• j+t for © Jump To (via KM global contextlual)
 		[:right_gui [:km "© Jump To"]] ;;• j+right_gui for © Jump To //alternative way with one hand
-		[:l [[:SPKR3] :!Ti]] ;;• j+l for Slidepad (via ⌃i) 🔰 new 8/17/23
+
 		;; [:KEY_2 [[:SPKR3] [:open "INSERT_URL"] ] ;;• KEY_1+KEY_2 for INSERT_URL from XXX obsidian
 
 	;;* TODO testing out "send" rule
