@@ -154,7 +154,7 @@
 		[ [:c :h] [ [:SPKR3] [:open "sidenotes://open/93C96CE1-3C77-49A9-955D-D50340BA04F1"] ] ] ;;* o+b for show/hide Obsidian (via command URI)
 
 		;; changed because o and b  false positives when typine keyboard lol
-		[ [:n :b]  [:open "obsidian://advanced-uri?vault=reference-vault&commandid=obsidian-global-hotkeys%253Ashow"] ] ;;* o|n for show/hide Obsidian (via command URI)
+		[ [:o :b :s]  [:open "obsidian://advanced-uri?vault=reference-vault&commandid=obsidian-global-hotkeys%253Ashow"] ] ;;* o|n for show/hide Obsidian (via command URI)
 ]}
 ;;======================= HYPER MODE and MODIFIERS ====================
 	{:des "Capslock as hyper" :rules [ [:condi :!space-mode :!Rctrl-mode] ; Capslock as hyper (command+shift+option+control)
@@ -201,7 +201,7 @@
 			[:##v [[:SPKR3][:km "Clipboard History"]] :space-mode]  ;;• spacebar+v for "Clipboard History"(via KM macro) 🔰new
 
 		;;* as Shift for alternative characters (e.g. <,>...)
-			[:##q :grave_accent_and_tilde [:space-mode :!numpad-mode]] ;? just added
+			[:##q :grave_accent_and_tilde [:space-mode :!numpad-mode]] ;? just added space+q for `
 			[:##e :!Sgrave_accent_and_tilde [:space-mode :!numpad-mode]] ;?
 			[:##period :!Speriod [:space-mode :!numpad-mode]]
 			[:##comma :!Scomma [:space-mode :!numpad-mode]]
@@ -405,6 +405,7 @@
 
 		;; [:m [[:SPKR3] [:open "/Applications/Setapp/Hookmark.app"] ]] ;;• h+m for Hookmark 🔰 new 8/11/23 - 🔴 invoking via `open` brings up empty hookmark overlay unlike invoking via keyboard shortcut ⌃H
 		[:k [[:SPKR3] :!Th]] ;;• h+k for Hookmark (via ⌃h) 🔰 new 8/11/23
+		[:i [[:SPKR3] :!Ti] ];;• h+i for Slidepad (via ⌃i) 🔰 new 8/17/23, see if causes false positives
 
 
 

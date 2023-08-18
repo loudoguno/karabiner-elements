@@ -33,3 +33,5 @@
 - 8/06/23
   - adding rules to slash mode toee how open command works with other URLS..
   - created url-reference file to keep track of what works and what doesn't
+- 8/17/23
+  - h+i for slidepad via ⌃i (test if causes too many false positives or not)
