@@ -3,6 +3,7 @@
 ;; -⭐ organize alphabetically using sort lines
 ;; -⭐ start using co-pilot
 ;; 230806 (Sun) trying to sync up all devices
+;; 230820 (Sun) 🥔 syncing machines before Idaho
 ;; TODO add Q mode (q+n quick note)
 
 
@@ -390,7 +391,8 @@
 	]}
 ;;=========================== H MODEµ==============================
 	{:des " h-mode for h things" :rules [:h& ;;* ––––––––––––––––––––––––––––––––––––
-		[:w [:km "Hover Evernote Now"]] ;;• h+w for Hover Evernote Now 🟢
+		;; [:w [:km "Hover Evernote Now"]] ;;• h+w for Hover Evernote Now 🟢
+		[:w [[:SPKR3] [:open "evernote:///view/11846588/s107/3ece98d3-b354-40cb-bc54-1b93375eef92/6d950bc3-9eca-4610-a1c6-e8dc89702cd2/"] ]] ;;• KEY_1+KEY_2 for COMMAND_NAME from XXX obsidian
 		[:s [[:SPKR3] :!Ts]] ;;= h+s hover Sidenotes via hotkey assigned in app (⌃s)
 		[:l [:km "Hover ⚡️ LIVE NOTES"]] ;;• h+l for Hover ⚡️ LIVE NOTES 🟢
 		[:u [:km "Hover 📅 UPCOMING "]] ;;• h+u for Hover 📅 UPCOMING  🟢
