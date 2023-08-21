@@ -484,7 +484,8 @@
 		[:o [:km "Send to OmniFocus"]] ;;• n+o for Send to OmniFocus ⭐replaced n+i+i
 
 		[:t [:km "New Typinator Item from Selection"]] ;;• n+t for Quick Add Typinator Item
-		[:s [:km "New Typinator Item from Selection"]] ;;• n+s for Quick Add Typinator Item
+		[:f [:km "New Typinator Item from Selection"]] ;;• n+s for Quick Add Typinator Item
+		[:s [ [:SPKR3] [:open "sidenotes://open/3F52308E-C16E-40C2-8CBE-87BC0F8CC590"] ] ] ;;• n+s for ✨ new stuff (sidenotes)
 
 		[:l [:km "Log Palette"]] ;;• n+l for Log Palette 🟡 need to fix underlying macros
 		[:spacebar [:km "Jump to Notes"]] ;;• n+spacebar Jump to Notes
@@ -509,7 +510,11 @@
 	]}
 
 ;;============================ Q MODE ============================= ;;
+	{:des "q-mode for q things" :rules [ :q& ;;• q+..................................................................
+	[:d [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=quickadd%253ArunQuickAdd"] ] ] ;;• q+d Quick Add global
+	[:t [ [:SPKR3] [:open "INSERT_URL"] ] ] ;;• q+d Quick Add Today tODO
 
+	]}
 
 ;;============================ R MODE ============================== ⭕ TODO: clean up comments and formatting (consolidate rules to fewer lines and add descriptions)
 ;; ℹ️ "remote-mode" for  media transport control (play/pause/next song ect..). most send ⌃⌥⌘ (3 modifiers grouped left of space) plus another key -> next layer in KM are contextual groups like QuickTime, media (e.g. spotify), YouTube
