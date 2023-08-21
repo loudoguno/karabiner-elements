@@ -73,11 +73,11 @@
 		:n& {:key :n}
 		:o& {:key :o}
 		:p& {:key :p}
-		:q& {:key :q}
 		:r& {:key :r}
 		:s& {:key :s}
 		:t& {:key :t}
 		:u& {:key :u}
+		:q& {:key :q}
 		:v& {:key :v}
 		:w& {:key :w}
 		:x& {:key :x}
@@ -384,6 +384,8 @@
 		[:spacebar [:km "Click GUI Button"]] ;;• g+spacebar for Click GUI Button
 		[:right_control [:km "Click GUI Button"]] ;;• g+right_control for Click GUI Button (for compatability with UHK split spacebar)
 		[:w [[:SPKR3] :!!tab]] ;;• g+w for Click focus Window > ❓ not sure what this is for
+		[:n [ [:SPKR3] [:open "omnifocus:///task/cVPImebMMwu"] ] ] ;;• KEY_1+KEY_2 for COMMAND_NAME from XXX obsidian
+
 	;; keep around
 			;; [:m [:km "GoTo Gmail Inbox"] [["g&" 1] ["go&" 1]]] ;;+ g+o+m for GoTo Gmail Inbox
 			;; [:r [:km "Go To Recent OmniFocus Task"] [["g&" 1] ["go&" 1]]] ;;+ g+o+r for Go To Recent OmniFocus Task
@@ -456,15 +458,18 @@
 ;;============================ L MODE =============================
 	{:des "L-mode for l things" :rules [ :l& ;;* –––––––––––––––––––––––––––––––––––
 		[:s [:km "Clean Line Formatting"]] ;;• l+s for Clean Line Formatting
-		[:j [:open "obsidian://log"] ] ;;• l+j for  Log something new to your Daily journal from Lumberjack obsidian plugin
+		[:j [[:SPKR3] [:open "obsidian://log" ] ] ] ;;• l+j for  Log something new to your Daily journal from Lumberjack obsidian plugin
 		[:d [:open "https://www.notion.so/loudog/LOU-DASHBOARD-2af984c519f8474a8632893fd5482eba"] ] ;;• l+d for  Lou's Dashboard (Notion) ✨ new
-		[:b [:open "obsidian://advanced-uri?vault=reference-vault&daily=true&mode=append"] ] ;;• l+b for log obsidian reference vault daily journal
+		[:b [ [:open "obsidian://advanced-uri?vault=reference-vault&daily=true&mode=append"]] ] ;;• l+b for log obsidian reference vault daily journal
+		[:m [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=quickadd%253Achoice%253Ab01dce33-74de-4033-83ff-83667640f864"] ] ] ;;•🔰 new 8/21/23
 
+		;; [: [ [:SPKR3] [:open "INSERT_URL"] ] ] ;;• KEY1+KEY2 for COMMAND_NAME...
 	]}
 ;;============================ M MODE ==============================
 	{:des "m-mode for m things" :rules [ :m& ;;• m+..............................................................
 		[:r [:km "Hover OmniFocus Morning Review"]] ;;• m+r for Hover OmniFocus Morning Review
 		[:s [:km "New Message (to self)"]] ;;• m+s for New Message (to self)
+		[:l [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&heading=%25F0%259F%2593%2585%2520%25202023-08-16%2520(Wed)&uid=7619bf31-ee3c-4d20-9186-8c6d839d1e33"] ] ] ;;• m+l to show master log
 	]}
 ;;============================= N MODE ============================
 	{:des "n-mode for n things" :rules [ :n& ;;* ––––––––––––––––––––––––––––––––––––
@@ -493,17 +498,19 @@
 	;;• o+spacebar.......................................................................................................................
 	[:spacebar [[:SPKR3][:alf "Search OmniFocus Tasks via Alfred" "net.rhydlewis.alfred.searchomnifocus"]]] ;; o+spacebar for Jump to OmniFocus 🟡 NEEDTOFIX
 	[:i [:km "Hover OmniFocus Inbox"]] ;;⭐🔰 o+i for Hover OmniFocus Inbox
+	[:h [ [:SPKR3] [:open "omnifocus:///folder/aPNK7lj-7fP"] ] ] ;;• o+h for open OMF ⚡️ plan folder 🔰 new 8/21/23
+	[:n [ [:SPKR3] [:open "omnifocus:///task/cVPImebMMwu"] ] ] ;;• o+n for open OMF ❗ NOW project (more focused than above) folder 🔰 new 8/21/23
 
-	; keep around
-			;; [:f [:km "Activate OmniFocus New Window"] [["o&" 1] ["om&" 1]]] ;;+ o+m+f for Activate OmniFocus New Window
-			;; [:f [:km "Activate OmniFocus New Window"] [["o&" 1] ["om&" 1]]] ;;+ o+m+f for Activate OmniFocus New Window
-			;; [:t [:km "GoTo OmniFocus ™️ TOMORROW"] [["o&" 1] ["om&" 1]]] ;;+ o+m+t for GoTo OmniFocus ™️ TOMORROW
 	]}
 ;;============================ P MODE ============================= ;;  ⭕🌟TODO p mode has a lot of potential because barely used up and allows access to entire keyboard
 	{:des "p-mode for..." :rules [ :p& ;;* ––––––––––––––––––––––––––––––––––––––––––
 		[:spacebar [[:SPKR3]:!!p]] ;;• p+spacebar for search 1password...
 		[:a [:km "Go To Sheet: Pharma"]] ;;• p+a forGo To Sheet: Pharma
 	]}
+
+;;============================ Q MODE ============================= ;;
+
+
 ;;============================ R MODE ============================== ⭕ TODO: clean up comments and formatting (consolidate rules to fewer lines and add descriptions)
 ;; ℹ️ "remote-mode" for  media transport control (play/pause/next song ect..). most send ⌃⌥⌘ (3 modifiers grouped left of space) plus another key -> next layer in KM are contextual groups like QuickTime, media (e.g. spotify), YouTube
 	{:des "r-mode for remote things" :rules [ :r& ;;* ––––––––––––––––––––––––––––––––
@@ -554,13 +561,17 @@
 			;;• s+right_shift for transform selection case - [:km "Uppercase Selection"]
 			[:right_shift [:km "Capitalize Selection"]] ;;•s+right_shift for Capitalize Selection
 		[:j :!SOleft_arrow] [:l :!SOright_arrow] [:i :!SOup_arrow] [:k :!SOdown_arrow] ;;*jlik for select left/right/up/down
-
 		;;*🖱mouse-mode  a/l/fed for scroll mouse now
 		[:a {:mkey {:hwheel 5 :speed 5}}]
 		[:f {:mkey {:hwheel -5 :speed 5}}]
 		[:e {:mkey {:vwheel -5 :speed 5}}]
 		[:d {:mkey {:vwheel 5 :speed 5}}]
+
+
+	;; [:KEY2 [ [:SPKR3] [:open "INSERT_URL"] ] ] ;;• s+i for Siri 🔰 New 8/20/23
+	;; /System/Applications/Siri.app ⭕ circleback
 	]}
+
 ;;============================ T MODE ============================
 	{	:des "t-mode for t things" :rules [ :t& ;;* ––––––––––––––––––––––––––––––––––––
 		[:w [:km "Tab To Window"] ] ;;• t+w for Tab To Window

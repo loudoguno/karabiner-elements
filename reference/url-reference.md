@@ -16,6 +16,7 @@ KE rule: `[:e [:open "evernote:///view/11846588/s107/45e4e957-a18b-8721-8099-010
   - Omnifocus:
 
 ### Obsidian
+``````
 [:b [:open "obsidian://advanced-uri?vault=reference-vault&commandid=workspace%253Atoggle-pin&uid=c2352d6a-240a-4730-90da-91bdf10486af"] ] ;;• /+o OBSIDIAN >
 
 ### vs code
