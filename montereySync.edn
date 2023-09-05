@@ -469,7 +469,9 @@
 	{:des "m-mode for m things" :rules [ :m& ;;• m+..............................................................
 		[:r [:km "Hover OmniFocus Morning Review"]] ;;• m+r for Hover OmniFocus Morning Review
 		[:s [:km "New Message (to self)"]] ;;• m+s for New Message (to self)
-		[:l [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&heading=%25F0%259F%2593%2585%2520%25202023-08-16%2520(Wed)&uid=7619bf31-ee3c-4d20-9186-8c6d839d1e33"] ] ] ;;• m+l to show master log
+		;; [:l [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&heading=%25F0%259F%2593%2585%2520%25202023-08-16%2520(Wed)&uid=7619bf31-ee3c-4d20-9186-8c6d839d1e33"] ] ] ;;• m+l to show master log
+		[:l [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&uid=69064e14-4cdd-44bf-b85a-ddfcefeb5216"] ] ] ;;• m+l to for Obsidian Master log (use with l+m)
+
 	]}
 ;;============================= N MODE ============================
 	{:des "n-mode for n things" :rules [ :n& ;;* ––––––––––––––––––––––––––––––––––––
