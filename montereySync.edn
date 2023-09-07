@@ -5,6 +5,7 @@
 ;; 230806 (Sun) trying to sync up all devices
 ;; 230820 (Sun) 🥔 syncing machines before Idaho
 ;; TODO add Q mode (q+n quick note)
+;; TODO Idea for 1-mode (quick notes, now...) good because only lose pinky...
 
 
 ;;  {:goku {:default true
@@ -86,7 +87,8 @@
 		:period& {:key :period}
 		:return& {:key :return_or_enter}
 		:quote& {:key :quote}
-		; :tab& {:key :tab}
+		:1& {:key :1}
+
 		}
 ;;+ ============================= MAIN ==============================
 :main [  ;;+ ==========================================================
@@ -293,6 +295,23 @@
 			[:!CTOkeypad_9 [[:SPKR3] [:btt "Move Window Space Right"]]] ;;• ⌤⊼⊻9 for Move Window Space Right
 
 	]}
+
+;;============================= 1 MODE ============================= 🔰 new 9/07/23 and works
+	{:des "1-mode for 1 things" :rules [ :1& ;;• 1+..................................................................
+		[:spacebar [:km "Trigger Macro by Name"]] ;;• NEWKEY+spacebar for "Trigger Macro by Name"
+
+		[:d [ [:SPKR3] [:open "drafts://open?uuid=6823BE09-6193-4D97-894A-5147B7285DD9"]]] ;;• 1+d to open Drafts ⚡️ Quick notes
+
+		[:o [ [:SPKR3] [:open "omnifocus:///task/cVPImebMMwu"] ] ];;• 1+o to open omnifocus Now
+
+
+	;; 1+d Drafts Quick Notes
+	;; 1+e for Evernote Now
+	;; 1+o for Obsidian
+
+	]}
+
+
 ;;============================ A MODE =============================
 	{:des "a-mode for a things" :rules [ :a& ;;* –––––––––––––––––––––––––––––––––––––
 		[:c [[:SPKR3] :!Oescape] ] ;;• a+c for autocomplete now (via ⌥⎋)

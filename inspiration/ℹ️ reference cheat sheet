@@ -1,0 +1,33 @@
+here will have quick reference steps for Things like creating a new mode/similar....
+
+## How to create a new mode
+for example i mode
+- modes are defined in the ":simlayers" sections and look like this
+```
+:a& {:key :a}
+```
+- the ampersand "&" character is used as shorthand for "mode" for code readability. (previously used µ becaust ⌥+m for mode but that broke something)
+-
+### STEPS
+- (1) add new line to `:simlayers` sections e.g. `:NEWKEY& {:key :NEWKEY}` where NEWKEY is previously unused character (must be from KeyList)
+  - note fancy stuff like d-mode (:d& {:key :d :condi :!space-mode} ;why is this here?)
+- (2) add new section for mode
+  -
+```
+;;============================= NEWKEY MODE =============================
+	{:des "NEWKEY-mode for NEWKEY things" :rules [ :NEWKEY& ;;• NEWKEY+..................................................................
+			[:spacebar [:km "Trigger Macro by Name"]] ;;• NEWKEY+spacebar for "Trigger Macro by Name"
+			[:y [:open "https://www.notion.so/my-old-ky-home/My-Old-Kentucky-Notion-c9ffb2a6aa6540e1b3e80a34e5db2d72?p=226804d32b084480a53b9c5ec4bde45f&showMoveTo=true)"]] ;;• k+y for ky house dashboard
+			[:s [:open "obsidian://advanced-uri?vault=reference-vault&commandid=workspaces-plus%253A%25F0%259F%2593%259F%2520KSSRC%2520config"]] ;;• k+y for ky house dashboard
+
+	]}
+
+```
+
+
+:NEWKEY& {:key :NEWKEY}``
+
+{:des "NEWKEY-mode for X things" :rules [c&
+
+}
+
