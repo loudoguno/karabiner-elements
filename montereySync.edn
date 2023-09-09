@@ -158,6 +158,8 @@
 
 		;; changed because o and b  false positives when typine keyboard lol
 		[ [:o :b :s]  [:open "obsidian://advanced-uri?vault=reference-vault&commandid=obsidian-global-hotkeys%253Ashow"] ] ;;* o|n for show/hide Obsidian (via command URI)
+		[ [:o :m :f] [:km "Activate OmniFocus"] ]  ;; o m f simultanoesly for Activate OmniFocus. gonna try using KM URL this time
+		;; [ [:o :m :f] [:open "kmtrigger://macro=EABC1F2B-6269-4430-8476-344AAD80AE93"] ]  ;; o m f simultanoesly for Activate OmniFocus. gonna try using KM URL this time
 ]}
 ;;======================= HYPER MODE and MODIFIERS ====================
 	{:des "Capslock as hyper" :rules [ [:condi :!space-mode :!Rctrl-mode] ; Capslock as hyper (command+shift+option+control)
@@ -301,6 +303,7 @@
 		[:spacebar [:km "Trigger Macro by Name"]] ;;• NEWKEY+spacebar for "Trigger Macro by Name"
 
 		[:d [ [:SPKR3] [:open "drafts://open?uuid=6823BE09-6193-4D97-894A-5147B7285DD9"]]] ;;• 1+d to open Drafts ⚡️ Quick notes
+		[:n [ [:SPKR3] [:open "https://www.icloud.com/notes/04009kn-a3boPsvu-Rc-xpaEQ"]]] ;;• 1+d to open Drafts ⚡️ Quick notes
 
 		[:o [ [:SPKR3] [:open "omnifocus:///task/cVPImebMMwu"] ] ];;• 1+o to open omnifocus Now
 
@@ -403,7 +406,7 @@
 		[:spacebar [:km "Click GUI Button"]] ;;• g+spacebar for Click GUI Button
 		[:right_control [:km "Click GUI Button"]] ;;• g+right_control for Click GUI Button (for compatability with UHK split spacebar)
 		[:w [[:SPKR3] :!!tab]] ;;• g+w for Click focus Window > ❓ not sure what this is for
-		[:n [ [:SPKR3] [:open "omnifocus:///task/cVPImebMMwu"] ] ] ;;• KEY_1+KEY_2 for COMMAND_NAME from XXX obsidian
+		[:n [ [:SPKR3] [:open "omnifocus:///task/cVPImebMMwu"] ] ] ;;• g+n OmnfiFocus ⚡️now-plan  ⭐ 🔰 new 9/08/23
 
 	;; keep around
 			;; [:m [:km "GoTo Gmail Inbox"] [["g&" 1] ["go&" 1]]] ;;+ g+o+m for GoTo Gmail Inbox
@@ -489,7 +492,10 @@
 		[:r [:km "Hover OmniFocus Morning Review"]] ;;• m+r for Hover OmniFocus Morning Review
 		[:s [:km "New Message (to self)"]] ;;• m+s for New Message (to self)
 		;; [:l [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&heading=%25F0%259F%2593%2585%2520%25202023-08-16%2520(Wed)&uid=7619bf31-ee3c-4d20-9186-8c6d839d1e33"] ] ] ;;• m+l to show master log
-		[:l [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&uid=69064e14-4cdd-44bf-b85a-ddfcefeb5216"] ] ] ;;• m+l to for Obsidian Master log (use with l+m)
+
+		;;• m+l to for Obsidian Master log (use with l+m)
+		[:o [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&uid=69064e14-4cdd-44bf-b85a-ddfcefeb5216"] ] ] ;; old, trying out jumping to workspace
+		[:l [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=workspaces-plus%253A%25F0%259F%2593%2593%2520Master%2520Log%2520workspace"] ] ] ;; old, trying out jumping to workspace
 
 	]}
 ;;============================= N MODE ============================
