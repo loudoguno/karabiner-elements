@@ -93,7 +93,7 @@
 ;;+ ============================= MAIN ==============================
 :main [  ;;+ ==========================================================
 	;; {:des "left cmd -> cmd+tab"
-        ;;  :rules [[:left_command :left_command nil {:alone :!Ctab}]]} ;; 🔰 new from Nikita
+        ;;  :rules [[:left_command :left_command nil {:alone :!Ctab}]]} ;; tap left command to tab last app 🔰 new, from Nikita
 ;;============================ HOLDINGKEY ========================= ⭕ TODO: clean up this section (re-title)
 		{:des "Holding Keys: ⌘V for Clipboard History, ⇧⌘3 for Screenshot Palette, ⇧⌘4 for Snagit" :rules [
 			[:!Cv nil nil {:alone :!Cv :held [:km "Clipboard History"] :repeat false :halt true :params{:alone 150 :held 150}} ] ; default :alone is 500ms and would be too long
@@ -102,10 +102,15 @@
 			]}
 ;;======================== TAP and DOUBLEPRESS  ===================== ;; C T O S and Q W E R (KE modifier abreviations for reference)
 	 ;;* Double Press Command Q to Quit | 🟢 works and in use
-		{:des "DOUBLE PRESS: ⌘q² to quit,  " :rules[
-			[:!C#Pq [ :!Cq ["⌘q" 0]] ["⌘q" 1]] 		;? when ⌘q is pressed the first time  > variable is set to 1 and nothing is sent
-			[:!C#Pq ["⌘q" 1] nil {:delayed {:invoked ["⌘q" 0] :canceled ["⌘q" 0]}}] ;? when pressed the second time send ⌘Q
+		;; {:des "DOUBLE PRESS: ⌘q² to quit,  " :rules[
+			;; [:!C#Pq [ :!Cq ["⌘q" 0]] ["⌘q" 1]] ; when ⌘q is pressed the first time  > variable is set to 1 and nothing is sent
+			;; [:!C#Pq ["⌘q" 1] nil {:delayed {:invoked ["⌘q" 0] :canceled ["⌘q" 0]}}] ;? when pressed the second time send ⌘
+		;; ]}
+
+		{:des "DOUBLE PRESS: ⌘q² to quit,  " :rules[ [:!C#Pq [ :!Cq ["⌘q" 0]] ["⌘q" 1]] [:!C#Pq ["⌘q" 1] nil {:delayed {:invoked ["⌘q" 0] :canceled ["⌘q" 0]}}] ;
 		]}
+
+
 	;; * Double Press Left command for Moom (🔴 disabled )
 	{:des "Double Press Left commandl" :rules [[:condi :!f& :!d& :!c& :!k& :!w& :!Rctrl-mode]
 				; * Double Press Left Command
@@ -160,6 +165,8 @@
 		[ [:o :b :s]  [:open "obsidian://advanced-uri?vault=reference-vault&commandid=obsidian-global-hotkeys%253Ashow"] ] ;;* o|n for show/hide Obsidian (via command URI)
 		[ [:o :m :f] [:km "Activate OmniFocus"] ]  ;; o m f simultanoesly for Activate OmniFocus. gonna try using KM URL this time
 		;; [ [:o :m :f] [:open "kmtrigger://macro=EABC1F2B-6269-4430-8476-344AAD80AE93"] ]  ;; o m f simultanoesly for Activate OmniFocus. gonna try using KM URL this time
+		[ [:n :s :t] [:km "New Sticky"] ]  ;; 🔰 new
+		[[:n :e :w] [ [:SPKR3] [:open "sidenotes://open/3F52308E-C16E-40C2-8CBE-87BC0F8CC590"] ] ] ;;• n|e|w+s for ✨ new stuff (sidenotes note)
 ]}
 ;;======================= HYPER MODE and MODIFIERS ====================
 	{:des "Capslock as hyper" :rules [ [:condi :!space-mode :!Rctrl-mode] ; Capslock as hyper (command+shift+option+control)
@@ -298,10 +305,9 @@
 
 	]}
 
-;;============================= 1 MODE ============================= 🔰 new 9/07/23 and works
-	{:des "1-mode for 1 things" :rules [ :1& ;;• 1+..................................................................
-		[:spacebar [:km "Trigger Macro by Name"]] ;;• NEWKEY+spacebar for "Trigger Macro by Name"
-
+;;============================= 1 MODE ============================= 🔰 new 9/07/23 and works, should be mapped to Quick Notes
+ 	{:des "1-mode for 1 things" :rules [ :1& ;;• 1+..................................................................
+		[:spacebar [:km "Trigger Macro by Name"]] ;;• 1+spacebar for "Trigger Macro by Name"  TODO: delete
 		[:d [ [:SPKR3] [:open "drafts://open?uuid=6823BE09-6193-4D97-894A-5147B7285DD9"]]] ;;• 1+d to open Drafts ⚡️ Quick notes
 		[:n [ [:SPKR3] [:open "https://www.icloud.com/notes/04009kn-a3boPsvu-Rc-xpaEQ"]]] ;;• 1+d to open Drafts ⚡️ Quick notes
 
@@ -433,8 +439,6 @@
 		[:k [[:SPKR3] :!Th]] ;;• h+k for Hookmark (via ⌃h) 🔰 new 8/11/23
 		[:i [[:SPKR3] :!Ti] ];;• h+i for Slidepad (via ⌃i) 🔰 new 8/17/23, see if causes false positives
 
-
-
 		]}
 ;;============================ I MODE ==============================
 	{:des "i-mode for I things" :rules [
@@ -471,7 +475,7 @@
 ;;============================= K MODE =============================
 	{:des "k-mode for k things" :rules [ :k& ;;• k+..................................................................
 			[:spacebar [:km "Trigger Macro by Name"]] ;;• k+spacebar for "Trigger Macro by Name"
-			[:e [:km "Open Karabiner Elements (monterySync.edn) in VS Code"]] ;;• k+e for Open Karabiner Elements (monterySync.edn) in VS Code
+			[:e [:km "Open Karabiner Elements (monterySync.edn) in VS Code"]] ;;• k+e for Open Karabiner Elements (monterySync.edn) in VS Code 💠
 			[:v [:km "Activate Karabiner EventViewer"]] ;;• k+v for "Activate Karabiner EventViewer"
 			[:y [:open "https://www.notion.so/my-old-ky-home/My-Old-Kentucky-Notion-c9ffb2a6aa6540e1b3e80a34e5db2d72?p=226804d32b084480a53b9c5ec4bde45f&showMoveTo=true)"]] ;;• k+y for ky house dashboard
 			[:s [:open "obsidian://advanced-uri?vault=reference-vault&commandid=workspaces-plus%253A%25F0%259F%2593%259F%2520KSSRC%2520config"]] ;;• k+y for ky house dashboard
@@ -510,9 +514,8 @@
 		[:i [[:tink] :!CTSo]] ;;• n+i New Omnifocus Quick Entry (via omf hotkey ⌃⇧⌘+o) 🟢 FIXED
 		[:o [:km "Send to OmniFocus"]] ;;• n+o for Send to OmniFocus ⭐replaced n+i+i
 
-		[:t [:km "New Typinator Item from Selection"]] ;;• n+t for Quick Add Typinator Item
-		[:f [:km "New Typinator Item from Selection"]] ;;• n+s for Quick Add Typinator Item
-		[:s [ [:SPKR3] [:open "sidenotes://open/3F52308E-C16E-40C2-8CBE-87BC0F8CC590"] ] ] ;;• n+s for ✨ new stuff (sidenotes)
+		;; [:t [:km "New Typinator Item from Selection"]] ;;• n+t for Quick Add Typinator Item
+		[:s [:km "New Typinator Item from Selection"]] ;;• n+s for Quick Add Typinator Item >  9/09/23 changing backns
 
 		[:l [:km "Log Palette"]] ;;• n+l for Log Palette 🟡 need to fix underlying macros
 		[:spacebar [:km "Jump to Notes"]] ;;• n+spacebar Jump to Notes

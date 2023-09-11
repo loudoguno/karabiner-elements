@@ -10,9 +10,8 @@ for example i mode
 -
 ### STEPS
 - (1) add new line to `:simlayers` sections e.g. `:NEWKEY& {:key :NEWKEY}` where NEWKEY is previously unused character (must be from KeyList)
-  - note fancy stuff like d-mode (:d& {:key :d :condi :!space-mode} ;why is this here?)
+- note fancy stuff like d-mode (:d& {:key :d :condi :!space-mode} ;why is this here?)
 - (2) add new section for mode
-  -
 ```
 ;;============================= NEWKEY MODE =============================
 	{:des "NEWKEY-mode for NEWKEY things" :rules [ :NEWKEY& ;;• NEWKEY+..................................................................
