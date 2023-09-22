@@ -1,8 +1,13 @@
 some boilerplate examples
 
 ## double press
+
 {:des "DOUBLE PRESS: ⌘q² to quit,  " :rules[
 			[:!C#Pq [ :!Cq ["⌘q" 0]] ["⌘q" 1]] ; when ⌘q is pressed the first time  > variable is set to 1 and nothing is sent
 			[:!C#Pq ["⌘q" 1] nil {:delayed {:invoked ["⌘q" 0] :canceled ["⌘q" 0]}}] ;? when pressed the second time send ⌘
 		]}
 
+	;; * Double Press Left command for Moom (🔴 disabled)
+	{:des "Double Press Left commandl" :rules [[:condi :!f& :!d& :!c& :!k& :!w& :!Rctrl-mode]
+						[:left_gui [[:SPKR2] :!!f14 ["LCMD" 0]] ["LCMD" 1]]
+						[:left_gui :left_gui nil {:alone [[:SPKR3]["LCMD" 1 ]]:delayed {:invoked ["LCMD" 0] :canceled ["LCMD" 0]}}]

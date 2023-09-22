@@ -102,20 +102,11 @@
 			]}
 ;;======================== TAP and DOUBLEPRESS  ===================== ;; C T O S and Q W E R (KE modifier abreviations for reference)
 	 ;;* Double Press Command Q to Quit | 🟢 works and in use
-		;; {:des "DOUBLE PRESS: ⌘q² to quit,  " :rules[
-			;; [:!C#Pq [ :!Cq ["⌘q" 0]] ["⌘q" 1]] ; when ⌘q is pressed the first time  > variable is set to 1 and nothing is sent
-			;; [:!C#Pq ["⌘q" 1] nil {:delayed {:invoked ["⌘q" 0] :canceled ["⌘q" 0]}}] ;? when pressed the second time send ⌘
-		;; ]}
-
-		{:des "DOUBLE PRESS: ⌘q² to quit,  " :rules[ [:!C#Pq [ :!Cq ["⌘q" 0]] ["⌘q" 1]] [:!C#Pq ["⌘q" 1] nil {:delayed {:invoked ["⌘q" 0] :canceled ["⌘q" 0]}}] ;
-		]}
-
-
-	;; * Double Press Left command for Moom (🔴 disabled )
-	{:des "Double Press Left commandl" :rules [[:condi :!f& :!d& :!c& :!k& :!w& :!Rctrl-mode]
-				; * Double Press Left Command
-						; [:left_gui [[:SPKR2] :!!f14 ["LCMD" 0]] ["LCMD" 1]]
-						; [:left_gui :left_gui nil {:alone [[:SPKR3]["LCMD" 1 ]]:delayed {:invoked ["LCMD" 0] :canceled ["LCMD" 0]}}]
+		{:des "DOUBLE PRESS: ⌘q² to quit,  " :rules[ [:!C#Pq [ :!Cq ["⌘q" 0]] ["⌘q" 1]] [:!C#Pq ["⌘q" 1] nil {:delayed {:invoked ["⌘q" 0] :canceled ["⌘q" 0]}}] ]}
+	;; * Double Press Left command for Moom (🔴 disabled)
+		{:des "Double Press Left commandl" :rules [[:condi :!f& :!d& :!c& :!k& :!w& :!Rctrl-mode]
+			[:left_gui [[:SPKR2] :!!f14 ["LCMD" 0]] ["LCMD" 1]] ; left commands double press sends moom key f14 (confusing because coded before single press)
+			[:left_gui :left_gui nil {:alone [[:SPKR3]["LCMD" 1 ]]:delayed {:invoked ["LCMD" 0] :canceled ["LCMD" 0]}}]
 	;;* Double Press Left Command for  Moom (via f14) > 6/12/23 🔴 disabling
 		;; [:left_gui [[:SPKR2] :!!f14 ["R⌘" 0]] ["R⌘" 1]] ;! had to get rid of to keep numpad mode working..
 		;; [:left_gui :left_gui nil {:alone [[:SPKR3]:left_gui["R⌘" 1 ]]:delayed {:invoked ["R⌘" 0] :canceled ["R⌘" 0]}}]
@@ -166,6 +157,7 @@
 		[ [:o :m :f] [:km "Activate OmniFocus"] ]  ;; o m f simultanoesly for Activate OmniFocus. gonna try using KM URL this time
 		;; [ [:o :m :f] [:open "kmtrigger://macro=EABC1F2B-6269-4430-8476-344AAD80AE93"] ]  ;; o m f simultanoesly for Activate OmniFocus. gonna try using KM URL this time
 		[ [:n :s :t] [:km "New Sticky"] ]  ;; 🔰 new
+		[ [:n :e :s] [:km "New Sticky"] ]  ;; 🔰 new
 		[[:n :e :w] [ [:SPKR3] [:open "sidenotes://open/3F52308E-C16E-40C2-8CBE-87BC0F8CC590"] ] ] ;;• n|e|w+s for ✨ new stuff (sidenotes note)
 ]}
 ;;======================= HYPER MODE and MODIFIERS ====================
@@ -309,7 +301,7 @@
  	{:des "1-mode for 1 things" :rules [ :1& ;;• 1+..................................................................
 		[:spacebar [:km "Trigger Macro by Name"]] ;;• 1+spacebar for "Trigger Macro by Name"  TODO: delete
 		[:d [ [:SPKR3] [:open "drafts://open?uuid=6823BE09-6193-4D97-894A-5147B7285DD9"]]] ;;• 1+d to open Drafts ⚡️ Quick notes
-		[:n [ [:SPKR3] [:open "https://www.icloud.com/notes/04009kn-a3boPsvu-Rc-xpaEQ"]]] ;;• 1+d to open Drafts ⚡️ Quick notes
+		[:n [ [:SPKR3] [:open "https://www.icloud.com/notes/04009kn-a3boPsvu-Rc-xpaEQ"]]] ;;• 1+d to open Apple  Now Notes
 
 		[:o [ [:SPKR3] [:open "omnifocus:///task/cVPImebMMwu"] ] ];;• 1+o to open omnifocus Now
 
@@ -326,6 +318,9 @@
 		[:c [[:SPKR3] :!Oescape] ] ;;• a+c for autocomplete now (via ⌥⎋)
 		[:semicolon :!Osemicolon] ;;•🔰  a+semicolon for elipse (to be used as suffix to trigger things)
 		; [:comma :!TOleft_arrow] [:period :!TOright_arrow] ;;• a+comma/period  for Active Screen Workspace Left/Right (via ⌃⌥←  in BTT)
+		[:c [[:SPKR3] :!Oescape] ] ;;• a+c for autocomplete now (via ⌥⎋)
+		[:d [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=quickadd%253ArunQuickAdd"] ]] ;;• d+q for QuickAdd
+
 	]}
 ;;=========================== B MODE ==============================
 	{:des " b-mode for b things" :rules [ :b& ;;* ––––––––––––––––––––––––––––––––––––
