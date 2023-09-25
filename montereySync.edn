@@ -101,28 +101,21 @@
 			[:!SC4 nil nil {:alone :!SC4 :held [:km "-Snagit Palette"] :repeat false :halt true :params{:alone 150 :held 150}} ]
 			]}
 ;;======================== TAP and DOUBLEPRESS  ===================== ;; C T O S and Q W E R (KE modifier abreviations for reference)
-	 ;;* Double Press Command Q to Quit | 🟢 works and in use
+	 ;;* Double Press Command Q to Quit | 🟢 works and in use..
 		{:des "DOUBLE PRESS: ⌘q² to quit,  " :rules[ [:!C#Pq [ :!Cq ["⌘q" 0]] ["⌘q" 1]] [:!C#Pq ["⌘q" 1] nil {:delayed {:invoked ["⌘q" 0] :canceled ["⌘q" 0]}}] ]}
-	;; * Double Press Left command for Moom (🔴 disabled)
-		{:des "Double Press Left commandl" :rules [[:condi :!f& :!d& :!c& :!k& :!w& :!Rctrl-mode]
-			[:left_gui [[:SPKR2] :!!f14 ["LCMD" 0]] ["LCMD" 1]] ; left commands double press sends moom key f14 (confusing because coded before single press)
-			[:left_gui :left_gui nil {:alone [[:SPKR3]["LCMD" 1 ]]:delayed {:invoked ["LCMD" 0] :canceled ["LCMD" 0]}}]
-	;;* Double Press Left Command for  Moom (via f14) > 6/12/23 🔴 disabling
-		;; [:left_gui [[:SPKR2] :!!f14 ["R⌘" 0]] ["R⌘" 1]] ;! had to get rid of to keep numpad mode working..
-		;; [:left_gui :left_gui nil {:alone [[:SPKR3]:left_gui["R⌘" 1 ]]:delayed {:invoked ["R⌘" 0] :canceled ["R⌘" 0]}}]
-			;; [:left_gui [[:SPKR2] :!!f14 ["R⌘" 0]] ["R⌘" 1]]
-			;; [:left_gui :left_gui nil {:alone [[:SPKR3]:!!f14["R⌘" 1 ]]:delayed {:invoked ["R⌘" 0] :canceled ["R⌘" 0]}}]
-			]}
+
+	;; * Double Press Left command for Moom ❌ DISABLED > 9/25/23 removing this fixed keysequences in BTT
+		;; {:des "Double Press Left commandl" :rules [[:condi :!f& :!d& :!c& :!k& :!w& :!Rctrl-mode]
+			;; [:left_gui [[:SPKR2] :!!f14 ["LCMD" 0]] ["LCMD" 1]] ; left commands double press sends moom key f14 (confusing because coded before single press)
+			;; [:left_gui :left_gui nil {:alone [[:SPKR3]["LCMD" 1 ]]:delayed {:invoked ["LCMD" 0] :canceled ["LCMD" 0]}}]
+			;; ]}
+
 	{:des "Modifier+Spacebar Stuff" :rules[
-		;;* Double Press Command Spacebar for Contexts search... 🔴 disabled
-		;; [:!Cspacebar [[:SPKR3] :!Ospacebar  ["LCMDspacebar" 0]] ["LCMDspacebar" 1]] ⌘+spacebar x2 for Contexts search ;;! 🔴 disabled
-			;; [:!Cspacebar :!Cspacebar nil {:alone ["LCMDspacebar" 1] :delayed{:invoked ["LCMDspacebar" 0] :canceled ["LCMDspacebar" 0]}} ]
+
 		;;* Double Press Command Spacebar for Spotlight via ⌥⌘+spacebar... 🔰 new
 		[:!Cspacebar [[:SPKR3] :!OCspacebar  ["LCMDspacebar" 0]] ["LCMDspacebar" 1]]  ;; pressing ⌘+spacebar a 2nd time (when variable LCMDspacebar is to 1) send keyboard command for spotlight
 			[:!Cspacebar :!Cspacebar nil {:alone ["LCMDspacebar" 1] :delayed{:invoked ["LCMDspacebar" 0] :canceled ["LCMDspacebar" 0]}} ] ;; pressing ⌘+spacebar the first time (when variable LCMDspacebar is to 0) set variable LCMDspacebar to 1
 
-		;;* modifier+spacebar bug work around...
-			[:!Ospacebar :!Ospacebar] [:!COTspacebar :!COTspacebar] [:!COSspacebar :!COSspacebar] [:!COTSspacebar :!COTSspacebar] ;;❓ i don't know what this does
 		]}
 ;;====================  MODIFIERS and COMMAND MODES =================
 
@@ -150,7 +143,7 @@
 		[ [:k :m] [:km "Activate Keyboard Maestro"]] ;;* km to activate Keyboard Maestro
 		[ [:v :c]  [:km "Activate Visual Studio Code"] ] ;;* vc to Activate Visual Studio Code
 		[ [:s :n]  [:km "Activate SideNotes"]] ;;* s+n to open SideNates "❗ Now" note via URL (sidenotes://open/460F59F5-617F-44CB-B9F0-099E96DF1EE3)
-		[ [:c :h] [ [:SPKR3] [:open "sidenotes://open/93C96CE1-3C77-49A9-955D-D50340BA04F1"] ] ] ;;* o+b for show/hide Obsidian (via command URI)
+		[ [:c :h] [ [:SPKR3] [:open "sidenotes://open/93C96CE1-3C77-49A9-955D-D50340BA04F1"] ] ] ;;* c+h for show/hide SideNotes cheatsheet
 
 		;; changed because o and b  false positives when typine keyboard lol
 		[ [:o :b :s]  [:open "obsidian://advanced-uri?vault=reference-vault&commandid=obsidian-global-hotkeys%253Ashow"] ] ;;* o|n for show/hide Obsidian (via command URI)
@@ -327,6 +320,9 @@
 		[:a [:km "Boldate Clean Left"] ] ;;• b+a for Boldate Clean Left 🟢 FIXED
 		[:w [:!Oleft_arrow :!OSright_arrow]] ;;• b+w for highlight word 🤔 interesting daisy chain
 		[:l [:!Ta :!TSe :!Sright_arrow] ] ;;• b+L for highlight line
+		[:i :vk_consumer_brightness_up] ;;• +i for brightness up
+		[:d :vk_consumer_brightness_down] ;;• b+d for brightness
+
 	]}
 ;;============================ C MODE =============================
 	{:des "c-mode for c things" :rules [ :c& ;;* ––––––––––––––––––––––––––––––––––––
@@ -482,7 +478,9 @@
 		[:j [[:SPKR3] [:open "obsidian://log" ] ] ] ;;• l+j for  Log something new to your Daily journal from Lumberjack obsidian plugin
 		[:d [:open "https://www.notion.so/loudog/LOU-DASHBOARD-2af984c519f8474a8632893fd5482eba"] ] ;;• l+d for  Lou's Dashboard (Notion) ✨ new
 		[:b [ [:open "obsidian://advanced-uri?vault=reference-vault&daily=true&mode=append"]] ] ;;• l+b for log obsidian reference vault daily journal
-		[:m [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=quickadd%253Achoice%253Ab01dce33-74de-4033-83ff-83667640f864"] ] ] ;;•🔰 new 8/21/23
+
+		;;• l+m to Log Master Queitly in Obsidian (via QuickAdd) 🔰 new 8/21/23
+		[:m [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=quickadd%253Achoice%253Ab01dce33-74de-4033-83ff-83667640f864"] ] ]
 
 		;; [: [ [:SPKR3] [:open "INSERT_URL"] ] ] ;;• KEY1+KEY2 for COMMAND_NAME...
 	]}
@@ -494,7 +492,7 @@
 
 		;;• m+l to for Obsidian Master log (use with l+m)
 		[:o [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&uid=69064e14-4cdd-44bf-b85a-ddfcefeb5216"] ] ] ;; old, trying out jumping to workspace
-		[:l [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=workspaces-plus%253A%25F0%259F%2593%2593%2520Master%2520Log%2520workspace"] ] ] ;; old, trying out jumping to workspace
+		[:l [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=workspaces-plus%253A%25F0%259F%2593%2593%2520Master%2520Log%2520workspace"] ] ] ;; m+l for (via Obsidian URI for workspace new expansion )
 
 	]}
 ;;============================= N MODE ============================
