@@ -626,7 +626,7 @@
 ;;============================ W MODE =============================
 	{	:des "w-mode" :rules [ :w& ;;• ––––––––––––––––––––––––––––––––––––––––––––
 		[:spacebar [[:SPKR3] :!SOCf3] ] ;;• w+spacebar for Switch Active Workspace Left (via System Hotkey ⌥⇧⌘F3) 🟢works now -> editing because
-		[:right_control [[:SPKR3] :!SOCf3 ]] ;; for uhk2
+			[:right_control [[:SPKR3] :!SOCf3 ]] ;; for uhk2
 		;; [:spacebar [[:SPKR3] [:btt "Expose"]] ] ;;• w+a for Switch Active Workspace Left (via BTT) 🟢works now -> editing because
 		;; [:right_control [[:SPKR3] [:btt "Expose"]] ] ;;• w+right_control (uhk spacebar)
 
@@ -637,7 +637,6 @@
 
 		[:b [:km "Hover Evernote 🧰 WORKBENCH"]] ;;• w+b for Hover Evernote 🧰 WORKBENCH
 		[:c [:km "Center Window on Current Mouse Location"] ] ;;• w+c for km "Move Mouse to Focused Window" ✨new 6/12/23
-
 
 		[:left_gui [[:SPKR3] :!!f14 ]] ;;* w+left_gui for moom (accessable with left hand)
 	;; keep around
