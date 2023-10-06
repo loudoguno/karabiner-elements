@@ -368,6 +368,8 @@
 		[:t [:!SCTd] ] ;;• d+t for Dictate Text (via ⇧⌃⌘d hotkey set in System Preferencees > Keyboard > Dictation)
 		[:2 [[:SPKR3] :!TO2] ] ;;• d+2 for ⌃⌥2 2Do quick entry ✨ new 7/30/23
 		[:q [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=quickadd%253ArunQuickAdd"] ]] ;;• d+q for QuickAdd
+		[:n [[:SPKR3] [:open "evernote:///view/11846588/s107/62aeccd1-827d-7b3d-b121-f6d043de82db/14774e1d-c9a0-e172-d564-d6093949cf90/"] ]] ;;• d+n for 📗 Open Daily Evernote  Log (via internal URL)
+
 
 		;;! * d+m for moving tab/window left/right.....................! ❓⭕ TODO not sure whats up here
 				;; [:m [[:vk_none]["dm&" 1]] nil {:delayed {:canceled [["dm&" 0]["d&" 0]]
