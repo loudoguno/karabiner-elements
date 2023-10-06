@@ -20,6 +20,7 @@
 		:wait "sleep 250" ;pause 250 ms
 
 		;; :open "osascript -e open \"%s\" "
+		:shortcut "osascript -e 'tell application \"Shortcuts Events\" to run the shortcut named \"%s\"'" ; 🔰 NEW!!!!
 		:alf "osascript -e 'tell application \"Alfred 4\" to run trigger \"%s\" in workflow \"%s\" with argument \"\"'" ; run Alfred workflow using workflow bundle ID as argument
 		:km "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"%s\"'"   ; run KM macro using macro name as argument
 		:btt "osascript -e 'tell application \"BetterTouchTool\" to  trigger_named \"%s\"'"         ; run BTT macro using named trigger name as argument
@@ -432,6 +433,8 @@
 		;; [:m [[:SPKR3] [:open "/Applications/Setapp/Hookmark.app"] ]] ;;• h+m for Hookmark 🔰 new 8/11/23 - 🔴 invoking via `open` brings up empty hookmark overlay unlike invoking via keyboard shortcut ⌃H
 		[:k [[:SPKR3] :!Th]] ;;• h+k for Hookmark (via ⌃h) 🔰 new 8/11/23
 		[:i [[:SPKR3] :!Ti] ];;• h+i for Slidepad (via ⌃i) 🔰 new 8/17/23, see if causes false positives
+
+		[:g [:shortcut "Hey GPT"]] ;;* h+g to run shortcut Hey GPT ⭐
 
 		]}
 ;;============================ I MODE ==============================
