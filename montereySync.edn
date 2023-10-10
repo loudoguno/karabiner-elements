@@ -6,6 +6,7 @@
 ;; 230820 (Sun) 🥔 syncing machines before Idaho
 ;; TODO add Q mode (q+n quick note)
 ;; TODO Idea for 1-mode (quick notes, now...) good because only lose pinky...
+;; 10/10/23 adding g+t for good task
 
 
 ;;  {:goku {:default true
@@ -409,6 +410,9 @@
 		[:w [[:SPKR3] :!!tab]] ;;• g+w for Click focus Window > ❓ not sure what this is for
 		[:n [ [:SPKR3] [:open "omnifocus:///task/cVPImebMMwu"] ] ] ;;• g+n OmnfiFocus ⚡️now-plan  ⭐ 🔰 new 9/08/23
 
+		[:t [[:tink] :!CTSg]] ;;• g+t bring GoodTask to front (via GoodTask global hotkey ⌃⇧⌘+g) 🔰 new 10/10/23
+
+
 	;; keep around
 			;; [:m [:km "GoTo Gmail Inbox"] [["g&" 1] ["go&" 1]]] ;;+ g+o+m for GoTo Gmail Inbox
 			;; [:r [:km "Go To Recent OmniFocus Task"] [["g&" 1] ["go&" 1]]] ;;+ g+o+r for Go To Recent OmniFocus Task
@@ -522,7 +526,7 @@
 		;; [:a [:km "Boldate Clean Left"] ] ;;• n+a for Boldate Clean Left via KM ✨ new (trying to achieve  b+a awkwardness on UhK)
 		[:a [[:SPKR3] :!Ssemicolon :spacebar :left_arrow :left_arrow :!STa :!Cb :left_arrow :!Cb :hyphen :!Te] ] ;;• n+a for Boldate Clean Left NOT via KM, 🧪 new (trying to achieve  b+a awkwardness on UhK)
 
-		[:r [[:tink] :!CTSr]] ;;• n+r New Reminder via Good Task quick entry (overlay) (via GoodTask  hotkey ⌃⇧⌘+R) 🔰 new 10/07/23
+		[:r [[:tink] :!CTSr]] ;;• n+r New Reminder via GoodTask quick entry (overlay) (via GoodTask  hotkey ⌃⇧⌘+R) 🔰 new 10/07/23
 
 
 	]}
