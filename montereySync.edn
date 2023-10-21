@@ -152,8 +152,8 @@
 		[ [:o :b :s]  [:open "obsidian://advanced-uri?vault=reference-vault&commandid=obsidian-global-hotkeys%253Ashow"] ] ;;* o|n for show/hide Obsidian (via command URI)
 		[ [:o :m :f] [:km "Activate OmniFocus"] ]  ;; o m f simultanoesly for Activate OmniFocus. gonna try using KM URL this time
 		;; [ [:o :m :f] [:open "kmtrigger://macro=EABC1F2B-6269-4430-8476-344AAD80AE93"] ]  ;; o m f simultanoesly for Activate OmniFocus. gonna try using KM URL this time
-		[ [:n :s :t] [:km "New Sticky"] ]  ;; 🔰 new
-		[ [:n :e :s] [:km "New Sticky"] ]  ;; 🔰 new
+		[ [:n :s :t] [:km "New Sticky"] ]  ;; n|s|t for New Sticky 🔰 new
+		[ [:n :e :s] [:km "New Sticky"] ]  ;; n|e|s for New Sticky🔰 new
 		[[:n :e :w] [ [:SPKR3] [:open "sidenotes://open/3F52308E-C16E-40C2-8CBE-87BC0F8CC590"] ] ] ;;• n|e|w+s for ✨ new stuff (sidenotes note)
 ]}
 ;;======================= HYPER MODE and MODIFIERS ====================
@@ -550,6 +550,7 @@
 	{:des "q-mode for q things" :rules [ :q& ;;• q+..................................................................
 	[:d [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=quickadd%253ArunQuickAdd"] ] ] ;;• q+d Quick Add global
 	[:t [ [:SPKR3] [:open "INSERT_URL"] ] ] ;;• q+d Quick Add Today tODO
+	[:l [ [:SPKR3] [:open "drafts://open?uuid=00E137E9-0DB5-4824-8929-D330416244CE"]]] ;;• q+l to open Drafts 🔗 link log via URL
 
 	]}
 
