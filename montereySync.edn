@@ -155,6 +155,9 @@
 		[ [:n :s :t] [:km "New Sticky"] ]  ;; n|s|t for New Sticky 🔰 new
 		[ [:n :e :s] [:km "New Sticky"] ]  ;; n|e|s for New Sticky🔰 new
 		[[:n :e :w] [ [:SPKR3] [:open "sidenotes://open/3F52308E-C16E-40C2-8CBE-87BC0F8CC590"] ] ] ;;• n|e|w+s for ✨ new stuff (sidenotes note)
+
+		[ [:d :s] [:km "Display (settings)"]] ;;* d+s for Display (settings) test
+		[ [:h :d] [:km "© Hide Application"]] ;;* d+s for © Hide Application
 ]}
 ;;======================= HYPER MODE and MODIFIERS ====================
 	{:des "Capslock as hyper" :rules [ [:condi :!space-mode :!Rctrl-mode] ; Capslock as hyper (command+shift+option+control)
@@ -422,7 +425,8 @@
 	{:des " h-mode for h things" :rules [:h& ;;* ––––––––––––––––––––––––––––––––––––
 		;; [:w [:km "Hover Evernote Now"]] ;;• h+w for Hover Evernote Now 🟢
 		[:w [[:SPKR3] [:open "evernote:///view/11846588/s107/3ece98d3-b354-40cb-bc54-1b93375eef92/6d950bc3-9eca-4610-a1c6-e8dc89702cd2/"] ]] ;;• h+w for "Hover" Evernote Now (via EN URL)
-		[:d [[:SPKR3] [:open "evernote:///view/11846588/s107/421802a9-03af-eb43-b1c4-e606e53a0021/6d950bc3-9eca-4610-a1c6-e8dc89702cd2/"] ]] ;;• h+d for "Hover" Evernote Agenda (via EN URL)
+		;; [:d [[:SPKR3] [:open "evernote:///view/11846588/s107/421802a9-03af-eb43-b1c4-e606e53a0021/6d950bc3-9eca-4610-a1c6-e8dc89702cd2/"] ]] ;;• h+d for "Hover" Evernote Agenda (via EN URL)
+		[:d [[:SPKR3] [:km "Hover Drafts: ⚡️ QUICK NOTES"] ]] ;;• h+d for Hover Drafts: ⚡️ QUICK NOTES
 		[:s [[:SPKR3] :!Ts]] ;;= h+s hover Sidenotes via hotkey assigned in app (⌃s)
 		[:l [:km "Hover ⚡️ LIVE NOTES"]] ;;• h+l for Hover ⚡️ LIVE NOTES 🟢
 		[:u [:km "Hover 📅 UPCOMING "]] ;;• h+u for Hover 📅 UPCOMING  🟢
@@ -513,7 +517,9 @@
 		[:p [:km "New Password"]] ;;• n+p for New Password
 		[:q [:km "New QuickNote"]] ;;• n+q New QuickNote
 		[:w [:km "New Window"]] ;;• n+w for New Window
-		[:d [:km "Drafts Quick Capture (global)"]] ;;• n+d for Drafts Quick Capture (global) ✨ new
+
+		;; [:d [:km "Drafts Quick Capture (global)"]] ;;• n+d for Drafts Quick Capture (global) ✨ new ❌ checking to below
+		[:d [:km "New Drafts Note"]] ;;• n+d for New Drafts Note
 
 		[:i [[:tink] :!CTSo]] ;;• n+i New Omnifocus Quick Entry (via omf hotkey ⌃⇧⌘+o) 🟢 FIXED
 		[:o [:km "Send to OmniFocus"]] ;;• n+o for Send to OmniFocus ⭐replaced n+i+i
