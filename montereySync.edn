@@ -509,6 +509,9 @@
 		[:o [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&uid=69064e14-4cdd-44bf-b85a-ddfcefeb5216"] ] ] ;; old, trying out jumping to workspace
 		[:l [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=workspaces-plus%253A%25F0%259F%2593%2593%2520Master%2520Log%2520workspace"] ] ] ;; m+l for (via Obsidian URI for workspace new expansion )
 
+		[:w [:km "Open in New Window"]] ;;• m+w for Open in New Window (© this is a global)
+
+
 	]}
 ;;============================= N MODE ============================
 	{:des "n-mode for n things" :rules [ :n& ;;* ––––––––––––––––––––––––––––––––––––
