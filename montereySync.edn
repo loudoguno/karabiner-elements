@@ -483,7 +483,7 @@
 			[:spacebar [:km "Trigger Macro by Name"]] ;;• k+spacebar for "Trigger Macro by Name"
 			[:e [:km "Open Karabiner Elements (monterySync.edn) in VS Code"]] ;;• k+e for Open Karabiner Elements (monterySync.edn) in VS Code 💠
 			[:v [:km "Activate Karabiner EventViewer"]] ;;• k+v for "Activate Karabiner EventViewer"
-			[:y [:open "https://www.notion.so/my-old-ky-home/My-Old-Kentucky-Notion-c9ffb2a6aa6540e1b3e80a34e5db2d72?p=226804d32b084480a53b9c5ec4bde45f&showMoveTo=true)"]] ;;• k+y for ky house dashboard
+			[:y [:open "https://www.notion.so/my-old-ky-home/Lou-s-ky-house-dashboard-226804d32b084480a53b9c5ec4bde45f"]] ;;• k+y for ky house dashboard
 			[:s [:open "obsidian://advanced-uri?vault=reference-vault&commandid=workspaces-plus%253A%25F0%259F%2593%259F%2520KSSRC%2520config"]] ;;• k+y for ky house dashboard
 
 	]}
@@ -534,6 +534,8 @@
 		[:a [[:SPKR3] :!Ssemicolon :spacebar :left_arrow :left_arrow :!STa :!Cb :left_arrow :!Cb :hyphen :!Te] ] ;;• n+a for Boldate Clean Left NOT via KM, 🧪 new (trying to achieve  b+a awkwardness on UhK)
 
 		[:r [[:tink] :!CTSr]] ;;• n+r New Reminder via GoodTask quick entry (overlay) (via GoodTask  hotkey ⌃⇧⌘+R) 🔰 new 10/07/23
+
+		[:g [:km "New ChatGPT Chat"]] ;;• n+g for New ChatGPT Chat
 
 
 	]}
