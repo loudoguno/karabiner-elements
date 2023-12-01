@@ -1,4 +1,4 @@
-;;= montereySync.edn .200 ==============================================
+;;= montereySync.edn .201 ==============================================
 ;; ❗ start using CHANGELOG
 ;; -⭐ organize alphabetically using sort lines
 ;; -⭐ start using co-pilot
@@ -7,6 +7,7 @@
 ;; TODO add Q mode (q+n quick note)
 ;; TODO Idea for 1-mode (quick notes, now...) good because only lose pinky...
 ;; 10/10/23 adding g+t for good task
+;; 12/01/23 made x+l for extract
 
 
 ;;  {:goku {:default true
