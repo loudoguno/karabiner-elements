@@ -156,7 +156,7 @@
 		[ [:n :e :s] [:km "New Sticky"] ]  ;; n|e|s for New Sticky🔰 new
 		[[:n :e :w] [ [:SPKR3] [:open "sidenotes://open/3F52308E-C16E-40C2-8CBE-87BC0F8CC590"] ] ] ;;• n|e|w+s for ✨ new stuff (sidenotes note)
 
-		[ [:d :s] [:km "Display (settings)"]] ;;* d+s for Display (settings) test
+		;; [ [:d :s] [:km "Display (settings)"]] ;;* d+s for Display (settings) test
 		[ [:h :d] [:km "© Hide Application"]] ;;* d+s for © Hide Application
 ]}
 ;;======================= HYPER MODE and MODIFIERS ====================
@@ -431,7 +431,8 @@
 		[:l [:km "Hover ⚡️ LIVE NOTES"]] ;;• h+l for Hover ⚡️ LIVE NOTES 🟢
 		[:u [:km "Hover 📅 UPCOMING "]] ;;• h+u for Hover 📅 UPCOMING  🟢
 		[:c [:km "Hover Evernote 🕸 Capture (ideas and thoughts)"]] ;;• h+c for Hover Evernote 🕸 Capture (ideas and thoughts) 🟢
-		[:t [:km "Hover Notion Lou’s TODO’s"]] ;;• h+t for Hover  Notion Lou’s TODO’s) 🟢🔰
+		[:t [[:SPKR3] [:open "drafts://open?uuid=BCB1375E-1A94-4F14-9B11-B1E23EF8E6DB"] ]] ;;• h+t ☑️ Tasks via Drafts URL
+		;; [:t [:km "Hover Notion Lou’s TODO’s"]] ;;• h+t for Hover  Notion Lou’s TODO’s) 🟢🔰
 		[:b [:km "Hover Evernote 🧰 WORKBENCH"]] ;;• h+b for Hover Evernote 🧰 WORKBENCH
 
 		;; [:d [:km "Hover 🍇 DFP Dashboard"]] ;;• h+d forHover 🍇 DFP Dashboard  🟢 > ⭕ to remove
@@ -471,6 +472,8 @@
 		[:l [[:SPKR3] :!Ti]] ;;• j+l for Slidepad (via ⌃i) 🔰 new 8/17/23
 		;; [:KEY_2 [[:SPKR3] [:open "INSERT_URL"] ] ;;• KEY_1+KEY_2 for INSERT_URL from XXX obsidian
 
+		[:q [ [:SPKR3] [:open "drafts://open?uuid=6823BE09-6193-4D97-894A-5147B7285DD9"]]] ;;• j+q to open ⚡️ Quick Notes (Draft)
+
 	;;* TODO testing out "send" rule
 		;; [:a [[:SPKR3] [:wait] [:escp]] ] ;; works
 		;; [:r [:sendreturn]] ;; ☑️  works
@@ -484,7 +487,8 @@
 			[:e [:km "Open Karabiner Elements (monterySync.edn) in VS Code"]] ;;• k+e for Open Karabiner Elements (monterySync.edn) in VS Code 💠
 			[:v [:km "Activate Karabiner EventViewer"]] ;;• k+v for "Activate Karabiner EventViewer"
 			[:y [:open "https://www.notion.so/my-old-ky-home/My-Old-Kentucky-Notion-c9ffb2a6aa6540e1b3e80a34e5db2d72?p=226804d32b084480a53b9c5ec4bde45f&showMoveTo=true)"]] ;;• k+y for ky house dashboard
-			[:s [:open "obsidian://advanced-uri?vault=reference-vault&commandid=workspaces-plus%253A%25F0%259F%2593%259F%2520KSSRC%2520config"]] ;;• k+y for ky house dashboard
+			[:s [:open "obsidian://advanced-uri?vault=reference-vault&commandid=workspaces-plus%253A%25F0%259F%2593%259F%2520KSSRC%2520config"]] ;;• k+s for ky house dashboard
+			[:c [:open "/Users/loudog/Library/Mobile Documents/com~apple~CloudDocs/sync/Obsidian/-vaults/reference-vault/kssrc.md"]] ;;• k+c to open kssrc.md (obsidian key sequence config file)
 
 	]}
 ;;============================ L MODE =============================
@@ -505,9 +509,11 @@
 		[:s [:km "New Message (to self)"]] ;;• m+s for New Message (to self)
 		;; [:l [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&heading=%25F0%259F%2593%2585%2520%25202023-08-16%2520(Wed)&uid=7619bf31-ee3c-4d20-9186-8c6d839d1e33"] ] ] ;;• m+l to show master log
 
+	;;• m+o for  jump to OBS Dashboard (Obsidian)
+		[:o [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=workspaces-plus%253A%25F0%259F%2596%25B2%2520OBS%2520DASHBOARD"] ] ]
+
 		;;• m+l to for Obsidian Master log (use with l+m)
-		[:o [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&uid=69064e14-4cdd-44bf-b85a-ddfcefeb5216"] ] ] ;; old, trying out jumping to workspace
-		[:l [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=workspaces-plus%253A%25F0%259F%2593%2593%2520Master%2520Log%2520workspace"] ] ] ;; m+l for (via Obsidian URI for workspace new expansion )
+			[:l [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=workspaces-plus%253A%25F0%259F%2593%2593%2520Master%2520Log%2520workspace"] ] ] ;; m+l for (via Obsidian URI for workspace new expansion )
 
 		[:w [:km "Open in New Window"]] ;;• m+w for Open in New Window (© this is a global)
 
@@ -538,6 +544,7 @@
 
 		[:r [[:tink] :!CTSr]] ;;• n+r New Reminder via GoodTask quick entry (overlay) (via GoodTask  hotkey ⌃⇧⌘+R) 🔰 new 10/07/23
 
+		[:g [:km "New ChatGPT Chat"]] ;;• n+g New ChatGPT Chat
 
 	]}
 ;;============================== O MODE =============================
@@ -559,7 +566,10 @@
 	{:des "q-mode for q things" :rules [ :q& ;;• q+..................................................................
 	[:d [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=quickadd%253ArunQuickAdd"] ] ] ;;• q+d Quick Add global
 	[:t [ [:SPKR3] [:open "INSERT_URL"] ] ] ;;• q+d Quick Add Today tODO
-	[:l [ [:SPKR3] [:open "drafts://open?uuid=00E137E9-0DB5-4824-8929-D330416244CE"]]] ;;• q+l to open Drafts 🔗 link log via URL
+	[:l [ [:SPKR3] [:open "drafts://open?uuid=00E137E9-0DB5-4824-8929-D330416244CE"]]] ;;• q+l to open Drafts 🔗 QUICK LINKS via URL
+	[:n [ [:SPKR3] [:open "drafts://open?uuid=6823BE09-6193-4D97-894A-5147B7285DD9"]]] ;;• q+n to open ⚡️ Quick Notes (Draft)
+
+
 
 	]}
 
@@ -666,6 +676,14 @@
 		[:c [:km "Center Window on Current Mouse Location"] ] ;;• w+c for km "Move Mouse to Focused Window" ✨new 6/12/23
 
 		[:left_gui [[:SPKR3] :!!f14 ]] ;;* w+left_gui for moom (accessable with left hand)
+
+		[:p [[:SPKR3] :!Tgrave_accent_and_tilde] ] ;;• w+p  for cycle previous window via ⌘+~ (tilde) (default system hotkey)
+		[:j [[:SPKR3] :!STgrave_accent_and_tilde] ] ;;• w+n  for cycle next window via ⌘+~ (tilde) (default system hotkey)
+		[:p [[:SPKR3] :!Cgrave_accent_and_tilde] ] ;;• w+p for cycle previous window IN APP  via ⌘+~ (tilde) (default system hotkey)
+		[:n [[:SPKR3] :!SCgrave_accent_and_tilde] ] ;;• w+n for cycle next window IN APP via ⌘+` (tilde) (default system hotkey)
+
+
+
 	;; keep around
 		;; [:comma [:km "Switch All Workspaces Left"]] ;;• w+comma for Switch All Workspaces Left
 		;; [:period [:km "Switch All Workspaces Right"]];;• w+period for Switch All Workspaces Right
@@ -680,6 +698,14 @@
 	{	:des "x-mode for..." :rules [
 	:x& ;;* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––--
 		[:p :!Tdelete_or_backspace ] 		;;• x+p for clear notification
+		;; [:l [:!Ta :!TSe :!Sright_arrow :km "Extract URL from Selection"] ] ;;• x+l for highlight line THEN extract URL
+
+		;; [:l [:!Ta :!TSe :!Sright_arrow [:SPKR3]]  ] ;;• x+l for highlight line THEN extract URL
+		;; [:l [:!Ta :!TSe :!Sright_arrow :km "Extract URL from Selection" [:SPKR3]]  ] ;;•  >>> ❌ERROR: invalid to definition in main section's x-mode for...
+		;; [:l [:!Ta :!TSe :!Sright_arrow [:km "Extract URL from Selection"] [:SPKR3]]  ] ;;•  >>> compiled >>> ❌ then when ran DID do keyboard sequence, DID play sound, DID NOT run km didn't run KM
+		;; going to try and  move sound to middle
+		[:l [:!Ta :!TSe :!Sright_arrow [:SPKR3] [:km "Extract URL from Selection"]]  ] ;;• compiled >>> did keyboard sequence, DID sound, DID KM 😀😀😀😀😀😀😀
+
 
 		[:u [:km "© Copy URL"]] ;;• x+u for © Copy URL (via KM global context)
 
