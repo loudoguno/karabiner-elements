@@ -452,12 +452,8 @@
 	{:des "i-mode for I things" :rules [
 	:i& ;;• i+..................................................................................................................................
 		[:e [:km "Toggle Emoji and Symbols selector"]] ;;• i+e for Toggle Emoji and Symbols selector via KM macro that also closes the pop-up
-		;; [:d [:km "Hover Evernote  🥔 Idaho Trip (Brosensus)"]] ;;• i+d for 🥔 Idaho Trip (Brosensus) 🟢 TODO: get rid of
-		;; [:t [:km "Hover Evernote 🔷 ITINERARY"]] ;;• i+t for Hover Evernote 🔷 ITINERARY 🔴 disabled b/c false positives TODO: get rid of
-
-		;; [:KEYA [<KEYSEQUENCE> [:SPKR3] [:km "MACRONAME"]]  ] ;;• working template
-		[:u [:open "drafts://open?uuid=06D02503-809E-4A93-B7B1-E48218299B85"] ] ;;• i+u for ⚜️🖇 LIST OF IMPORTANT URLS FOR GTD (via Drafts URL)
-
+		[:d [:km "Hover Evernote  🥔 Idaho Trip (Brosensus)"]] ;;• i+d for 🥔 Idaho Trip (Brosensus) 🟢
+		;; [:t [:km "Hover Evernote 🔷 ITINERARY"]] ;;• i+t for Hover Evernote 🔷 ITINERARY 🔴 disabled b/c false positives
 		]}
 ;;============================ J MODE ===============================
 	{:des "j-mode" :rules [
@@ -923,5 +919,3 @@
 ;; ☰ new entry PROTOCOL:
 	;; add line with prepend date and description to change log
 	;; save, stage, commit with short&good description, push... be sure to pull next time opening up other mbp
-;; working ke rule with sound template: [:KEYA [<KEYSEQUENCE> [:SPKR3] [:km "MACRONAME"]]  ] ;;• COMMENT
-

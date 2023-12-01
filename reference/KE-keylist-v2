@@ -1,5 +1,17 @@
 ## KE Keylist Version 2
 
+	;; !  | means mandatory
+	;; #  | means optional
+	;; C  | left_command (Q)
+	;; T  | left_control (W)
+	;; O  | left_option (E)
+	;; S  | left_shift (R)
+	;; F  | fn
+  ; P | caps_lock
+	;; !! | mandatory command + control + optional + shift (hyper)
+	;; ## | optional any
+;; C T O S and Q W E R
+
 > [
 
 	category": "Modifier keys" },
