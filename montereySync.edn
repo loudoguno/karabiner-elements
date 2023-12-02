@@ -329,6 +329,8 @@
 		[:l [:!Ta :!TSe :!Sright_arrow] ] ;;• b+L for highlight line
 		[:i :vk_consumer_brightness_up] ;;• +i for brightness up
 		[:d :vk_consumer_brightness_down] ;;• b+d for brightness
+		[:t [:btt "btt-named-menu"] ] ;;• b+t
+		;; [:t [ [:SPKR3] [:btt "btt://execute_assigned_actions_for_trigger/?uuid=8FDC79DD-F8F6-4BAF-986E-DF6A56C526F1"] ] ] ;;• b+t
 
 	]}
 ;;============================ C MODE =============================
@@ -336,7 +338,9 @@
 		[:a [:km "Jump to Fantastical"] ] ;;• c+a for km "Jump to Fantastical"
 		[:o [:km "Query Contacts"] ] ;;• c+o for km "Query Contacts"
 		[:d :!Cquote] ;;• c+d for ⌘+quote (evernote default shortcut for "focus tag field")
-		[:m [:km "Move Mouse to Focused Window"] ] ;;• c+m for km "Move Mouse to Focused Window" ✳️NEW
+
+		;; note this only wors in someplaces on selected text
+		[:m [[:SPKR3] [:btt "Show Context Menu for Selected Item"]] ] ;;• c+m for btt "Show Context Menu for Selected Item" ✨ NEW 12/01/23
 
 		[:comma [[:SPKR3] :!STOcomma]] ;;• c+comma for Switch Active Workspace Left (via System Hotkeys) 🟤 recently re-activated
 		[:period [[:SPKR3] :!STOperiod]] ;;• c+period for Switch Active Workspace Right (via System Hotkeys)
@@ -618,6 +622,8 @@
 	{:des "s-mode for s things" :rules [ :s& ;;* ––––––––––––––––-----------––––––––––––
 		[:t :!STCs] ;;• s+t for Speak Text via system hot key (⇧⌥⌃S)
 		[:c [:km "Speak Clipboard"]] ;;• s+c for Speak Clipboard via KM macro 👁 surfacing for visibility
+		[:r [:open "/System/Applications/Siri.app"]] ;;• s+r for siri via application path 🔰 new 12/01/23
+		[:v [:km "Shortcuts via Services Menu"]] ;;• s+v for Shortcuts via Services Menu via KM macro 🔰
 
 		;; enclose selection with and transform
 			[:9 [:km "Enclose Selection with Parenthesis"]] ;;• s+9 for Enclose Selection with Parenthesis 🟢
@@ -627,20 +633,15 @@
 			[:quote [:km "Enclose Selection with Single Quotes"]] ;;• s+quote for Enclose Selection with Single Quotes
 			;;• s+right_shift for transform selection case - [:km "Uppercase Selection"]
 			[:right_shift [:km "Capitalize Selection"]] ;;•s+right_shift for Capitalize Selection
-		[:j :!SOleft_arrow] [:l :!SOright_arrow] [:i :!SOup_arrow] [:k :!SOdown_arrow] ;;*jlik for select left/right/up/down
 
-	[:grave_accent_and_tilde [:km "Enclose Selection with backticks"]] ;;• s+` for Enclose Selection with backticks 🔰 new 10/17/23
-
+			[:j :!SOleft_arrow] [:l :!SOright_arrow] [:i :!SOup_arrow] [:k :!SOdown_arrow] ;;*jlik for select left/right/up/down
+			[:grave_accent_and_tilde [:km "Enclose Selection with backticks"]] ;;• s+` for Enclose Selection with backticks 🔰 new 10/17/23
 
 		;;*🖱mouse-mode  a/l/fed for scroll mouse now
 		[:a {:mkey {:hwheel 5 :speed 5}}]
 		[:f {:mkey {:hwheel -5 :speed 5}}]
 		[:e {:mkey {:vwheel -5 :speed 5}}]
 		[:d {:mkey {:vwheel 5 :speed 5}}]
-
-
-	;; [:KEY2 [ [:SPKR3] [:open "INSERT_URL"] ] ] ;;• s+i for Siri 🔰 New 8/20/23
-	;; /System/Applications/Siri.app ⭕ circleback
 	]}
 
 ;;============================ T MODE ============================
@@ -649,6 +650,26 @@
 		[:m [:open "obsidian://timber"] ] ;;• t+w for run timber command from Lumberjack obsidian plugin 🔰 new 7/27/23
 		;; [:n [:open "obsidian://timber"] ] ;;• q+n for quick note ToDo
 		[:n [:km "Tab New"] ] ;;• t+n for Tab New
+
+		;;  Tuck stuff t+jlik to tuck left right up down
+		[:j :!TSCleft_arrow ] ;;• t+j for Tuck Left via ⌃⇧⌘+←
+		[:l :!TSCright_arrow  ] ;;• t+l for Tuck Right via  ⌃⇧⌘+→
+		[:i :!TSCup_arrow  ] ;;• t+i for Tuck Up via  ⌃⇧⌘+↑
+		[:k :!TSCdown_arrow  ] ;;• t+k for Tuck Down  via  ⌃⇧⌘+↓
+
+		;; u for untuck, h for cycle, p for toggle, and o for untuck all
+		[:u :!TSCpage_up  ] ;;• t+ for Untuck Window  via  ⌃⇧⌘+page up  i.e. y
+		[:h [:!TSCpage_down [:SPKR3] ] ] ;;• t+p for Cycle Tucked Window  via  ⌃⇧⌘+⌫
+		[:p [:!TSCdelete_or_backspace [:SPKR3] ] ] ;;• t+p for Toggle Tucked Window  via  ⌃⇧⌘+⌫
+		[:o [:!TSCtab [:SPKR3] ] ] ;;• t+ for Untuck ALL Tucked Windows via ⌃⇧⌘+⇥
+
+
+
+
+
+
+
+
 	]}
 
 ;;============================ U MODE ==============================
@@ -682,12 +703,11 @@
 
 		[:left_gui [[:SPKR3] :!!f14 ]] ;;* w+left_gui for moom (accessable with left hand)
 
+
 		[:p [[:SPKR3] :!Tgrave_accent_and_tilde] ] ;;• w+p  for cycle previous window via ⌘+~ (tilde) (default system hotkey)
-		[:j [[:SPKR3] :!STgrave_accent_and_tilde] ] ;;• w+n  for cycle next window via ⌘+~ (tilde) (default system hotkey)
-		[:p [[:SPKR3] :!Cgrave_accent_and_tilde] ] ;;• w+p for cycle previous window IN APP  via ⌘+~ (tilde) (default system hotkey)
-		[:n [[:SPKR3] :!SCgrave_accent_and_tilde] ] ;;• w+n for cycle next window IN APP via ⌘+` (tilde) (default system hotkey)
-
-
+		[:n [[:SPKR3] :!STgrave_accent_and_tilde] ] ;;• w+n  for cycle next window via ⌘+~ (tilde) (default system hotkey)
+		[:j [[:SPKR3] :!SCgrave_accent_and_tilde] ] ;;• w+n for cycle next window IN APP via ⌘+` (tilde) (default system hotkey)
+		[:k [[:SPKR3] :!Cgrave_accent_and_tilde] ] ;;• w+p for cycle previous window IN APP  via ⌘+~ (tilde) (default system hotkey)
 
 	;; keep around
 		;; [:comma [:km "Switch All Workspaces Left"]] ;;• w+comma for Switch All Workspaces Left
