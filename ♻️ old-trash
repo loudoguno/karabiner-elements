@@ -1,0 +1,12 @@
+;; ⌃⇧⌘ + ←↑↓→ to Tuck to a side
+;; ⌃⇧⌘+← t+j Tuck Left via
+;; ⌃⇧⌘+→ t+l Tuck Right via
+;; ⌃⇧⌘+↑ t+i Tuck Up via
+;; ⌃⇧⌘+↓ t+k Tuck Down  via
+
+## 12/05/23
+from t mode
+[:m [:open "obsidian://timber"] ] ;;• t+w for run timber command from Lumberjack obsidian plugin 🔰 new 7/27/23
+
+from p mode
+[:a [:km "Go To Sheet: Pharma"]] ;;• p+a forGo To Sheet: Pharma

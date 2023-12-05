@@ -569,17 +569,18 @@
 	]}
 ;;============================ P MODE ============================= ;;  ⭕🌟TODO p mode has a lot of potential because barely used up and allows access to entire keyboard
 	{:des "p-mode for..." :rules [ :p& ;;* ––––––––––––––––––––––––––––––––––––––––––
-		[:spacebar [[:SPKR3]:!!CSTOp]] ;;• p+spacebar for search 1password...
-		[:a [:km "Go To Sheet: Pharma"]] ;;• p+a forGo To Sheet: Pharma
+	[:spacebar [[:SPKR3]:!!CSTOp]] ;;• p+spacebar for search 1password... 🔰 new
+	 [:w [[:SPKR3]:!!CSTOp]] ;;• p+spacebar for search 1password... ;;edited12/05/23
+
 	]}
 
 ;;============================ Q MODE ============================= ;;
 	{:des "q-mode for q things" :rules [ :q& ;;• q+..................................................................
 	[:d [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=quickadd%253ArunQuickAdd"] ] ] ;;• q+d Quick Add global
 	[:t [ [:SPKR3] [:open "INSERT_URL"] ] ] ;;• q+d Quick Add Today tODO
-	[:l [ [:SPKR3] [:open "drafts://open?uuid=00E137E9-0DB5-4824-8929-D330416244CE"]]] ;;• q+l to open Drafts 🔗 QUICK LINKS via URL
+	[:l [ [:SPKR3] [:open "drafts://open?uuid=00E137E9-0DB5-4824-8929-D330416244CE"]]] ;;• q+l open 🔗 QUICK LINKS
 	[:n [ [:SPKR3] [:open "drafts://open?uuid=6823BE09-6193-4D97-894A-5147B7285DD9"]]] ;;• q+n to open ⚡️ Quick Notes (Draft)
-
+	[:b [ [:SPKR3] [:open "drafts://open?uuid=02B40CD6-2E52-444F-9689-9B8D7D859436"]]] ;;• q+b to open 🎛 QUICK DASHBOARD
 
 
 	]}
@@ -653,23 +654,14 @@
 ;;============================ T MODE ============================
 	{	:des "t-mode for t things" :rules [ :t& ;;* ––––––––––––––––––––––––––––––––––––
 		[:w [:km "Tab To Window"] ] ;;• t+w for Tab To Window
-		[:m [:open "obsidian://timber"] ] ;;• t+w for run timber command from Lumberjack obsidian plugin 🔰 new 7/27/23
-		;; [:n [:open "obsidian://timber"] ] ;;• q+n for quick note ToDo
 		[:n [:km "Tab New"] ] ;;• t+n for Tab New
 
-		;;*  Tuck
+		;;*  Tuck 🔰 new
 		;; t+jlik to tuck ←↑↓→
 		[:j :!TSCleft_arrow ] ;;• t+j Tuck Left via ⌃⇧⌘+←
 		[:l :!TSCright_arrow  ] ;;• t+l for Tuck Right via  ⌃⇧⌘+→
 		[:i :!TSCup_arrow  ] ;;• t+i for Tuck Up via ⌃⇧⌘+↑
 		[:k :!TSCdown_arrow  ] ;;• t+k for Tuck Down  via  ⌃⇧⌘+↓
-;; ⭕ CIRCLE BACK
-;; ⌃⇧⌘ + ←↑↓→ to Tuck to a side
-;; ⌃⇧⌘+← t+j Tuck Left via
-;; ⌃⇧⌘+→ t+l Tuck Right via
-;; ⌃⇧⌘+↑ t+i Tuck Up via
-;; ⌃⇧⌘+↓ t+k Tuck Down  via
-
 
 		;; u for untuck, h for cycle, p for toggle, and o for untuck all
 		[:u :!TSCpage_up  ] ;;• t+ for Untuck Window  via  ⌃⇧⌘+page up  i.e. y
@@ -677,12 +669,7 @@
 		[:p [:!TSCdelete_or_backspace [:SPKR3] ] ] ;;• t+p for Toggle Tucked Window  via  ⌃⇧⌘+⌫
 		[:o [:!TSCtab [:SPKR3] ] ] ;;• t+ for Untuck ALL Tucked Windows via ⌃⇧⌘+⇥
 
-
-
-
-
-
-
+		[:s [[:SPKR3] :!Ts]] ;;= t+s hover Sidenotes via hotkey assigned in app (⌃s)
 
 	]}
 
