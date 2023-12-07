@@ -385,6 +385,8 @@
 		;; [:KeyA [:open "TARGETURL"] ] ;;• KeyA+KeyB for Drafts Inbox QuickCapture via URL
 		;; /Users/loudog/Desktop
 
+		[:k [ :open  "/Users/loudog/Desktop"] ] ;;• d+k for Switch Third Space Right
+
 	]}
 ;;============================ F MODE =============================
 	{:des " f-mode for f things" :rules [ :f& ;;* –––––––––––––––––––––––––––––––––––––
@@ -422,6 +424,8 @@
 		[:n :fn] 	;;• f+n for for function (to be used with qweasd moom search)
 		[:comma [:km "Switch Third Space Left"] ] ;;• c+, for Switch Third Space Left
 		[:period [:km "Switch Third Space Right"] ] ;;• c+. for Switch Third Space Right
+
+
 	]}
 ;;============================ G MODE ============================
 	{:des "g-mode" :rules [ 	:g& ;;* –––––––––––––––––––––––––––––––––––––––––––
@@ -445,7 +449,7 @@
 		[:w [[:SPKR3] [:open "evernote:///view/11846588/s107/3ece98d3-b354-40cb-bc54-1b93375eef92/6d950bc3-9eca-4610-a1c6-e8dc89702cd2/"] ]] ;;• h+w for "Hover" Evernote Now (via EN URL)
 		;; [:d [[:SPKR3] [:open "evernote:///view/11846588/s107/421802a9-03af-eb43-b1c4-e606e53a0021/6d950bc3-9eca-4610-a1c6-e8dc89702cd2/"] ]] ;;• h+d for "Hover" Evernote Agenda (via EN URL)
 		[:d [[:SPKR3] [:km "Hover Drafts: ⚡️ QUICK NOTES"] ]] ;;• h+d for Hover Drafts: ⚡️ QUICK NOTES
-		[:s [[:SPKR3] :!Ts]] ;;= h+s hover Sidenotes via hotkey assigned in app (⌃s)
+		[:s [[:SPKR3] :!OSCs]] ;;= h+s Open or Hide Sidenotes via hotkey assigned in app (⌥⇧⌘)
 		[:l [:km "Hover ⚡️ LIVE NOTES"]] ;;• h+l for Hover ⚡️ LIVE NOTES 🟢
 		[:u [:km "Hover 📅 UPCOMING "]] ;;• h+u for Hover 📅 UPCOMING  🟢
 		[:c [:km "Hover Evernote 🕸 Capture (ideas and thoughts)"]] ;;• h+c for Hover Evernote 🕸 Capture (ideas and thoughts) 🟢
@@ -481,7 +485,7 @@
 	:j&  ;;• j+................................................................................................................................
 		[:e [[:SPKR3][:km "Jump to Evernote"]]] ;;• j+e for Jump to Evernote 🔴 broken in EN 10
 		[:d [:km "Jump to Drafts (global)"]] ;;• j+d for Jump to Drafts (global)
-		[:s [ [:SPKR3]  :!Tf ] ] ;;• j+s Jump to SideNotes 🔰
+		[:s [ [:SPKR3]  :!OSCj ] ] ;;• j+s Search (Jump) tSideNotes (via ⌥⇧⌘+j) 🔰
 		[:o [:km "Jump to OmniFocus"]] ;;• j+o for Jump to OmniFocus 🟡 needs work > 🟢 better now
 		[:b [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=darlal-switcher-plus%253Aswitcher-plus%253Aopen"]] ] ;;• j+b_ jump to Obsidian (via QuickSwitcher plus URI
 		[:w [[:SPKR3] :!Ospacebar]] ;;• j+w for Jump to Window (via Context hotkey ⌥space)
@@ -491,7 +495,7 @@
 
 		[:t [:km "© Jump To"]] ;;• j+t for © Jump To (via KM global contextlual)
 		[:right_gui [:km "© Jump To"]] ;;• j+right_gui for © Jump To //alternative way with one hand
-		[:l [[:SPKR3] :!Ti]] ;;• j+l for Slidepad (via ⌃i) 🔰 new 8/17/23
+		[:l [[:SPKR3] :!SCTi]] ;;• j+l for Slidepad (via ⌃i) 🔰 new 8/17/23
 		;; [:KEY_2 [[:SPKR3] [:open "INSERT_URL"] ] ;;• KEY_1+KEY_2 for INSERT_URL from XXX obsidian
 
 		[:q [ [:SPKR3] [:open "drafts://open?uuid=6823BE09-6193-4D97-894A-5147B7285DD9"]]] ;;• j+q to open ⚡️ Quick Notes (Draft)
@@ -578,6 +582,8 @@
 
 		[:g [:km "New ChatGPT Chat"]] ;;• n+g New ChatGPT Chat
 
+
+		[:b [:open "obsidian://new?vault=reference-vault&name=new-note"] ] ;;• n+b for new note in obsidian 12/07/23 🔰
 	]}
 ;;============================== O MODE =============================
 	{:des "o-mode for..." :rules [ :o& ;;* ––––––––––––––––––––––––––––––––––––––––––
@@ -697,7 +703,7 @@
 		[:p [:!TSCdelete_or_backspace [:SPKR3] ] ] ;;• t+p for Toggle Tucked Window  via  ⌃⇧⌘+⌫
 		[:o [:!TSCtab [:SPKR3] ] ] ;;• t+ for Untuck ALL Tucked Windows via ⌃⇧⌘+⇥
 
-		[:s [[:SPKR3] :!Ts]] ;;• t+s hover Sidenotes via hotkey assigned in app (⌃s)
+		[:s [[:SPKR3] :!OSCs]] ;;• t+s Open or Hide Sidenotes via hotkey assigned in app (⌥⇧⌘+s)
 
 	]}
 ;;============================ U MODE ==============================
