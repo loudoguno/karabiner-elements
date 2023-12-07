@@ -402,12 +402,23 @@
 			;;* Focus Window
 				[:q [[:SPKR2]:!Cgrave_accent_and_tilde]] [:e [[:SPKR2] :!SCgrave_accent_and_tilde]];;• f+q/e for focus last/next window (via System Preferences)
 				[:tab :!Ctab] ;;• f+tab for ⌘⇥
-				[:a :!!j]	; [:a [[:SPKR2]:!!j]] ;;•left/right/up/ down via Slate
-					[:d :!!l]	; [:d [[:SPKR2]:!!l]]
-					[:w :!!i]	; [:w [[:SPKR2]:!!i]]
-					[:s :!!k]	; [:s [[:SPKR2]:!!k]]
-					[:x :!!x]	; [:x [[:SPKR2]:!!x]]
-					[:b :!!b]	; [:b [[:SPKR2]:!!b]]
+				;;  focus ←↑↓→
+				[:a :!!j] ;;•f+a for focus left (via ⌃⌥⇧⌘+j)
+				[:d :!!l]  ;;•f+d  for focus right (via ⌃⌥⇧⌘+d)
+				[:w :!!i] ;;• f+w for focus up (via ⌃⌥⇧⌘+i)
+				[:s :!!k] ;;• f+s for focus down (via ⌃⌥⇧⌘+k)
+				;;
+				[:x :!!x] [:b :!!b] ;;• f+x for focus behind
+
+
+
+				[:x :!!x] ;;• f+x for focus window (via ⌃⌥⇧⌘+x)
+				[:b :!!b] ;;• f+b for focus window (via ⌃⌥⇧⌘+b)
+				[:n :fn] 	;;• f+n for for function (to be used with qweasd moom search)
+				[:comma [:km "Switch Third Space Left"] ] ;;• f+, for Switch Third Space Left
+				[:period [:km "Switch Third Space Right"] ] ;;• f+. for Switch Third Space Right
+
+
 		[:n :fn] 	;;• f+n for for function (to be used with qweasd moom search)
 		[:comma [:km "Switch Third Space Left"] ] ;;• c+, for Switch Third Space Left
 		[:period [:km "Switch Third Space Right"] ] ;;• c+. for Switch Third Space Right
@@ -420,6 +431,8 @@
 		[:n [ [:SPKR3] [:open "omnifocus:///task/cVPImebMMwu"] ] ] ;;• g+n OmnfiFocus ⚡️now-plan  ⭐ 🔰 new 9/08/23
 
 		[:t [[:tink] :!CTSg]] ;;• g+t bring GoodTask to front (via GoodTask global hotkey ⌃⇧⌘+g) 🔰 new 10/10/23
+
+		[:l  [:open "drafts://open?uuid=BAAE87AB-BB0F-4F0D-A395-3FE17F7F180D"]] ;;• g+l go to simple log (Drafts )
 
 	;; keep around
 			;; [:m [:km "GoTo Gmail Inbox"] [["g&" 1] ["go&" 1]]] ;;+ g+o+m for GoTo Gmail Inbox
@@ -492,13 +505,17 @@
 	]}
 ;;============================= K MODE =============================
 	{:des "k-mode for k things" :rules [ :k& ;;• k+..................................................................
-			[:spacebar [:km "Trigger Macro by Name"]] ;;• k+spacebar for "Trigger Macro by Name"
+			;; [:spacebar [:km "Trigger Macro by Name"]] ;;• k+spacebar for "Trigger Macro by Name"
+			[:spacebar :!CSOspacebar] ;;• k+spacebar for to Trigger Macro by Name (via hotkey)
+
 			[:e [:km "Open Karabiner Elements (monterySync.edn) in VS Code"]] ;;• k+e for Open Karabiner Elements (monterySync.edn) in VS Code 💠
 			[:v [:km "Activate Karabiner EventViewer"]] ;;• k+v for "Activate Karabiner EventViewer"
 			[:y [:open "https://www.notion.so/my-old-ky-home/My-Old-Kentucky-Notion-c9ffb2a6aa6540e1b3e80a34e5db2d72?p=226804d32b084480a53b9c5ec4bde45f&showMoveTo=true)"]] ;;• k+y for ky house dashboard
 			;; [:s [:open "obsidian://advanced-uri?vault=reference-vault&commandid=workspaces-plus%253A%25F0%259F%2593%259F%2520KSSRC%2520config"]] ;;• k+s for ky house dashboard
 			[:s [:open "/Users/loudog/Library/Mobile Documents/com~apple~CloudDocs/sync/Obsidian/-vaults/reference-vault/kssrc.md"]] ;;• k+c to open kssrc.md (obsidian key sequence config file)
-			[:c :!STCk ]  ;;• k+c for "Instant Lookup in KeyCombiner (via ⌃⇧⌘+k)"
+			[:b :!STCk ]  ;;• k+b for "Instant Lookup in KeyCombiner (via ⌃⇧⌘+k)"
+			[:c [:open "keycue://"] ]  ;;• k+c for "Instant Lookup in KeyCombiner (via ⌃⇧⌘+k)"
+
 			[:u [:open "file:///Users/loudog/Library/Application Support/KeyCue/KeyCue-URLs.txt"]] ;;• k+u to open
 
 	]}
@@ -547,7 +564,11 @@
 		;; [:t [:km "New Typinator Item from Selection"]] ;;• n+t for Quick Add Typinator Item
 		[:s [:km "New Typinator Item from Selection"]] ;;• n+s for Quick Add Typinator Item >  9/09/23 changing backns
 
-		[:l [:km "Log Palette"]] ;;• n+l for Log Palette 🟡 need to fix underlying macros
+		;; [:l [:km "Log Palette"]] ;;• n+l for Log Palette ⛔ DISABLED
+		[:l  [:km "prepend to simple log"]] ;;• n+l prepend to simple log
+;; --- OPEN simple prepend log (drafts): drafts://open?uuid=BAAE87AB-BB0F-4F0D-A395-3FE17F7F180D
+;; --- EDIT macro (km editor): keyboardmaestro://m=97A5CECF-E229-4FFB-B7C7-7CC31F1145C7
+
 		[:spacebar [:km "Jump to Notes"]] ;;• n+spacebar Jump to Notes
 
 		;; [:a [:km "Boldate Clean Left"] ] ;;• n+a for Boldate Clean Left via KM ✨ new (trying to achieve  b+a awkwardness on UhK)
@@ -559,29 +580,27 @@
 
 	]}
 ;;============================== O MODE =============================
-	{:des "o-mode for..." :rules [ :o& ;;* ––––––––––––––––––––––––––––––––––––––––––-
+	{:des "o-mode for..." :rules [ :o& ;;* ––––––––––––––––––––––––––––––––––––––––––
 	;;• o+spacebar.......................................................................................................................
 	[:spacebar [[:SPKR3][:alf "Search OmniFocus Tasks via Alfred" "net.rhydlewis.alfred.searchomnifocus"]]] ;; o+spacebar for Jump to OmniFocus 🟡 NEEDTOFIX
-	[:i [:km "Hover OmniFocus Inbox"]] ;;⭐🔰 o+i for Hover OmniFocus Inbox
-	[:h [ [:SPKR3] [:open "omnifocus:///folder/aPNK7lj-7fP"] ] ] ;;• o+h for open OMF ⚡️ plan folder 🔰 new 8/21/23
-	[:n [ [:SPKR3] [:open "omnifocus:///task/cVPImebMMwu"] ] ] ;;• o+n for open OMF ❗ NOW project (more focused than above) folder 🔰 new 8/21/23
+	[:i [:km "Hover OmniFocus Inbox"]] ;;• ⭐🔰 o+i for Hover OmniFocus Inbox
+	[:h [ [:SPKR3] [:open "omnifocus:///folder/aPNK7lj-7fP"] ] ] ;;• o+h for open OMF ⚡️ plan folder 🔰 new 8/21/23 >
+	;; [:n [ [:SPKR3] [:open "omnifocus:///task/cVPImebMMwu"] ] ] ;;• o+n for open OMF ❗ NOW project (more focused than above) folder 🔰 new 8/21/23 > ❌ disabled bc false positives
 
 	]}
 ;;============================ P MODE ============================= ;;  ⭕🌟TODO p mode has a lot of potential because barely used up and allows access to entire keyboard
 	{:des "p-mode for..." :rules [ :p& ;;* ––––––––––––––––––––––––––––––––––––––––––
-	[:spacebar [[:SPKR3]:!!CSTOp]] ;;• p+spacebar for search 1password... 🔰 new
-	 [:w [[:SPKR3]:!!CSTOp]] ;;• p+spacebar for search 1password... ;;edited12/05/23
+	[:spacebar [[:SPKR3]:!!CSTOp]] ;;• p+spacebar for hyper p conflict palette
+	 [:w [[:SPKR3]:!CSTp]] ;;• p+spacebar for search 1password... ;; edited12/05/23
 
 	]}
-
 ;;============================ Q MODE ============================= ;;
-	{:des "q-mode for q things" :rules [ :q& ;;• q+..................................................................
-	[:d [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=quickadd%253ArunQuickAdd"] ] ] ;;• q+d Quick Add global
-	[:t [ [:SPKR3] [:open "INSERT_URL"] ] ] ;;• q+d Quick Add Today tODO
+	{:des "q-mode" :rules [ :q& ;;• q+..................................................................
+	[:d [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=quickadd%253ArunQuickAdd"] ] ] ;;• q+d QuickAdd in Obsidian (global context)
 	[:l [ [:SPKR3] [:open "drafts://open?uuid=00E137E9-0DB5-4824-8929-D330416244CE"]]] ;;• q+l open 🔗 QUICK LINKS
 	[:n [ [:SPKR3] [:open "drafts://open?uuid=6823BE09-6193-4D97-894A-5147B7285DD9"]]] ;;• q+n to open ⚡️ Quick Notes (Draft)
 	[:b [ [:SPKR3] [:open "drafts://open?uuid=02B40CD6-2E52-444F-9689-9B8D7D859436"]]] ;;• q+b to open 🎛 QUICK DASHBOARD
-
+	[:t [ [:SPKR3] [:open "INSERT_URL"] ] ] ;;•q+t AVAIL
 
 	]}
 
