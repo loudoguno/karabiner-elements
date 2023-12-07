@@ -13,3 +13,4 @@ Quick Search menu bar items. {^19~
 Allows you to search for menu items by app name or "Text Search Name" if set.
 Keyboard navigate: F12
 Allows you to keyboard navigate menu items and select them.
+d

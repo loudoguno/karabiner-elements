@@ -149,11 +149,11 @@
 		[ [:v :c] [:km "Activate Visual Studio Code"] ] ;;* vc to Activate Visual Studio Code
 		[ [:s :n] [:km "Activate SideNotes"] ] ;;* s+n to open SideNates "❗ Now" note via URL (sidenotes://open/460F59F5-617F-44CB-B9F0-099E96DF1EE3)
 		[ [:c :s] [[:SPKR3] [:open "sidenotes://open/93C96CE1-3C77-49A9-955D-D50340BA04F1"] ] ] ;;* c+s for show SideNotes cheatsheet
+		[[:n :e :w] [ [:SPKR3] [:open "sidenotes://open/3F52308E-C16E-40C2-8CBE-87BC0F8CC590"] ] ] ;;• n|e|w+s for ✨ new stuff (sidenotes note)
 		[ [:d :r]  [:km "Activate Drafts"] ] ;;* d+r to Activate Drafts
 		[ [:o :b :s]  [:open "obsidian://advanced-uri?vault=reference-vault&commandid=obsidian-global-hotkeys%253Ashow"] ] ;;* [obs] for Show Obsidian (via command URI)
 		[ [:o :m :f] [:km "Activate OmniFocus"] ]  ;;* [omf] simultanoesly for Activate OmniFocus via KM. could
 		[ [:n :s :t] [:km "New Sticky"] ] [ [:n :e :s] [:km "New Sticky"] ]  ;; n|s|t for New Sticky 🔰
-		[[:n :e :w] [ [:SPKR3] [:open "sidenotes://open/3F52308E-C16E-40C2-8CBE-87BC0F8CC590"] ] ] ;;• n|e|w+s for ✨ new stuff (sidenotes note)
 
 		;; [ [:d :s] [:km "Display (settings)"]] ;;* d+s for Display (settings) test
 		[ [:h :d] [:km "© Hide Application"]] ;;* d+s for © Hide Application
@@ -614,31 +614,41 @@
 	;;* Transport Controls
       [:spacebar :!TOCspacebar] ;;• r+spacebar for pause via ⌃⌥⌘Space ;;*j/l/i/k for remote transport controls
       [:right_control :!TOCspacebar] ;! thought I might need to fix for right control
-		[:j :!TOCleft_arrow]
-		[:l :!TOCright_arrow]
-		[:i :!TOCup_arrow]
-		[:k :!TOCdown_arrow]
-		[:a :!TOCleft_arrow]
-		[:d :!TOCright_arrow]
-		[:w :!TOCup_arrow]
-		[:s :!TOCdown_arrow]
-		[:comma :!TOCcomma]   ;;*comma/dot for speed up and down via ⌃⌥⌘,/.
-		[:period :!TOCperiod]
-		[:semicolon :!TOCsemicolon] ;;*semicolon/quote for frame forward/backwoord ⌃⌥⌘;/'
-		[:p :!TOCp] [:n :!TOCn] [:q :!TOCp] [:e :!TOCn]  ;;* r+p/n and r+q/e for next/previous song 🟢 FIXED
+		[:j :!TOCleft_arrow] ;;• r+j for skip back (via ⌥⇧⌘+←)
+		[:l :!TOCright_arrow] ;;• r+l for (via ⌥⇧⌘+→)
+		[:i :!TOCup_arrow] ;;• r+i for (via ⌥⇧⌘+↑)
+		[:k :!TOCdown_arrow] ;;• r+k for (via ⌥⇧⌘+↓)
+		;; left handed only
+		[:a :!TOCleft_arrow] ;;• r+a for (via ⌥⇧⌘+←)
+		[:d :!TOCright_arrow] ;;• r+d for (via ⌥⇧⌘+→)
+		[:w :!TOCup_arrow] ;;• r+w for (via ⌥⇧⌘+↑)
+		[:s :!TOCdown_arrow] ;;• r+s for (via ⌥⇧⌘+↓)
 
-		[:f :!TOCf] ;;*f for fullOCreen via ⌃⌥⌘f
-		[:tab [:km "Screenshot Timestamp"]] ;;* r+tab for tab for Screenshot Timeestamp
-		[:p [:km "Screenshot Timestamp"]] ;;*tab for Screenshot Timeestamp
-			[:right_gui [:km "Screenshot Timestamp"]] ;;*tab for Screenshot Timeestamp
-		[:m [:km "Mute"]] ;;* r+m for mute
+		[:comma :!TOCcomma] ;;• r+comma speed down via ⌃⌥⌘+,
+		[:period :!TOCperiod] ;;• r+dot for speed up ⌃⌥⌘+.
+		[:semicolon :!TOCsemicolon] ;;•semicolon/quote for frame forward/backwoord ⌃⌥⌘;/'
+		[:p :!TOCp]  ;;• r+p for previous song (via ⌃⌥⌘+p)
+		[:n :!TOCn]  ;;• r+n for next song (via ⌃⌥⌘+n)
+		[:q :!TOCq]  ;;• r+q for previous song (via ⌃⌥⌘+q)
+		[:e :!TOCe]  ;;• r+e for next song (via ⌃⌥⌘+e)
+		[:f :!TOCf] ;;• r+f for full screen  via ⌃⌥⌘f
+		[:m [:km "Mute"]] ;;• r+m for mute
 
-	;;* Remote Palette
-			[:return_or_enter [:km "- Remote Modes Palette"]] ;;* r+return/enter for "- Remote Modes Palette"
-			;; [:m [:km "Media Remote"]] 		;;*r for YouTube Remote
-			[:y [:km "YouTube Remote"]] 		;;*y for YouTube Remote
-			;; [:q [:km "QuickTime Remote"]] 		;;*q for QuickTime Remote ❌ DEACTIVATED so can have trigger back/next with one hand via q/e
-			[:x [:km "Deactivate Remote"]] 		;;*q for Deactivate Remote
+		[:tab [:km "Screenshot Timestamp"]] ;;• r+tab for tab for Screenshot Timeestamp
+
+		[:j :!TOCleft_arrow] [:l :!TOCright_arrow] [:i :!TOCup_arrow] [:k :!TOCdown_arrow] ;;*jlik for select left/right/up/down TODO what is this? ⭕
+		[:grave_accent_and_tilde [:km "Enclose Selection with backticks"]] ;;• r+` for Enclose Selection with backticks 🔰 new 10/17/23
+
+		;;* Remote Palette
+			[:return_or_enter [:km "- Remote Modes Palette"]] ;;•  r+return/enter for "- Remote Modes Palette"
+			[:y [:km "YouTube Remote"]] 		;;• y for YouTube Remote
+			[:x [:km "Deactivate Remote"]] 		;;• q for Deactivate Remote
+			;; [:q [:km "QuickTime Remote"]] 		;;• q for QuickTime Remote ❌ DEACTIVATED so can have trigger back/next with one hand via q/e
+
+		[:t [:open "drafts://x-callback-url/runAction?text=TEXT&action=Open%20Recent%20Drafts"] ] ;;• KeyA+KeyB for COMMAND via MECHANISM (key press, URL, App alias)
+
+
+
 	]}
 ;;============================= S Mode =============================
 	{:des "s-mode for s things" :rules [ :s& ;;* ––––––––––––––––-----------––––––––––––
@@ -670,7 +680,7 @@
 		[:d {:mkey {:vwheel 5 :speed 5}}]
 	]}
 
-;;============================ T MODE ============================
+;;============================ T MODE ==============================
 	{	:des "t-mode for t things" :rules [ :t& ;;* ––––––––––––––––––––––––––––––––––––
 		[:w [:km "Tab To Window"] ] ;;• t+w for Tab To Window
 		[:n [:km "Tab New"] ] ;;• t+n for Tab New
@@ -681,17 +691,15 @@
 		[:l :!TSCright_arrow  ] ;;• t+l for Tuck Right via  ⌃⇧⌘+→
 		[:i :!TSCup_arrow  ] ;;• t+i for Tuck Up via ⌃⇧⌘+↑
 		[:k :!TSCdown_arrow  ] ;;• t+k for Tuck Down  via  ⌃⇧⌘+↓
-
 		;; u for untuck, h for cycle, p for toggle, and o for untuck all
 		[:u :!TSCpage_up  ] ;;• t+ for Untuck Window  via  ⌃⇧⌘+page up  i.e. y
 		[:h [:!TSCpage_down [:SPKR3] ] ] ;;• t+p for Cycle Tucked Window  via  ⌃⇧⌘+⤓⇟
 		[:p [:!TSCdelete_or_backspace [:SPKR3] ] ] ;;• t+p for Toggle Tucked Window  via  ⌃⇧⌘+⌫
 		[:o [:!TSCtab [:SPKR3] ] ] ;;• t+ for Untuck ALL Tucked Windows via ⌃⇧⌘+⇥
 
-		[:s [[:SPKR3] :!Ts]] ;;= t+s hover Sidenotes via hotkey assigned in app (⌃s)
+		[:s [[:SPKR3] :!Ts]] ;;• t+s hover Sidenotes via hotkey assigned in app (⌃s)
 
 	]}
-
 ;;============================ U MODE ==============================
 ;;TODO ⭕ lot of potential here because not used up...
 	{:des "u-mode for..." :rules [ :u& ;;* ––––––––––––––––––––––––––––––––––––––––––
@@ -708,8 +716,8 @@
 	]}
 ;;============================ W MODE =============================
 	{	:des "w-mode" :rules [ :w& ;;• ––––––––––––––––––––––––––––––––––––––––––––
-		[:spacebar [[:SPKR3] :!SOCf3] ] ;;• w+spacebar for Switch Active Workspace Left (via System Hotkey ⌥⇧⌘F3) 🟢works now -> editing because
-			[:right_control [[:SPKR3] :!SOCf3 ]] ;; for uhk2
+		[:spacebar [[:SPKR3] :!SOCf3] ] ;;• w+spacebar for Expose  (via ⌃⌥⌘+f3)
+		[:right_control [[:SPKR3] :!SOCf3 ]] ;; for uhk2
 		;; [:spacebar [[:SPKR3] [:btt "Expose"]] ] ;;• w+a for Switch Active Workspace Left (via BTT) 🟢works now -> editing because
 		;; [:right_control [[:SPKR3] [:btt "Expose"]] ] ;;• w+right_control (uhk spacebar)
 
@@ -721,7 +729,7 @@
 		[:b [:km "Hover Evernote 🧰 WORKBENCH"]] ;;• w+b for Hover Evernote 🧰 WORKBENCH
 		[:c [:km "Center Window on Current Mouse Location"] ] ;;• w+c for km "Move Mouse to Focused Window" ✨new 6/12/23
 
-		[:left_gui [[:SPKR3] :!!f14 ]] ;;* w+left_gui for moom (accessable with left hand)
+		[:left_gui [[:SPKR3] :!!f14 ]] ;;* w+left_gui for moom via ⌃⌥⇧⌘F14 (accessable with left hand)
 
 		;;•
 		[:p [[:SPKR3] :!Tgrave_accent_and_tilde] ] ;;• w+p  for cycle previous window via ⌃+~ (tilde) (default system hotkey)
@@ -772,7 +780,7 @@
 		;; [:	p :apple_display_brightness_increment] ;;• z+ for brightness up
 			;; [:n :apple_display_brightness_decrement] ;;• z+ for brightness up
 
-;; UNUSED SYSTEM KEYS
+;; UNUSED SYSTEM KEYs
 	;; :vk_consumer_brightness_down {:label "vk_consumer_brightness_down (equal todisplay_brightness_decrement)" :not-from true}
 	;; :vk_consumer_brightness_up {:label "vk_consumer_brightness_up (equal todisplay_brightness_increment)" :not-from true}
 	;; :mission_control {:not-from true :consumer-key true}
@@ -829,6 +837,7 @@
 	;; :japanese_pc_katakana {:label "PCキーボードのかなキー" :not-to true}
 
 	]}
+
 ;;========================= PERIOD MODE ===========================
 	{:des " period-mode for typinator and autocomplete":rules [
     :period& ;;• –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -875,63 +884,7 @@
 		{:des "e-mode for e things"
 		:rules [:e& [:c [:km "Try Current Macro"]]]}
 
-		;;* Chunk Mode
-     {:des   "chunkwm mode"
-				:rules [
-					[:!CS4 ["/usr/local/bin/chunkc border::clear" :!CS4]]
-					[:!CS6 ["/usr/local/bin/chunkc border::clear" :!CS3]]
-					[:!COSf "/usr/local/bin/chunkc tiling::window --toggle native-fullscreen"]
-					:chunkwm-insert-mode
-							[:spacebar "/usr/local/bin/chunkc tiling::window --use-insertion-point cancel"]
-							[:j "/usr/local/bin/chunkc tiling::window --use-insertion-point west"]
-							[:k "/usr/local/bin/chunkc tiling::window --use-insertion-point south"]
-							[:i "/usr/local/bin/chunkc tiling::window --use-insertion-point north"]
-							[:l "/usr/local/bin/chunkc tiling::window --use-insertion-point east"]
-				:chunkwm-move-mode 	;; move windows
-							[:j "/usr/local/bin/chunkc tiling::window --warp west"]
-							[:k "/usr/local/bin/chunkc tiling::window --warp south"]
-							[:i "/usr/local/bin/chunkc tiling::window --warp north"]
-							[:l "/usr/local/bin/chunkc tiling::window --warp east"]
-				:chunkwm-scale-mode ;; scale windows
-							[:j "~/local/bin/chunkwm-resize left"]
-							[:k "~/local/bin/chunkwm-resize down"]
-							[:i "~/local/bin/chunkwm-resize up"]
-							[:l "~/local/bin/chunkwm-resize right"]
-							[:spacebar "/usr/local/bin/chunkc tiling::desktop --equalize"]; equalize size of windows
-					; :tab-mode
-							[:return_or_enter "~/local/bin/chunkwm-change-mode"]
-							[:grave_accent_and_tilde "/usr/local/bin/brew services restart chunkwm"]
-								[:j "/usr/local/bin/chunkc tiling::window --focus west"]
-								[:k "/usr/local/bin/chunkc tiling::window --focus south"]
-								[:i "/usr/local/bin/chunkc tiling::window --focus north"]
-								[:l "/usr/local/bin/chunkc tiling::window --focus east"]
-								[:n "/usr/local/bin/chunkc tiling::window --focus next"]
-								[:p "/usr/local/bin/chunkc tiling::window --focus prev"]
-							;; change gap setting, reload chunkwmrc
-								[:backslash "~/local/bin/chunkwm-gaps 10 10 5 5 7.5"]
-								[:delete_or_backspace "~/local/bin/chunkwm-gaps 0 0 0 0 0"]
-					;; chunkwm workspace
-						;; [:1 "/usr/local/bin/chunkc tiling::desktop --focus $(( $(/usr/local/bin/chunkc tiling::query --desktop id) == 1 ? $(/usr/local/bin/chunkc get _last_active_desktop) : 1 ))"]
-						;; [:2 "/usr/local/bin/chunkc tiling::desktop --focus $(( $(/usr/local/bin/chunkc tiling::query --desktop id) == 2 ? $(/usr/local/bin/chunkc get _last_active_desktop) : 2 ))"]
-						;; [:3 "/usr/local/bin/chunkc tiling::desktop --focus $(( $(/usr/local/bin/chunkc tiling::query --desktop id) == 3 ? $(/usr/local/bin/chunkc get _last_active_desktop) : 3 ))"]
-						;; [:4 "/usr/local/bin/chunkc tiling::desktop --focus $(( $(/usr/local/bin/chunkc tiling::query --desktop id) == 4 ? $(/usr/local/bin/chunkc get _last_active_desktop) : 4 ))"]
-					;; rotate windows clockwise and anticlockwise
-				[:semicolon "/usr/local/bin/chunkc tiling::window -M next"]
-				[:r "/usr/local/bin/chunkc tiling::desktop --rotate 90"]
-					[:!Sr "/usr/local/bin/chunkc tiling::desktop --rotate 270"]
-					;; rotate on x and y axis
-					[:y "/usr/local/bin/chunkc tiling::desktop --mirror vertical"]
-					[:!Sy "/usr/local/bin/chunkc tiling::desktop --mirror horizontal"]
-					[:spacebar "/usr/local/bin/chunkc tiling::window --toggle fullscreen"]
-					[:a "/usr/local/bin/chunkc tiling::window --toggle float"]
-					[:b "/usr/local/bin/chunkc tiling::desktop --layout bsp"]
-					[:m "/usr/local/bin/chunkc tiling::desktop --layout monocle"]
-					[:0 "/usr/local/bin/chunkc tiling::desktop --layout float"]
-					[:x "/usr/local/bin/chunkc tiling::window --close"]
 
-					[:delete_or_backspace "/usr/local/bin/chunkc tiling::window --close"]
-					[:open_bracket "/usr/local/bin/chunkc tiling::window --send-to-monitor prev"]
-					[:close_bracket "/usr/local/bin/chunkc tiling::window --send-to-monitor next"]]}
 ]
 :simlayer-threshold 210 ;def = 50 ;! when set to 1000 there is very noticable delay and 50 isnt enough time, 300 too much
 	;! seems to create obsene delay on  on key up

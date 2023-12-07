@@ -1,3 +1,64 @@
+
+		;;* Chunk Mode
+     {:des   "chunkwm mode"
+				:rules [
+					[:!CS4 ["/usr/local/bin/chunkc border::clear" :!CS4]]
+					[:!CS6 ["/usr/local/bin/chunkc border::clear" :!CS3]]
+					[:!COSf "/usr/local/bin/chunkc tiling::window --toggle native-fullscreen"]
+					:chunkwm-insert-mode
+							[:spacebar "/usr/local/bin/chunkc tiling::window --use-insertion-point cancel"]
+							[:j "/usr/local/bin/chunkc tiling::window --use-insertion-point west"]
+							[:k "/usr/local/bin/chunkc tiling::window --use-insertion-point south"]
+							[:i "/usr/local/bin/chunkc tiling::window --use-insertion-point north"]
+							[:l "/usr/local/bin/chunkc tiling::window --use-insertion-point east"]
+				:chunkwm-move-mode 	;; move windows
+							[:j "/usr/local/bin/chunkc tiling::window --warp west"]
+							[:k "/usr/local/bin/chunkc tiling::window --warp south"]
+							[:i "/usr/local/bin/chunkc tiling::window --warp north"]
+							[:l "/usr/local/bin/chunkc tiling::window --warp east"]
+				:chunkwm-scale-mode ;; scale windows
+							[:j "~/local/bin/chunkwm-resize left"]
+							[:k "~/local/bin/chunkwm-resize down"]
+							[:i "~/local/bin/chunkwm-resize up"]
+							[:l "~/local/bin/chunkwm-resize right"]
+							[:spacebar "/usr/local/bin/chunkc tiling::desktop --equalize"]; equalize size of windows
+					; :tab-mode
+							[:return_or_enter "~/local/bin/chunkwm-change-mode"]
+							[:grave_accent_and_tilde "/usr/local/bin/brew services restart chunkwm"]
+								[:j "/usr/local/bin/chunkc tiling::window --focus west"]
+								[:k "/usr/local/bin/chunkc tiling::window --focus south"]
+								[:i "/usr/local/bin/chunkc tiling::window --focus north"]
+								[:l "/usr/local/bin/chunkc tiling::window --focus east"]
+								[:n "/usr/local/bin/chunkc tiling::window --focus next"]
+								[:p "/usr/local/bin/chunkc tiling::window --focus prev"]
+							;; change gap setting, reload chunkwmrc
+								[:backslash "~/local/bin/chunkwm-gaps 10 10 5 5 7.5"]
+								[:delete_or_backspace "~/local/bin/chunkwm-gaps 0 0 0 0 0"]
+					;; chunkwm workspace
+						;; [:1 "/usr/local/bin/chunkc tiling::desktop --focus $(( $(/usr/local/bin/chunkc tiling::query --desktop id) == 1 ? $(/usr/local/bin/chunkc get _last_active_desktop) : 1 ))"]
+						;; [:2 "/usr/local/bin/chunkc tiling::desktop --focus $(( $(/usr/local/bin/chunkc tiling::query --desktop id) == 2 ? $(/usr/local/bin/chunkc get _last_active_desktop) : 2 ))"]
+						;; [:3 "/usr/local/bin/chunkc tiling::desktop --focus $(( $(/usr/local/bin/chunkc tiling::query --desktop id) == 3 ? $(/usr/local/bin/chunkc get _last_active_desktop) : 3 ))"]
+						;; [:4 "/usr/local/bin/chunkc tiling::desktop --focus $(( $(/usr/local/bin/chunkc tiling::query --desktop id) == 4 ? $(/usr/local/bin/chunkc get _last_active_desktop) : 4 ))"]
+					;; rotate windows clockwise and anticlockwise
+				[:semicolon "/usr/local/bin/chunkc tiling::window -M next"]
+				[:r "/usr/local/bin/chunkc tiling::desktop --rotate 90"]
+					[:!Sr "/usr/local/bin/chunkc tiling::desktop --rotate 270"]
+					;; rotate on x and y axis
+					[:y "/usr/local/bin/chunkc tiling::desktop --mirror vertical"]
+					[:!Sy "/usr/local/bin/chunkc tiling::desktop --mirror horizontal"]
+					[:spacebar "/usr/local/bin/chunkc tiling::window --toggle fullscreen"]
+					[:a "/usr/local/bin/chunkc tiling::window --toggle float"]
+					[:b "/usr/local/bin/chunkc tiling::desktop --layout bsp"]
+					[:m "/usr/local/bin/chunkc tiling::desktop --layout monocle"]
+					[:0 "/usr/local/bin/chunkc tiling::desktop --layout float"]
+					[:x "/usr/local/bin/chunkc tiling::window --close"]
+
+					[:delete_or_backspace "/usr/local/bin/chunkc tiling::window --close"]
+					[:open_bracket "/usr/local/bin/chunkc tiling::window --send-to-monitor prev"]
+					[:close_bracket "/usr/local/bin/chunkc tiling::window --send-to-monitor next"]]}
+##### 12/07/23
+
+
 ;; ⌃⇧⌘ + ←↑↓→ to Tuck to a side
 ;; ⌃⇧⌘+← t+j Tuck Left via
 ;; ⌃⇧⌘+→ t+l Tuck Right via
@@ -10,3 +71,6 @@ from t mode
 
 from p mode
 [:a [:km "Go To Sheet: Pharma"]] ;;• p+a forGo To Sheet: Pharma
+
+
+--
