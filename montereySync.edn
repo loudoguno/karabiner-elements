@@ -697,11 +697,10 @@
 		[:l :!TSCright_arrow  ] ;;• t+l for Tuck Right via  ⌃⇧⌘+→
 		[:i :!TSCup_arrow  ] ;;• t+i for Tuck Up via ⌃⇧⌘+↑
 		[:k :!TSCdown_arrow  ] ;;• t+k for Tuck Down  via  ⌃⇧⌘+↓
-		;; u for untuck, h for cycle, p for toggle, and o for untuck all
 		[:u :!TSCpage_up  ] ;;• t+ for Untuck Window  via  ⌃⇧⌘+page up  i.e. y
-		[:h [:!TSCpage_down [:SPKR3] ] ] ;;• t+p for Cycle Tucked Window  via  ⌃⇧⌘+⤓⇟
+		[:h [:!TSCpage_down [:SPKR3] ] ] ;;• t+h for Cycle Tucked Window  via  ⌃⇧⌘+⤓⇟
 		[:p [:!TSCdelete_or_backspace [:SPKR3] ] ] ;;• t+p for Toggle Tucked Window  via  ⌃⇧⌘+⌫
-		[:o [:!TSCtab [:SPKR3] ] ] ;;• t+ for Untuck ALL Tucked Windows via ⌃⇧⌘+⇥
+		[:o [:!TSCtab [:SPKR3] ] ] ;;• t+o for Untuck ALL Tucked Windows via ⌃⇧⌘+⇥
 
 		[:s [[:SPKR3] :!OSCs]] ;;• t+s Open or Hide Sidenotes via hotkey assigned in app (⌥⇧⌘+s)
 
