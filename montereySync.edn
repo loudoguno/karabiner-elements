@@ -36,7 +36,7 @@
 		:sendspace "osascript -e 'tell application \"System Events\" to keystroke space' " ; send keystroke
 		:sendesc "osascript -e 'tell application \"System Events\" to keystroke tab' " ; send keystroke
 
-		;; Sounds and Audio Feedback invoked by calling `afplay`, used to use emojis to make it more readable but would throw an error after a KE update
+		;; Sounds and Audio Feedback invokded by calling `afplay`, used to use emojis to make it more readable but would throw an error after a KE update
 		:SPKR3 "afplay /System/Library/PrivateFrameworks/ScreenReader.framework/Versions/A/Resources/Sounds/DrawerOpening.aiff"
 		:SPKR2 "afplay /System/Library/PrivateFrameworks/ScreenReader.framework/Versions/A/Resources/Sounds/DrawerClosing.aiff"
 		:SPKR1 "afplay /System/Library/PrivateFrameworks/ScreenReader.framework/Versions/A/Resources/Sounds/DrillOut.aiff"
@@ -313,13 +313,11 @@
 
 ;;============================ A MODE =============================
 	{:des "a-mode for a things" :rules [ :a& ;;* –––––––––––––––––––––––––––––––––––––
-		[:c [[:SPKR3] :!Oescape] ] ;;• a+c for autocomplete now (via ⌥⎋)
 		[:semicolon :!Osemicolon] ;;•🔰  a+semicolon for elipse (to be used as suffix to trigger things)
 		; [:comma :!TOleft_arrow] [:period :!TOright_arrow] ;;• a+comma/period  for Active Screen Workspace Left/Right (via ⌃⌥←  in BTT)
 		[:c [[:SPKR3] :!Oescape] ] ;;• a+c for autocomplete now (via ⌥⎋)
 		[:d [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=quickadd%253ArunQuickAdd"] ]] ;;• a+d for QuickAdd
 		[:h [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=quickadd%253Achoice%253Aab0aa8c1-1fda-41f6-ade3-4790b02a4c1c"] ]] ;;• a+h for QuickAdd 🫐 QuickAdd Ad Hoc
-
 
 	]}
 ;;=========================== B MODE ==============================
@@ -409,10 +407,6 @@
 				[:d :!!l]  ;;•f+d  for focus right (via ⌃⌥⇧⌘+d)
 				[:w :!!i] ;;• f+w for focus up (via ⌃⌥⇧⌘+i)
 				[:s :!!k] ;;• f+s for focus down (via ⌃⌥⇧⌘+k)
-				;;
-				[:x :!!x] [:b :!!b] ;;• f+x for focus behind
-
-
 
 				[:x :!!x] ;;• f+x for focus window (via ⌃⌥⇧⌘+x)
 				[:b :!!b] ;;• f+b for focus window (via ⌃⌥⇧⌘+b)
@@ -693,16 +687,19 @@
 
 		;;*  Tuck 🔰 new
 		;; t+jlik to tuck ←↑↓→
-		[:j :!TSCleft_arrow ] ;;• t+j Tuck Left via ⌃⇧⌘+←
-		[:l :!TSCright_arrow  ] ;;• t+l for Tuck Right via  ⌃⇧⌘+→
-		[:i :!TSCup_arrow  ] ;;• t+i for Tuck Up via ⌃⇧⌘+↑
-		[:k :!TSCdown_arrow  ] ;;• t+k for Tuck Down  via  ⌃⇧⌘+↓
-		[:u :!TSCpage_up  ] ;;• t+ for Untuck Window  via  ⌃⇧⌘+page up  i.e. y
+			[:j :!TSCleft_arrow [:SPKR3] ] ;;• t+j Tuck Left via ⌃⇧⌘+←
+			[:l :!TSCright_arrow [:SPKR3]  ] ;;• t+l for Tuck Right via  ⌃⇧⌘+→
+			[:i :!TSCup_arrow [:SPKR3]  ] ;;• t+i for Tuck Up via ⌃⇧⌘+↑
+			[:k :!TSCdown_arrow [:SPKR3]  ] ;;• t+k for Tuck Down  via  ⌃⇧⌘+↓
+		[:u :!TSCpage_up [:SPKR3]  ] ;;• t+ for Untuck Window  via  ⌃⇧⌘+page up  i.e. y
 		[:h [:!TSCpage_down [:SPKR3] ] ] ;;• t+h for Cycle Tucked Window  via  ⌃⇧⌘+⤓⇟
 		[:p [:!TSCdelete_or_backspace [:SPKR3] ] ] ;;• t+p for Toggle Tucked Window  via  ⌃⇧⌘+⌫
-		[:o [:!TSCtab [:SPKR3] ] ] ;;• t+o for Untuck ALL Tucked Windows via ⌃⇧⌘+⇥
+		[:o [:!TSCtab [:SPKR3] ] ] ;;• t+o for untuck ALL Tucked Windows via ⌃⇧⌘+⇥
 
 		[:s [[:SPKR3] :!OSCs]] ;;• t+s Open or Hide Sidenotes via hotkey assigned in app (⌥⇧⌘+s)
+
+		[:m [[:SPKR3] [:open "file:///System/Applications/Utilities/Terminal.app"]]] ;; 12/08/23 newtmtm
+		[:2 [[:StoPKR3] [:open "/Applications/iTerm.app"]]] ;; 12/08/23 newtmtmt2
 
 	]}
 ;;============================ U MODE ==============================
@@ -888,6 +885,7 @@
 	;;* E mode for...
 		{:des "e-mode for e things"
 		:rules [:e& [:c [:km "Try Current Macro"]]]}
+		[[: k ] [:]]
 
 
 ]

@@ -1,0 +1,104 @@
+
+                 [[:j :k] [:alfred "search google" "net.deanishe.alfred-searchio"]]
+                 ;[[:j :semicolon] [:alfred "search tabs" "net.deanishe.alfred.safari"]] ; TODO:
+                 [[:k :l] [:alfred "search dash" "com.kapeli.dash.workflow"]]
+                 [[:k :m] [:alfred "search youtube" "net.deanishe.alfred-searchio"]]
+        {:des "2key (move + alfred)"
+                 [:o [:alfred "soulver" "app.soulver.alfredworkflow"]]
+        {:des "okey (alfred)"
+                 [:q [:alfred "search downloads" "recentdownloads.ddjfreedom"]]
+                 ;[:i [:alfred "search alfred" "nikivi.utilities" "?"]]
+                 [:caps_lock [:alfred "search desktop" "com.vitorgalvao.alfred.directories"]]
+                 [:a [:alfred "search files" "nikivi.manage.notes"]] ; TODO: add blog, drafts
+                 ;[:s [:alfred "search code" "nikivi.manage.notes"]]
+                 [:d [:alfred "search repos" "net.deanishe.alfred-git-repos"]]
+                 [:f [:alfred "search folders" "nikivi.search.folders"]]
+                 ;[:j [:alfred "run" "iansinnott.keyboardmaestro"]] ; TODO: move to nice key
+                 ;[:j [:alfred "search dash" "com.kapeli.dash.workflow"]]
+                 [:k [:alfred "search menu bar" "com.tedwise.menubarsearch"]]
+                 [:grave_accent_and_tilde [:alfred "search processes" "com.vitorgalvao.alfred.processcontrol"]]
+                 [:x [:alfred "search workflows" "org.jeef.workflowdirectory"]]
+                 [:c [:alfred "search emoji" "com.github.jsumners.alfred-emoji"]]
+                 [:v [:alfred "search clones" "com.vitorgalvao.alfred.directories"]]
+                 [:n [:alfred "search lists" "nikivi.learn.anything"]]
+                 [:m [:alfred "search lists" "nikivi.awesome.lists"]]
+                 ;[:spacebar [:alfred "search PDFs" "nikivi.search.files"]]]}
+                 [:1 [:alfred "Screenshot -> Imgur" "com.vitorgalvao.alfred.webscreenshot"]]
+                 [:w [:alfred "toggle wifi" "nikivi.wifi.tools"]]
+                 [:r [:alfred "restart wifi" "nikivi.wifi.tools"]]
+                 [:g [:alfred "search contacts" "nikivi.search.content"]]
+                 [:open_bracket [:alfred "twitter_search_current_track" "com.vdesabou.spotify.mini.player"]]
+                 [:close_bracket [:alfred "add_current_track_to" "com.vdesabou.spotify.mini.player" "spotify:playlist:2N82DnDsPGMnpJhN8sVFJu"]] ; Add song to Bliss playlist
+                 [:j [:alfred "show_alfred_playlist" "com.vdesabou.spotify.mini.player"]]
+                 [:k [:alfred "show_current_track" "com.vdesabou.spotify.mini.player"]]
+                 [:semicolon [:alfred "add_current_track_to_alfred_playlist_or_your_music" "com.vdesabou.spotify.mini.player"]] ; Add song to Likes playlist
+                 [:quote [:alfred "add_current_track_to" "com.vdesabou.spotify.mini.player" "spotify:playlist:0ESjwZeTcHOWzY3FYO5zs5"]] ; Add song to Focus playlist
+                 [:n [:alfred "add_current_track_to" "com.vdesabou.spotify.mini.player"]]
+                 [:m [:alfred "remove_current_track_from" "com.vdesabou.spotify.mini.player"]]
+                 ;[:comma [:alfred "youtube_search_current_track" "com.vdesabou.spotify.mini.player"]] ; TODO: twitter search
+                 [:comma [:alfred "show_search_online" "com.vdesabou.spotify.mini.player"]] ; TODO: split up further into binds for direct searches of tracks/artists/all
+                 [:period [:alfred "youtube_search_current_track" "com.vdesabou.spotify.mini.player"]]
+                 [:slash [:alfred "reddit_search_current_track" "com.vdesabou.spotify.mini.player"]]]}
+                 [:semicolon [:alfred "search learning" "nikivi.private.directories"]]
+                 [:p [:alfred "play" "com.vdesabou.spotify.mini.player" "spotify:playlist:37i9dQZEVXcMHpP6EcIqNe"]] ; Discover Weekly
+                 [:open_bracket [:alfred "play" "com.vdesabou.spotify.mini.player" "spotify:playlist:0ERn0U4qZIKC8Dy7RrMMsn"]] ; Likes
+                 [:close_bracket [:alfred "play" "com.vdesabou.spotify.mini.player" "spotify:playlist:2N82DnDsPGMnpJhN8sVFJu"]] ; Bliss
+                 ;[:a [:alfred "play" "com.vdesabou.spotify.mini.player" "spotify:track:2xqhXTdxgBg5z9IuOOCIV3"]] ; Endel
+                 [:semicolon [:alfred "spot_mini" "com.vdesabou.spotify.mini.player"]]
+                 [:quote [:alfred "play" "com.vdesabou.spotify.mini.player" "spotify:playlist:5fIL0WiQ79QtgsP4Y4L20V"]] ; Inspired
+                 [:backslash [:alfred "play" "com.vdesabou.spotify.mini.player" "spotify:track:3zy0JafsRQJgAMU67hnjYX"]] ; Focus Get Hyped
+                 [:grave_accent_and_tilde [:alfred "artist_radio" "com.vdesabou.spotify.mini.player"]]
+                 [:z [:alfred "song_radio" "com.vdesabou.spotify.mini.player"]]
+                 [:b [:alfred "show_playlists" "com.vdesabou.spotify.mini.player"]]
+                 ;[:comma [:alfred "play" "com.vdesabou.spotify.mini.player" "spotify:playlist:0ESjwZeTcHOWzY3FYO5zs5"]] ; Focus
+                 [:comma [:alfred "play" "com.vdesabou.spotify.mini.player" "spotify:playlist:1V6E19oxBxrOHYRkNYLlm5"]] ; Offline
+                 [:period [:alfred "play" "com.vdesabou.spotify.mini.player" "spotify:track:3R38IXWFcoxYBdUkmxaoyy"]] ; Rain
+                 [:slash [:alfred "play" "com.vdesabou.spotify.mini.player" "spotify:track:4G0m7oplySbleIlWeLu3vH"]] ; Focus song
+                 ;[:slash [:alfred "play" "com.vdesabou.spotify.mini.player" "spotify:track:58FDTnjuNlUMyLY1airrrD"]] ; Focus song
+                 ;[:slash [:alfred "play" "com.vdesabou.spotify.mini.player" "spotify:track:2lF5acSU8Vu9292cthQmc5"]] ; Focus song
+                 ;[:slash [:alfred "play" "com.vdesabou.spotify.mini.player" "spotify:track:3jI7Yeg7a2d7BMc8CxABVM"]] ; Focus song
+                 ;[:slash [:alfred "play" "com.vdesabou.spotify.mini.player" "spotify:track:6eKOshIu2rtjm3HivUaCWh"]] ; Focus song
+                 ;[:slash [:alfred "play" "com.vdesabou.spotify.mini.player" "spotify:track:4tnWEXeAgZWTRULCkJ6IGL"]] ; Focus song
+                 ;[:slash [:alfred "play" "com.vdesabou.spotify.mini.player" "spotify:track:5f5S32oPDjAUzBpOaNXFzV"]] ; Focus song
+                 ;[:slash [:alfred "play" "com.vdesabou.spotify.mini.player" "spotify:track:4iORPRB30LonHaKwkctjyE"]] ; Focus song
+                 ;[:slash [:alfred "play" "com.vdesabou.spotify.mini.player" "spotify:track:52o0rOFFGNEekY4o0xV0AK"]] ; Focus song
+                 ;[:slash [:alfred "play" "com.vdesabou.spotify.mini.player" "spotify:track:493uQXwZsTDHAkjWXImR7K"]] ; Focus song (slow)
+                 [:9 [:alfred "search hn" "com.vitorgalvao.alfred.hackerboard"]]
+        {:des "nkey (alfred)"
+                 [:q [:alfred "search github" "nikivi.search.the.web"]]
+                 [:w [:alfred "search twitter" "nikivi.search.the.web"]]
+                 [:e [:alfred "search subs" "net.deanishe.alfred-reddit"]]
+                 [:r [:alfred "search reddit" "nikivi.search.the.web"]]
+                 [:t [:alfred "ssh" "net.deanishe.alfred-ssh"]]
+                 [:a [:alfred "search shares" "nikivi.ask.create.share"]]
+                 [:s [:alfred "search websites" "nikivi.web.searches"]]
+                 [:d [:alfred "search stack overflow" "net.deanishe.alfred-stackoverflow"]]
+                 ;[:d [:alfred "search packages" "com.sindresorhus.npms"]]
+                 [:f [:alfred "search repos" "me.lachlan.githubjump"]]
+                 [:g [:alfred "search godoc" "nikivi.search.the.web"]]
+                 [:h [:alfred "search hn" "nikivi.search.the.web"]]
+                 [:grave_accent_and_tilde [:alfred "search learn anything" "nikivi.learn.anything"]]
+                 [:z [:alfred "search lobsters" "nikivi.search.the.web"]]
+                 [:x [:alfred "search stack" "net.deanishe.alfred-stackoverflow"]]
+                 [:c [:alfred "search wiki" "nikivi.mind"]]
+                 [:v [:alfred "search links" "nikivi.mind"]]
+                 ;[:v [:alfred "search pinboard" "nikivi.search.the.web"]] ; TODO: topics/search/more?
+                 [:b [:alfred "search bookmarks" "net.deanishe.alfred.safari"]]
+                 [:spacebar [:alfred "search history" "net.deanishe.alfred.safari"]]]}
+                 ;[:3 [:alfred "search alfred" "nikivi.utilities" "d3 "]]
+                 ;[:q [:alfred "search alfred" "nikivi.utilities" "tldr "]]
+                 ;[:w [:alfred "search alfred" "nikivi.utilities" "django "]]
+                 [:w [:alfred "search alfred" "nikivi.utilities" "ts "]]
+                 [:e [:alfred "search alfred" "nikivi.utilities" "html "]]
+                 ;[:r [:alfred "search alfred" "nikivi.utilities" "react "]]
+                 [:a [:alfred "search alfred" "nikivi.utilities" "rust "]]
+                 ;[:a [:alfred "search alfred" "nikivi.utilities" "man "]]
+                 ;[:s [:alfred "search alfred" "nikivi.utilities" "electron "]]
+                 ;[:d [:alfred "search alfred" "nikivi.utilities" "docker "]]
+                 [:f [:alfred "search alfred" "nikivi.utilities" "apple "]]
+                 [:s [:alfred "search alfred" "nikivi.utilities" "lodash "]]
+                 [:d [:alfred "search alfred" "nikivi.utilities" "node "]]
+                 [:g [:alfred "search alfred" "nikivi.utilities" "godoc "]]
+                 [:c [:alfred "search alfred" "nikivi.utilities" "css "]]
+                 [:v [:alfred "search alfred" "nikivi.utilities" "vim "]]
+                 [:b [:alfred "search alfred" "nikivi.utilities" "bash "]]
