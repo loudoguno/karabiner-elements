@@ -1,0 +1,10 @@
+⭕ way to automate save, git stage, git commit, git push
+
+
+
+### regex for comments
+/;;•.*\n/g
+;;•: This matches the literal string ;;•.
+.*: This matches any character (except for newline), zero or more times.
+\n: This matches a newline character.
+/g: This is a flag that makes the regex match globally, i.e., find all matches rather than stopping after the first match.

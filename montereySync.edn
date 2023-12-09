@@ -1,14 +1,11 @@
 ;;= montereySync.edn .201 ==============================================
 ;; ❗ start using CHANGELOG
-;; -⭐ organize alphabetically using sort lines
-;; -⭐ start using co-pilot
 ;; 230806 (Sun) trying to sync up all devices
 ;; 230820 (Sun) 🥔 syncing machines before Idaho
 ;; TODO add Q mode (q+n quick note)
 ;; TODO Idea for 1-mode (quick notes, now...) good because only lose pinky...
 ;; 10/10/23 adding g+t for good task
 ;; 12/01/23 made x+l for extract
-
 
 ;;  {:goku {:default true
 ;;          :alone   80 ; hold for .. ms to register single tap
@@ -154,6 +151,7 @@
 		[ [:o :b :s]  [:open "obsidian://advanced-uri?vault=reference-vault&commandid=obsidian-global-hotkeys%253Ashow"] ] ;;* [obs] for Show Obsidian (via command URI)
 		[ [:o :m :f] [:km "Activate OmniFocus"] ]  ;;* [omf] simultanoesly for Activate OmniFocus via KM. could
 		[ [:n :s :t] [:km "New Sticky"] ] [ [:n :e :s] [:km "New Sticky"] ]  ;; n|s|t for New Sticky 🔰
+		[ [:s :a] [:open "btt://trigger_named/?trigger_name=save current window"] ] ;;• s|a simultaneously to save current window (via BTT)
 
 		;; [ [:d :s] [:km "Display (settings)"]] ;;* d+s for Display (settings) test
 		[ [:h :d] [:km "© Hide Application"]] ;;* d+s for © Hide Application
@@ -384,6 +382,15 @@
 		;; /Users/loudog/Desktop
 
 		[:k [ :open  "/Users/loudog/Desktop"] ] ;;• d+k for Switch Third Space Right
+		[:d :!TSCd [:SPKR3] ] ;; d+hfor Dash vairables
+	]}
+
+;;============================ E MODE =============================
+	{:des "e-mode for e things" :rules [ :e& ;;=================================
+
+		[:c [:km "Try Current Macro"] ] ;;•  e+c for "Try Current Macro" (via KM)
+		[:u [:open "file:///Users/loudog/Library/Application%20Support/KeyCue/KeyCue-URLs.txt"]] ;;• edit Key Cue URL's via
+
 
 	]}
 ;;============================ F MODE =============================
@@ -414,32 +421,24 @@
 				[:comma [:km "Switch Third Space Left"] ] ;;• f+, for Switch Third Space Left
 				[:period [:km "Switch Third Space Right"] ] ;;• f+. for Switch Third Space Right
 
-
 		[:n :fn] 	;;• f+n for for function (to be used with qweasd moom search)
 		[:comma [:km "Switch Third Space Left"] ] ;;• c+, for Switch Third Space Left
 		[:period [:km "Switch Third Space Right"] ] ;;• c+. for Switch Third Space Right
-
 
 	]}
 ;;============================ G MODE ============================
 	{:des "g-mode" :rules [ 	:g& ;;* –––––––––––––––––––––––––––––––––––––––––––
 		[:spacebar [:km "Click GUI Button"]] ;;• g+spacebar for Click GUI Button
 		[:right_control [:km "Click GUI Button"]] ;;• g+right_control for Click GUI Button (for compatability with UHK split spacebar)
-		[:w [[:SPKR3] :!!tab]] ;;• g+w for Click focus Window > ❓ not sure what this is for
+		;; [:w [[:SPKR3] :!!tab]] ;;• g+w for Click focus Window > ❓ not sure what this is for
 		[:n [ [:SPKR3] [:open "omnifocus:///task/cVPImebMMwu"] ] ] ;;• g+n OmnfiFocus ⚡️now-plan  ⭐ 🔰 new 9/08/23
-
 		[:t [[:tink] :!CTSg]] ;;• g+t bring GoodTask to front (via GoodTask global hotkey ⌃⇧⌘+g) 🔰 new 10/10/23
-
 		[:l  [:open "drafts://open?uuid=BAAE87AB-BB0F-4F0D-A395-3FE17F7F180D"]] ;;• g+l go to simple log (Drafts )
-
-	;; keep around
-			;; [:m [:km "GoTo Gmail Inbox"] [["g&" 1] ["go&" 1]]] ;;+ g+o+m for GoTo Gmail Inbox
-			;; [:r [:km "Go To Recent OmniFocus Task"] [["g&" 1] ["go&" 1]]] ;;+ g+o+r for Go To Recent OmniFocus Task
-			;; [:a [:km "Finder: Go To Just Press Record Voice Recordings"] [["g&" 1] ["go&" 1]]] ;;+ g+o+r for Finder: Go To Just Press Record Voice Recordings
+		[:d  [:open "drafts://x-callback-url/runAction?text=TEXT&action=goto%20daily%20scratchpad"] ] ;;• g+d go to Daily Scratch 🔰
 	]}
 ;;=========================== H MODEµ==============================
 	{:des " h-mode for h things" :rules [:h& ;;* ––––––––––––––––––––––––––––––––––––
-		;; [:w [:km "Hover Evernote Now"]] ;;• h+w for Hover Evernote Now 🟢
+		;; [:w [:km "Hover Evernote Now"]] ;;• h+w for Hover Evernote Now 🟢 REPLACE
 		[:w [[:SPKR3] [:open "evernote:///view/11846588/s107/3ece98d3-b354-40cb-bc54-1b93375eef92/6d950bc3-9eca-4610-a1c6-e8dc89702cd2/"] ]] ;;• h+w for "Hover" Evernote Now (via EN URL)
 		;; [:d [[:SPKR3] [:open "evernote:///view/11846588/s107/421802a9-03af-eb43-b1c4-e606e53a0021/6d950bc3-9eca-4610-a1c6-e8dc89702cd2/"] ]] ;;• h+d for "Hover" Evernote Agenda (via EN URL)
 		[:d [[:SPKR3] [:km "Hover Drafts: ⚡️ QUICK NOTES"] ]] ;;• h+d for Hover Drafts: ⚡️ QUICK NOTES
@@ -450,8 +449,6 @@
 		[:t [[:SPKR3] [:open "drafts://open?uuid=BCB1375E-1A94-4F14-9B11-B1E23EF8E6DB"] ]] ;;• h+t ☑️ Tasks via Drafts URL
 		;; [:t [:km "Hover Notion Lou’s TODO’s"]] ;;• h+t for Hover  Notion Lou’s TODO’s) 🟢🔰
 		[:b [:km "Hover Evernote 🧰 WORKBENCH"]] ;;• h+b for Hover Evernote 🧰 WORKBENCH
-
-		;; [:d [:km "Hover 🍇 DFP Dashboard"]] ;;• h+d forHover 🍇 DFP Dashboard  🟢 > ⭕ to remove
 		[:e [:km "Hover Evernote 🍇📞 NEXT MEETING/HUDDLE"]] ;;• h+e 🍇📞 NEXT MEETING/HUDDLE  🟢 > ⭕ to remove
 
 		;; ✨ TEMPLATE to maybe use: [:<INSERT 2nd key> [:km "<INSERT MACRO NAME>"]] ;;• <INSERT 1st key>+<INSERT 2nd key> for <INSERT MACRO NAME>
@@ -493,6 +490,11 @@
 		;; [:KEY_2 [[:SPKR3] [:open "INSERT_URL"] ] ;;• KEY_1+KEY_2 for INSERT_URL from XXX obsidian
 
 		[:q [ [:SPKR3] [:open "drafts://open?uuid=6823BE09-6193-4D97-894A-5147B7285DD9"]]] ;;• j+q to open ⚡️ Quick Notes (Draft)
+		[:1 [[:SPKR3] [:open "drafts://open?uuid=4FA23E60-5A44-426B-9540-FC3C87B2505E"]] ] ;;• j+1 go to ❗ NOW
+		[:2 [:open "drafts://open?uuid=691EC79E-B616-4EB4-B8EA-6185D0A0C8FD"]  ] ;;• j+2 ✅ go to TODO (Drafts)
+		[:3 [:open "drafts://open?uuid=3E0329E3-8E9C-47CD-8CC2-E144319E12E6"]  ] ;;• j+3 go to ✨ NEW
+
+
 
 	;;* TODO testing out "send" rule
 		;; [:a [[:SPKR3] [:wait] [:escp]] ] ;; works
@@ -520,7 +522,7 @@
 ;;============================ L MODE =============================
 	{:des "L-mode for l things" :rules [ :l& ;;* –––––––––––––––––––––––––––––––––––
 		[:s [:km "Clean Line Formatting"]] ;;• l+s for Clean Line Formatting
-		[:j [[:SPKR3] [:open "obsidian://log" ] ] ] ;;• l+j for  Log something new to your Daily journal from Lumberjack obsidian plugin
+		;; [:j [[:SPKR3] [:open "obsidian://log" ] ] ] ;;• l+j for  Log something new to your Daily journal from Lumberjack obsidian plugin
 		[:d [:open "https://www.notion.so/loudog/LOU-DASHBOARD-2af984c519f8474a8632893fd5482eba"] ] ;;• l+d for  Lou's Dashboard (Notion) ✨ new
 		[:b [ [:open "obsidian://advanced-uri?vault=reference-vault&daily=true&mode=append"]] ] ;;• l+b for log obsidian reference vault daily journal
 
@@ -552,30 +554,21 @@
 		[:p [:km "New Password"]] ;;• n+p for New Password
 		[:q [:km "New QuickNote"]] ;;• n+q New QuickNote
 		[:w [:km "New Window"]] ;;• n+w for New Window
-
-		;; [:d [:km "Drafts Quick Capture (global)"]] ;;• n+d for Drafts Quick Capture (global) ✨ new ❌ checking to below
 		[:d [:km "New Drafts Note"]] ;;• n+d for New Drafts Note
-
 		[:i [[:tink] :!CTSo]] ;;• n+i New Omnifocus Quick Entry (via omf hotkey ⌃⇧⌘+o) 🟢 FIXED
 		[:o [:km "Send to OmniFocus"]] ;;• n+o for Send to OmniFocus ⭐replaced n+i+i
-
-		;; [:t [:km "New Typinator Item from Selection"]] ;;• n+t for Quick Add Typinator Item
+		;; [:t [:km "New Typinator Item from Selection"]] ;;• n+t for Quick Add Typinator Item ❓ TODO
 		[:s [:km "New Typinator Item from Selection"]] ;;• n+s for Quick Add Typinator Item >  9/09/23 changing backns
-
-		;; [:l [:km "Log Palette"]] ;;• n+l for Log Palette ⛔ DISABLED
-		[:l  [:km "prepend to simple log"]] ;;• n+l prepend to simple log
-;; --- OPEN simple prepend log (drafts): drafts://open?uuid=BAAE87AB-BB0F-4F0D-A395-3FE17F7F180D
-;; --- EDIT macro (km editor): keyboardmaestro://m=97A5CECF-E229-4FFB-B7C7-7CC31F1145C7
+		[:l [:km "Log Palette"]] ;;• n+l for Log Palette ⛔ DISABLED
 
 		[:spacebar [:km "Jump to Notes"]] ;;• n+spacebar Jump to Notes
 
 		;; [:a [:km "Boldate Clean Left"] ] ;;• n+a for Boldate Clean Left via KM ✨ new (trying to achieve  b+a awkwardness on UhK)
-		[:a [[:SPKR3] :!Ssemicolon :spacebar :left_arrow :left_arrow :!STa :!Cb :left_arrow :!Cb :hyphen :!Te] ] ;;• n+a for Boldate Clean Left NOT via KM, 🧪 new (trying to achieve  b+a awkwardness on UhK)
+		[:a [:!Ssemicolon :spacebar :left_arrow :left_arrow :!STa :!Cb :left_arrow :!Cb :hyphen :!Te] ] ;;• n+a for Boldate Clean Left NOT via KM, 🧪 new (trying to achieve  b+a awkwardness on UhK)
 
 		[:r [[:tink] :!CTSr]] ;;• n+r New Reminder via GoodTask quick entry (overlay) (via GoodTask  hotkey ⌃⇧⌘+R) 🔰 new 10/07/23
-
 		[:g [:km "New ChatGPT Chat"]] ;;• n+g New ChatGPT Chat
-
+		[:3 [:open "drafts://open?uuid=3E0329E3-8E9C-47CD-8CC2-E144319E12E6"]  ] ;;• j+3 go to ✨ NEW
 
 		[:b [:open "obsidian://new?vault=reference-vault&name=new-note"] ] ;;• n+b for new note in obsidian 12/07/23 🔰
 	]}
@@ -591,7 +584,10 @@
 ;;============================ P MODE ============================= ;;  ⭕🌟TODO p mode has a lot of potential because barely used up and allows access to entire keyboard
 	{:des "p-mode for..." :rules [ :p& ;;* ––––––––––––––––––––––––––––––––––––––––––
 	[:spacebar [[:SPKR3]:!!CSTOp]] ;;• p+spacebar for hyper p conflict palette
-	 [:w [[:SPKR3]:!CSTp]] ;;• p+spacebar for search 1password... ;; edited12/05/23
+	 [:w [[:SPKR3]:!CSTp]] ;;• p+w for search 1password... ;; edited12/05/23
+	[:s  [:km "prepend to simple log"]] ;;• n+s prepend to simple log
+;; --- OPEN simple prepend log (drafts): drafts://open?uuid=BAAE87AB-BB0F-4F0D-A395-3FE17F7F180D
+;; --- EDIT macro (km editor): keyboardmaestro://m=97A5CECF-E229-4FFB-B7C7-7CC31F1145C7
 
 	]}
 ;;============================ Q MODE ============================= ;;
@@ -634,7 +630,7 @@
 		[:f :!TOCf] ;;• r+f for full screen  via ⌃⌥⌘f
 		[:m [:km "Mute"]] ;;• r+m for mute
 
-		[:tab [:km "Screenshot Timestamp"]] ;;• r+tab for tab for Screenshot Timeestamp
+		[:tab [:open "btt://trigger_named/?trigger_name=recall saved window"]] ;;• r+tab recall saved window (via btt)
 
 		[:j :!TOCleft_arrow] [:l :!TOCright_arrow] [:i :!TOCup_arrow] [:k :!TOCdown_arrow] ;;*jlik for select left/right/up/down TODO what is this? ⭕
 		[:grave_accent_and_tilde [:km "Enclose Selection with backticks"]] ;;• r+` for Enclose Selection with backticks 🔰 new 10/17/23
@@ -687,14 +683,15 @@
 
 		;;*  Tuck 🔰 new
 		;; t+jlik to tuck ←↑↓→
-			[:j :!TSCleft_arrow [:SPKR3] ] ;;• t+j Tuck Left via ⌃⇧⌘+←
-			[:l :!TSCright_arrow [:SPKR3]  ] ;;• t+l for Tuck Right via  ⌃⇧⌘+→
-			[:i :!TSCup_arrow [:SPKR3]  ] ;;• t+i for Tuck Up via ⌃⇧⌘+↑
-			[:k :!TSCdown_arrow [:SPKR3]  ] ;;• t+k for Tuck Down  via  ⌃⇧⌘+↓
-		[:u :!TSCpage_up [:SPKR3]  ] ;;• t+ for Untuck Window  via  ⌃⇧⌘+page up  i.e. y
-		[:h [:!TSCpage_down [:SPKR3] ] ] ;;• t+h for Cycle Tucked Window  via  ⌃⇧⌘+⤓⇟
-		[:p [:!TSCdelete_or_backspace [:SPKR3] ] ] ;;• t+p for Toggle Tucked Window  via  ⌃⇧⌘+⌫
-		[:o [:!TSCtab [:SPKR3] ] ] ;;• t+o for untuck ALL Tucked Windows via ⌃⇧⌘+⇥
+			[:j :!TSCleft_arrow ] ;;• t+j Tuck Left via ⌃⇧⌘+←
+			[:l :!TSCright_arrow  ] ;;• t+l for Tuck Right via  ⌃⇧⌘+→
+			[:i :!TSCup_arrow  ] ;;• t+i for Tuck Up via ⌃⇧⌘+↑
+			[:k :!TSCdown_arrow  ] ;;• t+k for Tuck Down  via  ⌃⇧⌘+↓
+		[:u :!TSCpage_up  ] ;;• t+ for Untuck Window  via  ⌃⇧⌘+page up  i.e. y
+		[:h [:!TSCpage_down ] ] ;;• qt+h for Cycle Tucked Window  via  ⌃⇧⌘+⤓⇟
+		[:p [:!TSCdelete_or_backspace ] ] ;;• t+p for Toggle Tucked Window  via  ⌃⇧⌘+⌫
+		[:q [:!TSCdelete_or_backspace ] ] ;;• t+q for Toggle Tucked Window  via  ⌃⇧⌘+⌫
+		[:o [:!TSCtab ] ] ;;• t+o for untuck ALL Tucked Windows via ⌃⇧⌘+⇥
 
 		[:s [[:SPKR3] :!OSCs]] ;;• t+s Open or Hide Sidenotes via hotkey assigned in app (⌥⇧⌘+s)
 
@@ -734,10 +731,10 @@
 		[:left_gui [[:SPKR3] :!!f14 ]] ;;* w+left_gui for moom via ⌃⌥⇧⌘F14 (accessable with left hand)
 
 		;;•
-		[:p [[:SPKR3] :!Tgrave_accent_and_tilde] ] ;;• w+p  for cycle previous window via ⌃+~ (tilde) (default system hotkey)
-		[:n [[:SPKR3] :!STgrave_accent_and_tilde] ] ;;• w+n  for cycle next window via ⌃⇧+~ (tilde) (default system hotkey)
-		[:j [[:SPKR3] :!SCgrave_accent_and_tilde] ] ;;• w+n for cycle next window IN APP via ⌘⇧+` (tilde) (default system hotkey)
-		[:k [[:SPKR3] :!Cgrave_accent_and_tilde] ] ;;• w+p for cycle previous window IN APP  via ⌘+~ (tilde) (default system hotkey)
+		[:j :!Tgrave_accent_and_tilde ] ;;• w+k  for cycle previous window via ⌃+~ (tilde) (default system hotkey)
+		[:k :!STgrave_accent_and_tilde ] ;;• w+j  for cycle next window via ⌃⇧+~ (tilde) (default system hotkey)
+		[:p :!Cgrave_accent_and_tilde ] ;;• w+p for cycle previous window IN APP  via ⌘+~ (tilde) (default system hotkey)
+		[:n :!SCgrave_accent_and_tilde ] ;;• w+n for cycle next window IN APP via ⌘⇧+` (tilde) (default system hotkey)
 
 	;; keep around
 		;; [:comma [:km "Switch All Workspaces Left"]] ;;• w+comma for Switch All Workspaces Left
@@ -754,14 +751,11 @@
 	:x& ;;* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––--
 		[:p :!Tdelete_or_backspace ] 		;;• x+p for clear notification
 		;; [:l [:!Ta :!TSe :!Sright_arrow :km "Extract URL from Selection"] ] ;;• x+l for highlight line THEN extract URL
-
 		;; [:l [:!Ta :!TSe :!Sright_arrow [:SPKR3]]  ] ;;• x+l for highlight line THEN extract URL
 		;; [:l [:!Ta :!TSe :!Sright_arrow :km "Extract URL from Selection" [:SPKR3]]  ] ;;•  >>> ❌ERROR: invalid to definition in main section's x-mode for...
 		;; [:l [:!Ta :!TSe :!Sright_arrow [:km "Extract URL from Selection"] [:SPKR3]]  ] ;;•  >>> compiled >>> ❌ then when ran DID do keyboard sequence, DID play sound, DID NOT run km didn't run KM
 		;; going to try and  move sound to middle
 		[:l [:!Ta :!TSe :!Sright_arrow [:SPKR3] [:km "Extract URL from Selection"]]  ] ;;• compiled >>> did keyboard sequence, DID sound, DID KM 😀😀😀😀😀😀😀
-
-
 		[:u [:km "© Copy URL"]] ;;• x+u for © Copy URL (via KM global context)
 
 				]}
@@ -777,67 +771,6 @@
 		[:p :vk_consumer_brightness_up] ;;• z+p for brightness up
 		[:n :vk_consumer_brightness_down] ;;• z+n for brightness down
 		[:m :mute] ;;• z+m for mute
-
-		;; other brightness key
-		;; [:	p :apple_display_brightness_increment] ;;• z+ for brightness up
-			;; [:n :apple_display_brightness_decrement] ;;• z+ for brightness up
-
-;; UNUSED SYSTEM KEYs
-	;; :vk_consumer_brightness_down {:label "vk_consumer_brightness_down (equal todisplay_brightness_decrement)" :not-from true}
-	;; :vk_consumer_brightness_up {:label "vk_consumer_brightness_up (equal todisplay_brightness_increment)" :not-from true}
-	;; :mission_control {:not-from true :consumer-key true}
-	;; :mission_control {:not-from true}
-	;; :launchpad {:not-from true :consumer-key true}
-	;; :dashboard {:not-from true :consumer-key true}
-	;; :illumination_decrement {:not-from true :consumer-key true}
-	;; :illumination_increment {:not-from true :consumer-key true}
-	;; :eject {:not-from true :consumer-key true}
-	;; :apple_display_brightness_decrement {:not-from true :consumer-key true}
-	;; :apple_display_brightness_increment {:not-from true :consumer-key true}
-	;; :apple_top_case_display_brightness_decrement {:not-from true :consumer-key true}
-	;; :apple_top_case_display_brightness_increment {:not-from true :consumer-key true}
-	;; :vk_none {:label "vk_none (disable this key)" :not-from true}
-	;; :print_screen {:display true}
-	;; :scroll_lock {:display true}
-	;; :pause {:display true}
-	;; :insert {:display true}
-	;; :application {}
-	;; :help {}
-	;; :power {}
-	;; :execute {:not-to true}
-	;; :menu {:not-to true}
-	;; :select {:not-to true}
-	;; :stop {:not-to true}
-	;; :again {:not-to true}
-	;; :undo {:not-to true}
-	;; :cut {:not-to true}
-	;; :copy {:not-to true}
-	;; :paste {:not-to true}
-	;; :find {:not-to true}
-	;; :international1 {}
-	;; :international2 {:not-to true}
-	;; :international3 {}
-	;; :international4 {:not-to true}
-	;; :international5 {:not-to true}
-	;; :international6 {:not-to true}
-	;; :international7 {:not-to true}
-	;; :international8 {:not-to true}
-	;; :international9 {:not-to true}
-	;; :lang1 {}
-	;; :lang2 {}
-	;; :lang3 {:not-to true}
-	;; :lang4 {:not-to true}
-	;; :lang5 {:not-to true}
-	;; :lang6 {:not-to true}
-	;; :lang7 {:not-to true}
-	;; :lang8 {:not-to true}
-	;; :lang9 {:not-to true}
-	;; :japanese_eisuu {:label "英数キー" :display true}
-	;; :japanese_kana {:label "かなキー" :display true}
-	;; :japanese_pc_nfer {:label "PCキーボードの無変換キー" :not-to true}
-	;; :japanese_pc_xfer {:label "PCキーボードの変換キー" :not-to true}
-	;; :japanese_pc_katakana {:label "PCキーボードのかなキー" :not-to true}
-
 	]}
 
 ;;========================= PERIOD MODE ===========================
@@ -882,10 +815,6 @@
 
 
 ;;============================ ... (more stuff)  ================================
-	;;* E mode for...
-		{:des "e-mode for e things"
-		:rules [:e& [:c [:km "Try Current Macro"]]]}
-		[[: k ] [:]]
 
 
 ]
