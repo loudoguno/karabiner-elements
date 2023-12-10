@@ -1,31 +1,20 @@
-;;= montereySync.edn .201 ==============================================
-;; ❗ start using CHANGELOG
-;; 230806 (Sun) trying to sync up all devices
-;; 230820 (Sun) 🥔 syncing machines before Idaho
-;; TODO add Q mode (q+n quick note)
-;; TODO Idea for 1-mode (quick notes, now...) good because only lose pinky...
-;; 10/10/23 adding g+t for good task
-;; 12/01/23 made x+l for extract
-
-;;  {:goku {:default true
-;;          :alone   80 ; hold for .. ms to register single tap
-;;          :held    50 ; TODO: not sure what it's for
-;;          :delay   0 ; time after which the key press is delayed
-;;          :sim     30}} ; jkeys need to be pressed within this threshold to be considered simultaneous
-
+;;= montereySync.edn .3 ==============================================
+;; find a home for 👇
+	;; [ [:d :s] [:km "Display (settings)"]] ;;* d+s for Display (settings) test
+	;; :open "osascript -e open \"%s\" "
+;; REFERENCE
+	;; :alf "osascript -e 'tell application id \"com.runningwithcrayons.Alfred\" to run trigger \"%s\" in workflow \"%s\" with argument \"%s\"'"
+	;; :alf "osascript -e 'tell application \"Alfred 5\" to run trigger \"%s\" in workflow \"%s\" with argument \"%s\" ;; run Alfred workflow using workflow bundle ID as argument
+	;; C T O S and Q W E R (KE modifier abreviations for reference)
 { ;;+ ========================= DEFINITIONS =========================== for templates (aliases for frequently used CLI strings), layers, simlayers
 	:templates { ;;= ..................................................................................................................... aliases for shell commands including osascript (execute Applescript file), and afplay (plays sound file)
 		:open "open \"%s\"" ; open file
 		:wait "sleep 250" ;pause 250 ms
 
-		;; :open "osascript -e open \"%s\" "
 		:shortcut "osascript -e 'tell application \"Shortcuts Events\" to run the shortcut named \"%s\"'"
-		;; :alf "osascript -e 'tell application \"Alfred 5\" to run trigger \"%s\" in workflow \"%s\" with argument \"%s\" ;; run Alfred workflow using workflow bundle ID as argument
-		;; :alf "osascript -e 'tell application id \"com.runningwithcrayons.Alfred\" to run trigger \"%s\" in workflow \"%s\" with argument \"%s\"'"
 		:km "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"%s\"'"   ; run KM macro using macro name as argument
 		:btt "osascript -e 'tell application \"BetterTouchTool\" to  trigger_named \"%s\"'"         ; run BTT macro using named trigger name as argument
 
-		; AppleScripts that that send keystroke | 🧪 experimenting with
 		:type "osascript -e 'tell application \"System Events\" to keystroke \"%s\"'"
 		:escp "osascript -e 'tell application \"System Events\" to key code 53' " ; send escape
 		:sendq "osascript -e 'tell application \"System Events\" to keystroke \"q\"'" ; send keystroke
@@ -93,8 +82,6 @@
 		}
 ;;+ ============================= MAIN ==============================
 :main [  ;;+ ==========================================================
-	;; {:des "left cmd -> cmd+tab"
-        ;;  :rules [[:left_command :left_command nil {:alone :!Ctab}]]} ;; tap left command to tab last app 🔰 new, from Nikita
 ;;============================ HOLDINGKEY ========================= ⭕ TODO: clean up this section (re-title)
 		{:des "Holding Keys: ⌘V for Clipboard History, ⇧⌘3 for Screenshot Palette, ⇧⌘4 for Snagit" :rules [
 			; default :alone is 500ms and would be too long
@@ -102,28 +89,19 @@
 			[:!SC3 nil nil {:alone :!SC3 :held [:km "-Screenshot Palette"] :repeat false :halt true :params{:alone 150 :held 150}} ] ;;* hold ⇧⌘+3 for -Screenshot Palette (KM macro), tap to send regular screenshot
 			[:!SC4 nil nil {:alone :!SC4 :held [:km "-Snagit Palette"] :repeat false :halt true :params{:alone 150 :held 150}} ] ;;* hold ⇧⌘+4 for -Snagit Palette (KM macro), tap for Snagit all-in one keyboard command
 			]}
-;;======================== TAP and DOUBLEPRESS  ===================== ;; C T O S and Q W E R (KE modifier abreviations for reference)
-	 ;;* Double Press Command Q to Quit | 🟢 works and in use..
+;;======================== TAP and DOUBLEPRESS  ===================== ;;
+	 ;;* Double Press Command Q to Quit | 🟢 works and useful
 		{:des "DOUBLE PRESS: ⌘q² to quit,  " :rules[ [:!C#Pq [ :!Cq ["⌘q" 0]] ["⌘q" 1]] [:!C#Pq ["⌘q" 1] nil {:delayed {:invoked ["⌘q" 0] :canceled ["⌘q" 0]}}] ]}
-
-	;; * Double Press Left command for Moom ❌ DISABLED > 9/25/23 removing this fixed keysequences in BTT
-		;; {:des "Double Press Left commandl" :rules [[:condi :!f& :!d& :!c& :!k& :!w& :!Rctrl-mode]
-			;; [:left_gui [[:SPKR2] :!!f14 ["LCMD" 0]] ["LCMD" 1]] ; left commands double press sends moom key f14 (confusing because coded before single press)
-			;; [:left_gui :left_gui nil {:alone [[:SPKR3]["LCMD" 1 ]]:delayed {:invoked ["LCMD" 0] :canceled ["LCMD" 0]}}]
-			;; ]}
-
-	{:des "Modifier+Spacebar Stuff" :rules[
-
-		;;* Double Press Command Spacebar for Spotlight via ⌥⌘+spacebar... 🔰 new
+	;;* Double Press Command Spacebar for Spotlight via ⌥⌘+spacebar 🟢 works but dont use ⭕ available
+		{:des "Modifier+Spacebar Stuff" :rules[
 		[:!Cspacebar [[:SPKR3] :!OCspacebar  ["LCMDspacebar" 0]] ["LCMDspacebar" 1]]  ;; pressing ⌘+spacebar a 2nd time (when variable LCMDspacebar is to 1) send keyboard command for spotlight
-			[:!Cspacebar :!Cspacebar nil {:alone ["LCMDspacebar" 1] :delayed{:invoked ["LCMDspacebar" 0] :canceled ["LCMDspacebar" 0]}} ] ;; pressing ⌘+spacebar the first time (when variable LCMDspacebar is to 0) set variable LCMDspacebar to 1
-
+		[:!Cspacebar :!Cspacebar nil {:alone ["LCMDspacebar" 1] :delayed{:invoked ["LCMDspacebar" 0] :canceled ["LCMDspacebar" 0]}} ] ;; pressing ⌘+spacebar the first time (when variable LCMDspacebar is to 0) set variable LCMDspacebar to 1
 		]}
 ;;====================  MODIFIERS and COMMAND MODES =================
 
 		{:des "Shift Space for underscore and dash, Left to Right Modifers...":rules[
-			[:!Rright_control :hyphen] [:!Rspacebar :hyphen] ;;* Right Shift +Spacebar (or mod) for underscore
-			[:!Sright_control :!Shyphen] [:!Sspacebar :!Shyphen]  ;;*Left Shift+Spacebar (or mod) for dash
+			[:!Rright_control :hyphen] [:!Rspacebar :hyphen] ;;* Right Shift +Spacebar (or UHK mod) for underscore
+			[:!Sright_control :!Shyphen] [:!Sspacebar :!Shyphen]  ;;*Left Shift+Spacebar (or UHK mod) for dash
 			; [:!OSspacebar [[:SPKR3]:!SOspacebar  ]]  ;;*Left Shift+Spacebar (or mod) for dash ...❓not sure what this is doing, ⌥⇧+spacebar to make a sound for ⚡️
 			[:!Sright_shift [:SPKR2]] ;;* Left Shift to Right Shift for... ⭕️ available
 			[:!Rleft_shift [:SPKR3]] ;;* Right Sfhit to Left Fhist for... ⭕ available
@@ -153,7 +131,7 @@
 		[ [:n :s :t] [:km "New Sticky"] ] [ [:n :e :s] [:km "New Sticky"] ]  ;; n|s|t for New Sticky 🔰
 		[ [:s :a] [:open "btt://trigger_named/?trigger_name=save current window"] ] ;;• s|a simultaneously to save current window (via BTT)
 
-		;; [ [:d :s] [:km "Display (settings)"]] ;;* d+s for Display (settings) test
+
 		[ [:h :d] [:km "© Hide Application"]] ;;* d+s for © Hide Application
 ]}
 ;;======================= HYPER MODE and MODIFIERS ====================
@@ -290,33 +268,25 @@
 			[:!CTkeypad_9 [[:SPKR3] :!STOperiod]] ;;• ⌤⊼9 for  Switch Space Left
 			[:!CTOkeypad_7 [[:SPKR3] [:btt "Move Window Space Left"]]] ;;• ⌤⊼⊻7 for Move Window Space Left
 			[:!CTOkeypad_9 [[:SPKR3] [:btt "Move Window Space Right"]]] ;;• ⌤⊼⊻9 for Move Window Space Right
-
 	]}
-
 ;;============================= 1 MODE ============================= 🔰 new 9/07/23 and works, should be mapped to Quick Notes
  	{:des "1-mode for 1 things" :rules [ :1& ;;• 1+..................................................................
 		[:spacebar [:km "Trigger Macro by Name"]] ;;• 1+spacebar for "Trigger Macro by Name"  TODO: delete
 		[:d [ [:SPKR3] [:open "drafts://open?uuid=6823BE09-6193-4D97-894A-5147B7285DD9"]]] ;;• 1+d to open Drafts ⚡️ Quick notes
 		[:n [ [:SPKR3] [:open "https://www.icloud.com/notes/04009kn-a3boPsvu-Rc-xpaEQ"]]] ;;• 1+d to open Apple  Now Notes
-
 		[:o [ [:SPKR3] [:open "omnifocus:///task/cVPImebMMwu"] ] ];;• 1+o to open omnifocus Now
-
-
 	;; 1+d Drafts Quick Notes
 	;; 1+e for Evernote Now
 	;; 1+o for Obsidian
-
 	]}
 
-
-;;============================ A MODE =============================
+;;============================ A MODE ===============================
 	{:des "a-mode for a things" :rules [ :a& ;;* –––––––––––––––––––––––––––––––––––––
 		[:semicolon :!Osemicolon] ;;•🔰  a+semicolon for elipse (to be used as suffix to trigger things)
 		; [:comma :!TOleft_arrow] [:period :!TOright_arrow] ;;• a+comma/period  for Active Screen Workspace Left/Right (via ⌃⌥←  in BTT)
 		[:c [[:SPKR3] :!Oescape] ] ;;• a+c for autocomplete now (via ⌥⎋)
 		[:d [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=quickadd%253ArunQuickAdd"] ]] ;;• a+d for QuickAdd
 		[:h [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=quickadd%253Achoice%253Aab0aa8c1-1fda-41f6-ade3-4790b02a4c1c"] ]] ;;• a+h for QuickAdd 🫐 QuickAdd Ad Hoc
-
 	]}
 ;;=========================== B MODE ==============================
 	{:des " b-mode for b things" :rules [ :b& ;;* ––––––––––––––––––––––––––––––––––––
@@ -474,33 +444,28 @@
 ;;============================ J MODE ===============================
 	{:des "j-mode" :rules [
 	:j&  ;;• j+................................................................................................................................
-		[:e [[:SPKR3][:km "Jump to Evernote"]]] ;;• j+e for Jump to Evernote 🔴 broken in EN 10
-		[:d [:km "Jump to Drafts (global)"]] ;;• j+d for Jump to Drafts (global)
-		[:s [ [:SPKR3]  :!OSCj ] ] ;;• j+s Search (Jump) tSideNotes (via ⌥⇧⌘+j) 🔰
-		[:o [:km "Jump to OmniFocus"]] ;;• j+o for Jump to OmniFocus 🟡 needs work > 🟢 better now
-		[:b [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=darlal-switcher-plus%253Aswitcher-plus%253Aopen"]] ] ;;• j+b_ jump to Obsidian (via QuickSwitcher plus URI
-		[:w [[:SPKR3] :!Ospacebar]] ;;• j+w for Jump to Window (via Context hotkey ⌥space)
-
-		[:period [:km "© Open Context Menu"]] ;;• j+period for Open Context Menu (via KM global context)
-		[:spacebar [:km "Click GUI Button"]] ;; ⭐j+spacebar for Click GUI Button (one of my favs). actually assigned to g+spacebar..
-
-		[:t [:km "© Jump To"]] ;;• j+t for © Jump To (via KM global contextlual)
-		[:right_gui [:km "© Jump To"]] ;;• j+right_gui for © Jump To //alternative way with one hand
-		[:l [[:SPKR3] :!SCTi]] ;;• j+l for Slidepad (via ⌃i) 🔰 new 8/17/23
 		;; [:KEY_2 [[:SPKR3] [:open "INSERT_URL"] ] ;;• KEY_1+KEY_2 for INSERT_URL from XXX obsidian
-
-		[:q [ [:SPKR3] [:open "drafts://open?uuid=6823BE09-6193-4D97-894A-5147B7285DD9"]]] ;;• j+q to open ⚡️ Quick Notes (Draft)
 		[:1 [[:SPKR3] [:open "drafts://open?uuid=4FA23E60-5A44-426B-9540-FC3C87B2505E"]] ] ;;• j+1 go to ❗ NOW
 		[:2 [:open "drafts://open?uuid=691EC79E-B616-4EB4-B8EA-6185D0A0C8FD"]  ] ;;• j+2 ✅ go to TODO (Drafts)
 		[:3 [:open "drafts://open?uuid=3E0329E3-8E9C-47CD-8CC2-E144319E12E6"]  ] ;;• j+3 go to ✨ NEW
-
-
-
+		[:b [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=darlal-switcher-plus%253Aswitcher-plus%253Aopen"]] ] ;;• j+b_ jump to Obsidian (via QuickSwitcher plus URI
+		[:d [:km "Jump to Drafts (global)"]] ;;• j+d for Jump to Drafts (global)
+		[:e [[:SPKR3][:km "Jump to Evernote"]]] ;;• j+e for Jump to Evernote 🔴 broken in EN 10
+		[:l [[:SPKR3] :!SCTi]] ;;• j+l for Slidepad (via ⌃i) 🔰 new 8/17/23
+		[:o [:km "Jump to OmniFocus"]] ;;• j+o for Jump to OmniFocus 🟡 needs work > 🟢 better now
+		[:period [:km "© Open Context Menu"]] ;;• j+period for Open Context Menu (via KM global context)
+		[:q [ [:SPKR3] [:open "drafts://open?uuid=6823BE09-6193-4D97-894A-5147B7285DD9"]]] ;;• j+q to open ⚡️ Quick Notes (Draft)
+		[:right_gui [:km "© Jump To"]] ;;• j+right_gui for © Jump To //alternative way with one hand
+		[:s [ [:SPKR3]  :!OSCj ] ] ;;• j+s Search (Jump) tSideNotes (via ⌥⇧⌘+j) 🔰
+		[:spacebar [:km "Click GUI Button"]] ;; ⭐j+spacebar for Click GUI Button (one of my favs). actually assigned to g+spacebar..
+		[:t [:km "© Jump To"]] ;;• j+t for © Jump To (via KM global contextlual)
+		[:w [[:SPKR3] :!Ospacebar]] ;;• j+w for Jump to Window (via Context hotkey ⌥space)
 	;;* TODO testing out "send" rule
 		;; [:a [[:SPKR3] [:wait] [:escp]] ] ;; works
 		;; [:r [:sendreturn]] ;; ☑️  works
 		;; [:q [:sendq]] ;;? works i guess but sends capital? look into
 		;; [:1 [[:SPKR3] [:sendesc]]] ;;❓ seems to send tab?
+		[:r [ [:SPKR3] [:open "alfred://runtrigger/com.jc.roampagesearch/roamSearchKE/?arg"]]] ;;• j+r Search Roam
 
 	]}
 ;;============================= K MODE =============================
@@ -515,37 +480,27 @@
 			[:s [:open "/Users/loudog/Library/Mobile Documents/com~apple~CloudDocs/sync/Obsidian/-vaults/reference-vault/kssrc.md"]] ;;• k+c to open kssrc.md (obsidian key sequence config file)
 			[:b :!STCk ]  ;;• k+b for "Instant Lookup in KeyCombiner (via ⌃⇧⌘+k)"
 			[:c [:open "keycue://"] ]  ;;• k+c for "Instant Lookup in KeyCombiner (via ⌃⇧⌘+k)"
-
 			[:u [:open "file:///Users/loudog/Library/Application Support/KeyCue/KeyCue-URLs.txt"]] ;;• k+u to open
-
 	]}
 ;;============================ L MODE =============================
 	{:des "L-mode for l things" :rules [ :l& ;;* –––––––––––––––––––––––––––––––––––
 		[:s [:km "Clean Line Formatting"]] ;;• l+s for Clean Line Formatting
-		;; [:j [[:SPKR3] [:open "obsidian://log" ] ] ] ;;• l+j for  Log something new to your Daily journal from Lumberjack obsidian plugin
 		[:d [:open "https://www.notion.so/loudog/LOU-DASHBOARD-2af984c519f8474a8632893fd5482eba"] ] ;;• l+d for  Lou's Dashboard (Notion) ✨ new
 		[:b [ [:open "obsidian://advanced-uri?vault=reference-vault&daily=true&mode=append"]] ] ;;• l+b for log obsidian reference vault daily journal
-
 		;;• l+m to Log Master Queitly in Obsidian (via QuickAdd) 🔰 new 8/21/23
 		[:m [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=quickadd%253Achoice%253Ab01dce33-74de-4033-83ff-83667640f864"] ] ]
-
-		;; [: [ [:SPKR3] [:open "INSERT_URL"] ] ] ;;• KEY1+KEY2 for COMMAND_NAME...
 	]}
 ;;============================ M MODE ==============================
 	{:des "m-mode for m things" :rules [ :m& ;;• m+..............................................................
 		[:r [:km "Hover OmniFocus Morning Review"]] ;;• m+r for Hover OmniFocus Morning Review
 		[:s [:km "New Message (to self)"]] ;;• m+s for New Message (to self)
 		;; [:l [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&heading=%25F0%259F%2593%2585%2520%25202023-08-16%2520(Wed)&uid=7619bf31-ee3c-4d20-9186-8c6d839d1e33"] ] ] ;;• m+l to show master log
-
-	;;• m+o for  jump to OBS Dashboard (Obsidian)
+		;;• m+o for  jump to OBS Dashboard (Obsidian)
 		[:o [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=workspaces-plus%253A%25F0%259F%2596%25B2%2520OBS%2520DASHBOARD"] ] ]
-
 		;;• m+l to for Obsidian Master log (use with l+m)
-			[:l [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=workspaces-plus%253A%25F0%259F%2593%2593%2520Master%2520Log%2520workspace"] ] ] ;; m+l for (via Obsidian URI for workspace new expansion )
-
+		[:l [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=workspaces-plus%253A%25F0%259F%2593%2593%2520Master%2520Log%2520workspace"] ] ] ;; m+l for (via Obsidian URI for workspace new expansion )
 		[:w [:km "Open in New Window"]] ;;• m+w for Open in New Window (© this is a global)
-
-
+		[:d [ [:SPKR3] :!STCm ] ] ;;• m+d for MindNode via 🔰 new 12/10/23
 	]}
 ;;============================= N MODE ============================
 	{:des "n-mode for n things" :rules [ :n& ;;* ––––––––––––––––––––––––––––––––––––
@@ -560,12 +515,9 @@
 		;; [:t [:km "New Typinator Item from Selection"]] ;;• n+t for Quick Add Typinator Item ❓ TODO
 		[:s [:km "New Typinator Item from Selection"]] ;;• n+s for Quick Add Typinator Item >  9/09/23 changing backns
 		[:l [:km "Log Palette"]] ;;• n+l for Log Palette ⛔ DISABLED
-
 		[:spacebar [:km "Jump to Notes"]] ;;• n+spacebar Jump to Notes
-
 		;; [:a [:km "Boldate Clean Left"] ] ;;• n+a for Boldate Clean Left via KM ✨ new (trying to achieve  b+a awkwardness on UhK)
 		[:a [:!Ssemicolon :spacebar :left_arrow :left_arrow :!STa :!Cb :left_arrow :!Cb :hyphen :!Te] ] ;;• n+a for Boldate Clean Left NOT via KM, 🧪 new (trying to achieve  b+a awkwardness on UhK)
-
 		[:r [[:tink] :!CTSr]] ;;• n+r New Reminder via GoodTask quick entry (overlay) (via GoodTask  hotkey ⌃⇧⌘+R) 🔰 new 10/07/23
 		[:g [:km "New ChatGPT Chat"]] ;;• n+g New ChatGPT Chat
 		[:3 [:open "drafts://open?uuid=3E0329E3-8E9C-47CD-8CC2-E144319E12E6"]  ] ;;• j+3 go to ✨ NEW
@@ -578,7 +530,8 @@
 	[:spacebar [[:SPKR3][:alf "Search OmniFocus Tasks via Alfred" "net.rhydlewis.alfred.searchomnifocus"]]] ;; o+spacebar for Jump to OmniFocus 🟡 NEEDTOFIX
 	[:i [:km "Hover OmniFocus Inbox"]] ;;• ⭐🔰 o+i for Hover OmniFocus Inbox
 	[:h [ [:SPKR3] [:open "omnifocus:///folder/aPNK7lj-7fP"] ] ] ;;• o+h for open OMF ⚡️ plan folder 🔰 new 8/21/23 >
-	;; [:n [ [:SPKR3] [:open "omnifocus:///task/cVPImebMMwu"] ] ] ;;• o+n for open OMF ❗ NOW project (more focused than above) folder 🔰 new 8/21/23 > ❌ disabled bc false positives
+
+	[:i [:km "Hover OmniFocus Inbox"]] ;;• ⭐🔰 o+i for Hover OmniFocus Inbox
 
 	]}
 ;;============================ P MODE ============================= ;;  ⭕🌟TODO p mode has a lot of potential because barely used up and allows access to entire keyboard
@@ -588,26 +541,22 @@
 	[:s  [:km "prepend to simple log"]] ;;• n+s prepend to simple log
 ;; --- OPEN simple prepend log (drafts): drafts://open?uuid=BAAE87AB-BB0F-4F0D-A395-3FE17F7F180D
 ;; --- EDIT macro (km editor): keyboardmaestro://m=97A5CECF-E229-4FFB-B7C7-7CC31F1145C7
-
 	]}
 ;;============================ Q MODE ============================= ;;
-	{:des "q-mode" :rules [ :q& ;;• q+..................................................................
+	{:des "q-mode" :rules [ :q&
 	[:d [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=quickadd%253ArunQuickAdd"] ] ] ;;• q+d QuickAdd in Obsidian (global context)
 	[:l [ [:SPKR3] [:open "drafts://open?uuid=00E137E9-0DB5-4824-8929-D330416244CE"]]] ;;• q+l open 🔗 QUICK LINKS
 	[:n [ [:SPKR3] [:open "drafts://open?uuid=6823BE09-6193-4D97-894A-5147B7285DD9"]]] ;;• q+n to open ⚡️ Quick Notes (Draft)
 	[:b [ [:SPKR3] [:open "drafts://open?uuid=02B40CD6-2E52-444F-9689-9B8D7D859436"]]] ;;• q+b to open 🎛 QUICK DASHBOARD
 	[:t [ [:SPKR3] [:open "INSERT_URL"] ] ] ;;•q+t AVAIL
-
 	]}
-
 ;;============================ R MODE ============================== ⭕ TODO: clean up comments and formatting (consolidate rules to fewer lines and add descriptions)
 ;; ℹ️ "remote-mode" for  media transport control (play/pause/next song ect..). most send ⌃⌥⌘ (3 modifiers grouped left of space) plus another key -> next layer in KM are contextual groups like QuickTime, media (e.g. spotify), YouTube
 	{:des "r-mode for remote things" :rules [ :r& ;;* ––––––––––––––––––––––––––––––––
-
 	[:o [:km "Go to Roam Greenhouse Lou"]] ;;• r+o Go to Roam Greenhouse Lou
 	;; [:XXX [:km "Deactivate Remote"]] ;;• r+XXX Deactivate Remote ⭕TODO
 
-	;;* Transport Controls
+	;;* transport controls
       [:spacebar :!TOCspacebar] ;;• r+spacebar for pause via ⌃⌥⌘Space ;;*j/l/i/k for remote transport controls
       [:right_control :!TOCspacebar] ;! thought I might need to fix for right control
 		[:j :!TOCleft_arrow] ;;• r+j for skip back (via ⌥⇧⌘+←)
@@ -629,22 +578,15 @@
 		[:e :!TOCe]  ;;• r+e for next song (via ⌃⌥⌘+e)
 		[:f :!TOCf] ;;• r+f for full screen  via ⌃⌥⌘f
 		[:m [:km "Mute"]] ;;• r+m for mute
-
 		[:tab [:open "btt://trigger_named/?trigger_name=recall saved window"]] ;;• r+tab recall saved window (via btt)
-
 		[:j :!TOCleft_arrow] [:l :!TOCright_arrow] [:i :!TOCup_arrow] [:k :!TOCdown_arrow] ;;*jlik for select left/right/up/down TODO what is this? ⭕
 		[:grave_accent_and_tilde [:km "Enclose Selection with backticks"]] ;;• r+` for Enclose Selection with backticks 🔰 new 10/17/23
-
 		;;* Remote Palette
 			[:return_or_enter [:km "- Remote Modes Palette"]] ;;•  r+return/enter for "- Remote Modes Palette"
 			[:y [:km "YouTube Remote"]] 		;;• y for YouTube Remote
 			[:x [:km "Deactivate Remote"]] 		;;• q for Deactivate Remote
 			;; [:q [:km "QuickTime Remote"]] 		;;• q for QuickTime Remote ❌ DEACTIVATED so can have trigger back/next with one hand via q/e
-
 		[:t [:open "drafts://x-callback-url/runAction?text=TEXT&action=Open%20Recent%20Drafts"] ] ;;• KeyA+KeyB for COMMAND via MECHANISM (key press, URL, App alias)
-
-
-
 	]}
 ;;============================= S Mode =============================
 	{:des "s-mode for s things" :rules [ :s& ;;* ––––––––––––––––-----------––––––––––––
@@ -653,10 +595,8 @@
 		[:c [:open "alfred://runtrigger/com.alfredapp.vitor.shortcuts/Shortcuts+Search+Workflow/?argument=test"]] ;;• s+c for run Shortcuts Alfred Workflow via custom trigger URL woring
 		;; [:c [:alf "Shortcuts" "com.alfredapp.vitor.shortcuts"]] ;;• s+c for Shortcuts via Alfreds
 		;; [:spacebar [[:SPKR3][:alf "Search OmniFocus Tasks via Alfred" "net.rhydlewis.alfred.searchomnifocus"]]] ;; o+spacebar for Jump to OmniFocus 🟡 NEEDTOFIX
-
 		[:r [:open "/System/Applications/Siri.app"]] ;;• s+r for siri via application path 🔰 new 12/01/23
 		[:v [:km "Shortcuts via Services Menu"]] ;;• s+v for Shortcuts via Services Menu via KM macro 🔰
-
 		;; enclose selection with and transform
 			[:9 [:km "Enclose Selection with Parenthesis"]] ;;• s+9 for Enclose Selection with Parenthesis 🟢
 			[:open_bracket [:km "Enclose Selection with Square Brackets"]] ;;• s+open_bracket for Enclose Selection with Square Brackets
@@ -665,17 +605,14 @@
 			[:quote [:km "Enclose Selection with Single Quotes"]] ;;• s+quote for Enclose Selection with Single Quotes
 			;;• s+right_shift for transform selection case - [:km "Uppercase Selection"]
 			[:right_shift [:km "Capitalize Selection"]] ;;•s+right_shift for Capitalize Selection
-
 			[:j :!SOleft_arrow] [:l :!SOright_arrow] [:i :!SOup_arrow] [:k :!SOdown_arrow] ;;*jlik for select left/right/up/down
 			[:grave_accent_and_tilde [:km "Enclose Selection with backticks"]] ;;• s+` for Enclose Selection with backticks 🔰 new 10/17/23
-
 		;;*🖱mouse-mode  a/l/fed for scroll mouse now
 		[:a {:mkey {:hwheel 5 :speed 5}}]
 		[:f {:mkey {:hwheel -5 :speed 5}}]
 		[:e {:mkey {:vwheel -5 :speed 5}}]
 		[:d {:mkey {:vwheel 5 :speed 5}}]
 	]}
-
 ;;============================ T MODE ==============================
 	{	:des "t-mode for t things" :rules [ :t& ;;* ––––––––––––––––––––––––––––––––––––
 		[:w [:km "Tab To Window"] ] ;;• t+w for Tab To Window
@@ -692,12 +629,9 @@
 		[:p [:!TSCdelete_or_backspace ] ] ;;• t+p for Toggle Tucked Window  via  ⌃⇧⌘+⌫
 		[:q [:!TSCdelete_or_backspace ] ] ;;• t+q for Toggle Tucked Window  via  ⌃⇧⌘+⌫
 		[:o [:!TSCtab ] ] ;;• t+o for untuck ALL Tucked Windows via ⌃⇧⌘+⇥
-
 		[:s [[:SPKR3] :!OSCs]] ;;• t+s Open or Hide Sidenotes via hotkey assigned in app (⌥⇧⌘+s)
-
 		[:m [[:SPKR3] [:open "file:///System/Applications/Utilities/Terminal.app"]]] ;; 12/08/23 newtmtm
 		[:2 [[:StoPKR3] [:open "/Applications/iTerm.app"]]] ;; 12/08/23 newtmtmt2
-
 	]}
 ;;============================ U MODE ==============================
 ;;TODO ⭕ lot of potential here because not used up...
@@ -705,7 +639,6 @@
 		;; [:w [:km "Uppercase Word"]] ;;! u+w for Uppercase Word (🟨 get rid of because unnecessary?) > TODO: delete ❌
 		[:c [:km "Uppercase Selection"]] ;;• u+c for Uppercase Selection 🔰
 	]}
-
 ;;============================ V MODE ==============================
 	{	:des "v-mode for..." :rules [ :v& ;;* ––––––––––––––––––––––––––––––––––––––––-
 		[:i [[:SPKR3] [:km "Hover Evernote ⭐️ VIPs"] ] ] ;;! v+i  for Hover Evernote ⭐️ VIPs >  TODO: time to delete ❌
@@ -718,33 +651,18 @@
 		[:spacebar [[:SPKR3] :!SOCf3] ] ;;• w+spacebar for Expose  (via ⌃⌥⌘+f3)
 		[:right_control [[:SPKR3] :!SOCf3 ]] ;; for uhk2
 		;; [:spacebar [[:SPKR3] [:btt "Expose"]] ] ;;• w+a for Switch Active Workspace Left (via BTT) 🟢works now -> editing because
-		;; [:right_control [[:SPKR3] [:btt "Expose"]] ] ;;• w+right_control (uhk spacebar)
-
+		;; [:right_control [[:SPKR3] [:btt "Expose"]] ] ;;• w+right_control (uhk spacebar
 		[:a [[:SPKR3] :!STOcomma]] ;;• w+a for Switch Active Workspace Left (via System Hotkeys)
 		[:d [[:SPKR3] :!STOperiod]] ;;• w+d for Switch Active Workspace Right (via System Hotkeys)
 		[:f [[:SPKR3] [:btt "Move Window Space Right"] ] ] ;;• w+f  Move Window Space Right (via btt)
 		[:caps_lock [[:SPKR3] [:btt "Move Window Space Left"] ] ] ;;• w+capslock Move Window Space Left (via btt)
-
 		[:b [:km "Hover Evernote 🧰 WORKBENCH"]] ;;• w+b for Hover Evernote 🧰 WORKBENCH
 		[:c [:km "Center Window on Current Mouse Location"] ] ;;• w+c for km "Move Mouse to Focused Window" ✨new 6/12/23
-
 		[:left_gui [[:SPKR3] :!!f14 ]] ;;* w+left_gui for moom via ⌃⌥⇧⌘F14 (accessable with left hand)
-
-		;;•
 		[:j :!Tgrave_accent_and_tilde ] ;;• w+k  for cycle previous window via ⌃+~ (tilde) (default system hotkey)
 		[:k :!STgrave_accent_and_tilde ] ;;• w+j  for cycle next window via ⌃⇧+~ (tilde) (default system hotkey)
 		[:p :!Cgrave_accent_and_tilde ] ;;• w+p for cycle previous window IN APP  via ⌘+~ (tilde) (default system hotkey)
 		[:n :!SCgrave_accent_and_tilde ] ;;• w+n for cycle next window IN APP via ⌘⇧+` (tilde) (default system hotkey)
-
-	;; keep around
-		;; [:comma [:km "Switch All Workspaces Left"]] ;;• w+comma for Switch All Workspaces Left
-		;; [:period [:km "Switch All Workspaces Right"]];;• w+period for Switch All Workspaces Right
-		;; [:caps_lock [ [:SPKR3] [:btt "Move Window Space Left"] ] ] ;;• w+caps_lock/f for Move Window Space Left/Right (via BTT script)
-		;; [:f [[:SPKR3] [:btt "Move Window Space Right"] ] ] ;;• w+f for  Move Window Space Right
-		;; [:1 [ [:SPKR3] [:btt "Switch to Workspace 1"]]] ;;• w+1 for Switch to Workspace 1 (via BTT script)
-		;; [:2 [ [:SPKR3] [:btt "Switch to Workspace 2"]]] ;;• w+2 for Switch to Workspace 2 (via BTT script)
-		;; [:3 [ [:SPKR3] [:btt "Switch to Workspace 3"]]] ;;• w+3 for Switch to Workspace 3 (via BTT script)
-		;; [:4 [ [:SPKR3] [:btt "Switch to Workspace 4"]]] ;;• w+4 for Switch to Workspace 4 (via BTT script)
 	]}
 ;;============================ X MODE ============================
 	{	:des "x-mode for..." :rules [
@@ -757,7 +675,6 @@
 		;; going to try and  move sound to middle
 		[:l [:!Ta :!TSe :!Sright_arrow [:SPKR3] [:km "Extract URL from Selection"]]  ] ;;• compiled >>> did keyboard sequence, DID sound, DID KM 😀😀😀😀😀😀😀
 		[:u [:km "© Copy URL"]] ;;• x+u for © Copy URL (via KM global context)
-
 				]}
 ;;============================ Z MODE ===============================
 	{	:des "z-mode for z things..." :rules [
@@ -772,7 +689,6 @@
 		[:n :vk_consumer_brightness_down] ;;• z+n for brightness down
 		[:m :mute] ;;• z+m for mute
 	]}
-
 ;;========================= PERIOD MODE ===========================
 	{:des " period-mode for typinator and autocomplete":rules [
     :period& ;;• –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -787,37 +703,19 @@
 	]}
 ;;============================ QUOTE MODE============================
 {	:des "quote-mode for..." :rules [
-
 		; [:s [:ToKey]] ;;• quote+s for ToKey hello
 ]}
 ;;======================== SEMICOLON MODE  =========================
-;! GOING TO SET UP LIKEHYPER KEY for FUNCTIO ❓TODO: clean up semicolon comments (currently fn for Context window snapping)
-;;============================ MORE  ================================
-	;! more modes temporary till moved to real mode sections
-	;; ❗ need to integrate with non catalina sync files and add slash mode
-;;============================ SLASH MODE ============================
-{	:des "slash-mode for..." :rules [
-		;; ;;+ slash+spacebar+........................................................................................................(🔴 disabled)
-			;; [:spacebar :!CSslash [["slash&" 1] ["slashspacebar&" 1]]] ;;+ slash+spacebar+spacebar for Focus help menu via ⇧⌘/
-		:slash& ;;* ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		;;* slash+spacebar for... (🔴 disabled)
-			;; [:spacebar [[:SPKR3] :!SCslash ["slashspacebar&" 1]] nil {:delayed{:canceled [["slashspacebar&" 0]["slash&" 0]]
-			;; :invoked [ :vk_none ["slashspacebar&" 0]] } :held [[:vk_none]] }]  ;;• slash+spacebar for Focus Menu via ⌥⎋ (System Preferences)
 
-		[:spacebar [[:SPKR3] :!CSslash] ] ;;• slash+spacebar for Help Menu Search (via System hotkey ⌘⇧+/) 🟢
-
+;;============================ SLASH MODE ==========================
+		{	:des "slash-mode  for..." :rules [
+		:slash& ;;* ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 		[:e [:open "evernote:///view/11846588/s107/45e4e957-a18b-8721-8099-0108dfdb2168/6d950bc3-9eca-4610-a1c6-e8dc89702cd2/"] ] ;;•slash+e for open✨ new 8/06/23 📗 EN LOG in Evernote
 		[:b [:open "obsidian://advanced-uri?vault=reference-vault&commandid=workspace%253Atoggle-pin&uid=c2352d6a-240a-4730-90da-91bdf10486af"] ] ;;• slash+b for pin 👿 cheatsheet (ref vault) URI
 		[:l [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=quickadd%253Achoice%253Ab01dce33-74de-4033-83ff-83667640f864"]] ] ;;• /+o to open reference vault Quick Add Master log URI
-		;; [:INSERTKEY [[:SPKR3] [:open "INSERT_URL"]] ] ;;• slash+INSERTKEY for ✳️ NEW RULE TO COPY
-
+		[:spacebar [[:SPKR3] :!CSslash] ] ;;• slash+spacebar for Help Menu Search (via System hotkey ⌘⇧+/) 🟢
 	]}
-
-
-;;============================ ... (more stuff)  ================================
-
-
-]
+] ;;
 :simlayer-threshold 210 ;def = 50 ;! when set to 1000 there is very noticable delay and 50 isnt enough time, 300 too much
 	;! seems to create obsene delay on  on key up
 ;;*==================== DEVICES and INPUT SOURCES ====================
@@ -851,3 +749,4 @@
 ;;* templates ======================================================
 ;; working ke rule with sound template: [:KEYA [<KEYSEQUENCE> [:SPKR3] [:km "MACRONAME"]]  ] ;;• COMMENT
 ;; [:KeyA [[:SPKR2] [:alf "ALFREDWORKFLOWNAME" "BUNDLEID"]] ] ;;• KeyA+Keyb for WORKFLOW NAME via Alfred
+		;; [:INSERTKEY [[:SPKR3] [:open "INSERT_URL"]] ] ;;• slash+INSERTKEY for ✳️ NEW RULE TO COPY

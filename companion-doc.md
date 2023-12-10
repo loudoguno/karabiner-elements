@@ -1,4 +1,45 @@
-[ ] moving e mode
+	;; {:des "left cmd -> cmd+tab"
+        ;;  :rules [[:left_command :left_command nil {:alone :!Ctab}]]} ;; tap left command to tab last app 🔰 new, from Nikita
+
+
+------------------------------------------------------
+------------------------------------------------------
+removed double press  12/10/23
+;; * Double Press Left command for Moom ❌ DISABLED > 9/25/23 removing this fixed keysequences in BTT
+		;; {:des "Double Press Left commandl" :rules [[:condi :!f& :!d& :!c& :!k& :!w& :!Rctrl-mode]
+			;; [:left_gui [[:SPKR2] :!!f14 ["LCMD" 0]] ["LCMD" 1]] ; left commands double press sends moom key f14 (confusing because coded before single press)
+			;; [:left_gui :left_gui nil {:alone [[:SPKR3]["LCMD" 1 ]]:delayed {:invoked ["LCMD" 0] :canceled ["LCMD" 0]}}]
+			;; ]}
+------------------------------------------------------
+------------------------------------------------------
+
+--- [ ] moving e mode
+
+;; 230806 (Sun) trying to sync up all devices
+;; 230820 (Sun) 🥔 syncing machines before Idaho
+;; TODO add Q mode (q+n quick note)
+;; TODO Idea for 1-mode (quick notes, now...) good because only lose pinky...
+;; 10/10/23 adding g+t for good task
+;; 12/01/23 made x+l for extract
+
+;;  {:goku {:default true
+;;          :alone   80 ; hold for .. ms to register single tap
+;;          :held    50 ; TODO: not sure what it's for
+;;          :delay   0 ; time after which the key press is delayed
+;;          :sim     30}} ; jkeys need to be pressed within this threshold to be considered simultaneous
+
+
+;; [: [ [:SPKR3] [:open "INSERT_URL"] ] ] ;;• KEY1+KEY2 for COMMAND_NAME...
+
+	 ;; keep around
+		;; [:comma [:km "Switch All Workspaces Left"]] ;;• w+comma for Switch All Workspaces Left
+		;; [:period [:km "Switch All Workspaces Right"]];;• w+period for Switch All Workspaces Right
+		;; [:caps_lock [ [:SPKR3] [:btt "Move Window Space Left"] ] ] ;;• w+caps_lock/f for Move Window Space Left/Right (via BTT script)
+		;; [:f [[:SPKR3] [:btt "Move Window Space Right"] ] ] ;;• w+f for  Move Window Space Right
+		;; [:1 [ [:SPKR3] [:btt "Switch to Workspace 1"]]] ;;• w+1 for Switch to Workspace 1 (via BTT script)
+		;; [:2 [ [:SPKR3] [:btt "Switch to Workspace 2"]]] ;;• w+2 for Switch to Workspace 2 (via BTT script)
+		;; [:3 [ [:SPKR3] [:btt "Switch to Workspace 3"]]] ;;• w+3 for Switch to Workspace 3 (via BTT script)
+		;; [:4 [ [:SPKR3] [:btt "Switch to Workspace 4"]]] ;;• w+4 for Switch to Workspace 4 (via BTT script)
 
 --- workspace
 
