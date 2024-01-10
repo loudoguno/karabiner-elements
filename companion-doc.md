@@ -1,7 +1,14 @@
+12/17/23 removed
+;• jlik for ⌥ navigation................................. ❗redundant to space+d+j/l TODO delete
+		;; [:#Sj :!O#Sleft_arrow]
+		;; [:#Sl :!O#Sright_arrow]
+		;; [:#Si :!O#Sup_arrow]
+		;; [:#Sk :!O#Sdown_arrow]
+
+-------------------------------------------------------
+
 	;; {:des "left cmd -> cmd+tab"
         ;;  :rules [[:left_command :left_command nil {:alone :!Ctab}]]} ;; tap left command to tab last app 🔰 new, from Nikita
-
-
 ------------------------------------------------------
 ------------------------------------------------------
 removed double press  12/10/23

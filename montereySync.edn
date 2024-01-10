@@ -323,9 +323,8 @@
 	]}
 ;;============================ D MODE ==============================
 	{:des "d-mode for d things" :rules [ :d& ;;================================== D MODE
-
-		[:j [:open "obsidian://advanced-uri?vault=reference-vault&daily=true&mode=append"] ] ;;• d+j for daily journal  in Obsidian (via URI)
-
+		;; [:j [:open "obsidian://advanced-uri?vault=reference-vault&daily=true&mode=append"] ] ;;• d+j for daily journal  in Obsidian (via URI)
+		[:j [:km "Goto Bear Daily Journal"] ] ;;• d+j for Goto Bear Daily Journal
 		;; d+spacebar for ⌘ palette (legacy from window manipulation stuff) ⭕ TODO: refactor window mgmt stuff her 📜 old/stale/archive
 		;; [:spacebar [[:SPKR3] :!Cp] ] ;;• d+spacebar for ⌘P (⌘p keyboard maestro conflict palette) TODO: don't think this one makes sense any mor
 		[:right_control [[:SPKR3] :!Cp] ] 					  ;;= UHK  split spacebar compatability
@@ -338,12 +337,6 @@
 		[:w [:km "Item Up ©"]]		   							  ;;= d+w for Item Up (global KM context "Item Up ©")
 		[:v [:km "Item Down ©"]]		         				;;= d+v for Item Down (global KM context "Item Down ©")
 		[:c :!Cquote] 					  						  		   ;;= d+x for ⌘+quote (edit tags in omnifocus, evernote ect...)
-
-		;• jlik for ⌥ navigation................................. ❗redundant to space+d+j/l TODO delete
-		;; [:#Sj :!O#Sleft_arrow]
-		;; [:#Sl :!O#Sright_arrow]
-		;; [:#Si :!O#Sup_arrow]
-		;; [:#Sk :!O#Sdown_arrow]
 
 		[:comma [:km "Switch Second Space Left"] ] ;;• c+comma for Switch Second Space Left ✅ working on 💻 Maxbook pro
 		[:period [:km "Switch Second Space Right"] ] ;;• c+period for Switch Second Space Right ✅ working on 💻 Maxbook pro
@@ -360,7 +353,6 @@
 		[:k [ :open  "/Users/loudog/Desktop"] ] ;;• d+k for Switch Third Space Right
 		[:d :!TSCd [:SPKR3] ] ;; d+hfor Dash vairables
 	]}
-
 ;;============================ E MODE =============================
 	{:des "e-mode for e things" :rules [ :e& ;;=================================
 
@@ -506,6 +498,7 @@
 
 		[:q [ [:open "kmtrigger://macro=1E23BF77-ADC0-43F1-97E3-66F279C05769"]] ] ;;• l+q for log Bear Queit
 		[:s [:km "Bear Log: show work log" ]] ;;• l+s Bear Log: show work log
+		[:w [:km "Bear Log: Append to Workbench " ]] ;;• l+w Belar Log: Append to Workbench
 		;; bear://x-callback-url/open-note?id=FF34A15D-4C43-4C77-AE5A-94A06A96D831&header=TODAY&new_window=yes&selected=no&float=yes&show_window=no&open_note=yes&edit=yes
 
 
@@ -556,6 +549,7 @@
 	[:i [:km "Hover OmniFocus Inbox"]] ;;• ⭐🔰 o+i for Hover OmniFocus Inbox
 	[:h [ [:SPKR3] [:open "omnifocus:///folder/aPNK7lj-7fP"] ] ] ;;• o+h for open OMF ⚡️ plan folder 🔰 new 8/21/23 >
 	[:r [ [:SPKR3] [:open "drafts://x-callback-url/runAction?text=TEXT&action=Open%20Recent%20Drafts"] ] ] ;;• o+r for open recent draftsoror
+	[:q [ [:SPKR3] [:open "omnifocus:///perspective/%E2%9A%A1%EF%B8%8FQUICK%20NOW%20PLAN"] ] ] ;;• o+q for OmniFocus Quick Now Plan
 
 	[:i [:km "Hover OmniFocus Inbox"]] ;;• ⭐🔰 o+i for Hover OmniFocus Inbox
 
@@ -569,8 +563,6 @@
 	[:g  [:km "G Go To Palette"]] ;;• p+g  for G Go To Palette
 	[:n  [:km "N New Palette"]] ;;• p+n  for N New Palette
 	;; [:o  [:km "N New Palette"]] ;;• p+n  for N New Palette
-
-
 ;; --- OPEN simple prepend log (drafts): drafts://open?uuid=BAAE87AB-BB0F-4F0D-A395-3FE17F7F180D
 ;; --- EDIT macro (km editor): keyboardmaestro://m=97A5CECF-E229-4FFB-B7C7-7CC31F1145C7
 	]}
@@ -690,7 +682,9 @@
 		[:d [[:SPKR3] :!STOperiod]] ;;• w+d for Switch Active Workspace Right (via System Hotkeys)
 		[:f [[:SPKR3] [:btt "Move Window Space Right"] ] ] ;;• w+f  Move Window Space Right (via btt)
 		[:caps_lock [[:SPKR3] [:btt "Move Window Space Left"] ] ] ;;• w+capslock Move Window Space Left (via btt)
-		[:b [:km "Hover Evernote 🧰 WORKBENCH"]] ;;• w+b for Hover Evernote 🧰 WORKBENCH
+		;; [:b [:km "Hover Evernote 🧰 WORKBENCH"]] ;;• w+b for Hover Evernote 🧰 WORKBENCH
+
+		[:b [[:SPKR3] [:open "bear://x-callback-url/open-note?id=620D8537-7F55-4AE0-AAF0-AB1E9847A62F&TODAY&new_window=yes&selected=no&float=no&show_window=yes&open_note=yes"]]] ;;• w+b for open Bear 🧰 Workbench
 		[:c [:km "Center Window on Current Mouse Location"] ] ;;• w+c for km "Move Mouse to Focused Window" ✨new 6/12/23
 		[:left_gui [[:SPKR3] :!!f14 ]] ;;* w+left_gui for moom via ⌃⌥⇧⌘F14 (accessable with left hand)
 		[:j :!Tgrave_accent_and_tilde ] ;;• w+k  for cycle previous window via ⌃+~ (tilde) (default system hotkey)
