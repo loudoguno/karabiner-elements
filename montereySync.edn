@@ -674,6 +674,8 @@
 	]}
 ;;============================ W MODE =============================
 	{	:des "w-mode" :rules [ :w& ;;• ––––––––––––––––––––––––––––––––––––––––––––
+
+		;; workspaces
 		[:spacebar [[:SPKR3] :!SOCf3] ] ;;• w+spacebar for Expose  (via ⌃⌥⌘+f3)
 		[:right_control [[:SPKR3] :!SOCf3 ]] ;; for uhk2
 		;; [:spacebar [[:SPKR3] [:btt "Expose"]] ] ;;• w+a for Switch Active Workspace Left (via BTT) 🟢works now -> editing because
@@ -682,15 +684,20 @@
 		[:d [[:SPKR3] :!STOperiod]] ;;• w+d for Switch Active Workspace Right (via System Hotkeys)
 		[:f [[:SPKR3] [:btt "Move Window Space Right"] ] ] ;;• w+f  Move Window Space Right (via btt)
 		[:caps_lock [[:SPKR3] [:btt "Move Window Space Left"] ] ] ;;• w+capslock Move Window Space Left (via btt)
-		;; [:b [:km "Hover Evernote 🧰 WORKBENCH"]] ;;• w+b for Hover Evernote 🧰 WORKBENCH
-
-		[:b [[:SPKR3] [:open "bear://x-callback-url/open-note?id=620D8537-7F55-4AE0-AAF0-AB1E9847A62F&TODAY&new_window=yes&selected=no&float=no&show_window=yes&open_note=yes"]]] ;;• w+b for open Bear 🧰 Workbench
-		[:c [:km "Center Window on Current Mouse Location"] ] ;;• w+c for km "Move Mouse to Focused Window" ✨new 6/12/23
 		[:left_gui [[:SPKR3] :!!f14 ]] ;;* w+left_gui for moom via ⌃⌥⇧⌘F14 (accessable with left hand)
+
+		;; window mgmt
 		[:j :!Tgrave_accent_and_tilde ] ;;• w+k  for cycle previous window via ⌃+~ (tilde) (default system hotkey)
 		[:k :!STgrave_accent_and_tilde ] ;;• w+j  for cycle next window via ⌃⇧+~ (tilde) (default system hotkey)
 		[:p :!Cgrave_accent_and_tilde ] ;;• w+p for cycle previous window IN APP  via ⌘+~ (tilde) (default system hotkey)
 		[:n :!SCgrave_accent_and_tilde ] ;;• w+n for cycle next window IN APP via ⌘⇧+` (tilde) (default system hotkey)
+
+		[:c [:km "Center Window on Current Mouse Location"] ] ;;• w+c for km "Move Mouse to Focused Window" ✨new 6/12/23
+
+		;; [:b [:km "Hover Evernote 🧰 WORKBENCH"]] ;;• w+b for Hover Evernote 🧰 WORKBENCH
+		[:l [:km "Bear Log: show work log" ]] ;;• w+l 💼📓 Bear Log: show work log via KM (new 1/10/24, didn't like using l+s this makes it more similar tow+b)
+		[:b [[:SPKR3] [:open "bear://x-callback-url/open-note?id=620D8537-7F55-4AE0-AAF0-AB1E9847A62F&TODAY&new_window=yes&selected=no&float=no&show_window=yes&open_note=yes"]]] ;;• w+b for open Bear 🧰 Workbench
+
 	]}
 ;;============================ X MODE ============================
 	{	:des "x-mode for..." :rules [
