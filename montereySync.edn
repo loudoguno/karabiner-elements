@@ -2,10 +2,10 @@
 ;; find a home for 👇
 	;; [ [:d :s] [:km "Display (settings)"]] ;;* d+s for Display (settings) test
 	;; :open "osascript -e open \"%s\" "
-;; REFERENCE
+;; ℹ️ REFERENCE
+	;; C T O S and Q W E R (KE modifier abreviations for reference)
 	;; :alf "osascript -e 'tell application id \"com.runningwithcrayons.Alfred\" to run trigger \"%s\" in workflow \"%s\" with argument \"%s\"'"
 	;; :alf "osascript -e 'tell application \"Alfred 5\" to run trigger \"%s\" in workflow \"%s\" with argument \"%s\" ;; run Alfred workflow using workflow bundle ID as argument
-	;; C T O S and Q W E R (KE modifier abreviations for reference)
 { ;;+ ========================= DEFINITIONS =========================== for templates (aliases for frequently used CLI strings), layers, simlayers
 	:templates { ;;= ..................................................................................................................... aliases for shell commands including osascript (execute Applescript file), and afplay (plays sound file)
 		:open "open \"%s\"" ; open file
@@ -37,8 +37,8 @@
 		}
 
 	:layers { ;;=............................................................................................................................. basic layers like spacemode
-		; :tab-mode {:key :tab}
-		:space-mode {:key :spacebar :condi [:!f& :!d& :!c& :!k& :!w& :!Rctrl-mode :!LCMD]} ;prevents space mode from overiding F and D modes
+		; :tab-mode {:key :tab} ;; tab currently assigned to fn for left hand window focus switching via Context
+		:space-mode {:key :spacebar :condi [:!f& :!d& :!c& :!k& :!w& :!Rctrl-mode :!LCMD]} ; prevents space mode from overiding F and D modes
 		:Rctrl-mode {:key :right_control :alone {:key :spacebar} :condi [:!f& :!d& :!c& :!k& :!w& :!space-mode]} ; :Rctrl-mode {:key :right_control :condi [:!f& :!d& :!c& :!k& :!w&]}
 		:numpad-mode {:key :f20} ;;? defined in layers and given symbolic key never used so can be triggered via setting variable in space mode
 		:numrow-mode {:key :f20}
@@ -46,7 +46,7 @@
 		}
 
 	:simlayers { ;;=........................................................................................................................advanced layers that act as vairables
-		;;! :semicolon-mode {:key :semicolon} :! taken out in preference to have semicolon mapped to `fn` for use with Context's quick search
+		;; :semicolon-mode {:key :semicolon} :! taken out in preference to have semicolon mapped to `fn` for use with Context's quick search
 		:slash& {:key :slash}
 		:a& {:key :a}
 		:b& {:key :b}
@@ -90,15 +90,15 @@
 			[:!SC4 nil nil {:alone :!SC4 :held [:km "-Snagit Palette"] :repeat false :halt true :params{:alone 150 :held 150}} ] ;;* hold ⇧⌘+4 for -Snagit Palette (KM macro), tap for Snagit all-in one keyboard command
 			]}
 ;;======================== TAP and DOUBLEPRESS  ===================== ;;
-	 ;;* Double Press Command Q to Quit | 🟢 works and useful
-		{:des "DOUBLE PRESS: ⌘q² to quit,  " :rules[ [:!C#Pq [ :!Cq ["⌘q" 0]] ["⌘q" 1]] [:!C#Pq ["⌘q" 1] nil {:delayed {:invoked ["⌘q" 0] :canceled ["⌘q" 0]}}] ]}
-	;;* Double Press Command Spacebar for Spotlight via ⌥⌘+spacebar 🟢 works but dont use ⭕ available
+	 ;;* double press ⌘+q to quit to prevent accidental
+		{:des "double press ⌘+q to quit,  " :rules[ [:!C#Pq [ :!Cq ["⌘q" 0]] ["⌘q" 1]] [:!C#Pq ["⌘q" 1] nil {:delayed {:invoked ["⌘q" 0] :canceled ["⌘q" 0]}}] ]}
+	;;* double press ⌘+spacebar  for Spotlight (via ⌥⌘+spacebar)  🟢 works but dont use ⭕ AVAILABLE
 		{:des "Modifier+Spacebar Stuff" :rules[
 		[:!Cspacebar [[:SPKR3] :!OCspacebar  ["LCMDspacebar" 0]] ["LCMDspacebar" 1]]  ;; pressing ⌘+spacebar a 2nd time (when variable LCMDspacebar is to 1) send keyboard command for spotlight
 		[:!Cspacebar :!Cspacebar nil {:alone ["LCMDspacebar" 1] :delayed{:invoked ["LCMDspacebar" 0] :canceled ["LCMDspacebar" 0]}} ] ;; pressing ⌘+spacebar the first time (when variable LCMDspacebar is to 0) set variable LCMDspacebar to 1
 		]}
 ;;====================  MODIFIERS and COMMAND MODES =================
-
+	;;* shift+spacebar for underscore and dash,
 		{:des "Shift Space for underscore and dash, Left to Right Modifers...":rules[
 			[:!Rright_control :hyphen] [:!Rspacebar :hyphen] ;;* Right Shift +Spacebar (or UHK mod) for underscore
 			[:!Sright_control :!Shyphen] [:!Sspacebar :!Shyphen]  ;;*Left Shift+Spacebar (or UHK mod) for dash
@@ -107,6 +107,8 @@
 			[:!Rleft_shift [:SPKR3]] ;;* Right Sfhit to Left Fhist for... ⭕ available
 			; [:!Sright_gui [:SPKR3]] [:!Rleft_gui [:SPKR3]] ;;* Left Shift to Right Command and Right Shift to Left Command... ⭕️ available
 			]}
+
+
 
 			 {:des "left and right command for number and symbol Modes...":rules[
 				;;*(R)⌘+(L)⌘ for Number Mode
