@@ -127,7 +127,7 @@
 		[ [:s :n] [:km "Activate SideNotes"] ] ;;* s+n to open SideNates "❗ Now" note via URL (sidenotes://open/460F59F5-617F-44CB-B9F0-099E96DF1EE3)
 		[ [:c :s] [[:SPKR3] [:open "sidenotes://open/93C96CE1-3C77-49A9-955D-D50340BA04F1"] ] ] ;;* c+s for show SideNotes cheatsheet
 		[[:n :e :w] [ [:SPKR3] [:open "sidenotes://open/3F52308E-C16E-40C2-8CBE-87BC0F8CC590"] ] ] ;;• n|e|w+s for ✨ new stuff (sidenotes note)
-		[ [:d :r]  [:km "Activate Drafts"] ] ;;* d+r to Activate Drafts
+		[ [:d :r]  [:km "Activate Drafts"] ] ;;* d+r to Activate via KM
 		[ [:o :b :s]  [:open "obsidian://advanced-uri?vault=reference-vault&commandid=obsidian-global-hotkeys%253Ashow"] ] ;;* [obs] for Show Obsidian (via command URI)
 		[ [:o :m :f] [:km "Activate OmniFocus"] ]  ;;* [omf] simultanoesly for Activate OmniFocus via KM. could
 		[ [:n :s :t] [:km "New Sticky"] ] [ [:n :e :s] [:km "New Sticky"] ]  ;; n|s|t for New Sticky 🔰
@@ -450,29 +450,29 @@
 ;;============================ J MODE ===============================
 	{:des "j-mode" :rules [
 	:j&  ;;• j+................................................................................................................................
-		;; [:KEY_2 [[:SPKR3] [:open "INSERT_URL"] ] ;;• KEY_1+KEY_2 for INSERT_URL from XXX obsidian
 		[:1 [[:SPKR3] [:open "drafts://open?uuid=4FA23E60-5A44-426B-9540-FC3C87B2505E"]] ] ;;• j+1 go to ❗ NOW
 		[:2 [:open "drafts://open?uuid=691EC79E-B616-4EB4-B8EA-6185D0A0C8FD"]  ] ;;• j+2 ✅ go to TODO (Drafts)
 		[:3 [:open "drafts://open?uuid=3E0329E3-8E9C-47CD-8CC2-E144319E12E6"]  ] ;;• j+3 go to ✨ NEW
+		[:q [ [:SPKR3] [:open "drafts://open?uuid=6823BE09-6193-4D97-894A-5147B7285DD9"]]] ;;• j+q to open ⚡️ Quick Notes (Draft)
+
 		;; [:b [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=darlal-switcher-plus%253Aswitcher-plus%253Aopen"]] ] ;;• j+b jump to Obsidian (via QuickSwitcher plus URI
 		[:b [:km "Jump to Bear"]] ;;• j+d for Jump to Drafts (global)
 		[:d [:km "Jump to Drafts (global)"]] ;;• j+d for Jump to Drafts (global)
 		[:e [[:SPKR3][:km "Jump to Evernote"]]] ;;• j+e for Jump to Evernote 🔴 broken in EN 10
-		[:l [[:SPKR3] :!SCTi]] ;;• j+l for Slidepad (via ⌃i) 🔰 new 8/17/23
 		[:o [:km "Jump to OmniFocus"]] ;;• j+o for Jump to OmniFocus 🟡 needs work > 🟢 better now
-		[:period [:km "© Open Context Menu"]] ;;• j+period for Open Context Menu (via KM global context)
-		[:q [ [:SPKR3] [:open "drafts://open?uuid=6823BE09-6193-4D97-894A-5147B7285DD9"]]] ;;• j+q to open ⚡️ Quick Notes (Draft)
-		[:right_gui [:km "© Jump To"]] ;;• j+right_gui for © Jump To //alternative way with one hand
-		[:s [ [:SPKR3]  :!OSCj ] ] ;;• j+s Search (Jump) tSideNotes (via ⌥⇧⌘+j) 🔰
-		[:spacebar [:km "Click GUI Button"]] ;; ⭐j+spacebar for Click GUI Button (one of my favs). actually assigned to g+spacebar..
-		[:t [:km "© Jump To"]] ;;• j+t for © Jump To (via KM global contextlual)
-		[:w [[:SPKR3] :!Ospacebar]] ;;• j+w for Jump to Window (via Context hotkey ⌥space)
-	;;* TODO testing out "send" rule
-		;; [:a [[:SPKR3] [:wait] [:escp]] ] ;; works
-		;; [:r [:sendreturn]] ;; ☑️  works
-		;; [:q [:sendq]] ;;? works i guess but sends capital? look into
-		;; [:1 [[:SPKR3] [:sendesc]]] ;;❓ seems to send tab?
+		[:s [ [:SPKR3]  :!OSCj ] ] ;;• j+s Search (Jump to) SideNotes (via ⌥⇧⌘+j) 🔰
+
 		[:r [ [:SPKR3] [:open "alfred://runtrigger/com.jc.roampagesearch/roamSearchKE/?arg"]]] ;;• j+r Search Roam
+		[:w [[:SPKR3] :!Ospacebar]] ;;• j+w for Jump to Window (via Context hotkey ⌥space)
+
+		[:l [[:SPKR3] :!SCTi]] ;;• j+l for toggle Slidepad (via ⌃i) 🔰 new 8/17/23
+
+		[:t [:km "© Jump To"]] ;;• j+t for © Jump To (via KM global contextual)
+		[:period [:km "© Open Context Menu"]] ;;• j+period for Open Context Menu (via KM global context)
+		[:spacebar [:km "© Jump To"]] ;; ⭐j+spacebar for Click GUI Button (one of my favs). actually assigned to g+spacebar..
+
+		;; [:right_gui [:km "© Jump To"]] ;;• j+right_gui for... AVAILABLE
+
 
 	]}
 ;;============================= K MODE =============================
@@ -525,7 +525,7 @@
 		[:m [:km "New Message"]] ;;• n+m for New Message
 		[:p [:km "New Password"]] ;;• n+p for New Password
 		;; [:q [:km "New QuickNote"]] ;;• n+q New QuickNote
-		[:w [:km "New Window"]] ;;• n+w for New Window
+		[:w [:km "New Window"]] ;;• n+w for New Window © glo
 		[:d [:km "New Drafts Note"]] ;;• n+d for New Drafts Note
 		[:i [[:tink] :!CTSo]] ;;• n+i New Omnifocus Quick Entry (via omf hotkey ⌃⇧⌘+o) 🟢 FIXED
 		[:o [:km "Send to OmniFocus"]] ;;• n+o for Send to OmniFocus ⭐replaced n+i+i

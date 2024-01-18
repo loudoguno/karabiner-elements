@@ -1,3 +1,10 @@
+1/18/24
+;;* TODO testing out "send" rule
+		;; [:a [[:SPKR3] [:wait] [:escp]] ] ;; works
+		;; [:r [:sendreturn]] ;; ☑️  works
+		;; [:q [:sendq]] ;;? works i guess but sends capital? look into
+		;; [:1 [[:SPKR3] [:sendesc]]] ;;❓ seems to send tab?
+
 12/17/23 removed
 ;• jlik for ⌥ navigation................................. ❗redundant to space+d+j/l TODO delete
 		;; [:#Sj :!O#Sleft_arrow]
