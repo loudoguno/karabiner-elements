@@ -543,6 +543,7 @@
 		[:b [:km "New Bear Note"] ] ;;• nb for New Bear Note
 		[:q [:km "New Bear Note"]] ;;• n+q New QuickNote
 
+		[:j [:open "noteplan://x-callback-url/openNote?noteDate=today"]  ] ;;• n+j for NotePlan Today Daily Journal
 	]}
 ;;============================== O MODE =============================
 	{:des "o-mode for..." :rules [ :o& ;;* ––––––––––––––––––––––––––––––––––––––––––
