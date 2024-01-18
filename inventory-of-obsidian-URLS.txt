@@ -1,0 +1,15 @@
+inventory of obsidian URLS for ke config along with notes
+obsidian://open?vault=reference-vault&file=obsidian%20URL%20Inventory
+
+## O+B+S > ✅ works opens references vault via advanced URI
+[ [:o :b :s] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=obsidian-global-hotkeys%253Ashow"] ] ;;* [obs] for Show Obsidian (via command URI)
+
+a+d
+[:d [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=quickadd%253ArunQuickAdd"] ]] ;;• a+d for QuickAdd
+- ✅ works and brings up a drop down list of QuickAdd macros configured in QuickAdd obsidian settings
+- lets you
+
+[:h [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=quickadd%253Achoice%253Aab0aa8c1-1fda-41f6-ade3-4790b02a4c1c"] ]] ;;• a+h for QuickAdd 🫐 QuickAdd Ad Hoc
+a+h
+
+;; [:j [:open "obsidian://advanced-uri?vault=reference-vault&daily=true&mode=append"] ] ;;• d+j for daily journal in Obsidian (via URI)
