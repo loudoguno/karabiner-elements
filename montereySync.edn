@@ -176,9 +176,12 @@
 			[:##w [[:SPKR3]:!Ospacebar] :space-mode] [:##c [[:SPKR2]:!Ospacebar] :Rctrl-mode] ;;• spacebar+w to activate Contexts (❗ changing w to do contexts and not moom)
 			[:##tab [[:SPKR3]:!Otab] :space-mode] [:##tab [[:SPKR2]:!Otab] :Rctrl-mode] ;;• spacebar+tab for contexts tab switch
 			[:##slash [[:SPKR3]:!Oescape] :space-mode]  ;;• spacebar+slash for ⌥⎋ (autocomplete)
-			[:##right_shift [[:SPKR3]:!Cf12] :space-mode]  ;;• spacebar+Right Shift for Bartender Keyboard Navigate (via ⌘F12 in Bartender)
-			[:##return_or_enter [[:SPKR3]:!Of12] :space-mode]  ;;• spacebar+Enter for Bartender Search menu bar items (via ⌘F12 in Bartender) 🟢🔰new
 			[:##v [[:SPKR3][:km "Clipboard History"]] :space-mode]  ;;• spacebar+v for "Clipboard History"(via KM macro) 🔰new
+
+			;; [:##right_shift [[:SPKR3]:!Cf12] :space-mode]  ;;• spacebar+Right Shift for Bartender Keyboard Navigate (via ⌘F12 in Bartender)
+
+			[:##right_shift [[:SPKR3][:km "Show KM Status Menu"]] :space-mode]  ;;• spacebar+right_shift  for "Show KM Status Menu" (via KM macro) 🔰new 1/19/24
+			[:##return_or_enter [[:SPKR3]:!Of12] :space-mode]  ;;• spacebar+Enter for Bartender Search menu bar items (via ⌥+F12 in Bartender) 🟢🔰new
 
 		;;* as Shift for alternative characters (e.g. <,>...)
 			[:##q :grave_accent_and_tilde [:space-mode :!numpad-mode]] ;? just added space+q for `
