@@ -280,6 +280,7 @@
 		[:d [ [:SPKR3] [:open "drafts://open?uuid=6823BE09-6193-4D97-894A-5147B7285DD9"]]] ;;• 1+d to open Drafts ⚡️ Quick notes
 		[:n [ [:SPKR3] [:open "https://www.icloud.com/notes/04009kn-a3boPsvu-Rc-xpaEQ"]]] ;;• 1+d to open Apple  Now Notes
 		[:o [ [:SPKR3] [:open "omnifocus:///task/cVPImebMMwu"] ] ];;• 1+o to open omnifocus Now
+		[:p [:km "Activate 1Password"]] ;;• 1+p for "Activate 1Password" 🔰 nw 1/24/24
 	;; 1+d Drafts Quick Notes
 	;; 1+e for Evernote Now
 	;; 1+o for Obsidian
@@ -390,14 +391,17 @@
 
 				[:x :!!x] ;;• f+x for focus window (via ⌃⌥⇧⌘+x)
 				[:b :!!b] ;;• f+b for focus window (via ⌃⌥⇧⌘+b)
-				[:n :fn] 	;;• f+n for for function (to be used with qweasd moom search)
+				;; [:n :fn] 	;;• f+n for for function (to be used with qweasd moom search) ⭕ disable for Raycast floating notes
 				[:comma [:km "Switch Third Space Left"] ] ;;• f+, for Switch Third Space Left
 				[:period [:km "Switch Third Space Right"] ] ;;• f+. for Switch Third Space Right
 
-		[:n :fn] 	;;• f+n for for function (to be used with qweasd moom search)
+		;; [:n :fn] 	;;• f+n for for function (to be used with qweasd moom search)
 		[:comma [:km "Switch Third Space Left"] ] ;;• c+, for Switch Third Space Left
 		[:period [:km "Switch Third Space Right"] ] ;;• c+. for Switch Third Space Right
 		[:caps_lock [:km "_META-palette"] ] ;;• f+capslock for _META-palette
+		[:l [:open "raycast://extensions/raycast/floating-notes/toggle-floating-notes-window"] ] ;;• f+l for raycast toggle floating notes command (via URL)
+
+
 
 	]}
 ;;============================ G MODE ============================
