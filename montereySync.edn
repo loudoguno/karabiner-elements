@@ -752,6 +752,7 @@
 		; [:s [:ToKey]] ;;• quote+s for ToKey hello
 ]}
 ;;======================== SEMICOLON MODE  =========================
+;; set as fn for right handed Contexts quick window switching along with tab
 
 ;;============================ SLASH MODE ==========================
 		{	:des "slash-mode  for..." :rules [
@@ -761,6 +762,7 @@
 		[:l [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=quickadd%253Achoice%253Ab01dce33-74de-4033-83ff-83667640f864"]] ] ;;• /+o to open reference vault Quick Add Master log URI
 		[:spacebar [[:SPKR3] :!CSslash] ] ;;• slash+spacebar for Help Menu Search (via System hotkey ⌘⇧+/) 🟢
 	]}
+;;============================ OTHER MODE ========================== ⭕ TODO [ ] \ /
 ] ;;
 :simlayer-threshold 210 ;def = 50 ;! when set to 1000 there is very noticable delay and 50 isnt enough time, 300 too much
 	;! seems to create obsene delay on  on key up
