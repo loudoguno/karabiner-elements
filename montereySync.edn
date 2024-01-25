@@ -440,6 +440,9 @@
 		[:i [[:SPKR3] :!Ti] ];;• h+i for Slidepad (via ⌃i) 🔰 new 8/17/23, see if causes false positives
 
 		[:g [:shortcut "Hey GPT"]] ;;* h+g to run Shortcut Hey GPT ⭐
+		;; [:p [[:SPKR3] [:open ] ]] ;;• h+t ☑️ Tasks via Drafts URL
+		
+
 
 
 		]}
