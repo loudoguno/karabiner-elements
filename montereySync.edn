@@ -151,25 +151,26 @@
 ;;=========================== SPACE MODE ============================ bread and butter space + all sorts of awesome things
 	{:des "spacebar mode" :rules [ ;? set up not to conflict with numpad-mode
 		;; homerow keyboard
-			[:##b :spacebar :space-mode] ;spacebar+b for space
 			;spacebar+jlik for left/right/up/down
-			[:##j :left_arrow :space-mode]
-			[:##l :right_arrow :space-mode]
-			[:##i :up_arrow :space-mode]
-			[:##k :down_arrow :space-mode]
+			[:##j :left_arrow :space-mode] ;;• spacebar+j for left_arrow
+			[:##l :right_arrow :space-mode] ;;• spacebar+l for right_arrow
+			[:##i :up_arrow :space-mode] ;;• spacebar+i for up_arrow
+			[:##k :down_arrow :space-mode]  ;;• spacebar+k for down_arrow
+			
 			;; non-text characters (↩⇥, delete, page up/down)
-			[:##semicolon :return_or_enter :space-mode]
-			[:##u :!Stab :space-mode]
-			[:##o :tab :space-mode]
-			[:##p :delete_or_backspace :space-mode]
-			[:##y :page_up :space-mode]
-			[:##h :page_down :space-mode]
+				[:##semicolon :return_or_enter :space-mode] ;;• spacebar+semicolon for return
+				[:##u :!Stab :space-mode] ;;• spacebar+u for tab
+				[:##o :tab :space-mode] ;;• spacebar+o for tab
+				[:##p :delete_or_backspace :space-mode] ;;• spacebar+p for delete
+				[:##y :page_up :space-mode] ;;• spacebar+y for page_up
+				[:##h :page_down :space-mode] ;;• spacebar+h for page_down
 			;; modifiers (⇧⌥⌘⌃)
-			[:##s :left_shift :space-mode]
-			[:##f :right_command :space-mode]
-			[:##a :left_control :space-mode]
-			[:##d :left_option :space-mode]
-			[:##caps_lock :fn :space-mode]
+			[:##s :left_shift :space-mode] ;• spacebar+s for left_shift
+			[:##f :right_command :space-mode] ;• spacebar+f for right_command
+			[:##a :left_control :space-mode] ;• spacebar+a for left_control
+			[:##d :left_option :space-mode] ;• spacebar+d for left_option
+			[:##caps_lock :fn :space-mode] ;• spacebar+caps_lock for fn
+			[:##b :spacebar :space-mode] ;;• spacebar+b for space
 		;; MISC for other functions (backtick/capslock for escape, b for spacebar and w for moom)
 			[:##m [[:SPKR3]:!!f14] :space-mode] [:##m [[:SPKR2]:!!f14] :Rctrl-mode] ;;• spacebar+m for activate moom (like this one better)
 			[:##c [[:SPKR3]:!Ospacebar] :space-mode] [:##c [[:SPKR2]:!Ospacebar] :Rctrl-mode] ;;• spacebar+c to activate Contexts
