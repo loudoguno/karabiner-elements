@@ -644,11 +644,12 @@
 			[:right_shift [:km "Capitalize Selection"]] ;;•s+right_shift for Capitalize Selection
 			[:j :!SOleft_arrow] [:l :!SOright_arrow] [:i :!SOup_arrow] [:k :!SOdown_arrow] ;;*jlik for select left/right/up/down
 			[:grave_accent_and_tilde [:km "Enclose Selection with backticks"]] ;;• s+` for Enclose Selection with backticks 🔰 new 10/17/23
+		
 		;;*🖱mouse-mode  a/l/fed for scroll mouse now
-		[:a {:mkey {:hwheel 5 :speed 5}}]
-		[:f {:mkey {:hwheel -5 :speed 5}}]
-		[:e {:mkey {:vwheel -5 :speed 5}}]
-		[:d {:mkey {:vwheel 5 :speed 5}}]
+		[:a {:mkey {:hwheel 5 :speed 5}}] ;;• s+a for scroll left
+		[:f {:mkey {:hwheel -5 :speed 5}}]  ;;• s+f for scroll right
+		[:e {:mkey {:vwheel -2 :speed 25}}] ;;• s+a for scroll up
+		[:d {:mkey {:vwheel 2 :speed 25}}] ;;• s+d for scroll  down 
 	]}
 ;;============================ T MODE ==============================
 	{	:des "t-mode for t things" :rules [ :t& ;;* ––––––––––––––––––––––––––––––––––––
