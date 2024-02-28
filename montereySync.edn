@@ -94,7 +94,7 @@
 		{:des "double press ⌘+q to quit,  " :rules[ [:!C#Pq [ :!Cq ["⌘q" 0]] ["⌘q" 1]] [:!C#Pq ["⌘q" 1] nil {:delayed {:invoked ["⌘q" 0] :canceled ["⌘q" 0]}}] ]}
 	;;* double press ⌘+spacebar  for Spotlight (via ⌥⌘+spacebar)  🟢 works but dont use ⭕ AVAILABLE
 		{:des "Modifier+Spacebar Stuff" :rules[
-		[:!Cspacebar [[:SPKR3] :!OCspacebar  ["LCMDspacebar" 0]] ["LCMDspacebar" 1]]  ;; pressing ⌘+spacebar a 2nd time (when variable LCMDspacebar is to 1) send keyboard command for spotlight
+		[:!Cspacebar [[:SPKR3] :!OTspacebar  ["LCMDspacebar" 0]] ["LCMDspacebar" 1]]  ;; pressing ⌘+spacebar a 2nd time (when variable LCMDspacebar is to 1) send keyboard command for spotlight
 		[:!Cspacebar :!Cspacebar nil {:alone ["LCMDspacebar" 1] :delayed{:invoked ["LCMDspacebar" 0] :canceled ["LCMDspacebar" 0]}} ] ;; pressing ⌘+spacebar the first time (when variable LCMDspacebar is to 0) set variable LCMDspacebar to 1
 		]}
 ;;====================  MODIFIERS and COMMAND MODES =================
@@ -440,9 +440,7 @@
 		[:i [[:SPKR3] :!Ti] ];;• h+i for Slidepad (via ⌃i) 🔰 new 8/17/23, see if causes false positives
 
 		[:g [:shortcut "Hey GPT"]] ;;* h+g to run Shortcut Hey GPT ⭐
-		;; [:p [[:SPKR3] [:open ] ]] ;;• h+t ☑️ Tasks via Drafts URL
-		
-
+		[:p [[:SPKR3] [:open "/Applications/Setapp/MenubarX.app" ] ]] ;;• h+p for MenuBarX via :open (instead of ⌥+x hotkey)
 
 
 		]}
