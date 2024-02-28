@@ -92,7 +92,8 @@
 ;;======================== TAP and DOUBLEPRESS  ===================== ;;
 	 ;;* double press ⌘+q to quit to prevent accidental
 		{:des "double press ⌘+q to quit,  " :rules[ [:!C#Pq [ :!Cq ["⌘q" 0]] ["⌘q" 1]] [:!C#Pq ["⌘q" 1] nil {:delayed {:invoked ["⌘q" 0] :canceled ["⌘q" 0]}}] ]}
-	;;* double press ⌘+spacebar  for Spotlight (via ⌥⌘+spacebar)  🟢 works but dont use ⭕ AVAILABLE
+	
+	;;* double press ⌘+spacebar  for Raycast (via ⌥⌃+spacebar)
 		{:des "Modifier+Spacebar Stuff" :rules[
 		[:!Cspacebar [[:SPKR3] :!OTspacebar  ["LCMDspacebar" 0]] ["LCMDspacebar" 1]]  ;; pressing ⌘+spacebar a 2nd time (when variable LCMDspacebar is to 1) send keyboard command for spotlight
 		[:!Cspacebar :!Cspacebar nil {:alone ["LCMDspacebar" 1] :delayed{:invoked ["LCMDspacebar" 0] :canceled ["LCMDspacebar" 0]}} ] ;; pressing ⌘+spacebar the first time (when variable LCMDspacebar is to 0) set variable LCMDspacebar to 1
