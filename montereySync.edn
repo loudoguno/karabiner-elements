@@ -1,4 +1,4 @@
-;;= montereySync.edn .3 ==============================================
+;;= montereySync.edn .4 (2024 git issue) ==============================================
 ;; find a home for 👇
 	;; [ [:d :s] [:km "Display (settings)"]] ;;* d+s for Display (settings) test
 	;; :open "osascript -e open \"%s\" "
