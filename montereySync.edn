@@ -121,7 +121,7 @@
 						:held [[:SPKR1] ["symrow-mode" 1]] :afterup [[:SPKR0] ["symrow-mode" 0]]
 						:repeat false :halt false :params{:alone 150 :held 150}} ]
 			]}
-;;;======================== SIMULTANEOUS KEY (SIM MODE) ========================= rules activated when two keys are pressed at the same time
+;;;======================== lLTANEOUS KEY (SIM MODE) ========================= rules activated when two keys are pressed at the same time
 	{:des "Simultaneous Keys":rules [
 		[ [:k :m] [:km "Activate Keyboard Maestro"] ] ;;* km to activate Keyboard Maestro
 		[ [:v :c] [:km "Activate Visual Studio Code"] ] ;;* vc to Activate Visual Studio Code
@@ -138,11 +138,13 @@
 		[ [:j :o :t] [:open "raycast://extensions/k41531/snap-jot/memo"] ] ;;• m e o simultaneously for Raycast Jot down SnapJot
 		[ [:j :o :s] [:open "raycast://extensions/k41531/snap-jot/listFiles"] ] ;;• m r o simultaneously for Raycast 
 		[ [:j :o :d] [:open "raycast://extensions/k41531/snap-jot/dailyNote"] ] ;;• m r o simultaneously for Raycast 
-		
 		[ [:r :e :m] [:open "raycast://extensions/raycast/apple-reminders/my-reminders"] ] ;;• rem simultaneously for Raycast Reminderse
-
+	
+		[ [:a :d :l] [:open "omnifocus:///add?name=newtask&project=💊ADDLOG&tags=💊ADDLOG@"] ] ;;• rem simultaneously for Raycast Reminderse
+		[ [:n :o :w] [:open "omnifocus:///task/mFIwCeWL7Xt"] ] ;;• now simultaneously for OmniFocus Now
 
 		[ [:h :d] [:km "© Hide Application"]] ;;* d+s for © Hide Application
+
 ]}
 ;;======================= HYPER MODE and MODIFIERS ====================
 	{:des "Capslock as hyper" :rules [ [:condi :!space-mode :!Rctrl-mode] ; Capslock as hyper (command+shift+option+control)
@@ -190,6 +192,10 @@
 
 			[:##right_shift [[:SPKR3][:km "Show KM Status Menu"]] :space-mode]  ;;• spacebar+right_shift  for "Show KM Status Menu" (via KM macro) 🔰new 1/19/24
 			[:##return_or_enter [[:SPKR3]:!Of12] :space-mode]  ;;• spacebar+Enter for Bartender Search menu bar items (via ⌥+F12 in Bartender) 🟢🔰new
+
+			[:##t [[:SPKR3][:open "tot:///"]] :space-mode]  ;;• spacebar+t for tot via URL
+			[:##p [[:SPKR3][:open "paletro:///"]] :space-mode]  ;;• spacebar+p for paletro via URL
+
 
 		;;* as Shift for alternative characters (e.g. <,>...)
 			[:##q :grave_accent_and_tilde [:space-mode :!numpad-mode]] ;? just added space+q for `
@@ -273,6 +279,8 @@
 
 			; [:!Cspacebar :spacebar :numrow-mode] [:spacebar :spacebar :numrow-mode]
 			; [:!Cright_control :spacebar :numrow-mode] [:right_control :spacebar :numrow-mode]
+		
+
 	]}
 ;;============================ MOUSEPAD MODE ======================
 	{:des "mousepad-mode for a mouse things" :rules [
@@ -423,6 +431,8 @@
 		[:d  [:open "drafts://x-callback-url/runAction?text=TEXT&action=goto%20daily%20scratchpad"] ] ;;• g+d go to Daily Scratch 🔰
 		[:i [[:tink] :!!STOCm]] ;;• g+i to activate ChatGPT Side Window (MacGPT) via ⌃⌥⇧⌘+m
 		[:u [[:tink] :!!STOCg]] ;;• g+u to activate ChatGPT Menubar  (MacGPT) via ⌃⌥⇧⌘+u
+		[:r [:open "omnifocus:///task/jGlpWL-xZ0h"] ] ;;• r+h to add task to Rabbit Hole project
+
 	]}
 ;;=========================== H MODEµ==============================
 	{:des " h-mode for h things" :rules [:h& ;;* ––––––––––––––––––––––––––––––––––––
@@ -486,8 +496,10 @@
 		[:t [:km "© Jump To"]] ;;• j+t for © Jump To (via KM global contextual)
 		[:period [:km "© Open Context Menu"]] ;;• j+period for Open Context Menu (via KM global context)
 		[:spacebar [:km "© Jump To"]] ;; ⭐j+spacebar for Click GUI Button (one of my favs). actually assigned to g+spacebar..
+		[:p [:open "paletro://"]] ;;  ;;• spacebar+p for paletro via URL ❌  doe't work
 
 		;; [:right_gui [:km "© Jump To"]] ;;• j+right_gui for... AVAILABLE
+		
 
 
 	]}
@@ -560,6 +572,9 @@
 		[:q [:km "New Bear Note"]] ;;• n+q New QuickNote
 
 		[:j [:open "noteplan://x-callback-url/openNote?noteDate=today"]  ] ;;• n+j for NotePlan Today Daily Journal
+		[:v [:open "nvalt:///"]  ] ;;• n+v nvAlt
+
+
 	]}
 ;;============================== O MODE =============================
 	{:des "o-mode for..." :rules [ :o& ;;* ––––––––––––––––––––––––––––––––––––––––––
@@ -630,6 +645,9 @@
 			[:x [:km "Deactivate Remote"]] 		;;• q for Deactivate Remote
 			;; [:q [:km "QuickTime Remote"]] 		;;• q for QuickTime Remote ❌ DEACTIVATED so can have trigger back/next with one hand via q/e
 		[:t [:open "drafts://x-callback-url/runAction?text=TEXT&action=Open%20Recent%20Drafts"] ] ;;• r+t for open recent drafts
+		
+		[:h [:open "omnifocus:///add?name=todo&project=rabbit-hole"] ] ;;• r+h to add task to Rabbit Hole project
+		[:g [:open "omnifocus:///task/jGlpWL-xZ0h"] ] ;;• r+g to go to rabbit hole project
 	]}
 ;;============================= S Mode =============================
 	{:des "s-mode for s things" :rules [ :s& ;;* ––––––––––––––––-----------––––––––––––
@@ -770,6 +788,8 @@
 		[:b [:open "obsidian://advanced-uri?vault=reference-vault&commandid=workspace%253Atoggle-pin&uid=c2352d6a-240a-4730-90da-91bdf10486af"] ] ;;• slash+b for pin 👿 cheatsheet (ref vault) URI
 		[:l [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=quickadd%253Achoice%253Ab01dce33-74de-4033-83ff-83667640f864"]] ] ;;• /+o to open reference vault Quick Add Master log URI
 		[:spacebar [[:SPKR3] :!CSslash] ] ;;• slash+spacebar for Help Menu Search (via System hotkey ⌘⇧+/) 🟢
+	 	[:h [[:SPKR3] [:open "alfred://runtrigger/com.alfredapp.hookbookmark/search-hookmark-bookmarks/"]] ] ;;• /+o to open reference vault Quick Add Master log URI
+
 	]}
 ;;============================ OTHER MODE ========================== ⭕ TODO [ ] \ /
 ] ;;
