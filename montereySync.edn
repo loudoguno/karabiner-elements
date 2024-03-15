@@ -193,7 +193,7 @@
 			[:##right_shift [[:SPKR3][:km "Show KM Status Menu"]] :space-mode]  ;;• spacebar+right_shift  for "Show KM Status Menu" (via KM macro) 🔰new 1/19/24
 			[:##return_or_enter [[:SPKR3]:!Of12] :space-mode]  ;;• spacebar+Enter for Bartender Search menu bar items (via ⌥+F12 in Bartender) 🟢🔰new
 
-			[:##t [[:SPKR3][:open "tot:///"]] :space-mode]  ;;• spacebar+t for tot via URL
+		
 			[:##p [[:SPKR3][:open "paletro:///"]] :space-mode]  ;;• spacebar+p for paletro via URL
 
 
@@ -385,36 +385,39 @@
 	]}
 ;;============================ F MODE =============================
 	{:des " f-mode for f things" :rules [ :f& ;;* –––––––––––––––––––––––––––––––––––––
-			;;• f+⌘ and space for clicks
-				[:spacebar :button1] [:right_control :button1] ;;• f+spacebar for left-click (AND right-control for UHK)
- 				[:right_gui :button2];;• f+right_command for right click
- 				[:left_gui :button3];;• f+left_command fo (!Cbutton1 doesn't work as a <to> but can be recreated using button3)
-			;;• f+1/2/3/4/ focus Column
-				[:1 [:km "Focus 1"]]
-				[:2 [:km "Focus 2"]]
-				[:3 [:km "Focus 3"]]
-				[:4 [:km "Focus 4"]]
-				[:caps_lock [:km "Focus Sidebar"] ]
-				[:return_or_enter [[:SPKR3]:!STOn]] ;;* Notification Center (via System Hotkey ⇧⌥⌃N)
-			;;* Focus Window
-				[:q [[:SPKR2]:!Cgrave_accent_and_tilde]] [:e [[:SPKR2] :!SCgrave_accent_and_tilde]];;• f+q/e for focus last/next window (via System Preferences)
-				[:tab :!Ctab] ;;• f+tab for ⌘⇥
-				;;  focus ←↑↓→
+			;;• left click, right click, and button 3 
+				[:spacebar :button1] [:right_control :button1] ;;• f+spacebar for left-click (f+right-control same thing with UHK compatability)
+ 				[:right_gui :button2];;• f+right_command for right-click
+ 				[:left_gui :button3];;• f+left_command for... (!Cbutton1 doesn't work as a <to> but can be recreated using button3)
+			;;• Focus global contextuals  ©
+				[:1 [:km "Focus 1"]] ;;* f+1 for Focus 1 KM global contextual©
+				[:2 [:km "Focus 2"]] ;;* f+2 for Focus 2 KM global contextual©
+				[:3 [:km "Focus 3"]] ;;* f+3 for Focus 3 KM global contextual©
+				[:4 [:km "Focus 4"]] ;;* f+4 for Focus 4 KM global contextual©
+				[:caps_lock [:km "Focus Sidebar"] ]  ;;* f+caps_lock for Focus Sidebar via KM global contextual©
+				
+				[:return_or_enter [[:SPKR3]:!STOn]] ;;* f+return for Notification Center (via System Hotkey ⇧⌥⌃N)
+			
+			;;* Window Management 
+				[:q [[:SPKR2]:!Cgrave_accent_and_tilde]] ;;• f+q for focus last window (via System Preferences)
+				[:e [[:SPKR2] :!SCgrave_accent_and_tilde]];;• f+e for focus next window (via System Preferences)
+				[:tab :!Ctab] ;;• f+tab for ⌘⇥ (standard macOS cmd+tab)
+				
+			;;*  focus window via Slate f+←↑↓→ 
 				[:a :!!j] ;;•f+a for focus left (via ⌃⌥⇧⌘+j)
 				[:d :!!l]  ;;•f+d  for focus right (via ⌃⌥⇧⌘+d)
 				[:w :!!i] ;;• f+w for focus up (via ⌃⌥⇧⌘+i)
 				[:s :!!k] ;;• f+s for focus down (via ⌃⌥⇧⌘+k)
-
 				[:x :!!x] ;;• f+x for focus window (via ⌃⌥⇧⌘+x)
 				[:b :!!b] ;;• f+b for focus window (via ⌃⌥⇧⌘+b)
-				;; [:n :fn] 	;;• f+n for for function (to be used with qweasd moom search) ⭕ disable for Raycast floating notes
-				[:comma [:km "Switch Third Space Left"] ] ;;• f+, for Switch Third Space Left
-				[:period [:km "Switch Third Space Right"] ] ;;• f+. for Switch Third Space Right
+				
+				[:comma [:km "Switch Third Space Left"] ] ;;• f+, for Switch Third Space Left ⭕ TOPURGE
+				[:period [:km "Switch Third Space Right"] ] ;;• f+. for Switch Third Space Right ⭕ TOPURGE
 
-		;; [:n :fn] 	;;• f+n for for function (to be used with qweasd moom search)
-		[:comma [:km "Switch Third Space Left"] ] ;;• c+, for Switch Third Space Left
-		[:period [:km "Switch Third Space Right"] ] ;;• c+. for Switch Third Space Right
-		[:caps_lock [:km "_META-palette"] ] ;;• f+capslock for _META-palette
+		;; [:n :fn] 	;;• f+n for for function (to be used with qweasd moom search) ⭕ TOPURGE
+		[:comma [:km "Switch Third Space Left"] ] ;;• c+, for Switch Third Space Left ⭕ TOPURGE
+		[:period [:km "Switch Third Space Right"] ] ;;• c+. for Switch Third Space Right ⭕ TOPURGE
+		[:caps_lock [:km "_META-palette"] ] ;;• f+capslock for _META-palette ⭕ TOPURGE Broken 
 		[:l [:open "raycast://extensions/raycast/floating-notes/toggle-floating-notes-window"] ] ;;• f+l for raycast toggle floating notes command (via URL)
 
 
@@ -438,10 +441,11 @@
 	{:des " h-mode for h things" :rules [:h& ;;* ––––––––––––––––––––––––––––––––––––
 		;; [:w [:km "Hover Evernote Now"]] ;;• h+w for Hover Evernote Now ❌ fuck evernote, literally unusable
 		[:w [:km "Hover Bear ❗ NOW"] ] ;;• h+w for Jump to Bear
-		[:b [:km "Hover Bear ❗ NOW"] ] ;;• h+w for Jump to Bear
+		[:b [:km "Hover Bear ❗ NOW"] ] ;;• h+w for Jump to Bearc
 		;; [:w [[:SPKR3] [:open "evernote:///view/11846588/s107/3ece98d3-b354-40cb-bc54-1b93375eef92/6d950bc3-9eca-4610-a1c6-e8dc89702cd2/"] ]] ;;• h+w for "Hover" Evernote Now (via EN URL)
-		;; [:d [[:SPKR3] [:open "evernote:///view/11846588/s107/421802a9-03af-eb43-b1c4-e606e53a0021/6d950bc3-9eca-4610-a1c6-e8dc89702cd2/"] ]] ;;• h+d for "Hover" Evernote Agenda (via EN URL)
-		[:d [[:SPKR3] [:km "Hover Drafts: ⚡️ QUICK NOTES"] ]] ;;• h+d for Hover Drafts: ⚡️ QUICK NOTES
+		[:d [[:SPKR3] [:km "© Hide Application"] ]] ;;• h+d for © Hide Application
+			;; [:d [[:SPKR3] [:open "evernote:///view/11846588/s107/421802a9-03af-eb43-b1c4-e606e53a0021/6d950bc3-9eca-4610-a1c6-e8dc89702cd2/"] ]] ;;• h+d for "Hover" Evernote Agenda (via EN URL)
+			;; [:d [[:SPKR3] [:km "Hover Drafts: ⚡️ QUICK NOTES"] ]] ;;• h+d for Hover Drafts: ⚡️ QUICK NOTES
 		[:s [[:SPKR3] :!OSCs]] ;;= h+s Open or Hide Sidenotes via hotkey assigned in app (⌥⇧⌘)
 		;; [:l [:km "Hover ⚡️ LIVE NOTES"]] ;;• h+l for Hover ⚡️ LIVE NOTES 🔴 DISABLED
 		;; [:u [:km "Hover 📅 UPCOMING "]] ;;• h+u for Hover 📅 UPCOMING  🔴 DISABLED
@@ -586,12 +590,14 @@
 	[:q [ [:SPKR3] [:open "omnifocus:///perspective/%E2%9A%A1%EF%B8%8FQUICK%20NOW%20PLAN"] ] ] ;;• o+q for OmniFocus Quick Now Plan
 
 	[:i [:km "Hover OmniFocus Inbox"]] ;;• ⭐🔰 o+i for Hover OmniFocus Inbox
+	[:t [[:SPKR3] [:open "tot://"]] :space-mode]  ;;• o+t for tot via URL
 
 	]}
 ;;============================ P MODE ============================= ;;  ⭕🌟TODO p mode has a lot of potential because barely used up and allows access to entire keyboard
 	{:des "p-mode for..." :rules [ :p& ;;* ––––––––––––––––––––––––––––––––––––––––––
 	[:spacebar [[:SPKR3]:!CSTp]] ;;• p+spacebar 1Password (via ⌥⇧⌘+p)
-	[:w [[:SPKR3]:!CSTp]] ;;• p+w for search 1password... ;; edited12/05/23
+	[:w [[:SPKR3] [:km "Activate 1Password"] ]] ;;• p+w for search 1password... ;; edited12/05/23 > edited 3/15/24 
+	;; [:w [[:SPKR3]:!CSTp]] ;;• p+w for search 1password... ;; edited12/05/23
 	[:s  [:km "prepend to simple log"]] ;;• n+s prepend to simple log
 	[:j  [:km "J Jump To Palette"]] ;;• p+j  J Jump to Palette
 	[:g  [:km "G Go To Palette"]] ;;• p+g  for G Go To Palette
