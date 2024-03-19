@@ -806,6 +806,14 @@
 	:return& ;;• –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 		[:delete_or_backspace :!Tdelete_or_backspace] ;;• return+delete for dismiss notification (via ⌃↩) 💡  could also just use
 		[:spacebar [[:SPKR3] :!COSTreturn_or_enter]] ;;• return+spacebar for focus menubard (via bartender hotkey)
+		
+	;; ! click menubar app  issue with it working on 2nd monitor
+		[:u [[:SPKR3] [:btt "Click Menu Bar Status Item URL Manager"]]] ;;• return+u for Click Menu Bar Status Item URL Manager (via BTT)
+		[:e [[:SPKR3] [:btt "Click Menu Bar Status Item Evernote"]]] ;;• return+e for Click Menu Bar Status Item Evernote BTT
+
+		;; [:t [[:SPKR3] [:btt "Custom HTML for links"]]] ;;• return+t for test
+		;; [:t [[:SPKR3] [:btt "Show Floating WebView for links.html"]]] ;;• return+t for test
+		[:t [[:SPKR3] [:btt "Load New HTML Or URL For Web View Menu Item"]]] ;;• return+t for test
 
 	]}
 ;;============================ QUOTE MODE============================
