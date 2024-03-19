@@ -389,6 +389,9 @@
 				[:spacebar :button1] [:right_control :button1] ;;• f+spacebar for left-click (f+right-control same thing with UHK compatability)
  				[:right_gui :button2];;• f+right_command for right-click
  				[:left_gui :button3];;• f+left_command for... (!Cbutton1 doesn't work as a <to> but can be recreated using button3)
+			
+				[:m [[:SPKR3] [:btt "Show Context Menu for Selected Item"]] ] ;;• f+m for btt "Show Context Menu for Selected Item"
+
 			;;• Focus global contextuals  ©
 				[:1 [:km "Focus 1"]] ;;* f+1 for Focus 1 KM global contextual©
 				[:2 [:km "Focus 2"]] ;;* f+2 for Focus 2 KM global contextual©
@@ -527,7 +530,9 @@
 	{:des "L-mode for l things" :rules [ :l& ;;* –––––––––––––––––––––––––––––––––––
 		;; [:s [:km "Clean Line Formatting"]] ;;• l+s for Clean Line Formatting
 		[:d [:open "https://www.notion.so/loudog/LOU-DASHBOARD-2af984c519f8474a8632893fd5482eba"] ] ;;• l+d for  Lou's Dashboard (Notion) ✨ new
-		[:b [ [:open "obsidian://advanced-uri?vault=reference-vault&daily=true&mode=append"]] ] ;;• l+b for log obsidian reference vault daily journal
+		;; [:b [ [:open "obsidian://advanced-uri?vault=reference-vault&daily=true&mode=append"]] ] ;;• l+b for log obsidian reference vault daily journal ❌ DISABLED
+		[:b [ [:open "x-launchbar://open"]] ] ;;• l+b for LaunchBar
+		
 		;;• l+m to Log Master Queitly in Obsidian (via QuickAdd) 🔰 new 8/21/23
 		[:m [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=quickadd%253Achoice%253Ab01dce33-74de-4033-83ff-83667640f864"] ] ]
 
@@ -571,13 +576,13 @@
 		;; [:a [:km "Boldate Clean Left"] ] ;;• n+a for Boldate Clean Left via KM ✨ new (trying to achieve  b+a awkwardness on UhK)
 		[:a [:!Ssemicolon :spacebar :left_arrow :left_arrow :!STa :!Cb :left_arrow :!Cb :hyphen :!Te] ] ;;• n+a for Boldate Clean Left NOT via KM, 🧪 new (trying to achieve  b+a awkwardness on UhK)
 		;; [:r [[:tink] :!CTSr]] ;;• n+r New Reminder via GoodTask quick entry (overlay) (via GoodTask  hotkey ⌃⇧⌘+R) 🔰 new 10/07/23
-		[:r [:open "omnifocus:///add?name=todo&project=rabbit-hole"] ] ;;• r+h to add task to Rabbit Hole project
+		[:r [:open "omnifocus:///add?name=todo&project=rabbit-hole"] ] ;;• n+r to add task to Rabbit Hole project
 		[:g [:km "New ChatGPT Chat"]] ;;• n+g New ChatGPT Chat
 		[:3 [:open "drafts://open?uuid=3E0329E3-8E9C-47CD-8CC2-E144319E12E6"]  ] ;;• j+3 go to ✨ NEW
 
 		;; [:b [:open "obsidian://new?vault=reference-vault&name=new-note"] ] ;;• n+b for new note in obsidian 12/07/23 🔰
 		[:b [:km "New Bear Note"] ] ;;• nb for New Bear Note
-		[:q [:km "New Bear Note"]] ;;• n+q New QuickNote
+		[:q [:open "raycast://extensions/raycast/raycast/create-quicklink"]] ;;• n+q New Quick Link via Raycast
 
 		[:j [:open "noteplan://x-callback-url/openNote?noteDate=today"]  ] ;;• n+j for NotePlan Today Daily Journal
 		[:v [:open "nvalt:///"]  ] ;;• n+v nvAlt
@@ -800,6 +805,7 @@
 		[:l [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=quickadd%253Achoice%253Ab01dce33-74de-4033-83ff-83667640f864"]] ] ;;• /+o to open reference vault Quick Add Master log URI
 		[:spacebar [[:SPKR3] :!CSslash] ] ;;• slash+spacebar for Help Menu Search (via System hotkey ⌘⇧+/) 🟢
 	 	[:h [[:SPKR3] [:open "alfred://runtrigger/com.alfredapp.hookbookmark/search-hookmark-bookmarks/"]] ] ;;• /+o to open reference vault Quick Add Master log URI
+	 	[:q [[:SPKR3] [:open "raycast://extensions/raycast/raycast/search-quicklinks"]] ] ;;• /+q to Search Quick Links via Raycast
 
 	]}
 ;;============================ OTHER MODE ========================== ⭕ TODO [ ] \ /
