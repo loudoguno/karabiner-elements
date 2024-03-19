@@ -132,7 +132,6 @@
 		[ [:o :b :s]  [:open "obsidian://advanced-uri?vault=reference-vault&commandid=obsidian-global-hotkeys%253Ashow"] ] ;;* [obs] for Show Obsidian (via command URI)
 		[ [:o :m :f] [:km "Activate OmniFocus"] ]  ;;* [omf] simultanoesly for Activate OmniFocus via KM. could
 		[ [:n :s :t] [:km "New Sticky"] ] [ [:n :e :s] [:km "New Sticky"] ]  ;; n|s|t for New Sticky 🔰
-		[ [:s :a] [:open "btt://trigger_named/?ktrigger_name=save current window"] ] ;;• s|a simultaneously to save current window (via BTT)
 		[ [:t :d :o] [:open "raycast://extensions/maggie/todo-list/index"] ] ;;• f|j simultaneously for Raycast Todo list
 		
 		[ [:j :o :t] [:open "raycast://extensions/k41531/snap-jot/memo"] ] ;;• m e o simultaneously for Raycast Jot down SnapJot
@@ -145,6 +144,8 @@
 
 		[ [:h :d] [:km "© Hide Application"]] ;;* d+s for © Hide Application
 
+		;; [ [:s :a] [:open "btt://trigger_named/?ktrigger_name=Save Active Window For Recall"] ] ;;• s|a simultaneously to save current window (via BTT)
+		[ [:s :a] [:btt "Save Active Window For Recall"] ] ;;• s|a simultaneously to save current window (via BTT)
 ]}
 ;;======================= HYPER MODE and MODIFIERS ====================
 	{:des "Capslock as hyper" :rules [ [:condi :!space-mode :!Rctrl-mode] ; Capslock as hyper (command+shift+option+control)
@@ -320,11 +321,15 @@
 		[:l [:!Ta :!TSe :!Sright_arrow] ] ;;• b+L for highlight line
 		[:i :vk_consumer_brightness_up] ;;• +i for brightness up
 		[:d :vk_consumer_brightness_down] ;;• b+d for brightness
-		[:t [:btt "btt-named-menu"] ] ;;• b+t
 		[:r :!STCb] ;;• b+r Toggle Bear (via ⌥⇧⌘+b)
 		[:n :!SOCb] ;;• b+n Toggle Bear (via ⌥⇧⌘+b)
 
+		[:t [:btt "btt-named-menu"] ] ;;• b+t
 		;; [:t [ [:SPKR3] [:btt "btt://execute_assigned_actions_for_trigger/?uuid=8FDC79DD-F8F6-4BAF-986E-DF6A56C526F1"] ] ] ;;• b+t
+		[:s [:btt "Save Active Window For Recall"] ] ;;• b+s to save current window (via BTT)
+		[:tab [:btt "Recall Saved Window"]] ;;• b+tab for Recall Saved Window (via BTT)
+
+
 
 	]}
 ;;============================ C MODE =============================
@@ -391,7 +396,11 @@
  				[:left_gui :button3];;• f+left_command for... (!Cbutton1 doesn't work as a <to> but can be recreated using button3)
 			
 				[:m [[:SPKR3] [:btt "Show Context Menu for Selected Item"]] ] ;;• f+m for btt "Show Context Menu for Selected Item"
-
+				
+				;;*  BTT Show Menu Bar in Context Menu
+					;; [:b [[:SPKR3] [:open "btt://trigger_named/?trigger_name=Show Menu Bar in Context Menu"]] ]  ;;* ❌ opened in editore
+					[:b [[:SPKR3] [:btt "Show Menu Bar in Context Menu"]] ] ;;• f+m for btt "Show Context Menu for Selected Item"
+			
 			;;• Focus global contextuals  ©
 				[:1 [:km "Focus 1"]] ;;* f+1 for Focus 1 KM global contextual©
 				[:2 [:km "Focus 2"]] ;;* f+2 for Focus 2 KM global contextual©
@@ -412,7 +421,8 @@
 				[:w :!!i] ;;• f+w for focus up (via ⌃⌥⇧⌘+i)
 				[:s :!!k] ;;• f+s for focus down (via ⌃⌥⇧⌘+k)
 				[:x :!!x] ;;• f+x for focus window (via ⌃⌥⇧⌘+x)
-				[:b :!!b] ;;• f+b for focus window (via ⌃⌥⇧⌘+b)
+				;; [:b :!!b] ;;• f+b for focus window (via ⌃⌥⇧⌘+b) ⭕ disable for btt context menu
+
 				
 				[:comma [:km "Switch Third Space Left"] ] ;;• f+, for Switch Third Space Left ⭕ TOPURGE
 				[:period [:km "Switch Third Space Right"] ] ;;• f+. for Switch Third Space Right ⭕ TOPURGE
@@ -652,7 +662,6 @@
 		[:e :!TOCe]  ;;• r+e for next song (via ⌃⌥⌘+e)
 		[:f :!TOCf] ;;• r+f for full screen  via ⌃⌥⌘f
 		[:m [:km "Mute"]] ;;• r+m for mute
-		[:tab [:open "btt://trigger_named/?trigger_name=recall saved window"]] ;;• r+tab recall saved window (via btt)
 		[:j :!TOCleft_arrow] [:l :!TOCright_arrow] [:i :!TOCup_arrow] [:k :!TOCdown_arrow] ;;*jlik for select left/right/up/down TODO what is this? ⭕
 		[:grave_accent_and_tilde [:km "Enclose Selection with backticks"]] ;;• r+` for Enclose Selection with backticks 🔰 new 10/17/23
 		;;* Remote Palette
@@ -664,6 +673,11 @@
 		
 		
 		[:h [:open "omnifocus:///task/jGlpWL-xZ0h"] ] ;;• r+h go to rabbit hole
+		
+		
+		;; [:tab [:open "btt://trigger_named/?trigger_name=recall saved window"]] ;;• r+tab recall saved window (via btt)
+		;; [:tab [:open "btt://trigger_named/?trigger_name=Recall Saved Window"]] ;;• r+tab recall saved window (via btt)
+		[:tab [:btt "Recall Saved Window"]] ;;• r+tab recall saved window (via btt)
 	]}
 ;;============================= S Mode =============================
 	{:des "s-mode for s things" :rules [ :s& ;;* ––––––––––––––––-----------––––––––––––
@@ -750,6 +764,10 @@
 		;; [:b [:km "Hover Evernote 🧰 WORKBENCH"]] ;;• w+b for Hover Evernote 🧰 WORKBENCH
 		[:l [:km "Bear Log: show work log" ]] ;;• w+l 💼📓 Bear Log: show work log via KM (new 1/10/24, didn't like using l+s this makes it more similar tow+b)
 		[:b [[:SPKR3] [:open "bear://x-callback-url/open-note?id=620D8537-7F55-4AE0-AAF0-AB1E9847A62F&TODAY&new_window=yes&selected=no&float=no&show_window=yes&open_note=yes"]]] ;;• w+b for open Bear 🧰 Workbench
+
+		[:tab [:btt "Recall Saved Window"]] ;;• w+tab for Recall Saved Window (via BTT)
+
+
 
 	]}
 ;;============================ X MODE ============================
