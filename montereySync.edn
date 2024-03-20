@@ -399,7 +399,7 @@
 				
 				;;*  BTT Show Menu Bar in Context Menu
 					;; [:b [[:SPKR3] [:open "btt://trigger_named/?trigger_name=Show Menu Bar in Context Menu"]] ]  ;;* ❌ opened in editore
-					[:b [[:SPKR3] [:btt "Show Menu Bar in Context Menu"]] ] ;;• f+m for btt "Show Context Menu for Selected Item"
+					[:b [[:SPKR3] [:btt "Show Menu Bar in Context Menu"]] ] ;;• f+b for btt "Show Context Menu for Selected Item"
 			
 			;;• Focus global contextuals  ©
 				[:1 [:km "Focus 1"]] ;;* f+1 for Focus 1 KM global contextual©
@@ -813,6 +813,7 @@
 
 		;; [:t [[:SPKR3] [:btt "Custom HTML for links"]]] ;;• return+t for test
 		;; [:t [[:SPKR3] [:btt "Show Floating WebView for links.html"]]] ;;• return+t for test
+		[:f [[:SPKR3] [:btt "Click Menu Bar Status Item FastMarks"]]] ;;• return+f for FastMarks
 		[:t [[:SPKR3] [:btt "Load New HTML Or URL For Web View Menu Item"]]] ;;• return+t for test
 
 	]}
