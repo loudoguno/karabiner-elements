@@ -133,6 +133,7 @@
 		[ [:o :m :f] [:km "Activate OmniFocus"] ]  ;;* [omf] simultanoesly for Activate OmniFocus via KM. could
 		[ [:n :s :t] [:km "New Sticky"] ] [ [:n :e :s] [:km "New Sticky"] ]  ;; n|s|t for New Sticky 🔰
 		[ [:t :d :o] [:open "raycast://extensions/maggie/todo-list/index"] ] ;;• f|j simultaneously for Raycast Todo list
+		[ [:o :m :f] [:open "omnifocus://"] ] ;;• omf simultaneously to activate OmniFocus
 		
 		[ [:j :o :t] [:open "raycast://extensions/k41531/snap-jot/memo"] ] ;;• m e o simultaneously for Raycast Jot down SnapJot
 		[ [:j :o :s] [:open "raycast://extensions/k41531/snap-jot/listFiles"] ] ;;• m r o simultaneously for Raycast 
