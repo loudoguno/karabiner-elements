@@ -633,7 +633,10 @@
 	[:n [ [:SPKR3] [:open "drafts://open?uuid=6823BE09-6193-4D97-894A-5147B7285DD9"]]] ;;• q+n to open ⚡️ Quick Notes (Draft)
 	[:b [ [:SPKR3] [:open "drafts://open?uuid=02B40CD6-2E52-444F-9689-9B8D7D859436"]]] ;;• q+b to open 🎛 QUICK DASHBOARD
 	[:t [ [:SPKR3] [:open "INSERT_URL"] ] ] ;;•q+t AVAIL
-	[:c [ [:SPKR3] [:open "obsidian://advanced-uri?vault=highly-opinionated-vault&commandid=obsidian42-text-transporter%253Aobsidian42-text-transporter-QC"] ] ] ;;•q+c for quick capture to highly opinionated vault 
+	;; [:c [ [:SPKR3] [:open "obsidian://advanced-uri?vault=highly-opinionated-vault&commandid=obsidian42-text-transporter%253Aobsidian42-text-transporter-QC"] ] ] ;;•q+c for quick capture to highly opinionated vault 
+	[:c [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=obsidian42-text-transporter%253Aobsidian42-text-transporter-QC"] ] ] ;;•q+c for quick capture to highly opinionated vault 
+	
+	
 	]}
 ;;============================ R MODE ============================== ⭕ TODO: clean up comments and formatting (consolidate rules to fewer lines and add descriptions)
 ;; ℹ️ "remote-mode" for  media transport control (play/pause/next song ect..). most send ⌃⌥⌘ (3 modifiers grouped left of space) plus another key -> next layer in KM are contextual groups like QuickTime, media (e.g. spotify), YouTube
