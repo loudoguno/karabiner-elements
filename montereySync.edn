@@ -1,4 +1,4 @@
-;;= montereySync.edn .4 (2024 git issue) ==============================================
+;;= montereySync.edn .5 (2024 git issue after BTT url issue) ==============================================
 ;; find a home for 👇
 	;; [ [:d :s] [:km "Display (settings)"]] ;;* d+s for Display (settings) test
 	;; :open "osascript -e open \"%s\" "
@@ -149,39 +149,45 @@
 		[ [:s :a] [:btt "Save Active Window For Recall"] ] ;;• s|a simultaneously to save current window (via BTT)
 ]}
 ;;======================= HYPER MODE and MODIFIERS ====================
-	{:des "Capslock as hyper" :rules [ [:condi :!space-mode :!Rctrl-mode] ; Capslock as hyper (command+shift+option+control)
-		[:##caps_lock :!!left_control nil {:alone :escape} ] ]}
+
+	{:des "Capslock as hyper" :rules [ [:condi :!space-mode :!Rctrl-mode] ;;* Capslock as hyper (command+shift+option+control)
+	[:##caps_lock :!!left_control nil {:alone :escape} ] ]}
+
+;; 
+	;;TODO fn is used with Contexts for quick witching
 	{:des "Semicolon as fn" :rules [ [:condi :!space-mode :!Rctrl-mode] ;;* Semicolon as FN for use with Contexts quicksearch
-		[:##semicolon :##fn nil {:alone :semicolon}] ]}
+	[:##semicolon :##fn nil {:alone :semicolon}] ]}
 	{:des "FN from UHK" :rules [[:#SOCTf24 :fn [:uhk-keyboard] ]]} ;;* UHK FN as mac fn via UHK hardcoded f24 > fn in KE but only for uhk
 	{:des "FN from UHK 2" :rules [[:#SOCTf24 :fn [:uhk-keyboard-2] ]]} ;;* for V2
 	{:des "Tab as fn" :rules [ [:condi :!space-mode :!Rctrl-mode :!f&] ;! got it to stop sending fn
 		[:##tab :fn nil {:alone :tab} ] ] }
+	
 	{:des "quote as (left) control (for emacs)" :rules [ [:condi :!space-mode :!Rctrl-mode :!f&] ;✨ tryi''ng out for emacs, ❓ don't know what :!f& is for
-		[:##quote :##left_control nil {:alone :quote} ] ] }
+	[:##quote :##left_control nil {:alone :quote} ] ] }
 
 ;;=========================== SPACE MODE ============================ bread and butter space + all sorts of awesome things
 	{:des "spacebar mode" :rules [ ;? set up not to conflict with numpad-mode
 		;; homerow keyboard
 			[:##b :spacebar :space-mode] ;spacebar+b for space
 			;spacebar+jlik for left/right/up/down
-			[:##j :left_arrow :space-mode]
-			[:##l :right_arrow :space-mode]
-			[:##i :up_arrow :space-mode]
-			[:##k :down_arrow :space-mode]
+			[:##j :left_arrow :space-mode] ;;* spacebar+j for ←
+			[:##l :right_arrow :space-mode] ;;* spacebar+l for →
+			[:##i :up_arrow :space-mode] ;;* spacebar+i for ↑
+			[:##k :down_arrow :space-mode] ;;* spacebar+k for ↓
 			;; non-text characters (↩⇥, delete, page up/down)
-			[:##semicolon :return_or_enter :space-mode]
-			[:##u :!Stab :space-mode]
-			[:##o :tab :space-mode]
-			[:##p :delete_or_backspace :space-mode]
-			[:##y :page_up :space-mode]
-			[:##h :page_down :space-mode]
-			;; modifiers (⇧⌥⌘⌃)
-			[:##s :left_shift :space-mode]
-			[:##f :right_command :space-mode]
-			[:##a :left_control :space-mode]
-			[:##d :left_option :space-mode]
-			[:##caps_lock :fn :space-mode]
+			[:##semicolon :return_or_enter :space-mode] ;;* spacebar+return for ↩
+			[:##h :tab :space-mode] ;;* spacebar+h for ⇥
+			[:##p :delete_or_backspace :space-mode] ;;* spacebar+p for delete
+			[:##y :page_up :space-mode] ;;* spacebar+y for page up
+			[:##n :page_down :space-mode] ;;* spacebar+n for page down
+			[:##o :tab :space-mode] ;;* spacebar+u for tab
+			[:##u :!Stab :space-mode] ;;* spacebar+u for ⇧+tab
+			;; spacebar+asdf for  modifiers (⇧⌥⌘⌃)
+			[:##a :left_control :space-mode] ;;* spacebar+a for ctrl
+			[:##s :left_shift :space-mode] ;;* spacebar+s for shift
+			[:##d :left_option :space-mode] ;;* spacebar+d for option
+			[:##f :right_command :space-mode] ;;* spacebar+f for cmd
+			[:##caps_lock :fn :space-mode] ;;* spacebar+caps_lock for 
 		;; MISC for other functions (backtick/capslock for escape, b for spacebar and w for moom)
 			[:##m [[:SPKR3]:!!f14] :space-mode] [:##m [[:SPKR2]:!!f14] :Rctrl-mode] ;;• spacebar+m for activate moom (like this one better)
 			[:##c [[:SPKR3]:!Ospacebar] :space-mode] [:##c [[:SPKR2]:!Ospacebar] :Rctrl-mode] ;;• spacebar+c to activate Contexts
@@ -297,7 +303,6 @@
 		[:spacebar [:km "Trigger Macro by Name"]] ;;• 1+spacebar for "Trigger Macro by Name"  TODO: delete
 		[:d [ [:SPKR3] [:open "drafts://open?uuid=6823BE09-6193-4D97-894A-5147B7285DD9"]]] ;;• 1+d to open Drafts ⚡️ Quick notes
 		[:n [ [:SPKR3] [:open "https://www.icloud.com/notes/04009kn-a3boPsvu-Rc-xpaEQ"]]] ;;• 1+d to open Apple  Now Notes
-		[:o [ [:SPKR3] [:open "omnifocus:///task/cVPImebMMwu"] ] ];;• 1+o to open omnifocus Now
 		[:p [:km "Activate 1Password"]] ;;• 1+p for "Activate 1Password" 🔰 nw 1/24/24
 	;; 1+d Drafts Quick Notes
 	;; 1+e for Evernote Now
@@ -394,7 +399,7 @@
 			;;• left click, right click, and button 3 
 				[:spacebar :button1] [:right_control :button1] ;;• f+spacebar for left-click (f+right-control same thing with UHK compatability)
  				[:right_gui :button2];;• f+right_command for right-click
- 				[:left_gui :button3];;• f+left_command for... (!Cbutton1 doesn't work as a <to> but can be recreated using button3)
+ 				[:left_gui :button3];;• f+left_command for "button3" ... (!Cbutton1 doesn't work as a <to> but can be recreated using button3)
 			
 				[:m [[:SPKR3] [:btt "Show Context Menu for Selected Item"]] ] ;;• f+m for btt "Show Context Menu for Selected Item"
 				
