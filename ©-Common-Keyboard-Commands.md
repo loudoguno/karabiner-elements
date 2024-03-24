@@ -1,4 +1,6 @@
-[text](©-Common-Keyboard-Commands.md)
+list of common commands i want to implement in me ke config to deal with the KM hijacking key event from overlsay
 
-focus colums
-create new
+
+LIST:
+- focus colums
+- create new

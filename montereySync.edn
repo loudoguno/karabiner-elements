@@ -121,7 +121,7 @@
 						:held [[:SPKR1] ["symrow-mode" 1]] :afterup [[:SPKR0] ["symrow-mode" 0]]
 						:repeat false :halt false :params{:alone 150 :held 150}} ]
 			]}
-;;;======================== lLTANEOUS KEY (SIM MODE) ========================= rules activated when two keys are pressed at the same time
+;;;======================== SlLTANEOUS KEY (SIM MODE) ========================= rules activated when two keys are pressed at the same time
 	{:des "Simultaneous Keys":rules [
 		[ [:k :m] [:km "Activate Keyboard Maestro"] ] ;;* km to activate Keyboard Maestro
 		[ [:v :c] [:km "Activate Visual Studio Code"] ] ;;* vc to Activate Visual Studio Code
@@ -143,7 +143,7 @@
 		[ [:a :d :l] [:open "omnifocus:///add?name=newtask&project=💊ADDLOG&tags=💊ADDLOG@"] ] ;;• rem simultaneously for Raycast Reminderse
 		[ [:n :o :w] [:open "omnifocus:///task/mFIwCeWL7Xt"] ] ;;• now simultaneously for OmniFocus Now
 
-		[ [:h :d] [:km "© Hide Application"]] ;;* d+s for © Hide Application
+		[ [:h :d] [:km "© Hide Application"]] ;;* hd for © Hide Application
 
 		;; [ [:s :a] [:open "btt://trigger_named/?ktrigger_name=Save Active Window For Recall"] ] ;;• s|a simultaneously to save current window (via BTT)
 		[ [:s :a] [:btt "Save Active Window For Recall"] ] ;;• s|a simultaneously to save current window (via BTT)
@@ -356,11 +356,6 @@
 	]}
 ;;============================ D MODE ==============================
 	{:des "d-mode for d things" :rules [ :d& ;;================================== D MODE
-		;; [:j [:open "obsidian://advanced-uri?vault=reference-vault&daily=true&mode=append"] ] ;;• d+j for daily journal  in Obsidian (via URI)
-		[:j [:km "Goto Bear Daily Journal"] ] ;;• d+j for Goto Bear Daily Journal
-		;; d+spacebar for ⌘ palette (legacy from window manipulation stuff) ⭕ TODO: refactor window mgmt stuff her 📜 old/stale/archive
-		;; [:spacebar [[:SPKR3] :!Cp] ] ;;• d+spacebar for ⌘P (⌘p keyboard maestro conflict palette) TODO: don't think this one makes sense any mor
-		[:right_control [[:SPKR3] :!Cp] ] 					  ;;= UHK  split spacebar compatability
 
 	;; Tab Manipulation..........................................
 		[:s :!TStab] 														;;= d+s for tab left (via ⌃⇥ with action set in app native or KM)
@@ -375,16 +370,19 @@
 		[:period [:km "Switch Second Space Right"] ] ;;• c+period for Switch Second Space Right ✅ working on 💻 Maxbook pro
 
 		[:t [[:SPKR3] :!SCTd] ] ;;• d+t for Dictate Text (via ⇧⌃⌘d hotkey set in System Preferencees > Keyboard > Dictation)
-		[:2 [[:SPKR3] :!TO2] ] ;;• d+2 for ⌃⌥2 2Do quick entry ✨ new 7/30/23
-		[:q [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=quickadd%253ArunQuickAdd"] ]] ;;• d+q for QuickAdd
-		[:i [:open "drafts://x-callback-url/capture?text=INITIAL-TEXT"] ] ;;• d+i for QuickCapture Drafts Inbox via URL
-		;; ke template for open url KE rule
-		;; [:KeyB [:open "TARGETURL"] ] ;;• KeyA+KeyB for COMMAND via MECHANISM (key press, URL, App alias)
-		;; [:KeyA [:open "TARGETURL"] ] ;;• KeyA+KeyB for Drafts Inbox QuickCapture via URL
-		;; /Users/loudog/Desktop
+		
 
+		;; [:j [:km "Goto Bear Daily Journal"] ] ;;• d+j for Goto Bear Daily Journal
+		[:i [:open "drafts://x-callback-url/capture?text=INITIAL-TEXT"] ] ;;• d+i for QuickCapture Drafts Inbox via URL
+
+		[:j [:open "obsidian://advanced-uri?vault=reference-vault&daily=true&mode=append"] ] ;;• d+j for append to daily journal in Obsidian (via URI)
+		[:b [ [:open "obsidian://advanced-uri?vault=reference-vault&daily=true&mode=append"]] ] ;;• l+b for log Obsidian reference vault daily journal
+		
+		[:q [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=quickadd%253ArunQuickAdd"] ]] ;;• d+q for QuickAdd
+		
 		[:k [ :open  "/Users/loudog/Desktop"] ] ;;• d+k for Switch Third Space Right
-		[:d :!TSCd [:SPKR3] ] ;; d+hfor Dash vairables
+	
+	
 	]}
 ;;============================ E MODE =============================
 	{:des "e-mode for e things" :rules [ :e& ;;=================================
@@ -528,15 +526,25 @@
 	]}
 ;;============================= K MODE =============================
 	{:des "k-mode for k things" :rules [ :k& ;;• k+..................................................................
-			;; [:spacebar [:km "Trigger Macro by Name"]] ;;• k+spacebar for "Trigger Macro by Name"
-			[:spacebar :!CSOspacebar] ;;• k+spacebar for to Trigger Macro by Name (via hotkey)
+			
+			;; [:spacebar :!CSOspacebar] ;;• k+spacebar for to Trigger Macro by Name (via hotkey)
+			[:spacebar [:km "Trigger Macro by Name"]] ;;• k+spacebar for "Trigger Macro by Name"
+			[:left_gui [:open "Trigger Macro by Name"]] ;;• k+spacebar for "Trigger Macro by Name"
+			
+			[:right_gui :!CSOspacebar] ;;• k+right_gui  Trigger Macro by Name via hotkey (faster than ke template calling osa script)
+
 
 			[:e [:km "Open Karabiner Elements (monterySync.edn) in VS Code"]] ;;• k+e for Open Karabiner Elements (monterySync.edn) in VS Code 💠
 			[:v [:km "Activate Karabiner EventViewer"]] ;;• k+v for "Activate Karabiner EventViewer"
-			[:y [:open "https://www.notion.so/my-old-ky-home/My-Old-Kentucky-Notion-c9ffb2a6aa6540e1b3e80a34e5db2d72?p=226804d32b084480a53b9c5ec4bde45f&showMoveTo=true)"]] ;;• k+y for ky house dashboard
+			
+		
+			;; [:y [:open "https://www.notion.so/my-old-ky-home/My-Old-Kentucky-Notion-c9ffb2a6aa6540e1b3e80a34e5db2d72?p=226804d32b084480a53b9c5ec4bde45f&showMoveTo=true)"]] ;;• k+y for ky house dashboard
+			[:y [:open "https://roamresearch.com/#/app/myoldkyhome"]] ;;• k+y for 🐿📓 KY House Log
+
 			;; [:s [:open "obsidian://advanced-uri?vault=reference-vault&commandid=workspaces-plus%253A%25F0%259F%2593%259F%2520KSSRC%2520config"]] ;;• k+s for ky house dashboard
 			[:s [:open "/Users/loudog/Library/Mobile Documents/com~apple~CloudDocs/sync/Obsidian/-vaults/reference-vault/kssrc.md"]] ;;• k+c to open kssrc.md (obsidian key sequence config file)
 			;; [:b :!STCk ]  ;;• k+b for "Instant Lookup in KeyCombiner (via ⌃⇧⌘+k)" 🔴 disabled not used
+			[:b :!STCk ]  ;;* k+b for Helping Friendly Database
 			[:o  [ :shortcut "Keyboard Overlay" [:SPKR3]]] ;;* h+g to run Shortcut Hey GPT ⭐
 			[:c [:open "keycue://"] ]  ;;• k+c for "Instant Lookup in KeyCombiner (via ⌃⇧⌘+k)"
 			[:u [:open "file:///Users/loudog/Library/Application Support/KeyCue/KeyCue-URLs.txt"]] ;;• k+u to open
@@ -546,7 +554,7 @@
 	{:des "L-mode for l things" :rules [ :l& ;;* –––––––––––––––––––––––––––––––––––
 		;; [:s [:km "Clean Line Formatting"]] ;;• l+s for Clean Line Formatting
 		[:d [:open "https://www.notion.so/loudog/LOU-DASHBOARD-2af984c519f8474a8632893fd5482eba"] ] ;;• l+d for  Lou's Dashboard (Notion) ✨ new
-		;; [:b [ [:open "obsidian://advanced-uri?vault=reference-vault&daily=true&mode=append"]] ] ;;• l+b for log obsidian reference vault daily journal ❌ DISABLED
+
 		[:b [ [:open "x-launchbar://open"]] ] ;;• l+b for LaunchBar
 		
 		;;• l+m to Log Master Queitly in Obsidian (via QuickAdd) 🔰 new 8/21/23
@@ -743,10 +751,20 @@
 	]}
 ;;============================ V MODE ==============================
 	{	:des "v-mode for..." :rules [ :v& ;;* ––––––––––––––––––––––––––––––––––––––––-
-		[:i [[:SPKR3] [:km "Hover Evernote ⭐️ VIPs"] ] ] ;;! v+i  for Hover Evernote ⭐️ VIPs >  TODO: time to delete ❌
-		[:2 [[:SPKR3] [:open "obsidian://open?vault=vault2"]]] ;;• v+2 for open Obsidian vault 2 ✨ new 7/30/23
+
+		[:s [[:SPKR3] [:open "/Users/loudog/Dropbox/Sync/vs-code/vs code sync.code-workspace"]]] ;;todo don't knoew why i have this• v+s for open VS-Code sync workspace ✨ new 7/30/23 🟢 works, NOTE: do note want to prepend file path with file//
+
+		;;* REFERENCE Vault
 		[:r [[:SPKR3] [:open "obsidian://open?vault=reference-vault"]]] ;;• v+r for open Obsidian vault 2 ✨ new 7/30/23
-		[:s [[:SPKR3] [:open "/Users/loudog/Dropbox/Sync/vs-code/vs code sync.code-workspace"]]] ;;• v+s for open VS-Code sync workspace ✨ new 7/30/23 🟢 works, NOTE: do note want to prepend file path with file//
+		[:p [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=command-palette%253Aopen"]]] ;;• v+p reference vault command palette via URL
+		[:l [[:SPKR3] [:open "obsidian://log"]]] ;;• v+l log to daily journal reference vault via lumberjack URL 
+		[:spacebar [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=omnisearch%253Ashow-modal"]]] ;;• v+spacebar Search viazp
+		[:b [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=obsidian-better-command-palette%253Aopen-better-commmand-palette"]]] ;;• v+b Better Command Palette vi
+		[:n [[:SPKR3] [:open "raycast://extensions/KevinBatdorf/obsidian/createNoteCommand"]]] ;;• v+n New Note in Obsidian via Raycast
+		[:h [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=darlal-switcher-plus%253Aswitcher-plus%253Aopen-headings"]]] ;;• v+h Jumpt to Obsidian  Headings via quickswitcher 
+
+		;;* Vault 2
+		;; [:2 [[:SPKR3] [:open "obsidian://open?vault=vault2"]]] ;;• v+2 for open Obsidian vault 2 ✨ new 7/30/23
 	]}
 ;;============================ W MODE =============================
 	{	:des "w-mode" :rules [ :w& ;;• ––––––––––––––––––––––––––––––––––––––––––––
@@ -840,7 +858,7 @@
 		[:b [:open "obsidian://advanced-uri?vault=reference-vault&commandid=workspace%253Atoggle-pin&uid=c2352d6a-240a-4730-90da-91bdf10486af"] ] ;;• slash+b for pin 👿 cheatsheet (ref vault) URI
 		[:l [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=quickadd%253Achoice%253Ab01dce33-74de-4033-83ff-83667640f864"]] ] ;;• /+o to open reference vault Quick Add Master log URI
 		[:spacebar [[:SPKR3] :!CSslash] ] ;;• slash+spacebar for Help Menu Search (via System hotkey ⌘⇧+/) 🟢
-	 	[:h [[:SPKR3] [:open "alfred://runtrigger/com.alfredapp.hookbookmark/search-hookmark-bookmarks/"]] ] ;;• /+o to open reference vault Quick Add Master log URI
+	 	[:h [[:SPKR3] [:open "alfred://runtrigger/com.alfredapp.hookbookmark/search-hookmark-bookmarks/"]] ] ;;• /+h to Search Hookmark Bookmarks (via Alfred worflow URL)
 	 	[:q [[:SPKR3] [:open "raycast://extensions/raycast/raycast/search-quicklinks"]] ] ;;• /+q to Search Quick Links via Raycast
 
 	]}
