@@ -126,7 +126,8 @@
 		[ [:k :m] [:km "Activate Keyboard Maestro"] ] ;;* km to activate Keyboard Maestro
 		[ [:v :c] [:km "Activate Visual Studio Code"] ] ;;* vc to Activate Visual Studio Code
 		[ [:s :n] [:km "Activate SideNotes"] ] ;;* s+n to open SideNotes "❗ Now" note via URL (sidenotes://open/460F59F5-617F-44CB-B9F0-099E96DF1EE3)
-		[ [:c :s] [[:SPKR3] [:open "sidenotes://open/93C96CE1-3C77-49A9-955D-D50340BA04F1"] ] ] ;;* c+s for show SideNotes cheatsheet
+		;; [ [:c :s] [[:SPKR3] [:open "sidenotes://open/93C96CE1-3C77-49A9-955D-D50340BA04F1"] ] ] ;;* c+s for show SideNotes cheatsheet
+		[ [:c :s] [[:SPKR3] [:open "raycast://extensions/Envl/clipmenu/index"] ] ] ;;* cs for Show Clipboard Content via Raycast
 		[[:n :e :w] [ [:SPKR3] [:open "sidenotes://open/3F52308E-C16E-40C2-8CBE-87BC0F8CC590"] ] ] ;;• n|e|w+s for ✨ new stuff (sidenotes note)
 		[ [:d :r]  [:km "Activate Drafts"] ] ;;* d+r to Activate via KM
 		[ [:o :b :s]  [:open "obsidian://advanced-uri?vault=reference-vault&commandid=obsidian-global-hotkeys%253Ashow"] ] ;;* [obs] for Show Obsidian (via command URI)
@@ -645,10 +646,12 @@
 	[:l [ [:SPKR3] [:open "drafts://open?uuid=00E137E9-0DB5-4824-8929-D330416244CE"]]] ;;• q+l open 🔗 QUICK LINKS
 	[:n [ [:SPKR3] [:open "drafts://open?uuid=6823BE09-6193-4D97-894A-5147B7285DD9"]]] ;;• q+n to open ⚡️ Quick Notes (Draft)
 	[:b [ [:SPKR3] [:open "drafts://open?uuid=02B40CD6-2E52-444F-9689-9B8D7D859436"]]] ;;• q+b to open 🎛 QUICK DASHBOARD
-	[:t [ [:SPKR3] [:open "INSERT_URL"] ] ] ;;•q+t AVAIL
 	;; [:c [ [:SPKR3] [:open "obsidian://advanced-uri?vault=highly-opinionated-vault&commandid=obsidian42-text-transporter%253Aobsidian42-text-transporter-QC"] ] ] ;;•q+c for quick capture to highly opinionated vault 
 	[:c [ [:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=obsidian42-text-transporter%253Aobsidian42-text-transporter-QC"] ] ] ;;•q+c for quick capture to highly opinionated vault 
 	
+
+	[:t [ [:SPKR3] [:km "Open KM Pick List"] ] ] ;;• q+t for KM Pick List
+	[:r [ [:SPKR3] [:km "Open KM Pick List"] ] ] ;;• q+r for KM Pick List
 	
 	]}
 ;;============================ R MODE ============================== ⭕ TODO: clean up comments and formatting (consolidate rules to fewer lines and add descriptions)
@@ -754,8 +757,10 @@
 
 		[:s [[:SPKR3] [:open "/Users/loudog/Dropbox/Sync/vs-code/vs code sync.code-workspace"]]] ;;todo don't knoew why i have this• v+s for open VS-Code sync workspace ✨ new 7/30/23 🟢 works, NOTE: do note want to prepend file path with file//
 
-		;;* REFERENCE Vault
+		;;* New Vault Commends (REFERENCE Vault)
 		[:r [[:SPKR3] [:open "obsidian://open?vault=reference-vault"]]] ;;• v+r for open Obsidian vault 2 ✨ new 7/30/23
+		[:slash [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&filepath=-%20%20%F0%9F%8F%A0%20Reference%20Vault%20Home.md&uid=9cba8f4c-4c2e-4db2-bbfb-3debd61462ee"]]] ;;• v+slash for 🏠 reference vault home in Obsidian 🔰
+		
 		[:p [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=command-palette%253Aopen"]]] ;;• v+p reference vault command palette via URL
 		[:l [[:SPKR3] [:open "obsidian://log"]]] ;;• v+l log to daily journal reference vault via lumberjack URL 
 		[:spacebar [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=omnisearch%253Ashow-modal"]]] ;;• v+spacebar Search viazp
