@@ -1,4 +1,5 @@
 ;;= montereySync.edn .5 (2024 git issue after BTT url issue) ==============================================
+;; 3/25/24 removed spacebar+n for page down
 ;; find a home for 👇
 	;; [ [:d :s] [:km "Display (settings)"]] ;;* d+s for Display (settings) test
 	;; :open "osascript -e open \"%s\" "
@@ -180,7 +181,6 @@
 			[:##h :tab :space-mode] ;;* spacebar+h for ⇥
 			[:##p :delete_or_backspace :space-mode] ;;* spacebar+p for delete
 			[:##y :page_up :space-mode] ;;* spacebar+y for page up
-			[:##n :page_down :space-mode] ;;* spacebar+n for page down
 			[:##o :tab :space-mode] ;;* spacebar+u for tab
 			[:##u :!Stab :space-mode] ;;* spacebar+u for ⇧+tab
 			;; spacebar+asdf for  modifiers (⇧⌥⌘⌃)
@@ -504,7 +504,7 @@
 		[:q [ [:SPKR3] [:open "drafts://open?uuid=6823BE09-6193-4D97-894A-5147B7285DD9"]]] ;;• j+q to open ⚡️ Quick Notes (Draft)
 
 		;; [:b [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=darlal-switcher-plus%253Aswitcher-plus%253Aopen"]] ] ;;• j+b jump to Obsidian (via QuickSwitcher plus URI
-		[:b [:km "Jump to Bear"]] ;;• j+d for Jump to Drafts (global)
+		[:b [:km "Jump to Bear"]] ;;• j+b for Jump to Bear˛st (global)
 		[:d [:km "Jump to Drafts (global)"]] ;;• j+d for Jump to Drafts (global)
 		[:e [[:SPKR3][:km "Jump to Evernote"]]] ;;• j+e for Jump to Evernote 🔴 broken in EN 10
 		[:o [:km "Jump to OmniFocus"]] ;;• j+o for Jump to OmniFocus 🟡 needs work > 🟢 better now
@@ -636,7 +636,7 @@
 	[:j  [:km "J Jump To Palette"]] ;;• p+j  J Jump to Palette ⭕ FIX
 	[:g  [:km "G Go To Palette"]] ;;• p+g  for G Go To Palette
 	[:n  [:km "N New Palette"]] ;;• p+n  for N New Palette
-	;; [:o  [:km "N New Palette"]] ;;• p+n  for N New Palette
+	;; [:o  [:km "N New Palette"]] ;;• p+n  for N New Palett
 ;; --- OPEN simple prepend log (drafts): drafts://open?uuid=BAAE87AB-BB0F-4F0D-A395-3FE17F7F180D
 ;; --- EDIT macro (km editor): keyboardmaestro://m=97A5CECF-E229-4FFB-B7C7-7CC31F1145C7
 	]}
