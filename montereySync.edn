@@ -1,5 +1,11 @@
 ;;= montereySync.edn .5 (2024 git issue after BTT url issue) ==============================================
 ;; 3/25/24 removed spacebar+n for page down
+;; 3/26/24 2:28 PM last commit was just to clean
+;; 3/26/24 3:28 PM removing URLS and working on new vault commands
+;; 3/26/2 4 11:44 PM cleaned up left + right modifier rules and found out right_shift+space gets captuered up by typinator as a keypress
+;; summary: removed spacebar+n for page down, worked on new vault commands v-mode, cleaned up l+r modifier rules and found out right_shift+space gets captuered up by typinator as a keypress
+
+
 ;; find a home for 👇
 	;; [ [:d :s] [:km "Display (settings)"]] ;;* d+s for Display (settings) test
 	;; :open "osascript -e open \"%s\" "
@@ -100,16 +106,18 @@
 		[:!Cspacebar :!Cspacebar nil {:alone ["LCMDspacebar" 1] :delayed{:invoked ["LCMDspacebar" 0] :canceled ["LCMDspacebar" 0]}} ] ;; pressing ⌘+spacebar the first time (when variable LCMDspacebar is to 0) set variable LCMDspacebar to 1
 		]}
 ;;====================  MODIFIERS and COMMAND MODES =================
-	;;* shift+spacebar for underscore and dash,
+	;;* shift+spacebar for underscore (left) and dash (right),
 		{:des "Shift Space for underscore and dash, Left to Right Modifers...":rules[
-			[:!Rright_control :hyphen] [:!Rspacebar :hyphen] ;;* Right Shift +Spacebar (or UHK mod) for underscore
-			[:!Sright_control :!Shyphen] [:!Sspacebar :!Shyphen]  ;;*Left Shift+Spacebar (or UHK mod) for dash
-			; [:!OSspacebar [[:SPKR3]:!SOspacebar  ]]  ;;*Left Shift+Spacebar (or mod) for dash ...❓not sure what this is doing, ⌥⇧+spacebar to make a sound for ⚡️
-			[:!Sright_shift [:SPKR2]] ;;* Left Shift to Right Shift for... ⭕️ available
-			[:!Rleft_shift [:SPKR3]] ;;* Right Sfhit to Left Fhist for... ⭕ available
-			; [:!Sright_gui [:SPKR3]] [:!Rleft_gui [:SPKR3]] ;;* Left Shift to Right Command and Right Shift to Left Command... ⭕️ available
+			[:!Rspacebar :hyphen] [:!Sspacebar :!Shyphen] ;;* Right Shift +Spacebar  for underscore
+			[:!Rright_control :hyphen] [:!Sright_control :!Shyphen] ;;* for UHK compatability
+			;; on UHK spacebar key is split and the right spacebar key is mapped to right_control in UHK agent for "reason"
+			
+			[:!Sright_shift [:SPKR2]] ;;* left_shift+right_shift for... ⭕ available
+			[:!Rleft_shift [:SPKR3]] ;;* Right Sfhit to Left Fhist for... ⭕ available NOTE: this is recognized as input in Typinater
+			
+			;; ; [:!Sright_gui [:SPKR3]] [:!Rleft_gui [:SPKR2]] ;;* Left Shift to Right Command and Right Shift to Left Command... ⭕️ available
+			
 			]}
-
 
 
 			 {:des "left and right command for number and symbol Modes...":rules[
@@ -755,21 +763,26 @@
 ;;============================ V MODE ==============================
 	{	:des "v-mode for..." :rules [ :v& ;;* ––––––––––––––––––––––––––––––––––––––––-
 
-		[:s [[:SPKR3] [:open "/Users/loudog/Dropbox/Sync/vs-code/vs code sync.code-workspace"]]] ;;todo don't knoew why i have this• v+s for open VS-Code sync workspace ✨ new 7/30/23 🟢 works, NOTE: do note want to prepend file path with file//
+	;;* New Vault Commends (REFERENCE Vault) 🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟
+	[:p [[:SPKR3] [:open "kmtrigger://macro=FAEDB634-1C48-42A4-8F93-78C471390BEE"]]]  ;;• v+p for vault picklist
+	[:spacebar [[:SPKR3] [:open "kmtrigger://macro=FAEDB634-1C48-42A4-8F93-78C471390BEE"]]]  ;;• v+spacebar for vault picklist
 
-		;;* New Vault Commends (REFERENCE Vault)
-		[:r [[:SPKR3] [:open "obsidian://open?vault=reference-vault"]]] ;;• v+r for open Obsidian vault 2 ✨ new 7/30/23
+
+
+		[:r [[:SPKR3] [:open "obsidian://open?vault=reference-vault"]]] ;;• v+r for open Reference Vault ✨ new 7/30/23
 		[:slash [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&filepath=-%20%20%F0%9F%8F%A0%20Reference%20Vault%20Home.md&uid=9cba8f4c-4c2e-4db2-bbfb-3debd61462ee"]]] ;;• v+slash for 🏠 reference vault home in Obsidian 🔰
 		
-		[:p [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=command-palette%253Aopen"]]] ;;• v+p reference vault command palette via URL
-		[:l [[:SPKR3] [:open "obsidian://log"]]] ;;• v+l log to daily journal reference vault via lumberjack URL 
-		[:spacebar [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=omnisearch%253Ashow-modal"]]] ;;• v+spacebar Search viazp
 		[:b [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=obsidian-better-command-palette%253Aopen-better-commmand-palette"]]] ;;• v+b Better Command Palette vi
-		[:n [[:SPKR3] [:open "raycast://extensions/KevinBatdorf/obsidian/createNoteCommand"]]] ;;• v+n New Note in Obsidian via Raycast
+		[:n [[:SPKR3] [:open "raycast://extensions/KevinBatdorf/obsidian/createNoteCommand"]]]  ;;• v+n New Note in Obsidian via Raycast
 		[:h [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=darlal-switcher-plus%253Aswitcher-plus%253Aopen-headings"]]] ;;• v+h Jumpt to Obsidian  Headings via quickswitcher 
+		
+		[:l [[:SPKR3] [:open "obsidian://log"]]]  ;;• v+l log to daily journal reference vault via lumberjack URL 
 
+		;; ! DISABLED
+		;; [:p [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=command-palette%253Aopen"]]] ;;• v+ reference vault command palette via URL
+		;; [:spacebar [[:SPKR3] [:open "obsidian://advanced-uri?vault=reference-vault&commandid=omnisearch%253Ashow-modal"]]] ;;• v+spacebar Search via OmniSearch
 		;;* Vault 2
-		;; [:2 [[:SPKR3] [:open "obsidian://open?vault=vault2"]]] ;;• v+2 for open Obsidian vault 2 ✨ new 7/30/23
+			;; [:2 [[:SPKR3] [:open "obsidian://open?vault=vault2"]]] ;;• v+2 for open Obsidian vault 2 ✨ new 7/30/23
 	]}
 ;;============================ W MODE =============================
 	{	:des "w-mode" :rules [ :w& ;;• ––––––––––––––––––––––––––––––––––––––––––––

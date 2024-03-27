@@ -1,10 +1,35 @@
-⭕ way to automate save, git stage, git commit, git push
+## working on pick ist for vault 
+TODO
+-
 
 
 
-### regex for comments
-/;;•.*\n/g
-;;•: This matches the literal string ;;•.
-.*: This matches any character (except for newline), zero or more times.
-\n: This matches a newline character.
-/g: This is a flag that makes the regex match globally, i.e., find all matches rather than stopping after the first match.
+ ✅✅ working and included beloe ❌ broekn abaove
+keyboardmaestro://m=1E1B7038-8244-4F7A-A5C3-10A99F751965_KM Vault Palette
+keyboardmaestro://m=FAEDB634-1C48-42A4-8F93-78C471390BEE__Vault Picklist Macro
+obsidian://open?vault=reference-vault__Open Reference Vault v+r
+obsidian://advanced-uri?vault=reference-vault&uid=9cba8f4c-4c2e-4db2-bbfb-3debd61462ee__🏠reference vault home in Obsidian (v+slash)
+obsidian://log__v+l log to daily journal reference vault via lumberjack URL
+
+obsidian://advanced-uri?vault=reference-vault&commandid=omnisearch%253Ashow-modal__v+spacebar Search via OmniSearc
+
+obsidian://advanced-uri?vault=reference-vault&commandid=obsidian-better-command-palette%253Aopen-better-commmand-palette__v+b Better Command Palette v
+
+raycast://extensions/KevinBatdorf/obsidian/createNoteCommand__v+n New Note in Obsidian via Raycas
+
+obsidian://advanced-uri?vault=reference-vault&commandid=darlal-switcher-plus%253Aswitcher-plus%253Aopen-headings__v+h Jumpt to Obsidian  Headings via quickswitcher
+obsidian://advanced-uri?vault=reference-vault&commandid=workspace%253Atoggle-pin&uid=c2352d6a-240a-4730-90da-91bdf10486af"] ] ;;• slash+b for pin 👿 cheatsheet (ref vault) URI
+
+---
+NEED 
+
+
+
+
+
+
+
+	]}
+
+
+

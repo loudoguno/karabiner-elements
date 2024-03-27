@@ -1,3 +1,7 @@
+
+### 3/26/24 removing stuff
+[:s [[:SPKR3] [:open "/Users/loudog/Dropbox/Sync/vs-code/vs code sync.code-workspace"]]] ;;todo don't knoew why i have this• v+s for open VS-Code sync workspace ✨ new 7/30/23 🟢 works, NOTE: do note want to prepend file path with file//
+
 1/18/24
 ;;* TODO testing out "send" rule
 		;; [:a [[:SPKR3] [:wait] [:escp]] ] ;; works
