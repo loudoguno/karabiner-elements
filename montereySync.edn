@@ -1,10 +1,4 @@
 ;;= montereySync.edn .5 (2024 git issue after BTT url issue) ==============================================
-;; 3/25/24 removed spacebar+n for page down
-;; 3/26/24 2:28 PM last commit was just to clean
-;; 3/26/24 3:28 PM removing URLS and working on new vault commands
-;; 3/26/2 4 11:44 PM cleaned up left + right modifier rules and found out right_shift+space gets captuered up by typinator as a keypress
-;; summary: removed spacebar+n for page down, worked on new vault commands v-mode, cleaned up l+r modifier rules and found out right_shift+space gets captuered up by typinator as a keypress
-
 
 ;; find a home for 👇
 	;; [ [:d :s] [:km "Display (settings)"]] ;;* d+s for Display (settings) test
@@ -12,11 +6,13 @@
 ;; ℹ️ REFERENCE
 	;; C T O S and Q W E R (KE modifier abreviations for reference)
 	;; :alf "osascript -e 'tell application id \"com.runningwithcrayons.Alfred\" to run trigger \"%s\" in workflow \"%s\" with argument \"%s\"'"
-	;; :alf "osascript -e 'tell application \"Alfred 5\" to run trigger \"%s\" in workflow \"%s\" with argument \"%s\" ;; run Alfred workflow using workflow bundle ID as argument
+	;; :alf "osascript -e 'tell application \"Alfred 5\" to run nputtrigger \"%s\" in workflow \"%s\" with argument \"%s\" ;; run Alfred workflow using workflow bundle ID as argument
+
+
 { ;;+ ========================= DEFINITIONS =========================== for templates (aliases for frequently used CLI strings), layers, simlayers
 	:templates { ;;= ..................................................................................................................... aliases for shell commands including osascript (execute Applescript file), and afplay (plays sound file)
 		:open "open \"%s\"" ; open file
-		:wait "sleep 250" ;pause 250 ms
+		:wait "sleep 250" ; pause 250 ms
 
 		:shortcut "osascript -e 'tell application \"Shortcuts Events\" to run the shortcut named \"%s\"'"
 		:km "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"%s\"'"   ; run KM macro using macro name as argument
@@ -89,6 +85,50 @@
 		}
 ;;+ ============================= MAIN ==============================
 :main [  ;;+ ==========================================================
+
+
+
+
+;;============================ DOUBLESHIFT MODE =========================
+{:des "doubleshift mode" :rules [
+	; If left-shit-mode is on, run this command when a is pressed. Anything that depends
+	; on the mode being set must come _before_ the delayed declaration.
+	
+	;;❌ [:spacebar "open kmtrigger://macro=1918CA69-ADC2-43DA-8FBF-CE96753E9329" [:left-shit-mode]] ;;* ⇧⇧spacebar for ⛏ kmp: pick main list _  
+
+	;;* shift,d for 🪛 MAIN Pick List
+	;; [:d "open kmtrigger://macro=1918CA69-ADC2-43DA-8FBF-CE96753E9329" [:left-shit-mode]]
+	[:f "open kmtrigger://macro=1918CA69-ADC2-43DA-8FBF-CE96753E9329" [:left-shit-mode]] ;;* ⇧⇧spacebar for ⛏ kmp: pick MAIN list _
+	[:left_gui "open kmtrigger://macro=1918CA69-ADC2-43DA-8FBF-CE96753E9329" [:left-shit-mode]] ;;* ⇧⇧spacebar for ⛏ kmp: pick MAIN list _
+	
+	;;* shift,cmd for 👤 USER Pick List
+	[:d "open kmtrigger://macro=0EAFB3B2-E69A-46DB-ACE3-412308887AC6" [:left-shit-mode]] ;;* dsm+d for kmp: ⛏ pick USER list
+	[:u "open kmtrigger://macro=0EAFB3B2-E69A-46DB-ACE3-412308887AC6" [:left-shit-mode]] ;;* dsm+d for kmp: ⛏ pick USER list
+	
+	;; ⇧-e to edit main list
+	[:e [:km "Edit KM Picklist"] [:left-shit-mode]]
+	;; ⇧-o to open main list
+	[:o [:km "kmp: open/edit main list"] [:left-shit-mode]]
+ 
+	[:c [:km "aux: display clipboard"] [:left-shit-mode]] ;;* DSM-C to show clipboards
+
+		
+		
+		[:left_shift :left_shift nil ; Send left_shift unconditionally (so it still works as a modifier key)
+		{:alone [:left_shift ["left-shit-mode" 1]] ; and if pressed alone, trigger left-shit-mode
+		; when another key is invoked, or after a timeout, set the mode back to zero
+		:delayed {:invoked ["left-shit-mode" 0] :canceled ["left-shit-mode" 0]}}]]}
+
+
+
+;; {:des   "Press right_shift twice to enter double shift mode, press right_shift once to leave it"
+;;                        :rules [[:right_shift ["double-right-shift-mode" 1] ["shift-pressed-once" 1]]
+;;                                [:right_shift [:right_shift ["shift-pressed-once" 1]] ["double-right-shift-mode" 0] {:delayed {:invoked ["shift-pressed-once" 0] :canceled ["shift-pressed-once" 0]}}]
+;;                                :double-right-shift-mode
+;;                                [:right_shift ["double-right-shift-mode" 0]]
+;;                                [:a "say 'know we are in double shift mode'"]]}
+
+
 ;;============================ HOLDINGKEY ========================= ⭕ TODO: clean up this section (re-title)
 		{:des "Holding Keys: ⌘V for Clipboard History, ⇧⌘3 for Screenshot Palette, ⇧⌘4 for Snagit" :rules [
 			; default :alone is 500ms and would be too long
@@ -157,6 +197,8 @@
 
 		;; [ [:s :a] [:open "btt://trigger_named/?ktrigger_name=Save Active Window For Recall"] ] ;;• s|a simultaneously to save current window (via BTT)
 		[ [:s :a] [:btt "Save Active Window For Recall"] ] ;;• s|a simultaneously to save current window (via BTT)
+		[ [:a :s :d :f] [:open "kmtrigger://macro=0EAFB3B2-E69A-46DB-ACE3-412308887AC6"] ] ;;• asdf simultaneously for ⛏ User Pick List 
+
 ]}
 ;;======================= HYPER MODE and MODIFIERS ====================
 
@@ -642,11 +684,14 @@
 	
 	[:s  [:km "prepend to simple log"]] ;;• n+s prepend to simple log
 	[:j  [:km "J Jump To Palette"]] ;;• p+j  J Jump to Palette ⭕ FIX
-	[:g  [:km "G Go To Palette"]] ;;• p+g  for G Go To Palette
-	[:n  [:km "N New Palette"]] ;;• p+n  for N New Palette
+	[:g  [:km "G Go To Palette"]] ;;• p+g for G Go To Palette
+	[:n  [:km "N New Palette"]] ;;• p+n for N New Palette
+	[:c  [:km "Paste Clipboard by Name"]] ;;• p+c for Paste Clipboard by Name
 	;; [:o  [:km "N New Palette"]] ;;• p+n  for N New Palett
+
 ;; --- OPEN simple prepend log (drafts): drafts://open?uuid=BAAE87AB-BB0F-4F0D-A395-3FE17F7F180D
 ;; --- EDIT macro (km editor): keyboardmaestro://m=97A5CECF-E229-4FFB-B7C7-7CC31F1145C7
+
 	]}
 ;;============================ Q MODE ============================= ;;
 	{:des "q-mode" :rules [ :q&
@@ -710,9 +755,15 @@
 ;;============================= S Mode =============================
 	{:des "s-mode for s things" :rules [ :s& ;;* ––––––––––––––––-----------––––––––––––
 		[:t :!STCs] ;;• s+t for Speak Text via system hot key (⇧⌥⌃S)
+		
+		[:c [:km "Paste Clipboard by Name"]] ;;• s+c for Paste Clipboard by Name
+		[:m [:km "Select Menu by Name"]] ;;• s+m for Select Menu by Name
+		
+		;; ❌ disable
 		;; [:c [:km "Speak Clipboard"]] ;;• s+c for Speak Clipboard via KM macro 👁 surfacing for visibility
-		[:c [:open "alfred://runtrigger/com.alfredapp.vitor.shortcuts/Shortcuts+Search+Workflow/?argument=test"]] ;;• s+c for run Shortcuts Alfred Workflow via custom trigger URL woring
+		;; [:c [:open "alfred://runtrigger/com.alfredapp.vitor.shortcuts/Shortcuts+Search+Workflow/?argument=test"]] ;;• s+c for run Shortcuts Alfred Workflow via custom trigger URL woring
 		;; [:c [:alf "Shortcuts" "com.alfredapp.vitor.shortcuts"]] ;;• s+c for Shortcuts via Alfreds
+		
 		;; [:spacebar [[:SPKR3][:alf "Search OmniFocus Tasks via Alfred" "net.rhydlewis.alfred.searchomnifocus"]]] ;; o+spacebar for Jump to OmniFocus 🟡 NEEDTOFIX
 		[:r [:open "/System/Applications/Siri.app"]] ;;• s+r for siri via application path 🔰 new 12/01/23
 		[:v [:km "Shortcuts via Services Menu"]] ;;• s+v for Shortcuts via Services Menu via KM macro 🔰
@@ -885,18 +936,18 @@
 :simlayer-threshold 210 ;def = 50 ;! when set to 1000 there is very noticable delay and 50 isnt enough time, 300 too much
 	;! seems to create obsene delay on  on key up
 ;;*==================== DEVICES and INPUT SOURCES ====================
-		:devices {
-				:macbook-internal [{:product_id 631 :vendor_id 1452}]
-				:uhk-keyboard [{:product_id 24866 :vendor_id 7504}]
-				:uhk-keyboard-2 [{:product_id 24868 :vendor_id 7504}]
+	:devices {
+			:macbook-internal [{:product_id 631 :vendor_id 1452}]
+			:uhk-keyboard [{:product_id 24866 :vendor_id 7504}]
+			:uhk-keyboard-2 [{:product_id 24868 :vendor_id 7504}]
 			}
-		:applications {
-			:Chromes      ["^com\\.google\\.Chrome$", "^org\\.chromium\\.Chromium$", "^com\\.google\\.Chrome\\.canary$"]
-			:Terminals     ["^com\\.apple\\.Terminal$", "^com\\.googlecode\\.iterm2$", "^co\\.zeit\\.hyperterm$", "^co\\.zeit\\.hyper$", "^io\\.alacritty$", "^net\\.kovidgoyal\\.kitty$"]
-			:Finder           ["^com\\.apple\\.finder$"]
-			:Debuggers   ["^org\\.mozilla\\.firefox$", "^org\\.mozilla\\.firefoxdeveloperedition$", "^com\\.google\\.Chrome$", "^org\\.chromium\\.Chromium$", "^com\\.google\\.Chrome\\.canary$", "^com\\.apple\\.Safari$", "^com\\.microsoft\\.VSCode$"]
-			:Browsers      ["^org\\.mozilla\\.firefox$", "^org\\.mozilla\\.firefoxdeveloperedition$", "^com\\.google\\.Chrome$", "^org\\.chromium\\.Chromium$", "^com\\.google\\.Chrome\\.canary$", "^com\\.apple\\.Safari$"]
-			}
+	:applications {
+		:Chromes      ["^com\\.google\\.Chrome$", "^org\\.chromium\\.Chromium$", "^com\\.google\\.Chrome\\.canary$"]
+		:Terminals     ["^com\\.apple\\.Terminal$", "^com\\.googlecode\\.iterm2$", "^co\\.zeit\\.hyperterm$", "^co\\.zeit\\.hyper$", "^io\\.alacritty$", "^net\\.kovidgoyal\\.kitty$"]
+		:Finder           ["^com\\.apple\\.finder$"]
+		:Debuggers   ["^org\\.mozilla\\.firefox$", "^org\\.mozilla\\.firefoxdeveloperedition$", "^com\\.google\\.Chrome$", "^org\\.chromium\\.Chromium$", "^com\\.google\\.Chrome\\.canary$", "^com\\.apple\\.Safari$", "^com\\.microsoft\\.VSCode$"]
+		:Browsers      ["^org\\.mozilla\\.firefox$", "^org\\.mozilla\\.firefoxdeveloperedition$", "^com\\.google\\.Chrome$", "^org\\.chromium\\.Chromium$", "^com\\.google\\.Chrome\\.canary$", "^com\\.apple\\.Safari$"]
+		}
 		:input-sources {
 	 		:squirrel {:input_mode_id   "com.googlecode.rimeime.inputmethod.Squirrel"
 						:input_source_id "com.googlecode.rimeime.inputmethod.Squirrel.Rime"
