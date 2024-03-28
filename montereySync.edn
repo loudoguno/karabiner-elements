@@ -466,9 +466,9 @@
 				[:return_or_enter [[:SPKR3]:!STOn]] ;;* f+return for Notification Center (via System Hotkey ⇧⌥⌃N)
 			
 			;;* Window Management 
-				[:q [[:SPKR2]:!Cgrave_accent_and_tilde]] ;;• f+q for focus last window (via System Preferences)
-				[:e [[:SPKR2] :!SCgrave_accent_and_tilde]];;• f+e for focus next window (via System Preferences)
-				[:tab :!Ctab] ;;• f+tab for ⌘⇥ (standard macOS cmd+tab)
+				[:q [[:SPKR2]:!Cgrave_accent_and_tilde]] ;;• f+q for focus last current application window (via System Preferences)
+				[:e [[:SPKR2] :!SCgrave_accent_and_tilde]];;• f+e for focus next current window (via System Preferences)
+				[:tab :!Ctab] ;;• f+tab for ffocus  ⌘⇥ (standard macOS cmd+tab)
 				
 			;;*  focus window via Slate f+←↑↓→ 
 				[:a :!!j] ;;•f+a for focus left (via ⌃⌥⇧⌘+j)
@@ -508,7 +508,7 @@
 ;;=========================== H MODEµ==============================
 	{:des " h-mode for h things" :rules [:h& ;;* ––––––––––––––––––––––––––––––––––––
 		;; [:w [:km "Hover Evernote Now"]] ;;• h+w for Hover Evernote Now ❌ fuck evernote, literally unusable
-		[:w [:km "Hover Bear ❗ NOW"] ] ;;• h+w for Jump to Bear
+		[:w [[:SPKR3] [:km "Float Obsidian Workbench with Marked"]]] ;;• w+b Float Obsidian Workbench with Marked
 		[:b [:km "Hover Bear ❗ NOW"] ] ;;• h+w for Jump to Bearc
 		;; [:w [[:SPKR3] [:open "evernote:///view/11846588/s107/3ece98d3-b354-40cb-bc54-1b93375eef92/6d950bc3-9eca-4610-a1c6-e8dc89702cd2/"] ]] ;;• h+w for "Hover" Evernote Now (via EN URL)
 		[:d [[:SPKR3] [:km "© Hide Application"] ]] ;;• h+d for © Hide Application
@@ -531,6 +531,9 @@
 
 		[:g [:shortcut "Hey GPT"]] ;;* h+g to run Shortcut Hey GPT ⭐
 		[:p [[:SPKR3] [:open "/Applications/Setapp/MenubarX.app" ] ]] ;;• h+p for MenuBarX via :open (instead of ⌥+x hotkey)
+		
+		;; new 3/28/24 
+		[:slash [[:SPKR3] [:open "kmtrigger://macro=FF005691-BF30-4329-A81E-8B5C0C0BC9C0" ] ]] ;;• h+? for Float Vault Home via Marked 🔰 new  3/28/24
 
 
 		]}
@@ -847,22 +850,23 @@
 		[:d [[:SPKR3] :!STOperiod]] ;;• w+d for Switch Active Workspace Right (via System Hotkeys)
 		[:f [[:SPKR3] [:btt "Move Window Space Right"] ] ] ;;• w+f  Move Window Space Right (via btt)
 		[:caps_lock [[:SPKR3] [:btt "Move Window Space Left"] ] ] ;;• w+capslock Move Window Space Left (via btt)
-		[:left_gui [[:SPKR3] :!!f14 ]] ;;* w+left_gui for moom via ⌃⌥⇧⌘F14 (accessable with left hand)
 
-		;; window mgmt
+		;; cycle recent windows via native macOS commands ⭕ TODO these should be one handed under focus❌
 		[:j :!Tgrave_accent_and_tilde ] ;;• w+k  for cycle previous window via ⌃+~ (tilde) (default system hotkey)
 		[:k :!STgrave_accent_and_tilde ] ;;• w+j  for cycle next window via ⌃⇧+~ (tilde) (default system hotkey)
 		[:p :!Cgrave_accent_and_tilde ] ;;• w+p for cycle previous window IN APP  via ⌘+~ (tilde) (default system hotkey)
 		[:n :!SCgrave_accent_and_tilde ] ;;• w+n for cycle next window IN APP via ⌘⇧+` (tilde) (default system hotkey)
 
-		[:c [:km "Center Window on Current Mouse Location"] ] ;;• w+c for km "Move Mouse to Focused Window" ✨new 6/12/23
-
-		;; [:b [:km "Hover Evernote 🧰 WORKBENCH"]] ;;• w+b for Hover Evernote 🧰 WORKBENCH
-		[:l [:km "Bear Log: show work log" ]] ;;• w+l 💼📓 Bear Log: show work log via KM (new 1/10/24, didn't like using l+s this makes it more similar tow+b)
-		[:b [[:SPKR3] [:open "bear://x-callback-url/open-note?id=620D8537-7F55-4AE0-AAF0-AB1E9847A62F&TODAY&new_window=yes&selected=no&float=no&show_window=yes&open_note=yes"]]] ;;• w+b for open Bear 🧰 Workbench
+		[:left_gui [[:SPKR3] :!!f14 ]] ;;* w+left_gui for moom via ⌃⌥⇧⌘F14 (accessable with left hand)
+		[:c [:km "Center Window on Current Mouse Location"] ] ;;• w+c for km "Move Mouse to Focused Window" #core
 
 		[:tab [:btt "Recall Saved Window"]] ;;• w+tab for Recall Saved Window (via BTT)
 
+		;; 🧰 WORKBENCH
+		;;• w+b for open Bear 🧰 Workbench
+		;; [:b [[:SPKR3] [:open "bear://x-callback-url/open-note?id=620D8537-7F55-4AE0-AAF0-AB1E9847A62F&TODAY&new_window=yes&selected=no&float=no&show_window=yes&open_note=yes"]]] ;;• w+b for open Bear 🧰 Workbench
+		[:l [:km "Bear Log: show work log" ]] ;;• w+l 💼📓 Bear Log: show work log via KM (new 1/10/24, didn't like using l+s this makes it more similar tow+b)
+		[:b [[:SPKR3] [:km "Float Obsidian Workbench with Marked"]]] ;;• w+b Float Obsidian Workbench with Marked
 
 
 	]}
@@ -929,6 +933,8 @@
 		[:spacebar [[:SPKR3] :!CSslash] ] ;;• slash+spacebar for Help Menu Search (via System hotkey ⌘⇧+/) 🟢
 	 	[:h [[:SPKR3] [:open "alfred://runtrigger/com.alfredapp.hookbookmark/search-hookmark-bookmarks/"]] ] ;;• /+h to Search Hookmark Bookmarks (via Alfred worflow URL)
 	 	[:q [[:SPKR3] [:open "raycast://extensions/raycast/raycast/search-quicklinks"]] ] ;;• /+q to Search Quick Links via Raycast
+	 	[:r [[:SPKR3] [:open "raycast://extensions/roamresearch/roam-research/search "]] ] ;;• slash+r to search Roam notes vvis raycast 
+
 
 	]}
 ;;============================ OTHER MODE ========================== ⭕ TODO [ ] \ /
