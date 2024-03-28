@@ -1,4 +1,69 @@
-some boilerplate examples
+=============================================
+=============================================
+
+{:des "tap right shift then keys"
+ :rules [
+         ; If right-shift-mode is on, run this command when a is pressed. Anything that depends
+         ; on the mode being set must come _before_ the delayed declaration.
+         [:a "open https://github.com/yqrashawn/GokuRakuJoudo" [:right-shift-mode]]
+         ; Send right_shift unconditionally (so it still works as a modifier key)
+         [:right_shift :right_shift nil
+          ; and if pressed alone, trigger right-shift-mode
+          {:alone [:right_shift ["right-shift-mode" 1]]
+           ; when another key is invoked, or after a timeout, set the mode back to zero
+           :delayed {:invoked ["right-shift-mode" 0] :canceled ["right-shift-mode" 0]}}]]}
+=============================================
+
+{:layers        {:z-mode {:key :z}}
+ :devices       {;; define devices
+                 ;; vendor_id and product_id can be found in Karabiner EventViewer gui
+                 :hhkb [{:vendor_id 2131 :product_id 256}]}
+ :applications  {;; define applications
+                 :Browsers [;; these strings are regex to match applications bundle_identifiers
+                            ;; you can find bundle_identifiers in the Info.plist file of an applications
+                            ;; eg. in /Applications/Mail.app/Contents/Info.plist
+                            ;; search for "CFBundleIdentifier"
+                            ;; you can also find bundle_identifiers using command line:
+                            ;; osascript -e 'id of app "Google Chrome"'
+                            "^org\\.mozilla\\.firefox$"
+                            "^org\\.mozilla\\.firefoxdeveloperedition$"
+                            "^com\\.google\\.Chrome$"
+                            "^org\\.chromium\\.Chromium$"
+                            "^com\\.google\\.Chrome\\.canary$"
+                            "^com\\.apple\\.Safari$"]}
+ :input-sources {;; define input-source, these data can be founhd in Karabiner EventViewer gui
+                 :us {:input_mode_id   ""
+                      :input_source_id "com.apple.keylayout.US"
+                      :language        "en"}}
+
+ ;; can config like this
+ :main [{:des   "contions demo"
+         :rules [;; multiple conditions
+                          ;;;; when
+                 ;; the input-method is :us
+                 ;; the activated application is one of app in :Browsers
+                 ;; the key is triggered by :hhkb
+                 ;; may l key to command + optional + l
+                 [:condi :us :hhkb :Browsers :z-mode]
+                 [:l :!COi]]}]
+ ;; or
+ :main [{:des   "contions demo"
+         :rules [[:l :!COi [:us :hhkb :Browsers :z-mode]]]}]
+
+ ;; or
+ :main [{:des   "contions demo"
+         :rules [[:condi :us :hhkb]
+                 [:l :!COi [:Browsers :z-mode]]]}]}some boilerplate examples
+
+
+=============================================
+
+{:des   "Press right_shift twice to enter double shift mode, press right_shift once to leave it"
+                       :rules [[:right_shift ["double-right-shift-mode" 1] ["shift-pressed-once" 1]]
+                               [:right_shift [:right_shift ["shift-pressed-once" 1]] ["double-right-shift-mode" 0] {:delayed {:invoked ["shift-pressed-once" 0] :canceled ["shift-pressed-once" 0]}}]
+                               :double-right-shift-mode
+                               [:right_shift ["double-right-shift-mode" 0]]
+                               [:a "say 'know we are in double shift mode'"]]}
 
 ## double press
 
